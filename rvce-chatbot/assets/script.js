@@ -1628,10 +1628,27 @@ function process(rawText) {
         return;
     }
 
-    // Always show the user's actual input text (no auto-replacement)
+    // Always show the user's actual input text
     addUser(text);
     inp.value = '';
     disOld();
+
+    // === DIRECT FACULTY HOOK (Fail-Safe v3.3.3) ===
+    const s = text.toLowerCase().replace(/[^a-z]/g, '');
+    if (s.length >= 3 && KB.faculty) {
+        for (const dept in KB.faculty) {
+            for (const f of KB.faculty[dept]) {
+                const fn = f.n.toLowerCase().replace(/[^a-z]/g, '');
+                const pn = f.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+                if (fn.includes(s) || pn.includes(s) || (s.length > 5 && s.includes(pn))) {
+                    console.log("[Chatbot] Direct Hook Match:", f.n);
+                    const id = `fac_${f.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+                    botReply(getResponse(id));
+                    return;
+                }
+            }
+        }
+    }
 
     // Classify the intent with confidence detection
     const result = classifyIntent(text);
@@ -1946,7 +1963,7 @@ setTimeout(()=>{
     } else {
         // Standard first-time load
         chatOpen=true;chatW.classList.add('open');fab.classList.add('active');badge.classList.add('hidden');
-        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE (v3.3.2) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering (v3.3.2). I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
+        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE (v3.3.3) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering (v3.3.3). I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
     }
 },600);
 
