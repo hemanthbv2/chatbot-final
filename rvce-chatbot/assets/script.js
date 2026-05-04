@@ -744,19 +744,20 @@ const ABBR = {
 // Returns { type: 'exact'|'keyword'|'fuzzy'|null, id: string|null, suggestions: string[] }
 function classifyIntent(input) {
     const cleanInput = sanitize(input).toLowerCase();
-    // === ULTRA-AGGRESSIVE FACULTY SEARCH ===
-    console.log("[Chatbot] Classifying:", cleanInput);
+    // === ULTRA-AGGRESSIVE FACULTY SEARCH v3.3.2 ===
     if (KB.faculty) {
-        for (const deptCode in KB.faculty) {
-            for (const fac of KB.faculty[deptCode]) {
-                const fullName = fac.n.toLowerCase();
-                const plainName = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').trim().toLowerCase();
-                
-                // Direct containment check (Very aggressive)
-                if (cleanInput.length >= 4 && (fullName.includes(cleanInput) || cleanInput.includes(plainName))) {
-                    const finalId = `fac_${fullName.replace(/[^a-z0-9]/g, '')}`;
-                    console.log("[Chatbot] SUCCESS: Matched Faculty ->", finalId);
-                    return { type: 'exact', id: finalId, suggestions: [] };
+        const s = cleanInput.replace(/[^a-z]/g, '');
+        if (s.length >= 3) {
+            for (const deptCode in KB.faculty) {
+                for (const fac of KB.faculty[deptCode]) {
+                    const fn = fac.n.toLowerCase().replace(/[^a-z]/g, '');
+                    const pn = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+                    
+                    if (fn.includes(s) || pn.includes(s) || s.includes(pn)) {
+                        const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+                        console.log("[Chatbot] Faculty Match Found:", finalId);
+                        return { type: 'exact', id: finalId, suggestions: [] };
+                    }
                 }
             }
         }
@@ -765,7 +766,6 @@ function classifyIntent(input) {
     // 0. High-Priority Faculty Search (Legacy Fallback)
     const facultyMatch = findFacultyMatch(cleanInput);
     if (facultyMatch) {
-        console.log("[Chatbot] Fallback Match Found:", facultyMatch);
         return { type: 'exact', id: facultyMatch, suggestions: [] };
     }
     
@@ -1946,7 +1946,7 @@ setTimeout(()=>{
     } else {
         // Standard first-time load
         chatOpen=true;chatW.classList.add('open');fab.classList.add('active');badge.classList.add('hidden');
-        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE (v3.3) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering (v3.3). I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
+        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE (v3.3.2) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering (v3.3.2). I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
     }
 },600);
 
