@@ -515,6 +515,28 @@ const KB = {
     },
     rvjsteam: {
         info: "RVJ STEAM Team bridges Science, Technology, Engineering, Arts, and Mathematics through hands-on projects, workshops, and school outreach programs."
+    },
+    faculty: {
+        deans: [
+            { n: "Dr. Shanmukha Nagaraj", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Academics" },
+            { n: "Dr. B.M. Sagar", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Student Affairs" },
+            { n: "Dr. M Uttara Kumari", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean R&D" },
+            { n: "Dr. D. Ranganath", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Placement & Training" },
+            { n: "Dr. M Krishna", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Skill Development" }
+        ],
+        ae: [
+            { n: "Dr. R Supreeth", u: "https://rvce.edu.in/department/ae/dr_r_supreeth/", r: "HOD & Associate Professor" },
+            { n: "Dr. Ravindra S Kulkarni", u: "https://rvce.edu.in/department/ae/dr_ravindra_s_kulkarni/#", r: "Professor" },
+            { n: "Dr. Promio Charles F", u: "https://rvce.edu.in/department/ae/dr_promio_charles_f/", r: "Associate Professor" },
+            { n: "Bhaskar K", u: "https://rvce.edu.in/department/ae/bhaskar_k/", r: "Assistant Professor" },
+            { n: "Pranesh Kumar S R", u: "https://rvce.edu.in/department/ae/pranesh_kumar_s_r/", r: "Assistant Professor" },
+            { n: "Dr. Benjamin Rohit", u: "https://rvce.edu.in/department/ae/dr_benjamin_rohit/", r: "Assistant Professor" },
+            { n: "Srinivasan S", u: "https://rvce.edu.in/department/ae/srinivasan_s/", r: "Faculty" },
+            { n: "Mukesh M", u: "https://rvce.edu.in/department/ae/mukesh_m/", r: "Faculty" },
+            { n: "Prof. Deepak Bana", u: "https://rvce.edu.in/department/ae/prof_deepak_bana/", r: "Expert/Faculty" },
+            { n: "Jitendra Singh", u: "https://rvce.edu.in/department/ae/mr_jitendra_singh/", r: "Professor of Practice" },
+            { n: "Srinath Ramakrishnan", u: "https://rvce.edu.in/department/ae/mr_srinath_ramakrishnan/", r: "Assistant Professor" }
+        ]
     }
 };
 
@@ -654,6 +676,17 @@ QA.forEach(q => {
 });
 QA.push(...dynamicHodIntents);
 
+// 3. Dynamically inject Faculty names for direct search
+Object.keys(KB.faculty).forEach(dept => {
+    KB.faculty[dept].forEach(fac => {
+        const full = fac.n.toLowerCase();
+        const plain = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').trim().toLowerCase();
+        const slug = full.replace(/[^a-z0-9]/g, '');
+        // Priority 0 ensures it matches before anything else
+        QA.push({ k: [full, plain], id: `fac_${slug}`, p: 0 });
+    });
+});
+
 // Human-readable labels for suggestion buttons
 const INTENT_LABELS = {
     greet:'Say Hi 👋', bye:'Bye!', about_disambiguation:'About 🤔', about_rvce:'About RVCE 🏫', about_rvei:'About RVEI (RSST) 🏛️', hostels:'Hostels 🏠',
@@ -711,6 +744,13 @@ const ABBR = {
 // Returns { type: 'exact'|'keyword'|'fuzzy'|null, id: string|null, suggestions: string[] }
 function classifyIntent(input) {
     const cleanInput = sanitize(input).toLowerCase();
+
+    // 0. High-Priority Faculty Search
+    const facultyMatch = findFacultyMatch(cleanInput);
+    if (facultyMatch) {
+        console.log("[Chatbot] Faculty Match Found:", facultyMatch);
+        return { type: 'exact', id: facultyMatch, suggestions: [] };
+    }
     
     // 0. Abbreviation Check
     if (ABBR[cleanInput]) return { type: 'fuzzy', id: null, suggestions: [ABBR[cleanInput]] };
@@ -773,6 +813,24 @@ function classifyIntent(input) {
 
     // 5. No match at all
     return { type: null, id: null, suggestions: [] };
+}
+
+function findFacultyMatch(input) {
+    if (!KB.faculty) return null;
+    const sInput = input.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (sInput.length < 3) return null;
+
+    for (const dept in KB.faculty) {
+        for (const fac of KB.faculty[dept]) {
+            const fSlug = fac.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const pSlug = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+            
+            if (sInput === fSlug || sInput === pSlug || (sInput.length > 5 && fSlug.includes(sInput))) {
+                return `fac_${fSlug}`;
+            }
+        }
+    }
+    return null;
 }
 
 // Legacy wrapper for tests and button clicks (returns just the ID)
@@ -1368,6 +1426,28 @@ function getResponse(id) {
                 return r;
             }
         }
+        // Handle specific faculty profile requests
+        if (id && id.startsWith('fac_')) {
+            const slug = id.replace('fac_', '');
+            let facultyMember = null;
+            let deptCode = null;
+            
+            for (const dk in KB.faculty) {
+                const found = KB.faculty[dk].find(f => f.n.toLowerCase().replace(/[^a-z0-9]/g, '') === slug);
+                if (found) { facultyMember = found; deptCode = dk; break; }
+            }
+
+            if (facultyMember) {
+                const dept = KB.departments.ug.find(d=>d.c===deptCode) || KB.departments.pg.find(d=>d.c===deptCode);
+                const deptName = facultyMember.dept || (dept ? dept.n : deptCode.toUpperCase());
+                
+                r.text += T(`**${facultyMember.n}** 👨‍🏫\n\nRole: ${facultyMember.r}\nDepartment: ${deptName}\n\nYou can view their detailed institutional profile below:`, 
+                            `Faculty Profile: **${facultyMember.n}**\nDesignation: ${facultyMember.r}\nDepartment: ${deptName}`);
+                r.buttons = [{l:'View Full Profile 👤',u:facultyMember.u,i:'🌐'}];
+                if (dept) r.buttons.push({l:'Department Page',a:'dept_'+dept.c,i:'🏢'});
+                return r;
+            }
+        }
         // Handle department links
         if (id && id.startsWith('dept_')) {
             const c = id.replace('dept_','');
@@ -1849,7 +1929,7 @@ setTimeout(()=>{
     } else {
         // Standard first-time load
         chatOpen=true;chatW.classList.add('open');fab.classList.add('active');badge.classList.add('hidden');
-        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering. I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
+        setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE (v3.3) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering (v3.3). I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
     }
 },600);
 
