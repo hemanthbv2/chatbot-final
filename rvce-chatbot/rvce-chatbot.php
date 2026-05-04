@@ -3,7 +3,7 @@
  * Plugin Name: RVCE Chatbot
  * Plugin URI: 
  * Description: Interactive AI chatbot for RV College of Engineering (RVCE).
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: Hemanth BV
  * Text Domain: rvce-chatbot
  */
