@@ -744,11 +744,28 @@ const ABBR = {
 // Returns { type: 'exact'|'keyword'|'fuzzy'|null, id: string|null, suggestions: string[] }
 function classifyIntent(input) {
     const cleanInput = sanitize(input).toLowerCase();
-
-    // 0. High-Priority Faculty Search
+    // === ULTRA-AGGRESSIVE FACULTY SEARCH ===
+    console.log("[Chatbot] Classifying:", cleanInput);
+    if (KB.faculty) {
+        for (const deptCode in KB.faculty) {
+            for (const fac of KB.faculty[deptCode]) {
+                const fullName = fac.n.toLowerCase();
+                const plainName = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').trim().toLowerCase();
+                
+                // Direct containment check (Very aggressive)
+                if (cleanInput.length >= 4 && (fullName.includes(cleanInput) || cleanInput.includes(plainName))) {
+                    const finalId = `fac_${fullName.replace(/[^a-z0-9]/g, '')}`;
+                    console.log("[Chatbot] SUCCESS: Matched Faculty ->", finalId);
+                    return { type: 'exact', id: finalId, suggestions: [] };
+                }
+            }
+        }
+    }
+    
+    // 0. High-Priority Faculty Search (Legacy Fallback)
     const facultyMatch = findFacultyMatch(cleanInput);
     if (facultyMatch) {
-        console.log("[Chatbot] Faculty Match Found:", facultyMatch);
+        console.log("[Chatbot] Fallback Match Found:", facultyMatch);
         return { type: 'exact', id: facultyMatch, suggestions: [] };
     }
     
