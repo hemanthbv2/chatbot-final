@@ -195,7 +195,7 @@ function rvce_chatbot_inject_html() {
 
         <div class="app-container">
             <!-- Floating Chat Widget Button -->
-            <button class="chat-fab" id="chatFab" title="Chat with RVCE Assistant">
+            <button class="chat-fab" id="chatFab" title="Chat with RVCE Assistant" aria-label="Open RVCE chatbot" role="button" aria-expanded="false">
                 <span class="fab-icon open-icon">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -211,7 +211,7 @@ function rvce_chatbot_inject_html() {
             </button>
 
             <!-- Chat Window -->
-            <div class="chat-window" id="chatWindow">
+            <div class="chat-window" id="chatWindow" role="dialog" aria-label="RVCE Chatbot" aria-modal="false">
                 <!-- Header -->
                 <div class="chat-header">
                     <div class="header-left">
@@ -234,12 +234,12 @@ function rvce_chatbot_inject_html() {
                         </div>
                     </div>
                     <div class="header-actions" style="display: flex; align-items: center; gap: 10px;">
-                        <button class="clear-btn" id="clearBtn" title="Clear Chat">
+                        <button class="clear-btn" id="clearBtn" title="Clear Chat" aria-label="Clear chat history">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
                             </svg>
                         </button>
-                        <div class="tone-switch" id="toneSwitch" title="Toggle tone">
+                        <div class="tone-switch" id="toneSwitch" title="Toggle tone" role="switch" aria-checked="false" aria-label="Toggle between funny and professional tone" tabindex="0">
                             <div class="tone-track">
                                 <span class="tone-emoji funny-emoji">😄</span>
                                 <span class="tone-emoji pro-emoji">🎓</span>
@@ -262,7 +262,7 @@ function rvce_chatbot_inject_html() {
                     </div>
                     <div class="stat-chip">
                         <span class="stat-icon">💰</span>
-                        <span>Avg 9.18 LPA</span>
+                        <span>Avg ~15 LPA</span>
                     </div>
                     <div class="stat-chip">
                         <span class="stat-icon">🎓</span>
@@ -271,7 +271,7 @@ function rvce_chatbot_inject_html() {
                 </div>
 
                 <!-- Chat Messages -->
-                <div class="chat-messages" id="chatMessages">
+                <div class="chat-messages" id="chatMessages" role="log" aria-live="polite" aria-label="Chat messages">
                     <!-- Messages injected here -->
                 </div>
 
@@ -298,7 +298,7 @@ function rvce_chatbot_inject_html() {
                 <!-- Input Area -->
                 <div class="chat-input-area">
                     <div class="input-wrapper">
-                        <button id="emojiBtn" class="emoji-btn" title="Main Menu">
+                        <button id="emojiBtn" class="emoji-btn" title="Main Menu" aria-label="Open main menu">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
@@ -306,7 +306,7 @@ function rvce_chatbot_inject_html() {
                                 <line x1="15" y1="9" x2="15.01" y2="9"/>
                             </svg>
                         </button>
-                        <button id="micBtn" class="mic-btn" title="Voice Search">
+                        <button id="micBtn" class="mic-btn" title="Voice Search" aria-label="Voice search - speak your question">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
                                 <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -314,8 +314,8 @@ function rvce_chatbot_inject_html() {
                                 <line x1="8" y1="23" x2="16" y2="23"/>
                             </svg>
                         </button>
-                        <input type="text" id="userInput" placeholder="Ask me anything about RVCE..." autocomplete="off">
-                        <button id="sendBtn" class="send-btn" title="Send">
+                        <input type="text" id="userInput" placeholder="Ask me anything about RVCE..." autocomplete="off" aria-label="Type your question about RVCE" maxlength="250">
+                        <button id="sendBtn" class="send-btn" title="Send" aria-label="Send message">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"/>
                                 <polygon points="22 2 15 22 11 13 2 9 22 2"/>
