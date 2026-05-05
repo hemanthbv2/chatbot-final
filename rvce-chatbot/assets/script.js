@@ -559,8 +559,8 @@ const KB = {
     },
     campus: {
         fest: "8th Mile (Annual Technocultural Fest)",
-        clubs: ["Alaap (Music)", "Raaga (Dance)", "TEDxRVCE", "CARV (Cultural)", "Entrepreneurship Cell (E-Cell)", "Namma RVCE (Social)", "DebSoc", "QuizCorp", "Photography Club", "Literary Society", "Kannada Sangha", "Rotaract Club", "Coding Club", "Robotics Club", "NSS", "NCC"],
-        teams: ["Team Ashwa (Formula Student)", "Project Antariksh (Space Tech)", "Team Vyoma (UAVs)", "Team Chimera (Hybrid Vehicles)", "Team Astra (Robotics)", "Team Jatayu (Aeromodelling)", "RV Racing (Go-Kart)", "Team Ojas (Electric Vehicle)"],
+        clubs: ["Alaap (Music)", "Raaga (Dance)", "TEDxRVCE", "CARV (Cultural)", "Entrepreneurship Cell (E-Cell)", "Namma RVCE (Social)", "DebSoc", "QuizCorp", "Photography Club", "Literary Society", "Kannada Sangha", "Rotaract Club", "Coding Club", "Robotics Club", "NSS", "NCC", "RVCE Ham Club (Amateur Radio)"],
+        teams: ["Team Ashwa (Formula Student Racing)", "Team Antariksh (Space Tech & Rockets)", "Team Vyoma (Aero-design & UAVs)", "Team Chimera (Hybrid/Electric Racing)", "ASTRA Robotics (AI & Automation)", "Team Jatayu (Autonomous UAVs)", "Project Garuda (Super Mileage EV)", "Team Chitrak (Electric Motorcycles)", "Anoraniya (Quantum Technology)", "dhRuVa (Astronomy & Space Research)"],
         societies: ["IEEE RVCE", "SAE RVCE", "ACM Student Chapter", "CSI Student Chapter"],
         urls: {
             innovation: "https://rvce.edu.in/innovative_teams/",
@@ -1051,7 +1051,7 @@ const QA = [
     {k:['rvce','about rvce','college','history','founded','established','overview','abt rvce','whats rvce','what is rvce'],id:'about_rvce',p:3},
     {k:['rvei','about rvei','rsst','institutions','what is rvei','who is rvei','parent organization','who manages','who owns','ownership'],id:'about_rvei',p:3},
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
-    {k:['innovation teams','project teams','team ashwa','ashwa','antariksh','team vyoma','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car'],id:'innovationTeams',p:1},
+    {k:['innovation teams','project teams','team ashwa','ashwa','antariksh','team vyoma','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car','chitrak','dhruva','quantum tech','anoraniya','ham club','amateur radio'],id:'innovationTeams',p:1},
     {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
@@ -1983,13 +1983,17 @@ function getResponse(id) {
         r.text += "\n• Mandatory 6-8 week industry internship in curriculum\n• Placement & Training cell assists with internship placements\n• Top companies like Google, Microsoft, Amazon, Bosch offer internships\n• Being in Bangalore (India's tech capital) = tons of opportunities\n• Many students do internships at IITs, IISc, DRDO, ISRO";
         r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'innovationTeams':
-        r.text += T("RVCE's Innovation Teams are world-class! 🚀 They build everything from race cars to satellites!","Innovative & Project Teams at RVCE:");
-        r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️\n• **Project Antariksh**: Space tech & satellites 🛰️\n• **Team Vyoma**: UAVs and drones 🛸\n• **Team Chimera**: Hybrid racing ⚡\n• **Team Astra**: Robotics 🤖\n• **Team Ojas**: Electric vehicles 🔋\n• **Team Jatayu**: Aeromodelling ✈️";
-        r.buttons = [{l:'Innovation Page',u:KB.campus.urls.innovation,i:'🌐'}, {l:'Team Ashwa',a:'team_ashwa',i:'🏎️'}]; break;
+        r.text += T("RVCE's Innovation Teams are LEGENDARY! 🚀 They build everything from race cars to satellites!","Innovative & Project Teams at RVCE:");
+        r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️ (Top-10 global in hybrid tech!)\n• **Team Antariksh**: Space Tech 🛰️ (Launched **RVSat-1** with ISRO in Dec 2024!)\n• **Team Vyoma**: UAVs & Drones 🛸 (Best Overall Performer 2024!)\n• **Team Chimera**: Electric racing ⚡ (4th overall at FSEV Challenge!)\n• **ASTRA Robotics**: AI & Robotics 🤖 (Project T.A.R.A presented to Indian Army Chief!)\n• **Team Chitrak**: Electric motorcycles 🏍️ (Lightest motorcycle award!)\n• **Anoraniya**: Quantum Tech ⚛️ (Implemented BB84 protocol!)\n• **Project Garuda**: Super mileage EVs 🔋";
+        r.buttons = [{l:'Innovation Page',u:KB.campus.urls.innovation,i:'🌐'}, {l:'Team Ashwa',a:'team_ashwa',i:'🏎️'}, {l:'Team Antariksh',a:'team_antariksh',i:'🛰️'}]; break;
     case 'team_ashwa':
     case 'ashwa':
-        r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars and compete globally (Formula Bharat, FS Germany). They are legendary!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team, renowned for engineering excellence in designing and manufacturing high-performance racing cars.");
+        r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
         r.buttons = [{l:'Visit Team Ashwa',u:'https://www.teamashwa.com/',i:'🌐'}, {l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'team_antariksh':
+    case 'antariksh':
+        r.text += T("Team Antariksh is reaching for the stars! 🛰️✨\n\nIn December 2024, they successfully launched **RVSat-1** aboard ISRO's PSLV C-60! It carried India's first student-developed microbiological payload. They also launched the **Ananta** rocket to 1km apogee!","Team Antariksh (Space Technology):\n\nTeam Antariksh focuses on aerospace and space tech. Their recent highlights include the RVSat-1 satellite launch with ISRO and the Ananta rocket launch in 2024.");
+        r.buttons = [{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'culturalTeams':
         r.text += T("Campus is always buzzing! 💃🎶 From dance to music, we've got it all!","Cultural Teams & Clubs at RVCE:");
         r.text += "\n\n• **Alaap**: Music 🎵\n• **Raaga**: Dance 💃\n• **CARV**: Cultural Association 🎭\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Photography Club** 📸";
