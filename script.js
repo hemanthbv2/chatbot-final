@@ -1022,6 +1022,7 @@ const QA = [
     {k:['sports','cricket','football','basketball','volleyball','athletics','gym','gymnatorium','sports complex','games','badminton','table tennis','tt','fitness','workout','sports ground','playground'],id:'sports',p:1},
     {k:['autonomous','autonomy','own syllabus','own exam','autonomous status','is rvce autonomous'],id:'autonomous',p:1},
     {k:['stat','stats','statistic','statistics','figure','figures','data'],id:'stats_disambiguation',p:0.4},
+    {k:['number','numbers','num','contact number','phone number','official number','calling','mobile'],id:'numbers_info',p:2.5},
     // Department-specific (with short codes + college slang)
     {k:['computer science','cse','cs','cs department','computer science engineering','cse department','comps','comp sci','cs branch','cs dept'],id:'dept_cs',p:1},
     {k:['artificial intelligence','aiml','ai ml','machine learning','ai department','ai branch','ml branch','ai and ml'],id:'dept_aiml',p:1},
@@ -1056,7 +1057,7 @@ const QA = [
     {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
-    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address','num','enquiry','enquiries','enqiry'],id:'contact',p:2},
+    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','college address','rvce address','enquiry','enquiries','enqiry'],id:'contact',p:2},
     {k:['menu','main menu','options','help','start','what can you do','show menu','halp','commands'],id:'menu',p:3},
     // ===== PARENT-SPECIFIC INTENTS =====
     {k:['safe','safety','is it safe','is my child safe','is my daughter safe','security','cctv','campus security','safe for girls','is rvce safe','how safe','secure','campus safety','child safety','girl safety','daughter safety','women safety'],id:'safety',p:0.8},
@@ -1907,6 +1908,14 @@ function getResponse(id) {
         r.text += T("Sporty campus! 🏅","Sports Facilities:");
         r.text += "\n• 400m athletic track\n• Cricket & Football grounds\n• Basketball, Volleyball, Badminton courts\n• Gymnatorium with modern equipment\n• Table Tennis, Chess";
         r.buttons = [{l:'Sports Info',u:'https://rvce.edu.in/facilities/sports_and_gymnatorium/',i:'🌐'}]; break;
+    case 'numbers_info':
+        r.text += T("Looking for specific numbers? 📞 Here are the most requested ones:","Please select the type of numerical information or contact you are looking for:");
+        r.buttons = [
+            {l:'Placement Stats 💼',a:'placements',i:'📈'},
+            {l:'Official Contact 📞',a:'contact',i:'📱'},
+            {l:'Admission Desk 🎓',a:'admissions',i:'🎫'},
+            {l:'Hostel Help 🏠',a:'hostels',i:'🛌'}
+        ]; break;
     case 'intake':
         r.text += T("RVCE has a significant intake capacity! 🎓 Every year, we admit over **2,000+ students** across our 16 UG and 14 PG programs. Seats are filled through KCET, COMEDK, and Management Quota.", "RVCE has an annual intake of over 2,000 students across its various Undergraduate and Postgraduate programs.");
         r.buttons = [{l:'Admission Info',a:'admissions',i:'🎫'}, {l:'UG Programs',a:'ugPrograms',i:'📜'}]; break;
