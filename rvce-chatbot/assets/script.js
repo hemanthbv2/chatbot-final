@@ -1053,7 +1053,7 @@ const QA = [
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
-    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address','num'],id:'contact',p:2},
+    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address','num','enquiry','enquiries','enqiry'],id:'contact',p:2},
     {k:['menu','main menu','options','help','start','what can you do','show menu','halp','commands'],id:'menu',p:3},
     // ===== PARENT-SPECIFIC INTENTS =====
     {k:['safe','safety','is it safe','is my child safe','is my daughter safe','security','cctv','campus security','safe for girls','is rvce safe','how safe','secure','campus safety','child safety','girl safety','daughter safety','women safety'],id:'safety',p:0.8},
