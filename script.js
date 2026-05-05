@@ -1058,6 +1058,11 @@ const QA = [
     {k:['team ashwa','ashwa','racing team','formula student ashwa'],id:'team_ashwa',p:0.6},
     {k:['team antariksh','antariksh','satellite team','space tech team','rocket team'],id:'team_antariksh',p:0.6},
     {k:['team vyoma','vyoma','uav team','drone team','aero design team'],id:'team_vyoma',p:0.6},
+    {k:['team chimera','chimera','hybrid racing','electric car team'],id:'team_chimera',p:0.6},
+    {k:['astra robotics','astra','robotics team','autonomous team'],id:'astra_robotics',p:0.6},
+    {k:['team chitrak','chitrak','electric motorcycle team'],id:'team_chitrak',p:0.6},
+    {k:['anoraniya','quantum tech team'],id:'anoraniya',p:0.6},
+    {k:['project garuda','garuda','super mileage team'],id:'project_garuda',p:0.6},
     {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract','tedx','tedxrvce','namma rvce','kannada sangha','coding club','robotics club','nss','ncc','ham club'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
@@ -1959,8 +1964,23 @@ function getResponse(id) {
         r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'innovationTeams':
         r.text += T("RVCE's Innovation Teams are LEGENDARY! 🚀 They build everything from race cars to satellites!","Innovative & Project Teams at RVCE:");
-        r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️ (Top-10 global in hybrid tech!)\n• **Team Antariksh**: Space Tech 🛰️ (Launched **RVSat-1** with ISRO in Dec 2024!)\n• **Team Vyoma**: UAVs & Drones 🛸 (Best Overall Performer 2024!)\n• **Team Chimera**: Electric racing ⚡ (4th overall at FSEV Challenge!)\n• **ASTRA Robotics**: AI & Robotics 🤖 (Project T.A.R.A presented to Indian Army Chief!)\n• **Team Chitrak**: Electric motorcycles 🏍️ (Lightest motorcycle award!)\n• **Anoraniya**: Quantum Tech ⚛️ (Implemented BB84 protocol!)\n• **Project Garuda**: Super mileage EVs 🔋";
-        r.buttons = [{l:'Innovation Page',u:KB.campus.urls.innovation,i:'🌐'}, {l:'Team Ashwa',a:'team_ashwa',i:'🏎️'}, {l:'Team Antariksh',a:'team_antariksh',i:'🛰️'}]; break;
+        r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️\n• **Team Antariksh**: Space Tech 🛰️\n• **Team Vyoma**: UAVs & Drones 🛸\n• **Team Chimera**: Hybrid Racing ⚡\n• **ASTRA Robotics**: AI & Robotics 🤖\n• **Project Garuda**: Super Mileage 🔋\n• **Team Chitrak**: Electric Motorcycles 🏍️\n• **Anoraniya**: Quantum Tech ⚛️";
+        r.buttons = [
+            {l:'Team Ashwa',a:'team_ashwa',i:'🏎️'}, 
+            {l:'Team Antariksh',a:'team_antariksh',i:'🛰️'},
+            {l:'Team Vyoma',a:'team_vyoma',i:'🛸'},
+            {l:'Team Chimera',a:'team_chimera',i:'⚡'},
+            {l:'ASTRA Robotics',a:'astra_robotics',i:'🤖'},
+            {l:'More Teams',a:'_more_teams',i:'➕'}
+        ]; break;
+    case '_more_teams':
+        r.text += "Check out these other specialized teams at RVCE:";
+        r.buttons = [
+            {l:'Team Chitrak',a:'team_chitrak',i:'🏍️'},
+            {l:'Anoraniya',a:'anoraniya',i:'⚛️'},
+            {l:'Project Garuda',a:'project_garuda',i:'🔋'},
+            {l:'All Teams List',a:'innovationTeams',i:'💡'}
+        ]; break;
     case 'team_ashwa':
     case 'ashwa':
         r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
@@ -1972,7 +1992,26 @@ function getResponse(id) {
     case 'team_vyoma':
     case 'vyoma':
         r.text += T("Team Vyoma is the king of the skies! 🛸🦅\n\nThey are RVCE's premier Aero-design and UAV team. In 2024, they were named the **'Best Overall Performer'**! They design autonomous drones, heavy-lift UAVs, and innovative aircraft for global competitions like SAE Aero Design.","Team Vyoma (Aero-design):\n\nTeam Vyoma is the aerospace and UAV project team. They achieved the 'Best Overall Performer' award in 2024 for their drone technology and SAE competition success.");
-        r.buttons = [{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'team_chimera':
+    case 'chimera':
+        r.text += T("Team Chimera is electrifying the track! ⚡🏎️\n\nThey design and build hybrid and electric race cars. They recently secured **4th place overall** at the FSEV Challenge! Their focus is on battery management, powertrain optimization, and sustainable racing tech.","Team Chimera (Hybrid/Electric Racing):\n\nTeam Chimera focuses on sustainable automotive technology. Recent highlights include a 4th place finish at the FSEV Challenge.");
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'astra_robotics':
+    case 'astra':
+        r.text += T("ASTRA Robotics is the future of AI! 🤖🦾\n\nThey specialize in robotics and autonomous systems. Their **Project T.A.R.A** (autonomous surveillance) was recently presented to the Chief of the Indian Army! They compete in international robotics challenges and build cutting-edge automation solutions.","ASTRA Robotics:\n\nASTRA Robotics specializes in AI and autonomous systems. Notable projects include Project T.A.R.A, which was presented to high-level military officials.");
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'team_chitrak':
+    case 'chitrak':
+        r.text += T("Team Chitrak is building the future of two-wheelers! 🏍️⚡\n\nThey are RVCE's electric motorcycle team. They won the **'Lightest Motorcycle'** award for their innovative chassis design. They focus on urban mobility and high-efficiency electric powertrains.","Team Chitrak (Electric Motorcycles):\n\nTeam Chitrak designs lightweight electric motorcycles for urban performance. Award winners for innovative engineering.");
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'anoraniya':
+        r.text += T("Anoraniya is diving into the Quantum realm! ⚛️🔬\n\nThis team focuses on Quantum Technology and Communication. They successfully implemented the **BB84 Quantum Key Distribution protocol**! They are one of the few student teams in India working on cutting-edge quantum research.","Anoraniya (Quantum Tech):\n\nAnoraniya focuses on quantum communication and research. They have successfully implemented advanced quantum protocols.");
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'project_garuda':
+    case 'garuda':
+        r.text += T("Project Garuda is all about ultra-efficiency! 🔋🍃\n\nThey build super-mileage electric vehicles designed to travel hundreds of kilometers on a single charge. They compete in the Shell Eco-marathon and push the boundaries of aerodynamics and energy efficiency.","Project Garuda (Super Mileage EVs):\n\nProject Garuda focuses on high-efficiency electric vehicles and competes in global eco-marathons.");
+        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'culturalTeams':
         r.text += T("Campus is always buzzing! 💃🎶 From dance to music, we've got it all!","Cultural Teams & Clubs at RVCE:");
         r.text += "\n\n• **Alaap**: Music 🎵\n• **Raaga**: Dance 💃\n• **CARV**: Cultural Association 🎭\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Photography Club** 📸";
