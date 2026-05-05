@@ -2080,6 +2080,10 @@ if(clearB) clearB.addEventListener('click', () => {
     }, 200);
 });
 
+// UI: Display Session ID
+const sd = document.getElementById('sessionDisplay');
+if (sd) sd.textContent = `Tracker ID: ${getSID()}`;
+
 /* =============== VOICE RECOGNITION =============== */
 let recognition;
 let isRecording = false;
