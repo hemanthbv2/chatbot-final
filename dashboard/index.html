@@ -63,6 +63,7 @@
                 <p style="color: var(--text-dim); margin-top: 5px;">Local browser-based tracking (pre-integration)</p>
             </div>
             <div style="display: flex; gap: 10px;">
+                <button class="refresh-btn" style="background: var(--primary);" onclick="clearAllData()">🗑️ Clear Data</button>
                 <button class="refresh-btn" style="background: #10b981;" onclick="generateTestData()">🧪 Test Data</button>
                 <button class="refresh-btn" onclick="render()">🔄 Refresh Data</button>
             </div>
@@ -198,6 +199,13 @@
             localStorage.setItem('rvce_standalone_logs', JSON.stringify(sampleLogs));
             render();
             alert("Test data generated! You can now see how the charts look.");
+        }
+
+        function clearAllData() {
+            if (confirm("Are you sure you want to clear all analytics data? This cannot be undone.")) {
+                localStorage.removeItem('rvce_standalone_logs');
+                render();
+            }
         }
 
         render();
