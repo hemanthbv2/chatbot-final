@@ -2364,6 +2364,40 @@ function process(rawText) {
     }
 }
 
+function renderDepartment(d) {
+    if (!d) return { text: T("I couldn't find details for that department. Please try again or check the main menu. 📋", "I couldn't find details for that department. Please try again or check the main menu."), buttons: [{l:'Main Menu',a:'menu',i:'📋'}] };
+    const r = { text: '', buttons: [], noMenu: false };
+    r.text = T(
+        `**${d.n}** 🎯\n👨‍🏫 HOD: ${d.hod}\n\n*${d.info || "Explore the options below to learn more about this department."}*`,
+        `Department: ${d.n}\nHead of Department: ${d.hod}\n\n${d.info || ""}`
+    );
+    r.buttons = [{l:'Main Page',u:d.u,i:'🌐'}];
+    if (d.about) r.buttons.push({l:'About Dept',u:d.about,i:'ℹ️'});
+    if (d.syllabus) r.buttons.push({l:'Syllabus',u:d.syllabus,i:'📚'});
+    if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
+    if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
+    if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
+    return r;
+}
+
+function renderFaculty(f, deptCode) {
+    if (!f) return { text: "Faculty info not found.", buttons: [] };
+    const deptName = KB.departments.ug.find(d => d.c === deptCode)?.n || 
+                     KB.departments.pg.find(d => d.c === deptCode)?.n || 
+                     deptCode.toUpperCase();
+    
+    return {
+        text: T(
+            `Found them! 👩‍🏫 **${f.n}** is from the **${deptName}** department.\n\n**Role:** ${f.r}\n**Bio:** ${f.b || "Faculty at RVCE"}`,
+            `Faculty: ${f.n}\nDepartment: ${deptName}\nRole: ${f.r}`
+        ),
+        buttons: [
+            {l: 'View Profile', u: f.u, i: '🌐'},
+            {l: `${deptCode.toUpperCase()} Dept`, a: `dept_${deptCode}`, i: '🏫'}
+        ]
+    };
+}
+
 /* =============== MESSAGE RENDERING =============== */
 function addUser(text) {
     const m=document.createElement('div'); m.className='message user';
