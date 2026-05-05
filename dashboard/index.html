@@ -130,10 +130,21 @@
             </div>
         </div>
 
+        <div class="card" style="margin-bottom: 24px; border-left: 4px solid var(--secondary);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Historical Date-Wise Archives</h2>
+                <span style="font-size: 11px; color: var(--text-dim); background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px;">Tracked History</span>
+            </div>
+            <div class="list" id="dateSummaryTable">
+                <!-- Date rows injected here -->
+                <div class="empty-state">Calculating archives...</div>
+            </div>
+        </div>
+
         <div class="card">
-            <h2>Recent Conversation Logs</h2>
+            <h2>Detailed Interaction Stream</h2>
             <div class="list" id="recentLogs">
-                <div class="empty-state">No interaction history found.</div>
+                <div class="empty-state">Waiting for data sync...</div>
             </div>
         </div>
     </div>
@@ -249,12 +260,21 @@
             }
         }
 
+        function downloadSpecificDate(dateStr) {
+            const allLogs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            const filtered = allLogs.filter(l => new Date(l.d).toISOString().split('T')[0] === dateStr);
+            triggerDownload(filtered, dateStr);
+        }
+
         function downloadCSV() {
             const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
             if (logs.length === 0) { alert("No data to download!"); return; }
+            triggerDownload(logs, 'all_time');
+        }
 
+        function triggerDownload(data, label) {
             let csv = "Timestamp,SessionID,Query,Intent\n";
-            logs.forEach(l => {
+            data.forEach(l => {
                 const row = [
                     l.d,
                     l.s || 'anon',
@@ -263,16 +283,12 @@
                 ].join(",");
                 csv += row + "\n";
             });
-
             const blob = new Blob([csv], { type: 'text/csv' });
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
-            a.setAttribute('hidden', '');
             a.setAttribute('href', url);
-            a.setAttribute('download', `rvce_chat_logs_${new Date().toISOString().split('T')[0]}.csv`);
-            document.body.appendChild(a);
+            a.setAttribute('download', `rvce_logs_${label}.csv`);
             a.click();
-            document.body.removeChild(a);
         }
 
         render();
