@@ -1718,18 +1718,12 @@ function getResponse(id) {
         r.text += T("Ragging is a crime! 🛑 Total ban at RVCE.<br><br>🚨 National Helpline: 1800-180-5522",
             "RVCE strictly adheres to the <strong>UGC Regulations on Curbing the Menace of Ragging (2009)</strong>. Ragging is a criminal offense.<br><br>🚨 <strong>National 24x7 Anti-Ragging Helpline:</strong> 1800-180-5522<br>Email: helpline@antiragging.in");
         r.buttons = [{l:'Anti-Ragging Portal',u:'https://www.antiragging.in/',i:'🛑'}]; break;
-    case 'innovationTeams':
-        r.text += T("RVCE = Innovation! 💡 Join a team:","Innovative Student Teams:");
-        r.text += "\n• " + KB.campus.teams.join("\n• ");
-        r.buttons = [{l:'See Innovation',u:KB.campus.urls.innovation,i:'🌐'}]; break;
+
     case 'culturalLife':
         r.text += T("Student life is more than classes! 🎭","Cultural Activities & Clubs:");
         r.text += "\n• Clubs: " + KB.campus.clubs.join(", ") + "\n• Fest: " + KB.campus.fest;
         r.buttons = [{l:'Cultural Teams',u:KB.campus.urls.cultural,i:'🌐'}]; break;
-    case 'contact':
-        r.text += T("Here's how to reach RVCE! 📞","Contact Information:");
-        r.text += "\n📍 "+KB.contact.address+"\n📱 "+KB.contact.phone+"\n📧 "+KB.contact.email+"\n🎓 Admissions: "+KB.contact.admissionPhone;
-        r.buttons = [{l:'Website',u:KB.contact.website,i:'🌐'},{l:'Email',u:'mailto:'+KB.contact.email,i:'📧'}]; break;
+
     case 'website':
         r.text += T("Here you go! 🌐","Official Website:");
         r.buttons = [{l:'rvce.edu.in',u:KB.contact.website,i:'🌐'}]; break;
