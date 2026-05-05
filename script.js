@@ -102,6 +102,7 @@ const KB = {
         accreditation: "NAAC A+ Grade (CGPA 3.39/4.0, valid 2024–2029), NBA Accredited (multiple UG & PG programs)",
         ranking: "NIRF 101-150 band (Engineering, 2025), #1 Private Engineering College in IIRF 2025",
         principal: "Dr. K.N. Subramanya",
+        vicePrincipal: "Dr. K. S. Geetha",
         timings: "Mon-Fri: 9:00 AM – 4:45 PM, Sat: 9:00 AM – 1:00 PM",
         vision: "Leadership in quality technical education, interdisciplinary research & innovation, with focus on sustainable and inclusive technology.",
         intake: "2000+ students annually across UG and PG",
@@ -123,12 +124,21 @@ const KB = {
             "Bosch Rexroth - Automation Tech", "Toyota - Automotive Tech",
             "Cisco - Networking", "HP - Cloud Computing"
         ],
-        industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung"]
+        industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung"],
+        foodCourt: {
+            name: "Cafe Mingos (Main Food Court)",
+            capacity: "1000+ students",
+            timings: "9:00 AM – 4:30 PM",
+            cuisines: "North Indian, South Indian, Chinese, Fast Food (Burgers, Sandwiches, Chats)",
+            features: "Two floors, 500 sq.m area, steam-cooked hygienic food, self-service model",
+            outlets: ["Main Food Court (Cafe Mingos)", "Mini Canteen", "Extension Food Court Counter"],
+            others: "The food court is a hub for social interaction and quick meals; Hostel messes are strictly vegetarian."
+        }
     },
     contact: {
         address: "RV College of Engineering, RV Vidyanikethan Post, Mysuru Road, Bengaluru – 560 059",
         phone: "+91-080-68188112 / 8111", admissionPhone: "080-68188147/48/49",
-        email: "principal@rvce.edu.in", placementPhone: "9886130504",
+        email: "principal@rvce.edu.in", vicePrincipalEmail: "viceprincipal@rvce.edu.in", placementPhone: "9886130504",
         website: "https://rvce.edu.in/"
     },
     rvei: {
@@ -525,7 +535,15 @@ const KB = {
         boysBlocks: { chamundi: "1st year UG", cauvery: "2nd & 3rd year UG", cauveryAnnex: "1st year UG", sirMV: "Final year UG & PG" },
         girlsBlocks: { djBlock: "1st year & higher sem B.E. (On-campus)", krishnaGarden: "Higher sem B.E., M.Tech, MCA (Off-campus, Pattanagere)" },
         fees: { tripleSharing: "~₹1,42,000 – ₹1,53,000 per annum", doubleSharing: "~₹1,84,000 – ₹1,91,000 per annum" },
-        facilities: "Furnished rooms (bed, study table, chair, cupboard), Wi-Fi, 24/7 security, gymnasium, indoor/outdoor sports, vegetarian mess"
+        facilities: "Furnished rooms (bed, study table, chair, cupboard), Wi-Fi, 24/7 security, gymnasium, indoor/outdoor sports, vegetarian mess",
+        messDetails: {
+            type: "Strictly Vegetarian",
+            messes: ["Cauvery Mess (1st Year)", "Sir MV Mess (Seniors)", "DJ Mess (Girls)"],
+            meals: "Breakfast, Lunch, Evening Snacks, and Dinner",
+            management: "Student-run Mess Committee (Finalizes menu & monitors quality)",
+            timings: "Specific timings for each meal (Curfew applicable)",
+            contact: "080-68188256 / 8271"
+        }
     },
     safety: {
         cctv: "Extensive CCTV surveillance across all blocks, classrooms, and hostels",
@@ -960,9 +978,10 @@ function sanitize(input) {
 const QA = [
     {k:['hi','hello','hey','hii','hola','good morning','good evening','good afternoon','Namaste','yo','sup','howdy','wassup','yoo','heyo','heyy','hellooo','helloo','namaskara'],id:'greet',p:0},
     {k:['bye','goodbye','thank you','thanks','thats all','see you','cya','take care','ok bye','okay bye','good night','tata','laterz','peace out','im out','gtg','gotta go','kbye'],id:'bye',p:0},
-    {k:['circular','circulars','announcement','announcements','latest news','recent notice','notices','update'],id:'circulars',p:1},
+    {k:['circular','circulars','announcement','announcements','latest news','recent notice','notices','update','notification','notifications'],id:'circulars',p:1},
     // P1: Specific topics
     {k:['hostel','hostels','accommodation','dorm','dormitory','boys hostel','girls hostel','hostel fee','hostel room','single room','shared room','hostel mess','staying','where to stay','stay at rvce','pg','paying guest','hostel life','hstl','hostl'],id:'hostels',p:1},
+    {k:['mess','mess food','hostel food','mess menu','breakfast','lunch','dinner','food in hostel','mess charges','mess committee'],id:'mess',p:1},
     {k:['transport','how to reach','bmtc','bus route','kengeri metro','commute to rvce','distance from','reach rvce','reach the college','how to get there','travel to rvce','cab to rvce','auto to rvce','ola to rvce','uber to rvce','metro station','nearest metro'],id:'transport',p:1},
     {k:['wifi','internet','wi fi','connectivity','broadband','net access','wifi password','net speed','slow internet'],id:'wifi',p:1},
     {k:['canteen','food','mess food','eat','dining','cafeteria','food court','what to eat','lunch','breakfast','snacks','tiffin','grub','khana','mess menu','food quality','dabba','maggi point'],id:'food',p:1},
@@ -974,13 +993,14 @@ const QA = [
     {k:['kcet','comedk','comed k','cet rank','kcet rank','comedk rank'],id:'examTypes',p:1},
     {k:['management quota','management seat','direct admission','donation seat','mgmt quota','mgmt seat','donation','capitation','mq seat'],id:'management_quota',p:1},
     {k:['cutoff','cut off','closing rank','kcet rank','comedk cutoff','last rank','expected cutoff','cutoffs','closing ranks'],id:'cutoffs',p:1},
-    {k:['fee','fees','tuition','fee structure','semester fee','total cost','how much cost','how much does it cost','fee details','kitna paisa','kitna lagta','college fees','yearly fees','annual fees'],id:'fees',p:1},
+    {k:['fee','fees','tuition','fee structure','semester fee','total cost','how much cost','how much does it cost','fee details','kitna paisa','kitna lagta','college fees','yearly fees','annual fees','payment','pay fee','how to pay','online payment','payment mode'],id:'fees',p:1},
     {k:['refund','fee refund','cancellation','cancel admission','get money back','refund policy','aicte refund','money back','paisa wapas'],id:'refund_policy',p:1},
     {k:['syllabus','1st semester syllabus','1st sem syllabus','first semester syllabus','scheme','first year subjects','1st year syllabus','what are we studying','sylly','syll','subjects list','what subjects'],id:'syllabus_1st_sem',p:0.8},
     {k:['innovation team','formula student','uav','ashwa','chimera','jatayu','astra robotics','antariksh','student projects','project teams','racing team','baja','sae','drone team'],id:'innovationTeams',p:1},
     {k:['cultural life','culture','cultural life','college culture','music club','dance club','theatre','drama','tedx','tedxrvce','rotaract','fest','8th mile','eighth mile','annual fest','college fest','events','college events','cultural events','cultural activities','annual day','culturals','fests','techfest','tech fest'],id:'culturalLife',p:1},
     {k:['vision','mission','motto','college vision','rvce vision'],id:'vision',p:1},
     {k:['principal','principal name','who is principal','head of institution','director of rvce','who is the principal','about principal','tell me about principal','princi','whos the princi'],id:'principal',p:1},
+    {k:['vice principal','vp','vice-principal','who is vice principal','about vice principal','tell me about vice principal','dr k s geetha','geetha mam'],id:'vice_principal',p:1},
     {k:['hod','head of department','dean','deans','faculty','teachers','professors','who is the hod','list of hods','hods','who is hod','department head','heads','teaching staff'],id:'faculty',p:1.5},
     {k:['deans list','all deans','dean list','executive committee','key executives'],id:'deans_list',p:1},
     {k:['hods list','list of hods','all hods','hod list','head of departments','all heads'],id:'hods_list',p:1},
@@ -993,7 +1013,7 @@ const QA = [
     {k:['timing','timings','working hours','college hours','college time','what time','opening time','closing time','open close','class timings','college timing','kab khulta','when open'],id:'timings',p:1},
     {k:['trust','trust details'],id:'trust',p:1},
     {k:['research','patent','patents','innovation centre','centre of excellence','research centre','grants','funding','research at rvce','research lab','r and d','rnd'],id:'research',p:1},
-    {k:['mca','master of computer application','mca dept','mca department','mca course','mca admission'],id:'mca',p:1},
+    {k:['mca','master of computer application','mca dept','mca department','mca course','mca admission'],id:'dept_mca',p:1},
     {k:['phd','doctoral','doctorate','research program','doctor degree','phd admission','phd at rvce'],id:'phd',p:1},
     {k:['vtu','visvesvaraya','affiliated university','university affiliation','vtu affiliation'],id:'vtu',p:1},
     {k:['seat','seats','total seats','intake','how many students','total students','student count','student strength','intake capacity','seat count','total intake'],id:'intake',p:0.5},
@@ -1064,43 +1084,54 @@ const QA = [
     {k:['no','nah','nope','nahi','na','not interested','skip'],id:'_no',p:0},
 ];
 
-// Dynamically inject specific HOD queries for ALL departments
-const dynamicHodIntents = [];
-QA.forEach(q => {
-    if (q.id && q.id.startsWith('dept_')) {
-        const c = q.id.replace('dept_', '');
-        const hodKWs = [];
-        q.k.forEach(kw => {
-            hodKWs.push(`hod ${kw}`);
-            hodKWs.push(`${kw} hod`);
-            hodKWs.push(`head of ${kw}`);
-        });
-        // p=0.5 overrides normal department queries (p=1)
-        dynamicHodIntents.push({ k: hodKWs, id: `hod_${c}`, p: 0.5 });
-    }
-});
-QA.push(...dynamicHodIntents);
+// 2. Dynamically inject specific HOD queries for ALL departments from KB
+const branchHodIntents = [];
+const allBranches = [...KB.departments.ug, ...KB.departments.pg];
 
-// 2.5 Dynamically inject specific Placement queries for ALL departments
-const dynamicPlacementIntents = [];
-QA.forEach(q => {
-    if (q.id && q.id.startsWith('dept_')) {
-        const c = q.id.replace('dept_', '');
-        const plKWs = [];
-        q.k.forEach(kw => {
-            plKWs.push(`${kw} placement`);
-            plKWs.push(`${kw} placements`);
-            plKWs.push(`placement in ${kw}`);
-            plKWs.push(`placements in ${kw}`);
-            plKWs.push(`${kw} job`);
-            plKWs.push(`${kw} salary`);
-            plKWs.push(`${kw} package`);
-        });
-        // p=0.4 overrides generic placements (p=0.5) and normal dept queries (p=1)
-        dynamicPlacementIntents.push({ k: plKWs, id: `plcmt_${c}`, p: 0.4 });
-    }
+allBranches.forEach(branch => {
+    const code = branch.c;
+    const name = branch.n.replace(/\(.*\)/, '').trim().toLowerCase();
+    const shortCode = branch.c.toLowerCase();
+    
+    const kws = [
+        `hod ${shortCode}`, `${shortCode} hod`, `head of ${shortCode}`, `who is the hod of ${shortCode}`,
+        `hod ${name}`, `${name} hod`, `head of ${name}`
+    ];
+    
+    // Branch-specific aliases
+    if (shortCode === 'cs') kws.push('hod cse', 'cse hod', 'computer science hod');
+    if (shortCode === 'ec') kws.push('hod ece', 'ece hod', 'electronics hod');
+    if (shortCode === 'ee') kws.push('hod eee', 'eee hod', 'electrical hod');
+    if (shortCode === 'me') kws.push('mechanical hod', 'mech hod');
+    if (shortCode === 'cv') kws.push('civil hod');
+
+    branchHodIntents.push({ k: kws, id: `hod_${shortCode}`, p: 0.5 });
 });
-QA.push(...dynamicPlacementIntents);
+QA.push(...branchHodIntents);
+
+// 2.5 Dynamically inject specific Placement queries for ALL departments from KB
+const branchPlacementIntents = [];
+allBranches.forEach(branch => {
+    const code = branch.c;
+    const name = branch.n.replace(/\(.*\)/, '').trim().toLowerCase();
+    const shortCode = branch.c.toLowerCase();
+    
+    const kws = [
+        `${shortCode} placement`, `${shortCode} placements`, `${shortCode} salary`, `${shortCode} package`, `${shortCode} job`,
+        `${name} placement`, `${name} placements`,
+        `placement in ${shortCode}`, `placements in ${shortCode}`,
+        `placement in ${name}`, `placements in ${name}`
+    ];
+    
+    if (shortCode === 'cs') kws.push('cse placement', 'cse placements', 'computer science placement');
+    if (shortCode === 'ec') kws.push('ece placement', 'ece placements');
+    if (shortCode === 'ee') kws.push('eee placement', 'eee placements');
+    if (shortCode === 'me') kws.push('mechanical placement', 'mech placement');
+    if (shortCode === 'cv') kws.push('civil placement');
+
+    branchPlacementIntents.push({ k: kws, id: `plcmt_${shortCode}`, p: 0.4 });
+});
+QA.push(...branchPlacementIntents);
 
 // 3. Dynamically inject Faculty names for direct search
 if (KB.faculty) {
@@ -1131,7 +1162,6 @@ function findFacultyMatch(input) {
     }
     return null;
 }
-
 // Human-readable labels for suggestion buttons
 const INTENT_LABELS = {
     greet:'Say Hi 👋', bye:'Bye!', about_disambiguation:'About 🤔', about_rvce:'About RVCE 🏫', about_rvei:'About RVEI (RSST) 🏛️', hostels:'Hostels 🏠',
@@ -1153,11 +1183,11 @@ const INTENT_LABELS = {
     professional_societies:'Student Societies 🤝', upcoming_events:'Upcoming Events 📅',
     ncc:'NCC 🇮🇳', nss:'NSS 🤝', mandatory_disclosure:'Mandatory Disclosure 📄',
     kannada_sangha:'Kannada Sangha 🎭', rvjsteam:'RVJ STEAM Team 🎨', calendar_events:'Calendar of Events 📅',
-    circulars: 'Circulars & Notices 📢', management_quota: 'Management Quota 💰', cutoffs: 'Cutoffs & Ranks 📊', fees: 'Fee Structure 💵',
+    circulars: 'Circulars & Notifications 📢', notifications: 'Circulars & Notifications 📢', management_quota: 'Management Quota 💰', cutoffs: 'Cutoffs & Ranks 📊', fees: 'Fee Structure 💵',
     refund_policy: 'Refund Policy 💸', innovationTeams: 'Innovation Teams 💡', culturalLife: 'Cultural Life 🎭', vision: 'Vision & Mission 🎯',
-    principal: 'Principal 👨‍🏫', faculty: 'Faculty & Deans 👨‍🏫', deans_list: 'Deans List 📋', hods_list: 'HODs List 👩‍🏫',
+    principal: 'Principal 👨‍🏫', vice_principal: 'Vice Principal 👩‍🏫', faculty: 'Faculty & Deans 👨‍🏫', deans_list: 'Deans List 📋', hods_list: 'HODs List 👩‍🏫',
     ranking: 'Rankings & NIRF 🏆', accreditation: 'Accreditation 💎', timings: 'College Timings ⏰', trust: 'RSST Trust 🏛️',
-    research: 'Research & R&D 🔬', mca: 'MCA Department 💻', phd: 'PhD Programs 🧪', vtu: 'VTU Affiliation 🏛️',
+    research: 'Research & R&D 🔬', dept_mca: 'MCA Department 💻', phd: 'PhD Programs 🧪', vtu: 'VTU Affiliation 🏛️',
     intake: 'Student Intake 🎓', library: 'Central Library 📚', sports: 'Sports & Athletics 🏅', autonomous: 'Autonomous Status 📜',
     stats_disambiguation: 'College Statistics 📊', placements: 'Placements 💼', admissions: 'Admissions 🎓', departments: 'All Departments 📚',
     ug_disambiguation: 'UG Details 🎓', ugPrograms: 'UG Programs (B.E.) 📜', pgPrograms: 'PG Programs (M.Tech) 📘', facilities: 'Facilities & Infra 🏢',
@@ -1165,16 +1195,26 @@ const INTENT_LABELS = {
 };
 
 // 2.6 Update INTENT_LABELS for dynamic intents (ensures "Did you mean?" shows pretty names)
-dynamicHodIntents.forEach(di => {
+branchHodIntents.forEach(di => {
     const c = di.id.replace('hod_', '');
     const d = KB.departments.ug.find(x=>x.c===c) || KB.departments.pg.find(x=>x.c===c);
     if (d) INTENT_LABELS[di.id] = d.n + " HOD 👨‍🏫";
 });
-dynamicPlacementIntents.forEach(di => {
+branchPlacementIntents.forEach(di => {
     const c = di.id.replace('plcmt_', '');
     const d = KB.departments.ug.find(x=>x.c===c) || KB.departments.pg.find(x=>x.c===c);
     if (d) INTENT_LABELS[di.id] = d.n + " Placements 💼";
 });
+// Populate Faculty Labels
+if (KB.faculty) {
+    Object.keys(KB.faculty).forEach(dept => {
+        KB.faculty[dept].forEach(fac => {
+            const full = fac.n.toLowerCase();
+            const slug = full.replace(/[^a-z0-9]/g, '');
+            INTENT_LABELS[`fac_${slug}`] = fac.n;
+        });
+    });
+}
 
 const ABBR = {
     'prgm': 'ugPrograms', 'prgms': 'ugPrograms', 'prog': 'ugPrograms',
@@ -1188,6 +1228,7 @@ const ABBR = {
     'mgmt': 'management_quota',
     'execs': 'deans_list',
     'princi': 'principal',
+    'vp': 'vice_principal',
     'cult': 'culturalLife',
     'inno': 'innovationTeams',
     'soc': 'professional_societies',
@@ -1336,9 +1377,10 @@ function getFollowUps(id) {
     const map = {
         ugPrograms: [{l:'Admissions info',a:'ugAdm',i:'🎓'},{l:'Campus Life',a:'campusLife',i:'🏕️'}],
         placements: [{l:'Top Companies',a:'_more',i:'🏢'},{l:'Admissions',a:'admissions',i:'🎓'}],
-        hostels: [{l:'Facilities',a:'facilities',i:'🏢'},{l:'Sports',a:'sports',i:'🏅'}],
+        hostels: [{l:'Boys Hostel',a:'hostels',i:'👨'},{l:'Girls Hostel',a:'girls_hostel',i:'👩'},{l:'Mess Info',a:'mess',i:'🍲'},{l:'Nearby Areas',a:'nearby',i:'📍'}],
         admissions: [{l:'Fee Structure',a:'fees',i:'💰'},{l:'Placements',a:'placements',i:'💼'}],
-        food: [{l:'Hostels',a:'hostels',i:'🏠'},{l:'Nearby Areas',a:'nearby',i:'📍'}],
+        mess: [{l:'Hostels',a:'hostels',i:'🏠'},{l:'Food Court',a:'food',i:'🍛'}],
+        food: [{l:'Hostels',a:'hostels',i:'🏠'},{l:'Mess Info',a:'mess',i:'🍲'}],
         wifi: [{l:'Hostels',a:'hostels',i:'🏠'},{l:'Facilities',a:'facilities',i:'🏢'}],
         transport: [{l:'Nearby Areas',a:'nearby',i:'📍'},{l:'Contact',a:'contact',i:'📞'}],
         exam: [{l:'Academic Calendar',a:'calendar_events',i:'📅'},{l:'Syllabus',a:'syllabus_1st_sem',i:'📚'}],
@@ -1350,7 +1392,7 @@ function getFollowUps(id) {
         vtu: [{l:'Autonomous Status',a:'autonomous',i:'📜'},{l:'Exams',a:'exam',i:'📝'}],
         autonomous: [{l:'VTU Affiliation',a:'vtu',i:'🏛️'},{l:'Syllabus',a:'syllabus_1st_sem',i:'📚'}],
         ranking: [{l:'Placements',a:'placements',i:'💼'},{l:'Accreditation',a:'accreditation',i:'💎'}],
-        vision: [{l:'About RVCE',a:'about_rvce',i:'🏫'},{l:'Principal',a:'principal',i:'👨‍🏫'}],
+        vision: [{l:'About RVCE',a:'about_rvce',i:'🏫'},{l:'Principal',a:'principal',i:'👨‍🏫'},{l:'Vice Principal',a:'vice_principal',i:'👩‍🏫'}],
         refund_policy: [{l:'Fee Structure',a:'fees',i:'💰'},{l:'Admissions',a:'admissions',i:'🎓'}]
     };
     return map[id] || [];
@@ -1379,7 +1421,7 @@ function getDeepInfo(lastId) {
         },
         'about_rvce': () => {
             r.text = T("Let me tell you everything about RVCE! 🏫","Complete RVCE Overview:");
-            r.text += "\n\n• **Name:** " + KB.general.name + "\n• **Established:** " + KB.general.est + "\n• **Campus:** " + KB.general.campus + "\n• **Trust:** " + KB.general.trust + "\n• **Status:** " + KB.general.status + "\n• **Accreditation:** " + KB.general.accreditation + "\n• **Ranking:** " + KB.general.ranking + "\n• **Principal:** " + KB.general.principal + "\n• **Vision:** " + KB.general.vision + "\n• **Research:** " + KB.general.research + "\n• **Intake:** " + KB.general.intake + "\n• **Industry Partners:** " + KB.general.industryPartners.join(', ');
+            r.text += "\n\n• **Name:** " + KB.general.name + "\n• **Established:** " + KB.general.est + "\n• **Campus:** " + KB.general.campus + "\n• **Trust:** " + KB.general.trust + "\n• **Status:** " + KB.general.status + "\n• **Accreditation:** " + KB.general.accreditation + "\n• **Ranking:** " + KB.general.ranking + "\n• **Principal:** " + KB.general.principal + "\n• **Vice Principal:** " + KB.general.vicePrincipal + "\n• **Vision:** " + KB.general.vision + "\n• **Research:** " + KB.general.research + "\n• **Intake:** " + KB.general.intake + "\n• **Industry Partners:** " + KB.general.industryPartners.join(', ');
             r.buttons = [{l:'Rankings',a:'ranking',i:'🏆'},{l:'Research',a:'research',i:'🔬'},{l:'Website',u:'https://rvce.edu.in/about_us/',i:'🌐'}];
         },
         'hostels': () => {
@@ -1471,7 +1513,7 @@ function getRelatedTopics(lastId) {
     const relatedMap = {
         'placements': ['admissions','fees','departments','best_branch','internship','alumni'],
         'admissions': ['fees','placements','departments','hostels','scholarships','cutoffs'],
-        'about_rvce': ['ranking','accreditation','research','vision','principal','about_rvei'],
+        'about_rvce': ['ranking','accreditation','research','vision','principal','vice_principal','about_rvei'],
         'hostels': ['facilities','food','safety','girls_hostel','nearby','transport'],
         'departments': ['ugPrograms','pgPrograms','placements','research','centres_of_excellence'],
         'campusLife': ['culturalLife','innovationTeams','sports','upcoming_events','ncc','nss'],
@@ -1565,7 +1607,11 @@ function getResponse(id) {
     case 'principal':
         r.text += T("Dr. K.N. Subramanya is the Principal! With 34+ years experience, he leads the team! ⚓",
             "The Principal of RVCE is Dr. K.N. Subramanya.\n\nHe holds a B.E., M.Tech., MBA, and Ph.D., bringing over 34 years of experience in teaching, research, and administration.\n\nContact: principal@rvce.edu.in");
-        r.buttons = [{l:'About Principal',u:'https://rvce.edu.in/about-k_n_subramanya/',i:'👨‍🏫'}]; break;
+        r.buttons = [{l:'About Principal',u:'https://rvce.edu.in/about-k_n_subramanya/',i:'👨‍🏫'}, {l:'Vice Principal',a:'vice_principal',i:'👩‍🏫'}]; break;
+    case 'vice_principal':
+        r.text += T("Dr. K. S. Geetha is our Vice-Principal! A powerhouse of academic excellence! 👩‍🏫",
+            "The Vice-Principal of RVCE is Dr. K. S. Geetha.\n\nShe is a Professor in the ECE department and handles academic and administrative responsibilities alongside the Principal.\n\nContact: viceprincipal@rvce.edu.in");
+        r.buttons = [{l:'About Vice Principal',u:'https://rvce.edu.in/department/ece/dr_k_s_geetha/',i:'👩‍🏫'}, {l:'Principal',a:'principal',i:'👨‍🏫'}]; break;
     case 'ranking':
         r.text += T("RVCE is killing it! 🏆","RVCE Rankings:");
         r.text += "\n• "+KB.general.ranking+"\n• "+KB.general.accreditation; break;
@@ -1594,6 +1640,7 @@ function getResponse(id) {
         r.text += T("B.E. admission details 📋:","UG Admission:");
         r.text += "\n• Eligibility: "+KB.admissions.ug.eligibility+"\n• Exams: "+KB.admissions.ug.exams+"\n• "+KB.admissions.ug.quotas;
         r.buttons = [{l:'View Programs',a:'ugPrograms',i:'📋'},{l:'Apply',u:KB.admissions.url,i:'🌐'}]; break;
+    case 'notifications':
     case 'circulars':
         r.text += T("Looking for the latest updates? 📢 Check out the official circulars below!","Please select the type of circular you are looking for:");
         r.buttons = [
@@ -1630,9 +1677,12 @@ function getResponse(id) {
         r.text += "\n• Direct admission to 2nd year B.E.\n• Mandatory Requirement: DCET (Diploma CET) rank.";
         r.buttons = [{l:'Admissions Page',u:KB.admissions.url,i:'🌐'}]; break;
     case 'fees':
-        r.text += T("Tuition fees depend on the admission quota:<br>• <strong>KCET:</strong> ~₹1,00,000 to ₹1,20,000 per year<br>• <strong>COMEDK:</strong> ~₹2,50,000 to ₹3,00,000 per year<br>• <strong>Management:</strong> Can exceed ₹10L depending on branch.<br><em>Note: Hostels cost an additional ₹1.1L - ₹1.3L per year.</em>",
-            "Tuition fees depend on the admission quota:<br>• <strong>KCET:</strong> ~₹1,00,000 to ₹1,20,000 per year<br>• <strong>COMEDK:</strong> ~₹2,50,000 to ₹3,00,000 per year<br>• <strong>Management:</strong> ~₹16L to ₹70L total over 4 years.");
-        r.buttons = [{l:'Admissions Info',a:'admissions',i:'🎓'}]; break;
+        r.text += T("Tuition fees depend on the admission quota:<br><br>" + KB.admissions.fees + "<br><br><em>Note: Hostels cost an additional ₹1.1L - ₹1.3L per year.</em>",
+            "Tuition fees depend on the admission quota:\n\n" + KB.admissions.fees);
+        r.buttons = [
+            {l:'Admissions Info',a:'admissions',i:'🎓'},
+            {l:'Fee Payment Circulars',u:'https://rvce.edu.in/academics_and_examinations/fee_payment_circulars/',i:'💰'}
+        ]; break;
     case 'placements':
         r.text += T("Our record is legendary! 🚀","Placement Statistics (2025 Batch):");
         r.text += "\n• Max: " + KB.placements.maxSalary + "\n• Avg: " + KB.placements.avgSalary + "\n• " + KB.placements.offers + "\n• " + KB.placements.companies + "\n• Top Recruiters: " + KB.placements.recruiters;
@@ -1652,7 +1702,7 @@ function getResponse(id) {
         r.noMenu = true; break;
     case 'deans_list':
         r.text += T("Here are the top commanders at RVCE! ⚓\n\n","RVCE Deans & Key Executives:\n\n");
-        r.text += "• **Dean Academics:** Dr. Shanmukha Nagaraj\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Skill Dev:** Dr. M Krishna";
+        r.text += "• **Principal:** Dr. K.N. Subramanya\n• **Vice Principal:** Dr. K. S. Geetha\n• **Dean Academics:** Dr. Shanmukha Nagaraj\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Skill Dev:** Dr. M Krishna";
         r.buttons = [{l:'HODs List 📚',a:'hods_list',i:'👩‍🏫'}, {l:'Key Executives Page',u:'https://rvce.edu.in/about_us/key-executives/',i:'🌐'}]; break;
     case 'hods_list':
         r.text += T("Here are the Heads of Departments (HODs): 📚\n\n","RVCE Head of Departments:\n\n");
@@ -1725,6 +1775,7 @@ function getResponse(id) {
         r.buttons = [{l:'M.Tech Biotechnology',a:'pg_bt',i:'🧬'}];
         r.noMenu = true; break;
     case 'mca':
+    case 'dept_mca':
         return renderDepartment(KB.departments.pg.find(d => d.c === 'mca'));
     case 'sports':
         r.text += T("Stay fit and active at RVCE! 🏃‍♂️🏆\n\nThe Department of Physical Education & Sports provides excellent facilities for indoor and outdoor games. RVCE students regularly participate in VTU, State, and National level tournaments.",
@@ -1802,7 +1853,25 @@ function getResponse(id) {
     case 'wifi':
         r.text += T("Yes! Wi-Fi everywhere! 📶 Campus + Hostels!","Wi-Fi is available across the campus and in hostel blocks."); break;
     case 'food':
-        r.text += T("Hungry? 🍛 RVCE has a food court + veg mess in hostels. Plenty of options around too!","RVCE has a food court on campus and vegetarian mess in hostels. Multiple eateries are also available nearby."); break;
+        r.text += T("Hungry? 🍛 RVCE has multiple food spots! **"+KB.general.foodCourt.name+"** is the biggest! 😋",
+            "### 🍽️ Dining at RVCE\n\n" +
+            "**1. Campus Food Courts:**\n" +
+            "• **Main Food Court (Cafe Mingos):** " + KB.general.foodCourt.features + ".\n" +
+            "• **Mini Canteen & Extension:** Located near departments for quick snacks and easier access.\n" +
+            "• **Timings:** " + KB.general.foodCourt.timings + "\n\n" +
+            "**2. Hostel Messes (Strictly Veg):**\n" +
+            "• " + KB.hostelDetails.messDetails.messes.join(", ") + "\n" +
+            "• Serves: " + KB.hostelDetails.messDetails.meals + ".");
+        r.buttons = [{l:'Campus Facilities',a:'facilities',i:'🏢'}, {l:'Mess Details',a:'mess',i:'🍲'}]; break;
+    case 'mess':
+        r.text += T("The hostel mess serves strictly vegetarian food to keep you fueled! 🍲",
+            "### 🏠 Hostel Mess Information\n\n" +
+            "• **Messes:** " + KB.hostelDetails.messDetails.messes.join(", ") + "\n" +
+            "• **Cuisine:** " + KB.hostelDetails.messDetails.type + "\n" +
+            "• **Meals:** " + KB.hostelDetails.messDetails.meals + "\n" +
+            "• **Management:** " + KB.hostelDetails.messDetails.management + "\n\n" +
+            "**Looking for more?** The campus also has a multi-level **Food Court (Cafe Mingos)** open from 9 AM to 4:30 PM.");
+        r.buttons = [{l:'Hostel Details',a:'hostels',i:'🏠'}, {l:'Food Court',a:'food',i:'🍛'}]; break;
     case 'exam':
         r.text += T("Exams? 📝 Semester system with CIE + SEE. Being autonomous, RVCE sets its own papers!","RVCE follows a semester system with Continuous Internal Evaluation (CIE) and Semester End Examination (SEE). As an autonomous institution, it designs its own syllabus and sets examination papers."); break;
     case 'nri':
@@ -1923,49 +1992,12 @@ function getResponse(id) {
                 return r;
             }
         }
-        // Handle department links
-        if (id && id.startsWith('dept_')) {
-            const c = id.replace('dept_','');
-            const d = KB.departments.ug.find(x=>x.c===c);
-            if (d) { 
-                let msg = T(`**${d.n}** 🎯\n👨‍🏫 HOD: ${d.hod}\n`,`Department: ${d.n}\nHOD: ${d.hod}\n`);
-                if (d.info) msg += `\n*${d.info}*\n`;
-                msg += T(`\nSelect what you'd like to explore below:`,`\nExplore options:`);
-                r.text += msg;
-                r.buttons = [{l:'Main Page',u:d.u,i:'🌐'}];
-                if (d.about) r.buttons.push({l:'About Dept',u:d.about,i:'ℹ️'});
-                if (d.syllabus) r.buttons.push({l:'Syllabus',u:d.syllabus,i:'📚'});
-                if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
-                if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
-                if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
-                r.buttons.push({l:'All Departments',a:'departments',i:'🔙'});
-                return r; 
-            }
-        }
-        // Handle PG program links
-        if (id && id.startsWith('pg_')) {
-            const c = id.replace('pg_','');
-            const d = KB.departments.pg.find(x=>x.c===c);
-            if (d) { 
-                r.text += T(d.n+" looks interesting! 🚀","Postgraduate Program: "+d.n);
-                r.buttons = [{l:'Program Page',u:d.u,i:'🌐'},{l:'PG Programs',a:'pgPrograms',i:'📘'}];
-                return r; 
-            }
-        }
-
-        // Handle Department HOD requests
-        if (id && id.startsWith('hod_')) {
-            const c = id.replace('hod_','');
+        // Handle department links (UG and PG)
+        if (id && (id.startsWith('dept_') || id.startsWith('pg_'))) {
+            const c = id.replace('dept_','').replace('pg_','');
             const d = KB.departments.ug.find(x=>x.c===c) || KB.departments.pg.find(x=>x.c===c);
-            if (d) {
-                r.text += T(`The Head of Department for **${d.n}** is **${d.hod}**. 👨‍🏫`, `HOD of ${d.n}: **${d.hod}**`);
-                r.buttons = [];
-                if (d.hod_message) r.buttons.push({l: 'HOD Message', u: d.hod_message, i: '✉️'});
-                r.buttons.push({l: d.n + ' Dept 📚', a: 'dept_'+c, i: '🏫'});
-                return r;
-            }
+            if (d) return renderDepartment(d);
         }
-
         // Handle Department Placement requests
         if (id && id.startsWith('plcmt_')) {
             const c = id.replace('plcmt_','');
@@ -2086,8 +2118,17 @@ function processTelemetryQueue() {
 }
 
 function logChatInteraction(query, intent_id) {
+    // 1. WordPress logic (async queue)
     telemetryQueue.push({query, intent: intent_id});
     processTelemetryQueue();
+
+    // 2. Standalone logic (localStorage for dashboard.html)
+    try {
+        const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+        logs.push({ q: query, i: intent_id, d: new Date().toISOString() });
+        if (logs.length > 200) logs.shift(); // Keep last 200
+        localStorage.setItem('rvce_standalone_logs', JSON.stringify(logs));
+    } catch(e) { console.warn("Local logging failed", e); }
 }
 
 let isProcessing = false;
@@ -2293,6 +2334,23 @@ function addBotWarn(text) {
 
 
 
+
+function renderDepartment(d) {
+    if (!d) return { text: T("I couldn't find details for that department. Please try again or check the main menu. 📋", "I couldn't find details for that department. Please try again or check the main menu."), buttons: [{l:'Main Menu',a:'menu',i:'📋'}] };
+    const r = { text: '', buttons: [], noMenu: false };
+    r.text = T(
+        `**${d.n}** 🎯\n👨‍🏫 HOD: ${d.hod}\n\n*${d.info || "Explore the options below to learn more about this department."}*`,
+        `Department: ${d.n}\nHead of Department: ${d.hod}\n\n${d.info || ""}`
+    );
+    r.buttons = [{l:'Main Page',u:d.u,i:'🌐'}];
+    if (d.about) r.buttons.push({l:'About Dept',u:d.about,i:'ℹ️'});
+    if (d.syllabus) r.buttons.push({l:'Syllabus',u:d.syllabus,i:'📚'});
+    if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
+    if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
+    if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
+    r.buttons.push({l:'All Departments',a:'departments',i:'🔙'});
+    return r;
+}
 
 function renderHODCard(d) {
     const r = { text: '', buttons: [], noMenu: true };

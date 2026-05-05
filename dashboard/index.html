@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RVCE Chatbot — Analytics Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #E31E24;
+            --secondary: #004B8D;
+            --bg: #0a0e1a;
+            --card: rgba(255, 255, 255, 0.05);
+            --text: #ffffff;
+            --text-dim: #94a3b8;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        h1 { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+        .badge { background: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px); }
+        .card h2 { font-size: 16px; color: var(--text-dim); margin-bottom: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .stat-val { font-size: 48px; font-weight: 800; margin-bottom: 8px; }
+        .stat-sub { font-size: 14px; color: #10b981; font-weight: 600; }
+        
+        .chart-container { height: 300px; position: relative; }
+        
+        .list { display: flex; flex-direction: column; gap: 12px; }
+        .list-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--border); }
+        .list-item .query { font-weight: 500; font-size: 14px; }
+        .list-item .time { font-size: 12px; color: var(--text-dim); }
+        .list-item .tag { padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; background: rgba(0, 75, 141, 0.2); color: #60a5fa; }
+        .list-item .tag.unmatched { background: rgba(244, 63, 94, 0.15); color: #f43f5e; }
+
+        .empty-state { text-align: center; color: var(--text-dim); padding: 40px 0; }
+        
+        .refresh-btn { background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .refresh-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>RVCE Chatbot Analytics <span class="badge">Standalone Mode</span></h1>
+                <p style="color: var(--text-dim); margin-top: 5px;">Local browser-based tracking (pre-integration)</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="refresh-btn" style="background: #10b981;" onclick="generateTestData()">🧪 Test Data</button>
+                <button class="refresh-btn" onclick="render()">🔄 Refresh Data</button>
+            </div>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <h2>Total Interactions</h2>
+                <div class="stat-val" id="totalInteractions">0</div>
+                <div class="stat-sub" id="todayActivity">↑ 0 today</div>
+            </div>
+            <div class="card">
+                <h2>Bot Success Rate</h2>
+                <div class="stat-val" id="successRate">0%</div>
+                <div class="stat-sub">Based on matched intents</div>
+            </div>
+            <div class="card">
+                <h2>Recent Missed Query</h2>
+                <div id="latestMissed" class="query" style="font-size: 18px; font-weight: 600; margin-top: 15px;">None</div>
+                <div class="stat-sub" style="color: #f43f5e">Requires review</div>
+            </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 2fr 1fr;">
+            <div class="card">
+                <h2>Top User Intents</h2>
+                <div class="chart-container">
+                    <canvas id="intentChart"></canvas>
+                </div>
+            </div>
+            <div class="card" style="max-height: 400px; overflow-y: auto;">
+                <h2>Unanswered Questions</h2>
+                <div class="list" id="missedList">
+                    <div class="empty-state">No missed queries yet!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Recent Conversation Logs</h2>
+            <div class="list" id="recentLogs">
+                <div class="empty-state">No interaction history found.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chart = null;
+
+        function render() {
+            const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            
+            // Total & Today
+            document.getElementById('totalInteractions').textContent = logs.length;
+            const today = new Date().toDateString();
+            const todayCount = logs.filter(l => new Date(l.d).toDateString() === today).length;
+            document.getElementById('todayActivity').textContent = `↑ ${todayCount} today`;
+
+            // Success Rate & Missed
+            const missed = logs.filter(l => l.i === 'unmatched');
+            const rate = logs.length ? Math.round(((logs.length - missed.length) / logs.length) * 100) : 100;
+            document.getElementById('successRate').textContent = rate + '%';
+            document.getElementById('latestMissed').textContent = missed.length ? missed[missed.length - 1].q : 'None';
+
+            // Chart
+            const intents = {};
+            logs.forEach(l => {
+                if (l.i !== 'unmatched') {
+                    intents[l.i] = (intents[l.i] || 0) + 1;
+                }
+            });
+            const labels = Object.keys(intents).sort((a,b) => intents[b] - intents[a]).slice(0, 8);
+            const data = labels.map(l => intents[l]);
+
+            if (chart) chart.destroy();
+            const ctx = document.getElementById('intentChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Hits',
+                        data: data,
+                        backgroundColor: '#E31E24',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#94a3b8' } },
+                        x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
+                    }
+                }
+            });
+
+            // Lists
+            const missedList = document.getElementById('missedList');
+            if (missed.length) {
+                missedList.innerHTML = missed.reverse().slice(0, 10).map(m => `
+                    <div class="list-item">
+                        <span class="query">${m.q}</span>
+                        <span class="tag unmatched">MISS</span>
+                    </div>
+                `).join('');
+            }
+
+            const recentLogs = document.getElementById('recentLogs');
+            if (logs.length) {
+                recentLogs.innerHTML = logs.reverse().slice(0, 20).map(l => `
+                    <div class="list-item">
+                        <div>
+                            <span class="query">"${l.q}"</span>
+                            <span class="tag">${l.i}</span>
+                        </div>
+                        <span class="time">${new Date(l.d).toLocaleTimeString()}</span>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function generateTestData() {
+            const sampleLogs = [
+                { q: "Hi", i: "greet", d: new Date().toISOString() },
+                { q: "Tell me about CSE", i: "dept_cs", d: new Date().toISOString() },
+                { q: "How are placements?", i: "placements", d: new Date().toISOString() },
+                { q: "MCA HOD", i: "hod_mca", d: new Date().toISOString() },
+                { q: "What is the fee for AI?", i: "plcmt_aiml", d: new Date().toISOString() },
+                { q: "where is moon", i: "unmatched", d: new Date().toISOString() }
+            ];
+            localStorage.setItem('rvce_standalone_logs', JSON.stringify(sampleLogs));
+            render();
+            alert("Test data generated! You can now see how the charts look.");
+        }
+
+        render();
+    </script>
+</body>
+</html>
