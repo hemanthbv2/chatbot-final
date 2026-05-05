@@ -218,6 +218,22 @@
                 `).join('');
             }
 
+            const allLogs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            const dateMap = {};
+            allLogs.forEach(l => {
+                const d = l.d.split('T')[0];
+                dateMap[d] = (dateMap[d] || 0) + 1;
+            });
+            document.getElementById('dateSummaryTable').innerHTML = Object.keys(dateMap).sort().reverse().map(d => `
+                <div class="list-item">
+                    <span><strong>${d}</strong> <span style="color:var(--text-dim)">(${dateMap[d]} entries)</span></span>
+                    <div style="display:flex; gap:8px;">
+                        <button class="refresh-btn" style="padding: 6px 12px; font-size: 12px; background: rgba(16,185,129,0.1); color: #10b981;" onclick="viewDate('${d}')">👁️ View</button>
+                        <button class="refresh-btn" style="padding: 6px 12px; font-size: 12px; background: rgba(99,102,241,0.2); color: #818cf8;" onclick="downloadSpecificDate('${d}')">📥 Download</button>
+                    </div>
+                </div>
+            `).join('');
+
             if (logs.length) {
                 recentLogs.innerHTML = logs.reverse().slice(0, 20).map(l => `
                     <div class="list-item">
@@ -259,6 +275,13 @@
                 localStorage.removeItem('rvce_standalone_logs');
                 render();
             }
+        }
+
+        function viewDate(dateStr) {
+            document.getElementById('dateFilter').value = dateStr;
+            render();
+            // Scroll to top to see charts update
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function downloadSpecificDate(dateStr) {
