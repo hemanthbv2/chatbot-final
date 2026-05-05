@@ -1051,6 +1051,8 @@ const QA = [
     {k:['rvce','about rvce','college','history','founded','established','overview','abt rvce','whats rvce','what is rvce'],id:'about_rvce',p:3},
     {k:['rvei','about rvei','rsst','institutions','what is rvei','who is rvei','parent organization','who manages','who owns','ownership'],id:'about_rvei',p:3},
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
+    {k:['innovation teams','project teams','team ashwa','ashwa','antariksh','team vyoma','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car'],id:'innovationTeams',p:1},
+    {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
     {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address','num','enquiry','enquiries','enqiry'],id:'contact',p:2},
@@ -1980,6 +1982,18 @@ function getResponse(id) {
         r.text += T("Internships? RVCE students are everywhere! 🧑‍💻","Internship Opportunities:");
         r.text += "\n• Mandatory 6-8 week industry internship in curriculum\n• Placement & Training cell assists with internship placements\n• Top companies like Google, Microsoft, Amazon, Bosch offer internships\n• Being in Bangalore (India's tech capital) = tons of opportunities\n• Many students do internships at IITs, IISc, DRDO, ISRO";
         r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'innovationTeams':
+        r.text += T("RVCE's Innovation Teams are world-class! 🚀 They build everything from race cars to satellites!","Innovative & Project Teams at RVCE:");
+        r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️\n• **Project Antariksh**: Space tech & satellites 🛰️\n• **Team Vyoma**: UAVs and drones 🛸\n• **Team Chimera**: Hybrid racing ⚡\n• **Team Astra**: Robotics 🤖\n• **Team Ojas**: Electric vehicles 🔋\n• **Team Jatayu**: Aeromodelling ✈️";
+        r.buttons = [{l:'Innovation Page',u:KB.campus.urls.innovation,i:'🌐'}, {l:'Team Ashwa',a:'team_ashwa',i:'🏎️'}]; break;
+    case 'team_ashwa':
+    case 'ashwa':
+        r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars and compete globally (Formula Bharat, FS Germany). They are legendary!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team, renowned for engineering excellence in designing and manufacturing high-performance racing cars.");
+        r.buttons = [{l:'Visit Team Ashwa',u:'https://www.teamashwa.com/',i:'🌐'}, {l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'culturalTeams':
+        r.text += T("Campus is always buzzing! 💃🎶 From dance to music, we've got it all!","Cultural Teams & Clubs at RVCE:");
+        r.text += "\n\n• **Alaap**: Music 🎵\n• **Raaga**: Dance 💃\n• **CARV**: Cultural Association 🎭\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Photography Club** 📸";
+        r.buttons = [{l:'Cultural Page',u:KB.campus.urls.cultural,i:'🌐'}, {l:'Campus Life',a:'campusLife',i:'🏕️'}]; break;
     case 'startup':
         r.text += T("Startup vibes are real at RVCE! 🚀","Entrepreneurship & Startup Ecosystem:");
         r.text += "\n• Active E-Cell (Entrepreneurship Cell) organizes events & workshops\n• Innovation & Incubation Centre for student startups\n• Annual hackathons and startup pitch competitions\n• Bangalore = India's startup capital — perfect ecosystem\n• Many RVCE alumni have founded successful startups";
