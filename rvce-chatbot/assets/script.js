@@ -1016,11 +1016,12 @@ const QA = [
     {k:['mca','master of computer application','mca dept','mca department','mca course','mca admission'],id:'dept_mca',p:1},
     {k:['phd','doctoral','doctorate','research program','doctor degree','phd admission','phd at rvce'],id:'phd',p:1},
     {k:['vtu','visvesvaraya','affiliated university','university affiliation','vtu affiliation'],id:'vtu',p:1},
-    {k:['seat','seats','total seats','intake','how many students','total students','student count','student strength','intake capacity','seat count','total intake'],id:'intake',p:0.5},
+    {k:['seat','seats','total seats','intake','intake capacity','seat count','total intake'],id:'intake',p:0.5},
+    {k:['student count','student strength','total students','how many students','current students','how many students in rvce','student population'],id:'student_count',p:1},
     {k:['library','central library','books','reading room','e library','digital library','lib','library timing','study room'],id:'library',p:0.3},
     {k:['sports','cricket','football','basketball','volleyball','athletics','gym','gymnatorium','sports complex','games','badminton','table tennis','tt','fitness','workout','sports ground','playground'],id:'sports',p:1},
     {k:['autonomous','autonomy','own syllabus','own exam','autonomous status','is rvce autonomous'],id:'autonomous',p:1},
-    {k:['stat','stats','statistic','statistics','number','numbers','figure','figures','data','how many'],id:'stats_disambiguation',p:0.4},
+    {k:['stat','stats','statistic','statistics','figure','figures','data'],id:'stats_disambiguation',p:0.4},
     // Department-specific (with short codes + college slang)
     {k:['computer science','cse','cs','cs department','computer science engineering','cse department','comps','comp sci','cs branch','cs dept'],id:'dept_cs',p:1},
     {k:['artificial intelligence','aiml','ai ml','machine learning','ai department','ai branch','ml branch','ai and ml'],id:'dept_aiml',p:1},
@@ -1945,6 +1946,12 @@ function getResponse(id) {
         r.text += T("Sporty campus! 🏅","Sports Facilities:");
         r.text += "\n• 400m athletic track\n• Cricket & Football grounds\n• Basketball, Volleyball, Badminton courts\n• Gymnatorium with modern equipment\n• Table Tennis, Chess";
         r.buttons = [{l:'Sports Info',u:'https://rvce.edu.in/facilities/sports_and_gymnatorium/',i:'🌐'}]; break;
+    case 'intake':
+        r.text += T("RVCE has a significant intake capacity! 🎓 Every year, we admit over **2,000+ students** across our 16 UG and 14 PG programs. Seats are filled through KCET, COMEDK, and Management Quota.", "RVCE has an annual intake of over 2,000 students across its various Undergraduate and Postgraduate programs.");
+        r.buttons = [{l:'Admission Info',a:'admissions',i:'🎫'}, {l:'UG Programs',a:'ugPrograms',i:'📜'}]; break;
+    case 'student_count':
+        r.text += T("RVCE is a bustling hub of talent! 👨‍🎓👩‍🎓 We have approximately **8,000 to 9,000 students** on campus at any given time, including all years of UG and PG programs.", "The total student population at RVCE is approximately 8,000 to 9,000, encompassing students across all years of undergraduate and postgraduate courses.");
+        r.buttons = [{l:'Campus Life',a:'campusLife',i:'🏕️'}, {l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'autonomous':
         r.text += T("RVCE is autonomous for UG — they design their own syllabus and exams! 📋 For PG, it's affiliated to VTU.","RVCE has Autonomous status for UG programs, meaning it designs its own curriculum and conducts its own examinations. PG programs are affiliated to VTU."); break;
     // ===== PARENT & GEN-Z SPECIFIC RESPONSES =====
