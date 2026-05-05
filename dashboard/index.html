@@ -240,17 +240,18 @@
         }, 3000);
 
         function generateTestData() {
+            const today = new Date().toISOString();
+            const yesterday = new Date(Date.now() - 86400000).toISOString();
             const sampleLogs = [
-                { q: "Hi", i: "greet", d: new Date().toISOString() },
-                { q: "Tell me about CSE", i: "dept_cs", d: new Date().toISOString() },
-                { q: "How are placements?", i: "placements", d: new Date().toISOString() },
-                { q: "MCA HOD", i: "hod_mca", d: new Date().toISOString() },
-                { q: "What is the fee for AI?", i: "plcmt_aiml", d: new Date().toISOString() },
-                { q: "where is moon", i: "unmatched", d: new Date().toISOString() }
+                { s: 'sid_1', q: "Hi", i: "greet", d: today },
+                { s: 'sid_2', q: "CSE placements", i: "placements", d: today },
+                { s: 'sid_1', q: "Principal contact", i: "contact", d: yesterday },
+                { s: 'sid_3', q: "Hostel fees", i: "hostels", d: yesterday },
+                { s: 'sid_2', q: "where is mars?", i: "unmatched", d: yesterday }
             ];
             localStorage.setItem('rvce_standalone_logs', JSON.stringify(sampleLogs));
             render();
-            alert("Test data generated! You can now see how the charts look.");
+            alert("Test data generated for Today and Yesterday! Look at the 'Historical Archives' section below.");
         }
 
         function clearAllData() {
