@@ -260,7 +260,9 @@ const KB = {
                 placement: "https://rvce.edu.in/department/civil_engineering/placement/",
                 labs: "https://rvce.edu.in/department/civil_engineering/civil-laboratories/",
                 research: "https://rvce.edu.in/department/civil_engineering/research/",
-                facilities: "https://rvce.edu.in/department/civil_engineering/facilities/"
+                facilities: "https://rvce.edu.in/department/civil_engineering/facilities/",
+                m_tech_structural: "https://rvce.edu.in/department/civil_engineering/mtech_in_structural_engineering/",
+                m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/"
             },
             {
                 n:"Computer Science & Engg (CSE)",
@@ -354,7 +356,8 @@ const KB = {
                 coe_mfc: "https://rvce.edu.in/department/ece/the_centre_of_excellence_in_materials_fabrication_characterisation/",
                 coe_cav: "https://rvce.edu.in/department/ece/centre_of_excellence_in_connected_autonomous_vehicles/",
                 coe_icas: "https://rvce.edu.in/department/ece/centre_of_excellence_in_integrated_circuits_and_systemscoe_icas/",
-                m_tech: "https://rvce.edu.in/department/ece/m_tech_in_vlsi_design_embedded_systems/"
+                m_tech_vlsi: "https://rvce.edu.in/department/ece/m_tech_in_vlsi_design_embedded_systems/",
+                m_tech_comm: "https://rvce.edu.in/department/ece/master_of_technology_in_m_tech_communication_systems/"
             },
             {
                 n:"Electronics & Instrumentation (EIE)",
@@ -419,7 +422,9 @@ const KB = {
                 placement: "https://rvce.edu.in/department/ise/placement/",
                 labs: "https://rvce.edu.in/department/ise/facilities/",
                 research: "https://rvce.edu.in/department/ise/research/",
-                campus_diaries: "https://rvce.edu.in/department/ise/student_experiences/"
+                campus_diaries: "https://rvce.edu.in/department/ise/student_experiences/",
+                m_tech_soft: "https://rvce.edu.in/department/ise/mtech_in_software_engineering/",
+                m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/"
             },
             {
                 n:"Mathematics (MATHS)",
@@ -450,7 +455,9 @@ const KB = {
                 research: "https://rvce.edu.in/department/me/research/",
                 rd_labs: "https://rvce.edu.in/department/me/rd_labs/",
                 campus_diaries: "https://rvce.edu.in/department/me/campus_diaries/",
-                networking: "https://rvce.edu.in/department/me/collaboration_networking/"
+                networking: "https://rvce.edu.in/department/me/collaboration_networking/",
+                m_tech_pdm: "https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/",
+                m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/"
             },
             {
                 n:"Physics (PHY)",
@@ -1504,6 +1511,14 @@ function getDeepInfo(lastId) {
             if (d.happenings) r.buttons.push({l:'News & Happenings',u:d.happenings,i:'🗞️'});
             if (d.m_tech) r.buttons.push({l:'M.Tech Program',u:d.m_tech,i:'📘'});
             if (d.m_tech_cne) r.buttons.push({l:'M.Tech CNE',u:d.m_tech_cne,i:'🌐'});
+            if (d.m_tech_structural) r.buttons.push({l:'M.Tech Structural Engg',u:d.m_tech_structural,i:'🏗️'});
+            if (d.m_tech_highway) r.buttons.push({l:'M.Tech Highway Tech',u:d.m_tech_highway,i:'🛣️'});
+            if (d.m_tech_vlsi) r.buttons.push({l:'M.Tech VLSI & Embedded',u:d.m_tech_vlsi,i:'📟'});
+            if (d.m_tech_comm) r.buttons.push({l:'M.Tech Comm Systems',u:d.m_tech_comm,i:'📡'});
+            if (d.m_tech_soft) r.buttons.push({l:'M.Tech Software Engg',u:d.m_tech_soft,i:'💻'});
+            if (d.m_tech_it) r.buttons.push({l:'M.Tech Info Tech',u:d.m_tech_it,i:'🌐'});
+            if (d.m_tech_pdm) r.buttons.push({l:'M.Tech Product Design',u:d.m_tech_pdm,i:'🎨'});
+            if (d.m_tech_machine) r.buttons.push({l:'M.Tech Machine Design',u:d.m_tech_machine,i:'⚙️'});
             if (d.project_labs) r.buttons.push({l:'Project Labs',u:d.project_labs,i:'🔬'});
             if (d.rd_labs) r.buttons.push({l:'R&D Labs',u:d.rd_labs,i:'🧪'});
             if (d.publications) r.buttons.push({l:'Publications',u:d.publications,i:'📚'});
