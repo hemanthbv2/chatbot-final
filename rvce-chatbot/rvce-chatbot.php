@@ -20,6 +20,7 @@ function rvce_chatbot_activate() {
 
     $sql = "CREATE TABLE $table_name (
         id mediumint(9) NOT NULL AUTO_INCREMENT,
+        session_id varchar(50) NOT NULL,
         query text NOT NULL,
         intent_id varchar(100) NOT NULL,
         created_at datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -75,6 +76,7 @@ function rvce_log_chat_query() {
 
     $query = isset($_POST['query']) ? sanitize_text_field($_POST['query']) : '';
     $intent_id = isset($_POST['intent_id']) ? sanitize_text_field($_POST['intent_id']) : '';
+    $session_id = isset($_POST['session_id']) ? sanitize_text_field($_POST['session_id']) : 'anon';
 
     if (!empty($query)) {
         $wpdb->insert(
@@ -82,6 +84,7 @@ function rvce_log_chat_query() {
             array(
                 'query' => $query,
                 'intent_id' => $intent_id,
+                'session_id' => $session_id,
                 'created_at' => current_time('mysql')
             )
         );
@@ -128,8 +131,16 @@ function rvce_chatbot_analytics_page() {
     echo '<div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">';
     
     // Summary Cards
+    $active_users = $wpdb->get_var("SELECT COUNT(DISTINCT session_id) FROM $table_name WHERE created_at > DATE_SUB(NOW(), INTERVAL 15 MINUTE)");
+
+    echo '<div style="flex: 1; min-width: 300px; background: linear-gradient(135deg, #6366f1, #a855f7); color: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);">';
+    echo '<h3 style="margin-top:0; color:rgba(255,255,255,0.9);">Live Activity</h3>';
+    echo '<p style="font-size: 42px; font-weight: 800; margin: 10px 0;">' . intval($active_users) . '</p>';
+    echo '<p style="font-size: 14px; opacity: 0.9; margin:0;">Active Users (Last 15m)</p>';
+    echo '</div>';
+
     echo '<div style="flex: 1; min-width: 300px; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">';
-    echo '<h3 style="margin-top:0; color:#475569;">Overview</h3>';
+    echo '<h3 style="margin-top:0; color:#475569;">Total Reach</h3>';
     echo '<p style="font-size: 36px; font-weight: bold; margin: 10px 0; color:#1e293b;">' . intval($total_queries) . ' <span style="font-size:14px; font-weight:normal; color:#64748b;">Total Queries</span></p>';
     echo '<p style="font-size: 16px; color: #10b981; font-weight: 500; margin:0;">&uarr; ' . intval($today_queries) . ' today</p>';
     echo '</div>';

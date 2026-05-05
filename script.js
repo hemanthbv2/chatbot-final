@@ -997,7 +997,7 @@ const QA = [
     {k:['refund','fee refund','cancellation','cancel admission','get money back','refund policy','aicte refund','money back','paisa wapas'],id:'refund_policy',p:1},
     {k:['syllabus','1st semester syllabus','1st sem syllabus','first semester syllabus','scheme','first year subjects','1st year syllabus','what are we studying','sylly','syll','subjects list','what subjects'],id:'syllabus_1st_sem',p:0.8},
     {k:['innovation team','formula student','uav','ashwa','chimera','jatayu','astra robotics','antariksh','student projects','project teams','racing team','baja','sae','drone team'],id:'innovationTeams',p:1},
-    {k:['cultural life','culture','cultural life','college culture','music club','dance club','theatre','drama','tedx','tedxrvce','rotaract','fest','8th mile','eighth mile','annual fest','college fest','events','college events','cultural events','cultural activities','annual day','culturals','fests','techfest','tech fest'],id:'culturalLife',p:1},
+    {k:['cultural life','culture','college culture','theatre','drama','tedx','tedxrvce','fest','8th mile','eighth mile','annual fest','college fest','cultural events','cultural activities','annual day','culturals','fests','techfest','tech fest'],id:'culturalLife',p:1.5},
     {k:['vision','mission','motto','college vision','rvce vision'],id:'vision',p:1},
     {k:['principal','principal name','who is principal','head of institution','director of rvce','who is the principal','about principal','tell me about principal','princi','whos the princi'],id:'principal',p:1},
     {k:['vice principal','vp','vice-principal','who is vice principal','about vice principal','tell me about vice principal','dr k s geetha','geetha mam'],id:'vice_principal',p:1},
@@ -1007,7 +1007,8 @@ const QA = [
     {k:['coe','coes','centres of excellence','centers of excellence','coe list','research centres','research centers','innovation hubs'],id:'centres_of_excellence',p:1},
     {k:['health center','health centre','doctor','medical','ambulance','sick','hospital','first aid','emergency medical','clinic'],id:'health_centre',p:1},
     {k:['ieee','sae','acm','csi','societies','professional societies','student chapters','chapters'],id:'professional_societies',p:1},
-    {k:['upcoming events','events','calendar','workshops','conferences','what is happening','happening soon','college events'],id:'upcoming_events',p:0.7},
+    {k:['upcoming events','workshops','conferences','what is happening','happening soon'],id:'upcoming_events',p:1.2},
+    {k:['calendar','academic calendar','calendar of events','events','college events'],id:'calendar_events',p:0.7},
     {k:['ranking','nirf','iirf','college ranking','where does rvce rank','ranked','best college','rvce rank','top college','rvce ranking'],id:'ranking',p:1},
     {k:['accreditation','naac','nba','naac grade','naac rating','accredited'],id:'accreditation',p:1},
     {k:['timing','timings','working hours','college hours','college time','what time','opening time','closing time','open close','class timings','college timing','kab khulta','when open'],id:'timings',p:1},
@@ -1053,7 +1054,9 @@ const QA = [
     {k:['rvce','about rvce','college','history','founded','established','overview','abt rvce','whats rvce','what is rvce'],id:'about_rvce',p:3},
     {k:['rvei','about rvei','rsst','institutions','what is rvei','who is rvei','parent organization','who manages','who owns','ownership'],id:'about_rvei',p:3},
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
-    {k:['innovation teams','project teams','team ashwa','ashwa','antariksh','team vyoma','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car','chitrak','dhruva','quantum tech','anoraniya','ham club','amateur radio'],id:'innovationTeams',p:1},
+    {k:['innovation teams','project teams','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car','chitrak','dhruva','quantum tech','anoraniya','ham club','amateur radio'],id:'innovationTeams',p:1.5},
+    {k:['team ashwa','ashwa','racing team','formula student ashwa'],id:'team_ashwa',p:0.6},
+    {k:['team antariksh','antariksh','satellite team','space tech team','rocket team'],id:'team_antariksh',p:0.6},
     {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
@@ -1078,7 +1081,7 @@ const QA = [
     {k:['mandatory disclosure'],id:'mandatory_disclosure',p:1},
     {k:['kannada sangha'],id:'kannada_sangha',p:1},
     {k:['steam team','rvjsteam'],id:'rvjsteam',p:1},
-    {k:['calendar','academic calendar','calendar of events'],id:'calendar_events',p:1},
+    {k:['calendar','academic calendar','calendar of events'],id:'calendar_events',p:0.7},
     {k:['comparison','compare','rvce vs pes','rvce vs msrit','rvce vs bms','rvce vs sit','pes vs rvce','msrit vs rvce','bms vs rvce','which is better','better than rvce','rvce better','college comparison'],id:'college_compare',p:1},
     // ===== MULTI-TURN CONTEXT INTENTS =====
     {k:['tell me more','more about this','more details','elaborate','explain more','more info','more information','can you tell me more','in detail','detailed info','detail','details','expand','continue','go on','aur batao','aur bata'],id:'_more',p:0},
@@ -2132,6 +2135,15 @@ micB.addEventListener('click', () => {
 });
 
 /* =============== TELEMETRY & QUEUE =============== */
+function getSID() {
+    let sid = localStorage.getItem('rvce_sid');
+    if (!sid) {
+        sid = 'sid_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('rvce_sid', sid);
+    }
+    return sid;
+}
+
 const telemetryQueue = [];
 function processTelemetryQueue() {
     if (typeof rvceChatbotAjax === 'undefined' || !rvceChatbotAjax || !rvceChatbotAjax.ajaxUrl || !navigator.onLine || telemetryQueue.length === 0) return;
