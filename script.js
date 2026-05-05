@@ -1535,9 +1535,26 @@ function getRelatedTopics(lastId) {
 function T(f, p) { return tone === 'funny' ? f : p; }
 
 /* =============== RESPONSE GENERATOR =============== */
+function findFacultyBySlug(slug) {
+    if (!KB.faculty) return null;
+    for (const dept in KB.faculty) {
+        for (const f of KB.faculty[dept]) {
+            const fSlug = f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+            if (fSlug === slug) return { f: f, d: dept };
+        }
+    }
+    return null;
+}
+
 function getResponse(id) {
-    const r = { text:'', buttons:[], noMenu:false };
+    const r = { text: '', buttons: [], noMenu: false };
     
+    // Dynamic Faculty Lookup
+    if (id && id.startsWith('fac_')) {
+        const match = findFacultyBySlug(id.replace('fac_', ''));
+        if (match) return renderFaculty(match.f, match.d);
+    }
+
     // Add conversational prefix for non-greeting/bye intents
     if (id !== 'greet' && id !== 'bye' && id !== 'menu') {
         r.text = getPrefix();
@@ -2156,10 +2173,43 @@ function process(rawText) {
         return;
     }
 
-    // Always show the user's actual input text (no auto-replacement)
+    // Always show the user's actual input text
     addUser(text);
     inp.value = '';
     disOld();
+
+    // === DIRECT FACULTY HOOK (Fail-Safe v3.3.3) ===
+    const s = text.toLowerCase().replace(/[^a-z]/g, '');
+    if (s.length >= 3 && KB.faculty) {
+        const matches = [];
+        for (const dept in KB.faculty) {
+            for (const f of KB.faculty[dept]) {
+                const fn = f.n.toLowerCase().replace(/[^a-z]/g, '');
+                const pn = f.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+                if (fn.includes(s) || pn.includes(s) || (s.length > 5 && s.includes(pn))) {
+                    matches.push({f, d: dept});
+                }
+            }
+        }
+        
+        if (matches.length === 1) {
+            const f = matches[0].f;
+            const slug = f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+            botReply(getResponse(`fac_${slug}`));
+            return;
+        } else if (matches.length > 1) {
+            const btns = matches.slice(0, 8).map(m => {
+                const slug = m.f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+                return { l: `${m.f.n} (${m.d.toUpperCase()})`, a: `fac_${slug}`, i: '👨‍🏫' };
+            });
+            botReply({
+                text: T(`I found **${matches.length}** faculty members matching your search. Who are you looking for?`, `I found multiple faculty members. Please choose one:`),
+                buttons: btns,
+                noMenu: true
+            });
+            return;
+        }
+    }
 
     // Classify the intent with confidence detection
     const result = classifyIntent(text);
