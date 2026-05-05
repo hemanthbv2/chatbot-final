@@ -1593,40 +1593,12 @@ function getResponse(id) {
         if (match) return renderFaculty(match.f, match.d);
     }
 
-    switch (id) {  // Add conversational prefix for non-greeting/bye intents
+    // Add conversational prefix for non-greeting/bye intents
     if (id !== 'greet' && id !== 'bye' && id !== 'menu') {
         r.text = getPrefix();
     }
 
     SESSION.lastIntent = id;
-
-    // Faculty Check
-    if (id && id.startsWith('fac_')) {
-        const slug = id.replace('fac_', '');
-        let facultyMember = null;
-        let deptCode = null;
-        for (const dk in KB.faculty) {
-            const found = KB.faculty[dk].find(f => f.n.toLowerCase().replace(/[^a-z0-9]/g, '') === slug);
-            if (found) { facultyMember = found; deptCode = dk; break; }
-        }
-
-        if (facultyMember) {
-            const deptName = KB.departments.ug.find(d => d.c === deptCode)?.n || 
-                             KB.departments.pg.find(d => d.c === deptCode)?.n || 
-                             deptCode.toUpperCase();
-
-            r.text = T(`Found them! 👩‍🏫 **${facultyMember.n}** is a member of the **${deptName}** department.`,
-                       `Faculty Profile: **${facultyMember.n}**\nDepartment: ${deptName}`);
-            r.text += `\n\n**Role:** ${facultyMember.r}`;
-            r.buttons = [{ l: 'View Profile 🌐', u: facultyMember.u, i: '👤' }];
-            
-            // Add department button if it's a real department
-            if (deptCode !== 'deans') {
-                r.buttons.push({ l: `${deptCode.toUpperCase()} Dept 📚`, a: `dept_${deptCode}`, i: '🏫' });
-            }
-            return r;
-        }
-    }
 
     switch(id) {
     case 'greet':
