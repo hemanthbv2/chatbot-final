@@ -252,7 +252,7 @@ const KB = {
                 n:"Civil Engineering (CV)",
                 c:"cv", 
                 u:"https://rvce.edu.in/department/civil_engineering/department-of-civil-engineering/", 
-                hod:"Dr. Radhakrishna",
+                hod:"Dr. Anjaneyappa",
                 info: "Established in 1963, the department offers NBA-accredited B.E. in Civil Engineering and M.Tech in Structural Engineering & Highway Technology. It is a recognized VTU research centre.",
                 about: "https://rvce.edu.in/department/civil_engineering/about-the-department/",
                 syllabus: "https://rvce.edu.in/department/civil_engineering/academic-planning/",
@@ -482,19 +482,19 @@ const KB = {
             }
         ],
         pg: [
-            {n:"M.Tech Biotechnology",c:"bt", u:"https://rvce.edu.in/department/biotechnology/department-of-biotechnology/"},
-            {n:"M.Tech Structural Engg",c:"cv_se", u:"https://rvce.edu.in/department/civil_engineering/m_tech_structural_engineering/"},
-            {n:"M.Tech Highway Tech",c:"cv_ht", u:"https://rvce.edu.in/department/civil_engineering/m-tech-highway-technology/"},
-            {n:"M.Tech CSE",c:"cs_cse", u:"https://rvce.edu.in/department/cse/m-tech-cse/"},
-            {n:"M.Tech Computer Network Engg",c:"cs_cne", u:"https://rvce.edu.in/department/cse/m-tech-cne/"},
-            {n:"M.Tech Power Electronics",c:"ee_pe", u:"https://rvce.edu.in/department/eee/mtech_in_power_electronics/"},
-            {n:"M.Tech VLSI & Embedded",c:"ec_vlsi", u:"https://rvce.edu.in/department/ece/m-tech-in-vlsi-design-embedded-systems/"},
-            {n:"M.Tech Comm Systems",c:"ec_cs", u:"https://rvce.edu.in/department/ece/master-of-technology-in-m-tech-communication-systems/"},
-            {n:"M.Tech Software Engg",c:"is_se", u:"https://rvce.edu.in/department/ise/ise-mtech-in-software-engineering/"},
-            {n:"M.Tech Info Tech",c:"is_it", u:"https://rvce.edu.in/department/ise/ise_mtech_in_information_technology/"},
-            {n:"M.Tech Product Design",c:"me_pd", u:"https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/"},
-            {n:"M.Tech Machine Design",c:"me_md", u:"https://rvce.edu.in/department/me/mtech-in-machine-design/"},
-            {n:"M.Tech Digital Comm",c:"et_dc", u:"https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/"},
+            {n:"M.Tech Biotechnology",c:"bt", hod:"Dr. Nagashree N Rao", u:"https://rvce.edu.in/department/biotechnology/department-of-biotechnology/"},
+            {n:"M.Tech Structural Engg",c:"cv_se", hod:"Dr. Anjaneyappa", u:"https://rvce.edu.in/department/civil_engineering/m_tech_structural_engineering/"},
+            {n:"M.Tech Highway Tech",c:"cv_ht", hod:"Dr. Anjaneyappa", u:"https://rvce.edu.in/department/civil_engineering/m-tech-highway-technology/"},
+            {n:"M.Tech CSE",c:"cs_cse", hod:"Dr. Shanta Rangaswamy", u:"https://rvce.edu.in/department/cse/m-tech-cse/"},
+            {n:"M.Tech Computer Network Engg",c:"cs_cne", hod:"Dr. Shanta Rangaswamy", u:"https://rvce.edu.in/department/cse/m-tech-cne/"},
+            {n:"M.Tech Power Electronics",c:"ee_pe", hod:"Dr. J N Hemalatha", u:"https://rvce.edu.in/department/eee/mtech_in_power_electronics/"},
+            {n:"M.Tech VLSI & Embedded",c:"ec_vlsi", hod:"Dr. Ravish Aradhya H V", u:"https://rvce.edu.in/department/ece/m-tech-in-vlsi-design-embedded-systems/"},
+            {n:"M.Tech Comm Systems",c:"ec_cs", hod:"Dr. Ravish Aradhya H V", u:"https://rvce.edu.in/department/ece/master-of-technology-in-m-tech-communication-systems/"},
+            {n:"M.Tech Software Engg",c:"is_se", hod:"Dr. Mamatha G S", u:"https://rvce.edu.in/department/ise/ise-mtech-in-software-engineering/"},
+            {n:"M.Tech Info Tech",c:"is_it", hod:"Dr. Mamatha G S", u:"https://rvce.edu.in/department/ise/ise_mtech_in_information_technology/"},
+            {n:"M.Tech Product Design",c:"me_pd", hod:"Dr. Shanmukha N", u:"https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/"},
+            {n:"M.Tech Machine Design",c:"me_md", hod:"Dr. Shanmukha N", u:"https://rvce.edu.in/department/me/mtech-in-machine-design/"},
+            {n:"M.Tech Digital Comm",c:"et_dc", hod:"Dr. Nagamani K", u:"https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/"},
             {
                 n:"Master of Computer Applications (MCA)",
                 c:"mca", 
@@ -1769,11 +1769,11 @@ function getResponse(id) {
         r.noMenu = true; break;
     case 'deans_list':
         r.text += T("Here are the top commanders at RVCE! ⚓\n\n","RVCE Deans & Key Executives:\n\n");
-        r.text += "• **Principal:** Dr. K.N. Subramanya\n• **Vice Principal:** Dr. K. S. Geetha\n• **Dean Academics:** Dr. Shanmukha Nagaraj\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Skill Dev:** Dr. M Krishna";
+        r.text += "• **Principal:** Dr. K.N. Subramanya\n• **Vice Principal:** Dr. K. S. Geetha\n• **Dean Academics:** Dr. M.V. Renukadevi\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Skill Dev:** Dr. M Krishna";
         r.buttons = [{l:'HODs List 📚',a:'hods_list',i:'👩‍🏫'}, {l:'Key Executives Page',u:'https://rvce.edu.in/about_us/key-executives/',i:'🌐'}]; break;
     case 'hods_list':
         r.text += T("Here are the Heads of Departments (HODs): 📚\n\n","RVCE Head of Departments:\n\n");
-        r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha N\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha\n• **Aerospace:** Dr. R Supreeth\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. Shireesha Golla\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
+        r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha N\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha\n• **Aerospace:** Dr. Supreeth R\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. Shireesha Golla\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
         r.buttons = [{l:'Deans List 🎓',a:'deans_list',i:'👨‍🏫'}, {l:'Key Executives Page',u:'https://rvce.edu.in/about_us/key-executives/',i:'🌐'}]; break;
     case 'dress_code':
         r.text += T("Dress sharp! 👔 No shorts or ripped jeans. Casuals are okay, but labs require safety gear (Khakis/Aprons)!",
@@ -2467,9 +2467,10 @@ function process(rawText) {
 function renderDepartment(d) {
     if (!d) return { text: T("I couldn't find details for that department. Please try again or check the main menu. 📋", "I couldn't find details for that department. Please try again or check the main menu."), buttons: [{l:'Main Menu',a:'menu',i:'📋'}] };
     const r = { text: '', buttons: [], noMenu: false };
+    const hod = d.hod || "Faculty Leadership";
     r.text = T(
-        `**${d.n}** 🎯\n👨‍🏫 HOD: ${d.hod}\n\n*${d.info || "Explore the options below to learn more about this department."}*`,
-        `Department: ${d.n}\nHead of Department: ${d.hod}\n\n${d.info || ""}`
+        `**${d.n}** 🎯\n👨‍🏫 HOD: ${hod}\n\n*${d.info || "Explore the options below to learn more about this department."}*`,
+        `Department: ${d.n}\nHead of Department: ${hod}\n\n${d.info || ""}`
     );
     r.buttons = [{l:'Main Page',u:d.u,i:'🌐'}];
     if (d.about) r.buttons.push({l:'About Dept',u:d.about,i:'ℹ️'});
@@ -2477,6 +2478,7 @@ function renderDepartment(d) {
     if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
     if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
     if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
+    r.buttons.push({l:'All Departments',a:'departments',i:'🔙'});
     return r;
 }
 
@@ -2545,22 +2547,6 @@ function addBotWarn(text) {
 
 
 
-function renderDepartment(d) {
-    if (!d) return { text: T("I couldn't find details for that department. Please try again or check the main menu. 📋", "I couldn't find details for that department. Please try again or check the main menu."), buttons: [{l:'Main Menu',a:'menu',i:'📋'}] };
-    const r = { text: '', buttons: [], noMenu: false };
-    r.text = T(
-        `**${d.n}** 🎯\n👨‍🏫 HOD: ${d.hod}\n\n*${d.info || "Explore the options below to learn more about this department."}*`,
-        `Department: ${d.n}\nHead of Department: ${d.hod}\n\n${d.info || ""}`
-    );
-    r.buttons = [{l:'Main Page',u:d.u,i:'🌐'}];
-    if (d.about) r.buttons.push({l:'About Dept',u:d.about,i:'ℹ️'});
-    if (d.syllabus) r.buttons.push({l:'Syllabus',u:d.syllabus,i:'📚'});
-    if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
-    if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
-    if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
-    r.buttons.push({l:'All Departments',a:'departments',i:'🔙'});
-    return r;
-}
 
 function renderHODCard(d) {
     const r = { text: '', buttons: [], noMenu: true };
