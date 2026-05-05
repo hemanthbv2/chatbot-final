@@ -1244,31 +1244,7 @@ const ABBR = {
 // Returns { type: 'exact'|'keyword'|'fuzzy'|null, id: string|null, suggestions: string[] }
 function classifyIntent(input) {
     const cleanInput = sanitize(input).toLowerCase();
-    // === ULTRA-AGGRESSIVE FACULTY SEARCH v3.3.2 ===
-    if (KB.faculty) {
-        const s = cleanInput.replace(/[^a-z]/g, '');
-        if (s.length >= 3) {
-            for (const deptCode in KB.faculty) {
-                for (const fac of KB.faculty[deptCode]) {
-                    const fn = fac.n.toLowerCase().replace(/[^a-z]/g, '');
-                    const pn = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
-                    
-                    if (fn.includes(s) || pn.includes(s) || s.includes(pn)) {
-                        const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-                        console.log("[Chatbot] Faculty Match Found:", finalId);
-                        return { type: 'exact', id: finalId, suggestions: [] };
-                    }
-                }
-            }
-        }
-    }
-    
-    // 0. High-Priority Faculty Search (Legacy Fallback)
-    const facultyMatch = findFacultyMatch(cleanInput);
-    if (facultyMatch) {
-        return { type: 'exact', id: facultyMatch, suggestions: [] };
-    }
-    
+
     // 0. Abbreviation Check
     if (ABBR[cleanInput]) return { type: 'fuzzy', id: null, suggestions: [ABBR[cleanInput]] };
 
@@ -1324,7 +1300,31 @@ function classifyIntent(input) {
     }
     if (best) return { type: 'keyword', id: best, suggestions: [] };
 
-    // 4. Fuzzy match: no exact keyword found, try "Did you mean?" suggestions
+    // 4. Ultra-Aggressive Faculty Search (Fallback)
+    if (KB.faculty) {
+        const s = cleanInput.replace(/[^a-z]/g, '');
+        if (s.length >= 3) {
+            for (const deptCode in KB.faculty) {
+                for (const fac of KB.faculty[deptCode]) {
+                    const fn = fac.n.toLowerCase().replace(/[^a-z]/g, '');
+                    const pn = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+                    
+                    if (fn.includes(s) || pn.includes(s) || s.includes(pn)) {
+                        const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+                        return { type: 'exact', id: finalId, suggestions: [] };
+                    }
+                }
+            }
+        }
+    }
+    
+    // 4.5 High-Priority Faculty Search (Legacy Fallback)
+    const facultyMatch = findFacultyMatch(cleanInput);
+    if (facultyMatch) {
+        return { type: 'exact', id: facultyMatch, suggestions: [] };
+    }
+
+    // 5. Fuzzy match: no exact keyword found, try "Did you mean?" suggestions
     const suggestions = findSuggestions(input);
     if (suggestions.length > 0) return { type: 'fuzzy', id: null, suggestions };
 
