@@ -2475,23 +2475,10 @@ function botReply(r) {
     setTimeout(()=>{
         hideTyp();
         addBot(r.text,r.buttons,r.noMenu);
-        if (isVoiceInteraction) {
-            speakText(r.text);
-            isVoiceInteraction = false;
-        }
     },d);
 }
 
-function speakText(text) {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-    // Clean text: remove emojis and markdown bolding so it sounds natural
-    let cleanText = (text || '').replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
-    cleanText = cleanText.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*/g, '');
-    const u = new SpeechSynthesisUtterance(cleanText);
-    u.lang = 'en-IN'; // Indian English pronunciation
-    window.speechSynthesis.speak(u);
-}
+
 
 function showMenu() {
     const btns=[
