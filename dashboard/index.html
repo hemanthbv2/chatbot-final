@@ -83,9 +83,11 @@
                 <h1>RVCE Chatbot Analytics <span class="badge">Standalone Mode</span></h1>
                 <p style="color: var(--text-dim); margin-top: 5px;">Local browser-based tracking (pre-integration)</p>
             </div>
-            <div style="display: flex; gap: 12px;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+                <input type="date" id="dateFilter" class="refresh-btn" style="background: var(--card); color: var(--text);" onchange="render()">
                 <button class="refresh-btn" onclick="render()">🔄 Sync</button>
-                <button class="refresh-btn" style="background: var(--success); color: white;" onclick="generateTestData()">🧪 Mock Session</button>
+                <button class="refresh-btn" style="background: #2563eb; color: white;" onclick="downloadCSV()">📥 Export CSV</button>
+                <button class="refresh-btn" style="background: var(--success); color: white;" onclick="generateTestData()">🧪 Mock</button>
                 <button class="refresh-btn" style="background: var(--primary); color: white;" onclick="clearAllData()">🗑️ Reset</button>
             </div>
         </header>
@@ -140,7 +142,13 @@
         let chart = null;
 
         function render() {
-            const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            let logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            
+            // Apply Date Filter
+            const filterDate = document.getElementById('dateFilter').value;
+            if (filterDate) {
+                logs = logs.filter(l => new Date(l.d).toISOString().split('T')[0] === filterDate);
+            }
             
             // Total & Today
             document.getElementById('totalInteractions').textContent = logs.length;
@@ -239,6 +247,32 @@
                 localStorage.removeItem('rvce_standalone_logs');
                 render();
             }
+        }
+
+        function downloadCSV() {
+            const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            if (logs.length === 0) { alert("No data to download!"); return; }
+
+            let csv = "Timestamp,SessionID,Query,Intent\n";
+            logs.forEach(l => {
+                const row = [
+                    l.d,
+                    l.s || 'anon',
+                    `"${l.q.replace(/"/g, '""')}"`,
+                    l.i
+                ].join(",");
+                csv += row + "\n";
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('hidden', '');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `rvce_chat_logs_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
         }
 
         render();
