@@ -1053,7 +1053,7 @@ const QA = [
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
-    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address'],id:'contact',p:3},
+    {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','phone number','contact number','college address','rvce address','num'],id:'contact',p:2},
     {k:['menu','main menu','options','help','start','what can you do','show menu','halp','commands'],id:'menu',p:3},
     // ===== PARENT-SPECIFIC INTENTS =====
     {k:['safe','safety','is it safe','is my child safe','is my daughter safe','security','cctv','campus security','safe for girls','is rvce safe','how safe','secure','campus safety','child safety','girl safety','daughter safety','women safety'],id:'safety',p:0.8},
@@ -1140,8 +1140,8 @@ if (KB.faculty) {
             const full = fac.n.toLowerCase();
             const plain = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').trim().toLowerCase();
             const slug = full.replace(/[^a-z0-9]/g, '');
-            // Priority 0 ensures it matches before anything else
-            QA.push({ k: [full, plain], id: `fac_${slug}`, p: 0 });
+            // Priority 4 ensures it matches AFTER common command keywords (p=1-3)
+            QA.push({ k: [full, plain], id: `fac_${slug}`, p: 4 });
         });
     });
 }
@@ -2216,38 +2216,7 @@ function process(rawText) {
     inp.value = '';
     disOld();
 
-    // === DIRECT FACULTY HOOK (Fail-Safe v3.3.3) ===
-    const s = text.toLowerCase().replace(/[^a-z]/g, '');
-    if (s.length >= 3 && KB.faculty) {
-        const matches = [];
-        for (const dept in KB.faculty) {
-            for (const f of KB.faculty[dept]) {
-                const fn = f.n.toLowerCase().replace(/[^a-z]/g, '');
-                const pn = f.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
-                if (fn.includes(s) || pn.includes(s) || (s.length > 5 && s.includes(pn))) {
-                    matches.push({f, d: dept});
-                }
-            }
-        }
-        
-        if (matches.length === 1) {
-            const f = matches[0].f;
-            const slug = f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
-            botReply(getResponse(`fac_${slug}`));
-            return;
-        } else if (matches.length > 1) {
-            const btns = matches.slice(0, 8).map(m => {
-                const slug = m.f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
-                return { l: `${m.f.n} (${m.d.toUpperCase()})`, a: `fac_${slug}`, i: '👨‍🏫' };
-            });
-            botReply({
-                text: T(`I found **${matches.length}** faculty members matching your search. Who are you looking for?`, `I found multiple faculty members. Please choose one:`),
-                buttons: btns,
-                noMenu: true
-            });
-            return;
-        }
-    }
+
 
     // Classify the intent with confidence detection
     const result = classifyIntent(text);
@@ -2363,6 +2332,41 @@ function process(rawText) {
         }));
         botReply(r);
     } else {
+        // === DIRECT FACULTY HOOK (Fail-Safe v3.3.3) — Last Resort ===
+        const s = text.toLowerCase().replace(/[^a-z]/g, '');
+        if (s.length >= 3 && KB.faculty) {
+            const matches = [];
+            for (const dept in KB.faculty) {
+                for (const f of KB.faculty[dept]) {
+                    const fn = f.n.toLowerCase().replace(/[^a-z]/g, '');
+                    const pn = f.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
+                    if (fn.includes(s) || pn.includes(s) || (s.length > 5 && s.includes(pn))) {
+                        matches.push({f, d: dept});
+                    }
+                }
+            }
+            
+            if (matches.length === 1) {
+                const f = matches[0].f;
+                const slug = f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+                logChatInteraction(text, `fac_${slug}`);
+                botReply(getResponse(`fac_${slug}`));
+                return;
+            } else if (matches.length > 1) {
+                logChatInteraction(text, 'fac_multi');
+                const btns = matches.slice(0, 8).map(m => {
+                    const slug = m.f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+                    return { l: `${m.f.n} (${m.d.toUpperCase()})`, a: `fac_${slug}`, i: '👨‍🏫' };
+                });
+                botReply({
+                    text: T(`I found **${matches.length}** faculty members matching your search. Who are you looking for?`, `I found multiple faculty members. Please choose one:`),
+                    buttons: btns,
+                    noMenu: true
+                });
+                return;
+            }
+        }
+
         logChatInteraction(text, 'unmatched');
         // No match at all
         const r = { text: '', buttons: [], noMenu: false };
