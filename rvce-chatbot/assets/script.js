@@ -1054,10 +1054,11 @@ const QA = [
     {k:['rvce','about rvce','college','history','founded','established','overview','abt rvce','whats rvce','what is rvce'],id:'about_rvce',p:3},
     {k:['rvei','about rvei','rsst','institutions','what is rvei','who is rvei','parent organization','who manages','who owns','ownership'],id:'about_rvei',p:3},
     {k:['campus life','student life','extracurricular','clubs','life at rvce','campus','student experience','college life','clg life','lyf at rvce','vibes','campus vibes','college scene'],id:'campusLife',p:1.5},
-    {k:['innovation teams','project teams','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car','chitrak','dhruva','quantum tech','anoraniya','ham club','amateur radio'],id:'innovationTeams',p:1.5},
+    {k:['innovation teams','project teams','team chimera','team astra','team ojas','team jatayu','rv racing','formula student','satellite team','racing car','electric car','chitrak','dhruva','quantum tech','anoraniya','ham club','amateur radio','vyoma','team vyoma','astra robotics','project garuda','team chitrak','quantum technology','uav','drone','drones'],id:'innovationTeams',p:1.5},
     {k:['team ashwa','ashwa','racing team','formula student ashwa'],id:'team_ashwa',p:0.6},
     {k:['team antariksh','antariksh','satellite team','space tech team','rocket team'],id:'team_antariksh',p:0.6},
-    {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract'],id:'culturalTeams',p:1},
+    {k:['team vyoma','vyoma','uav team','drone team','aero design team'],id:'team_vyoma',p:0.6},
+    {k:['cultural teams','cultural clubs','alaap','raaga','carv','debsoc','quizcorp','photography club','literary society','rotaract','tedx','tedxrvce','namma rvce','kannada sangha','coding club','robotics club','nss','ncc','ham club'],id:'culturalTeams',p:1},
     {k:['dress code','uniform','what to wear','clothes allowed','is there a uniform','can i wear shorts','can i wear jeans','dress rules','formals','casuals allowed','shorts allowed'],id:'dress_code',p:0.8},
     {k:['anti ragging','ragging','helpline','report ragging','ragging completely banned','bullied','harassed','ragging helpline','rag','ragging scene','ragging hota hai','seniors bully'],id:'anti_ragging',p:0.8},
     {k:['contact','phone','email','address','location','where is rvce','map','direction','call','bengaluru','bangalore','college address','rvce address','enquiry','enquiries','enqiry'],id:'contact',p:2},
@@ -2006,6 +2007,10 @@ function getResponse(id) {
     case 'team_antariksh':
     case 'antariksh':
         r.text += T("Team Antariksh is reaching for the stars! 🛰️✨\n\nIn December 2024, they successfully launched **RVSat-1** aboard ISRO's PSLV C-60! It carried India's first student-developed microbiological payload. They also launched the **Ananta** rocket to 1km apogee!","Team Antariksh (Space Technology):\n\nTeam Antariksh focuses on aerospace and space tech. Their recent highlights include the RVSat-1 satellite launch with ISRO and the Ananta rocket launch in 2024.");
+        r.buttons = [{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
+    case 'team_vyoma':
+    case 'vyoma':
+        r.text += T("Team Vyoma is the king of the skies! 🛸🦅\n\nThey are RVCE's premier Aero-design and UAV team. In 2024, they were named the **'Best Overall Performer'**! They design autonomous drones, heavy-lift UAVs, and innovative aircraft for global competitions like SAE Aero Design.","Team Vyoma (Aero-design):\n\nTeam Vyoma is the aerospace and UAV project team. They achieved the 'Best Overall Performer' award in 2024 for their drone technology and SAE competition success.");
         r.buttons = [{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
     case 'culturalTeams':
         r.text += T("Campus is always buzzing! 💃🎶 From dance to music, we've got it all!","Cultural Teams & Clubs at RVCE:");
