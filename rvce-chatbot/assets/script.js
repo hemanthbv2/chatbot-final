@@ -1710,6 +1710,18 @@ function getResponse(id) {
             {l:'Admissions Info',a:'admissions',i:'🎓'},
             {l:'Fee Payment Circulars',u:'https://rvce.edu.in/academics_and_examinations/fee_payment_circulars/',i:'💰'}
         ]; break;
+    case 'contact':
+    case 'address':
+    case 'location':
+        r.text += T("You can find us here! 📍","Official Contact Details:");
+        r.text += "\n\n**Address:**\n" + KB.contact.address;
+        r.text += "\n\n**Phone:**\n" + KB.contact.phone;
+        r.text += "\n\n**Email:**\n" + KB.contact.email;
+        r.buttons = [
+            {l:'View on Maps',u:KB.contact.maps,i:'📍'},
+            {l:'Contact Page',u:'https://rvce.edu.in/contact-us/',i:'📞'},
+            {l:'Main Menu',a:'menu',i:'📋'}
+        ]; break;
     case 'placements':
         r.text += T("Our record is legendary! 🚀","Placement Statistics (2025 Batch):");
         r.text += "\n• Max: " + KB.placements.maxSalary + "\n• Avg: " + KB.placements.avgSalary + "\n• " + KB.placements.offers + "\n• " + KB.placements.companies + "\n• Top Recruiters: " + KB.placements.recruiters;
