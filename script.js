@@ -147,8 +147,8 @@ const KB = {
         motto: "Excellence in Education with Societal Commitment."
     },
     placements: {
-        companies: "260+ companies participated in the 2025 campus drive", avgSalary: "~₹15-17 LPA (2025 B.E. Avg)",
-        maxSalary: "₹67 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
+        companies: "260+ companies participated (2025 Batch)", avgSalary: "~₹10 LPA (2025 Avg so far)",
+        maxSalary: "₹50 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
         scholarships: "₹72+ Lakhs awarded to ~110 students annually from ABB, Boeing, CTS",
         infra: "800+ systems, seminar halls, 6 interview rooms, 2 GD rooms",
         offers: "800+ offers to B.E./B.Tech students (2025 Batch)",
@@ -323,7 +323,7 @@ const KB = {
                 n:"Electrical & Electronics (EEE)",
                 c:"ee", 
                 u:"https://rvce.edu.in/department/eee/main_department/", 
-                hod:"Dr. S G Srivani",
+                hod:"Dr. J N Hemalatha (I/c)",
                 info: "Since 1963, the EEE department has been a hub of academic excellence. It offers B.E. and M.Tech in Power Electronics, focusing on renewable energy, smart grids, and industrial automation.",
                 about: "https://rvce.edu.in/department/eee/about_the_department/",
                 syllabus: "https://rvce.edu.in/department/eee/academic_planning/",
@@ -363,7 +363,7 @@ const KB = {
                 n:"Electronics & Instrumentation (EIE)",
                 c:"ei", 
                 u:"https://rvce.edu.in/department/eim/main_dept/", 
-                hod:"Dr. Padmaja K V",
+                hod:"Dr. CH. Renumadhavi",
                 info: "Established in 1981, the department offers an NBA-accredited curriculum that is regularly updated to meet industry demands, featuring modern laboratories for hands-on learning and innovation in automation and control.",
                 about: "https://rvce.edu.in/department/eim/about_dept/",
                 syllabus: "https://rvce.edu.in/department/eim/academic_planning/",
@@ -445,7 +445,7 @@ const KB = {
                 n:"Mechanical Engineering (ME)",
                 c:"me", 
                 u:"https://rvce.edu.in/department/me/b_e_mechanical/", 
-                hod:"Dr. Shanmukha N",
+                hod:"Dr. Shanmukha Nagaraj",
                 info: "Dedicated to fostering innovation and excellence in Mechanical Engineering. Offers premier education and cultivates cutting-edge research in Design, Materials, Thermal and Manufacturing, strengthened by robust industry collaborations.",
                 about: "https://rvce.edu.in/department/me/about_the_department/",
                 syllabus: "https://rvce.edu.in/department/me/academic_planning/",
@@ -492,8 +492,8 @@ const KB = {
             {n:"M.Tech Comm Systems",c:"ec_cs", hod:"Dr. Ravish Aradhya H V", u:"https://rvce.edu.in/department/ece/master-of-technology-in-m-tech-communication-systems/"},
             {n:"M.Tech Software Engg",c:"is_se", hod:"Dr. Mamatha G S", u:"https://rvce.edu.in/department/ise/ise-mtech-in-software-engineering/"},
             {n:"M.Tech Info Tech",c:"is_it", hod:"Dr. Mamatha G S", u:"https://rvce.edu.in/department/ise/ise_mtech_in_information_technology/"},
-            {n:"M.Tech Product Design",c:"me_pd", hod:"Dr. Shanmukha N", u:"https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/"},
-            {n:"M.Tech Machine Design",c:"me_md", hod:"Dr. Shanmukha N", u:"https://rvce.edu.in/department/me/mtech-in-machine-design/"},
+            {n:"M.Tech Product Design",c:"me_pd", hod:"Dr. Shanmukha Nagaraj", u:"https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/"},
+            {n:"M.Tech Machine Design",c:"me_md", hod:"Dr. Shanmukha Nagaraj", u:"https://rvce.edu.in/department/me/mtech-in-machine-design/"},
             {n:"M.Tech Digital Comm",c:"et_dc", hod:"Dr. Nagamani K", u:"https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/"},
             {
                 n:"Master of Computer Applications (MCA)",
@@ -524,17 +524,17 @@ const KB = {
         url: "https://rvce.edu.in/facilities/"
     },
     placements2025: {
-        maxSalary: "₹67 LPA Highest Package (2025 Batch, B.E.)",
+        maxSalary: "₹50 LPA Highest Package (2025 Batch, B.E.)",
         mtechMax: "₹35 LPA (M.Tech highest)",
         mcaMax: "₹20 LPA (MCA highest)",
-        avgSalary: "~₹15-17 LPA (2025 B.E. Avg)",
+        avgSalary: "~₹10 LPA (2025 B.E. Avg so far)",
         companies: "260+ companies participated in 2025 drive",
         offers: "800+ offers to B.E./B.Tech students",
         topRecruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz"
     },
     placements2024: {
         maxSalary: "₹92 LPA Highest Package (2024 Batch)",
-        avgSalary: "~₹35 LPA (2024 Avg)",
+        avgSalary: "~₹11.5 LPA (2024 Avg)",
         companies: "249 companies participated in 2024 drive",
         offers: "917 total offers with 75% placement rate"
     },
@@ -567,7 +567,7 @@ const KB = {
     campus: {
         fest: "8th Mile (Annual Technocultural Fest)",
         clubs: ["Alaap (Music)", "Raaga (Dance)", "TEDxRVCE", "CARV (Cultural)", "Entrepreneurship Cell (E-Cell)", "Namma RVCE (Social)", "DebSoc", "QuizCorp", "Photography Club", "Literary Society", "Kannada Sangha", "Rotaract Club", "Coding Club", "Robotics Club", "NSS", "NCC", "RVCE Ham Club (Amateur Radio)"],
-        teams: ["Team Ashwa (Formula Student Racing)", "Team Antariksh (Space Tech & Rockets)", "Team Vyoma (Aero-design & UAVs)", "Team Chimera (Hybrid/Electric Racing)", "ASTRA Robotics (AI & Automation)", "Team Jatayu (Autonomous UAVs)", "Project Garuda (Super Mileage EV)", "Team Chitrak (Electric Motorcycles)", "Anoraniya (Quantum Technology)", "dhRuVa (Astronomy & Space Research)"],
+        teams: ["Team Ashwa (Formula Student Racing)", "Team dhRuVa (Solar Car Team)", "Team Antariksh (Satellite & Space Tech)", "ASTRA Robotics (Competitive Robotics)", "Team Chimera (Hybrid Engine Vehicle)", "Team Vyoma (UAS & Drones)", "Team Garuda (Supermileage Vehicle)", "Team Jatayu (Autonomous UAVs)", "Team Helios Racing (ATV/Baja Racing)"],
         societies: ["IEEE RVCE", "SAE RVCE", "ACM Student Chapter", "CSI Student Chapter"],
         urls: {
             innovation: "https://rvce.edu.in/innovative_teams/",
@@ -1456,7 +1456,7 @@ function getDeepInfo(lastId) {
         'departments': () => {
             r.text = T("RVCE has departments across multiple levels! 📚","Department Overview:");
             r.text += "\n\n**UG Programs (B.E.):** " + KB.departments.ug.length + " departments\n**PG Programs (M.Tech/MCA):** " + KB.departments.pg.length + " programs\n**PhD:** Available in all departments with 15 VTU-recognized Research Centres";
-            r.text += "\n\n**Top Departments:**\n• CSE — HOD: Dr. Shanta Rangaswamy\n• AIML — HOD: Dr. Sathish Babu B\n• ECE — HOD: Dr. Ravish Aradhya H V\n• ISE — HOD: Dr. Mamatha G S\n• ME — HOD: Dr. Shanmukha N";
+            r.text += "\n\n**Top Departments:**\n• CSE — HOD: Dr. Shanta Rangaswamy\n• AIML — HOD: Dr. Sathish Babu B\n• ECE — HOD: Dr. Ravish Aradhya H V\n• ISE — HOD: Dr. Mamatha G S\n• ME — HOD: Dr. Shanmukha Nagaraj";
             r.buttons = [{l:'UG Programs',a:'ugPrograms',i:'🎓'},{l:'PG Programs',a:'pgPrograms',i:'📘'},{l:'All HODs',a:'hods_list',i:'👩‍🏫'}];
         },
         'research': () => {
@@ -1730,11 +1730,11 @@ function getResponse(id) {
         r.noMenu = true; break;
     case 'deans_list':
         r.text += T("Here are the top commanders at RVCE! ⚓\n\n","RVCE Deans & Key Executives:\n\n");
-        r.text += "• **Principal:** Dr. K.N. Subramanya\n• **Vice Principal:** Dr. K. S. Geetha\n• **Dean Academics:** Dr. M.V. Renukadevi\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Skill Dev:** Dr. M Krishna";
+        r.text += "• **Principal:** Dr. K.N. Subramanya\n• **Vice Principal:** Dr. K. S. Geetha\n• **Dean Academics:** Dr. M.V. Renukadevi\n• **Dean Student Affairs:** Dr. B.M. Sagar\n• **Dean R&D:** Dr. M Uttara Kumari\n• **Dean CSE Cluster:** Dr. Ramakanth Kumar P\n• **Dean PG Circuit:** Dr. K Sreelakshmi\n• **Dean PG Non-Circuit:** Dr. Radhakrishna\n• **Dean Skill Dev:** Dr. M Krishna\n• **Dean Placement & Training:** Dr. D. Ranganath\n• **Dean Global Partnerships:** Dr. J R Nataraj";
         r.buttons = [{l:'HODs List 📚',a:'hods_list',i:'👩‍🏫'}, {l:'Key Executives Page',u:'https://rvce.edu.in/about_us/key-executives/',i:'🌐'}]; break;
     case 'hods_list':
         r.text += T("Here are the Heads of Departments (HODs): 📚\n\n","RVCE Head of Departments:\n\n");
-        r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha N\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha\n• **Aerospace:** Dr. Supreeth R\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. Shireesha Golla\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
+        r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha Nagaraj\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha (I/c)\n• **Aerospace:** Dr. Supreeth R\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **EIE:** Dr. CH. Renumadhavi\n• **ETE:** Dr. Nagamani K\n• **IEM:** Dr. Rajeswara Rao K V S\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. G. Shireesha\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
         r.buttons = [{l:'Deans List 🎓',a:'deans_list',i:'👨‍🏫'}, {l:'Key Executives Page',u:'https://rvce.edu.in/about_us/key-executives/',i:'🌐'}]; break;
     case 'dress_code':
         r.text += T("Dress sharp! 👔 No shorts or ripped jeans. Casuals are okay, but labs require safety gear (Khakis/Aprons)!",
