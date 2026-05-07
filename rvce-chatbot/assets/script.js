@@ -1731,7 +1731,7 @@ function startRVCEChatbot() {
                 r.text += T("RVCE has 30+ Centres of Excellence! 🔬 These are high-end research hubs with global partners:", "Centres of Excellence (COEs) Details:");
                 r.text += "\n\n• **Boston AI CoE**: 1-PetaFLOP Graphcore AI server 🧠\n• **Materials Fabrication (MFC)**: Advanced characterization labs.\n• **Cisco IoT**: Industry-funded smart networking lab.\n• **Hydrogen Tech**: Clean energy with Dover India.\n• **Quantum Tech**: Advanced computing research (CIRCUIT).\n• **Toyota Automotive**: Engine and vehicle engineering centre.\n• **XR Center**: VR/AR for research and education.";
                 r.text += "\n\n**Industry Competence Centres (CoCs):**\n• " + KB.general.cocs.join("\n• ");
-                r.buttons = [{ l: 'Collaborations 🤝', a: 'collaborations', i: '🤝' }, { l: 'Research Home', a: 'research', i: '🔬' }, { l: 'Full CoE List', u: 'https://rvce.edu.in/research_consulting/', i: '🌐' }]; break;
+                r.buttons = [{ l: 'Collaborations 🤝', a: 'collaborations', i: '🤝' }, { l: 'Research Home', a: 'research', i: '🔬' }, { l: 'Full CoE List', u: 'https://rvce.edu.in/research_consulting/centre-of-excellence/', i: '🌐' }]; break;
             case 'collaborations':
             case 'partnerships':
                 r.text += T("RVCE is a hub for industry tie-ups! 🤝 We have 200+ MoUs with global giants:", "Industry Collaborations & MoUs:");
