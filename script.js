@@ -147,11 +147,11 @@ const KB = {
         motto: "Excellence in Education with Societal Commitment."
     },
     placements: {
-        companies: "260+ companies participated (2025 Batch)", avgSalary: "~₹10 LPA (2025 Avg so far)",
-        maxSalary: "₹50 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
+        companies: "262 companies participated (2025 Batch)", avgSalary: "₹13.76 LPA (2025 Avg)",
+        maxSalary: "₹67 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
         scholarships: "₹72+ Lakhs awarded to ~110 students annually from ABB, Boeing, CTS",
         infra: "800+ systems, seminar halls, 6 interview rooms, 2 GD rooms",
-        offers: "800+ offers to B.E./B.Tech students (2025 Batch)",
+        offers: "922 offers to B.E./B.Tech students (2025 Batch)",
         url: "https://rvce.edu.in/placement_and_training/",
         prev2024: { maxSalary: "₹92 LPA", companies: "249", offers: "917 offers, 75% rate" }
     },
@@ -524,12 +524,12 @@ const KB = {
         url: "https://rvce.edu.in/facilities/"
     },
     placements2025: {
-        maxSalary: "₹50 LPA Highest Package (2025 Batch, B.E.)",
+        maxSalary: "₹67 LPA Highest Package (2025 Batch, B.E.)",
         mtechMax: "₹35 LPA (M.Tech highest)",
         mcaMax: "₹20 LPA (MCA highest)",
-        avgSalary: "~₹10 LPA (2025 B.E. Avg so far)",
-        companies: "260+ companies participated in 2025 drive",
-        offers: "800+ offers to B.E./B.Tech students",
+        avgSalary: "₹13.76 LPA (2025 B.E. Avg)",
+        companies: "262 companies participated in 2025 drive",
+        offers: "922 offers to B.E./B.Tech students",
         topRecruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz"
     },
     placements2024: {
@@ -698,7 +698,7 @@ const KB = {
             { n: "Dr. Radha N", u: "https://rvce.edu.in/department/chemistry/dr-radha-n/", r: "Assistant Professor" }
         ],
         cv: [
-            { n: "Dr. Radhakrishna", u: "https://rvce.edu.in/department/civil_engineering/dr-radhakrishna/", r: "Professor & Head" },
+            { n: "Dr. Radhakrishna", u: "https://rvce.edu.in/department/civil_engineering/dr-radhakrishna/", r: "Professor & Head, PG Dean (Non Circuit)" },
             { n: "Dr. Anjaneyappa", u: "https://rvce.edu.in/department/civil_engineering/civil-faculty-bio/", r: "Professor" },
             { n: "Dr. M.V. Renukadevi", u: "https://rvce.edu.in/department/civil_engineering/dr_m_v_renukadevi/", r: "Professor" },
             { n: "Dr. B.C. Udayashankar", u: "https://rvce.edu.in/department/civil_engineering/dr-b-c-udayashankar/", r: "Professor" },
@@ -1322,16 +1322,24 @@ function classifyIntent(input) {
     if (KB.faculty) {
         const s = cleanInput.replace(/[^a-z]/g, '');
         if (s.length >= 3) {
+            const facultyMatches = [];
             for (const deptCode in KB.faculty) {
                 for (const fac of KB.faculty[deptCode]) {
                     const fn = fac.n.toLowerCase().replace(/[^a-z]/g, '');
                     const pn = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
                     
                     if (fn.includes(s) || pn.includes(s) || s.includes(pn)) {
-                        const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-                        return { type: 'exact', id: finalId, suggestions: [] };
+                        facultyMatches.push({f: fac, d: deptCode});
                     }
                 }
+            }
+            
+            if (facultyMatches.length === 1) {
+                const fac = facultyMatches[0].f;
+                const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+                return { type: 'exact', id: finalId, suggestions: [] };
+            } else if (facultyMatches.length > 1) {
+                return { type: 'fac_multi', matches: facultyMatches, suggestions: [] };
             }
         }
     }
@@ -1999,38 +2007,53 @@ function getResponse(id) {
     case 'team_ashwa':
     case 'ashwa':
         r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
-        r.buttons = [{l:'Visit Team Ashwa',u:'https://www.teamashwa.com/',i:'🌐'}, {l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Team Ashwa', u: 'https://rvce.edu.in/innovative_teams/ashwa/', i: '🏎️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'team_antariksh':
     case 'antariksh':
         r.text += T("Team Antariksh is reaching for the stars! 🛰️✨\n\nIn December 2024, they successfully launched **RVSat-1** aboard ISRO's PSLV C-60! It carried India's first student-developed microbiological payload. They also launched the **Ananta** rocket to 1km apogee!","Team Antariksh (Space Technology):\n\nTeam Antariksh focuses on aerospace and space tech. Their recent highlights include the RVSat-1 satellite launch with ISRO and the Ananta rocket launch in 2024.");
-        r.buttons = [{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Team Antariksh', u: 'https://rvce.edu.in/innovative_teams/antariksh/', i: '🚀' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'team_vyoma':
     case 'vyoma':
         r.text += T("Team Vyoma is the king of the skies! 🛸🦅\n\nThey are RVCE's premier Aero-design and UAV team. In 2024, they were named the **'Best Overall Performer'**! They design autonomous drones, heavy-lift UAVs, and innovative aircraft for global competitions like SAE Aero Design.","Team Vyoma (Aero-design):\n\nTeam Vyoma is the aerospace and UAV project team. They achieved the 'Best Overall Performer' award in 2024 for their drone technology and SAE competition success.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Team Vyoma', u: 'https://rvce.edu.in/innovative_teams/vyoma/', i: '🛸' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'team_chimera':
     case 'chimera':
         r.text += T("Team Chimera is electrifying the track! ⚡🏎️\n\nThey design and build hybrid and electric race cars. They recently secured **4th place overall** at the FSEV Challenge! Their focus is on battery management, powertrain optimization, and sustainable racing tech.","Team Chimera (Hybrid/Electric Racing):\n\nTeam Chimera focuses on sustainable automotive technology. Recent highlights include a 4th place finish at the FSEV Challenge.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Team Chimera', u: 'https://rvce.edu.in/innovative_teams/chimera/', i: '⚡' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'astra_robotics':
     case 'astra':
         r.text += T("ASTRA Robotics is the future of AI! 🤖🦾\n\nThey specialize in robotics and autonomous systems. Their **Project T.A.R.A** (autonomous surveillance) was recently presented to the Chief of the Indian Army! They compete in international robotics challenges and build cutting-edge automation solutions.","ASTRA Robotics:\n\nASTRA Robotics specializes in AI and autonomous systems. Notable projects include Project T.A.R.A, which was presented to high-level military officials.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit ASTRA Robotics', u: 'https://rvce.edu.in/innovative_teams/astra/', i: '🤖' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'team_chitrak':
     case 'chitrak':
         r.text += T("Team Chitrak is building the future of two-wheelers! 🏍️⚡\n\nThey are RVCE's electric motorcycle team. They won the **'Lightest Motorcycle'** award for their innovative chassis design. They focus on urban mobility and high-efficiency electric powertrains.","Team Chitrak (Electric Motorcycles):\n\nTeam Chitrak designs lightweight electric motorcycles for urban performance. Award winners for innovative engineering.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Team Chitrak', u: 'https://rvce.edu.in/innovative_teams/chitrak/', i: '🏍️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'anoraniya':
         r.text += T("Anoraniya is diving into the Quantum realm! ⚛️🔬\n\nThis team focuses on Quantum Technology and Communication. They successfully implemented the **BB84 Quantum Key Distribution protocol**! They are one of the few student teams in India working on cutting-edge quantum research.","Anoraniya (Quantum Tech):\n\nAnoraniya focuses on quantum communication and research. They have successfully implemented advanced quantum protocols.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Anoraniya', u: 'https://rvce.edu.in/innovative_teams/anoraniya/', i: '⚛️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'project_garuda':
     case 'garuda':
         r.text += T("Project Garuda is all about ultra-efficiency! 🔋🍃\n\nThey build super-mileage electric vehicles designed to travel hundreds of kilometers on a single charge. They compete in the Shell Eco-marathon and push the boundaries of aerodynamics and energy efficiency.","Project Garuda (Super Mileage EVs):\n\nProject Garuda focuses on high-efficiency electric vehicles and competes in global eco-marathons.");
-        r.buttons = [{l:'All Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{ l: 'Visit Project Garuda', u: 'https://rvce.edu.in/innovative_teams/garuda/', i: '🔋' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
     case 'culturalTeams':
-        r.text += T("Campus is always buzzing! 💃🎶 From dance to music, we've got it all!","Cultural Teams & Clubs at RVCE:");
-        r.text += "\n\n• **Alaap**: Music 🎵\n• **Raaga**: Dance 💃\n• **CARV**: Cultural Association 🎭\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Photography Club** 📸";
-        r.buttons = [{l:'Cultural Page',u:KB.campus.urls.cultural,i:'🌐'}, {l:'Campus Life',a:'campusLife',i:'🏕️'}]; break;
+        r.text += T("Campus is always buzzing! 💃🎶 From dance to photography, we've got it all!", "Cultural Teams & Clubs at RVCE:");
+        r.text += "\n\n• **RAAG**: Music 🎵\n• **Footprints**: Dance 💃\n• **F/6.3**: Photography 📸\n• **Evoke**: Fashion 👗\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Rotaract**: Social Service 🤝\n• **E-Cell**: Entrepreneurship 💡";
+        r.buttons = [
+            { l: 'Footprints', u: 'https://rvce.edu.in/cultural_teams/footprints/', i: '💃' },
+            { l: 'RAAG', u: 'https://rvce.edu.in/cultural_teams/raag/', i: '🎵' },
+            { l: 'F/6.3 Photo', u: 'https://rvce.edu.in/cultural_teams/f-6-3-photography-club/', i: '📸' },
+            { l: 'Evoke', u: 'https://rvce.edu.in/cultural_teams/evoke/', i: '👗' },
+            { l: 'More Clubs', a: '_more_cultural_teams', i: '➕' }
+        ]; break;
+    case '_more_cultural_teams':
+        r.text += "Check out these other amazing clubs and societies at RVCE:";
+        r.buttons = [
+            { l: 'DebSoc', u: 'https://rvce.edu.in/cultural_teams/debsoc/', i: '🗣️' },
+            { l: 'QuizCorp', u: 'https://rvce.edu.in/cultural_teams/quizcorp/', i: '🧠' },
+            { l: 'Rotaract', u: 'https://rvce.edu.in/cultural_teams/rotaract-club/', i: '🤝' },
+            { l: 'E-Cell', u: 'https://rvce.edu.in/cultural_teams/entrepreneurship-cell/', i: '💡' },
+            { l: 'All Cultural', a: 'culturalTeams', i: '🎭' }
+        ]; break;
     case 'startup':
         r.text += T("Startup vibes are real at RVCE! 🚀","Entrepreneurship & Startup Ecosystem:");
         r.text += "\n• Active E-Cell (Entrepreneurship Cell) organizes events & workshops\n• Innovation & Incubation Centre for student startups\n• Annual hackathons and startup pitch competitions\n• Bangalore = India's startup capital — perfect ecosystem\n• Many RVCE alumni have founded successful startups";
@@ -2123,7 +2146,7 @@ const typing=$('typingIndicator'),inp=$('userInput'),sendB=$('sendBtn');
 const toneS=$('toneSwitch'),toneL=$('toneLabel'),emojiB=$('emojiBtn'),micB=$('micBtn'),sugs=$('quickSuggestions'),clearB=$('clearBtn');
 
 fab.addEventListener('click',()=>{chatOpen=!chatOpen;chatW.classList.toggle('open',chatOpen);fab.classList.toggle('active',chatOpen);fab.setAttribute('aria-expanded',chatOpen);if(chatOpen){badge.classList.add('hidden');inp.focus();} if(typeof saveState!=='undefined')saveState();});
-toneS.addEventListener('click',()=>{tone=tone==='funny'?'pro':'funny';toneS.classList.toggle('pro',tone==='pro');toneS.setAttribute('aria-checked',tone==='pro');toneL.textContent=tone==='funny'?'Buddy':'Pro'; if(typeof saveState!=='undefined')saveState();});
+toneS.addEventListener('click',()=>{tone=tone==='funny'?'pro':'funny';toneS.classList.toggle('pro',tone==='pro');toneS.setAttribute('aria-checked',tone==='pro');toneL.textContent=tone==='funny'?'Buddy':'Professional'; if(typeof saveState!=='undefined')saveState();});
 toneS.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toneS.click();}});
 emojiB.addEventListener('click',()=>{disOld();showMenu();});
 sugs.querySelectorAll('.suggestion-chip').forEach(c=>c.addEventListener('click',()=>process(c.dataset.query)));
@@ -2379,6 +2402,17 @@ function process(rawText) {
             i: '🔍'
         }));
         botReply(r);
+    } else if (result.type === 'fac_multi') {
+        logChatInteraction(text, 'fac_multi');
+        const btns = result.matches.slice(0, 8).map(m => {
+            const slug = m.f.n.toLowerCase().replace(/[^a-z0-9]/g, '');
+            return { l: `${m.f.n} (${m.d.toUpperCase()})`, a: `fac_${slug}`, i: '👨‍🏫' };
+        });
+        botReply({
+            text: T(`I found **${result.matches.length}** faculty members matching your search. Who are you looking for?`, `I found multiple faculty members. Please choose one:`),
+            buttons: btns,
+            noMenu: true
+        });
     } else {
         // === DIRECT FACULTY HOOK (Fail-Safe v3.3.3) — Last Resort ===
         const s = text.toLowerCase().replace(/[^a-z]/g, '');
@@ -2623,7 +2657,7 @@ setTimeout(()=>{
         // Restore previous chat state instantly
         msgs.innerHTML = savedHtml;
         const savedTone = SafeStorage.getItem('rvce_chat_tone');
-        if(savedTone === 'pro') { tone = 'pro'; toneS.classList.add('pro'); toneL.textContent = 'Pro'; }
+        if(savedTone === 'pro') { tone = 'pro'; toneS.classList.add('pro'); toneL.textContent = 'Professional'; }
         if(SafeStorage.getItem('rvce_chat_open') === '1') {
             chatOpen=true; chatW.classList.add('open'); fab.classList.add('active'); badge.classList.add('hidden');
         } else {
