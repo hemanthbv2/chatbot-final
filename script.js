@@ -142,7 +142,17 @@ const KB = {
             "Vision Astra in EV Academy",
             "Decibels RV Electric Vehicle"
         ],
-        industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung"],
+        industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung", "Tata Technologies", "Boeing", "Wipro", "MG Motor"],
+        collaborations: [
+            { n: "Tata Technologies", i: "CIIIT (Center for Invention, Innovation, Incubation & Training) focuses on Industry 4.0 and Smart Manufacturing (₹60 Cr project)." },
+            { n: "Cisco", i: "Cisco Networking Academy and IoT CoE for advanced digital training." },
+            { n: "MG Motor India", i: "EV Tech CoC for electric vehicle skill development." },
+            { n: "Bosch Rexroth", i: "Automation Technology and Hydraulics training centre." },
+            { n: "IBM", i: "IBM Centre of Excellence for software and cloud training." },
+            { n: "Mercedes-Benz", i: "Advanced Diploma in Automotive Mechatronics (ADAM)." },
+            { n: "Toyota", i: "Automotive Engineering and engine technology training centre." },
+            { n: "Samsung", i: "PRISM program for industry-academic collaboration on research projects." }
+        ],
         foodCourt: {
             name: "Cafe Mingos (Main Food Court)",
             capacity: "1000+ students",
@@ -1030,6 +1040,7 @@ const QA = [
     {k:['deans list','all deans','dean list','executive committee','key executives'],id:'deans_list',p:1},
     {k:['hods list','list of hods','all hods','hod list','head of departments','all heads'],id:'hods_list',p:1},
     {k:['coe','coes','centres of excellence','centers of excellence','coe list','research centres','research centers','innovation hubs'],id:'centres_of_excellence',p:1},
+    {k:['collaboration','collaborations','partnership','partnerships','industry partners','mou','tie up','tieups','industry tie ups','cisco','boston','toyota','mercedes','bosch','google','microsoft','tata','tata technologies','boeing','airbus','isro','navy'],id:'collaborations',p:1},
     {k:['health center','health centre','doctor','medical','ambulance','sick','hospital','first aid','emergency medical','clinic'],id:'health_centre',p:1},
     {k:['ieee','sae','acm','csi','societies','professional societies','student chapters','chapters'],id:'professional_societies',p:1},
     {k:['upcoming events','workshops','conferences','what is happening','happening soon'],id:'upcoming_events',p:1.2},
@@ -1217,7 +1228,7 @@ const INTENT_LABELS = {
     nearby: 'Nearby Areas 📍', internship: 'Internships 🧑‍💻', startup: 'Startups & E-Cell 🚀', peer_quality: 'Peer Quality 🎯',
     worth_it: 'Is RVCE Worth It? ⭐', best_branch: 'Best Branch 🔝', parking: 'Parking & Vehicles 🅿️', part_time: 'Part-time Work 💼',
     alumni: 'Alumni Network 🤝', college_compare: 'College Comparison 📊',
-    centres_of_excellence:'Centres of Excellence 🔬', health_centre:'Health Facilities 🏥',
+    centres_of_excellence:'Centres of Excellence 🔬', collaborations:'Industry Partnerships 🤝', health_centre:'Health Facilities 🏥',
     professional_societies:'Student Societies 🤝', upcoming_events:'Upcoming Events 📅',
     ncc:'NCC 🇮🇳', nss:'NSS 🤝', mandatory_disclosure:'Mandatory Disclosure 📄',
     kannada_sangha:'Kannada Sangha 🎭', rvjsteam:'RVJ STEAM Team 🎨', calendar_events:'Calendar of Events 📅',
@@ -1674,7 +1685,12 @@ function getResponse(id) {
         r.text += T("RVCE has 30+ Centres of Excellence! 🔬 Here are the key ones:","Centres of Excellence (COEs):");
         r.text += "\n• " + KB.general.coes.join("\n• ");
         r.text += "\n\n**Industry Competence Centres (CoCs):**\n• " + KB.general.cocs.join("\n• ");
-        r.buttons = [{l:'Research Home',a:'research',i:'🔬'},{l:'Full List',u:'https://rvce.edu.in/research_consulting/',i:'🌐'}]; break;
+        r.buttons = [{l:'Collaborations 🤝',a:'collaborations',i:'🤝'},{l:'Research Home',a:'research',i:'🔬'}]; break;
+    case 'collaborations':
+    case 'partnerships':
+        r.text += T("RVCE is a hub for industry tie-ups! 🤝 We have 200+ MoUs with global giants:","Industry Collaborations & MoUs:");
+        r.text += "\n\n• **Tata Technologies**: CIIIT Center for Industry 4.0 and Smart Manufacturing (₹60 Cr project).\n• **Cisco**: Networking Academy and IoT CoE.\n• **MG Motor**: EV Technology skill development.\n• **Mercedes-Benz**: ADAM (Automotive Mechatronics) diploma program.\n• **Toyota Kirloskar**: Automotive Engineering centre.\n• **IBM**: Software & Cloud CoE.\n• **Bosch Rexroth**: Automation & Hydraulics.\n• **Research Partners**: ISRO, CSIR-NAL, Indian Navy, Boeing, and Airbus.";
+        r.buttons = [{l:'Centres of Excellence',a:'centres_of_excellence',i:'🔬'},{l:'Placements',a:'placements',i:'💼'}]; break;
     case 'admissions':
         r.text += T("Let's get you enrolled! 🎓","Admission Information:");
         r.buttons = [{l:'UG (B.E.)',a:'ugAdm',i:'🎓'},{l:'PG (M.Tech)',a:'pgAdm',i:'📘'},{l:'MCA',a:'mca',i:'💻'},{l:'PhD',a:'phd',i:'🧪'},{l:'Admissions Page',u:KB.admissions.url,i:'🌐'}]; break;
