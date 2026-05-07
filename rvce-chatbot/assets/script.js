@@ -1040,7 +1040,8 @@ function startRVCEChatbot() {
         { k: ['deans list', 'all deans', 'dean list', 'executive committee', 'key executives'], id: 'deans_list', p: 1 },
         { k: ['hods list', 'list of hods', 'all hods', 'hod list', 'head of departments', 'all heads'], id: 'hods_list', p: 1 },
         { k: ['coe', 'coes', 'centres of excellence', 'centers of excellence', 'coe list', 'research centres', 'research centers', 'innovation hubs'], id: 'centres_of_excellence', p: 1 },
-        { k: ['collaboration', 'collaborations', 'partnership', 'partnerships', 'industry partners', 'mou', 'tie up', 'tieups', 'industry tie ups', 'cisco', 'boston', 'toyota', 'mercedes', 'bosch', 'google', 'microsoft', 'tata', 'tata technologies', 'boeing', 'airbus', 'isro', 'navy'], id: 'collaborations', p: 1 },
+        { k: ['collaboration', 'collaborations', 'partnership', 'partnerships', 'industry partners', 'mou', 'tie up', 'tieups', 'industry tie ups', 'cisco', 'toyota', 'mercedes', 'bosch', 'google', 'microsoft', 'tata', 'tata technologies', 'boeing', 'airbus', 'isro', 'navy'], id: 'collaborations', p: 1 },
+        { k: ['boston', 'boston training academy', 'boston uk', 'boston ai', 'graphcore', 'ai research centre'], id: 'boston', p: 1 },
         { k: ['health center', 'health centre', 'doctor', 'medical', 'ambulance', 'sick', 'hospital', 'first aid', 'emergency medical', 'clinic'], id: 'health_centre', p: 1 },
         { k: ['ieee', 'sae', 'acm', 'csi', 'societies', 'professional societies', 'student chapters', 'chapters'], id: 'professional_societies', p: 1 },
         { k: ['upcoming events', 'workshops', 'conferences', 'what is happening', 'happening soon'], id: 'upcoming_events', p: 1.2 },
@@ -1722,8 +1723,12 @@ function startRVCEChatbot() {
             case 'collaborations':
             case 'partnerships':
                 r.text += T("RVCE is a hub for industry tie-ups! 🤝 We have 200+ MoUs with global giants:", "Industry Collaborations & MoUs:");
-                r.text += "\n\n• **Tata Technologies**: CIIIT Center for Industry 4.0 and Smart Manufacturing (₹60 Cr project).\n• **Cisco**: Networking Academy and IoT CoE.\n• **MG Motor**: EV Technology skill development.\n• **Mercedes-Benz**: ADAM (Automotive Mechatronics) diploma program.\n• **Toyota Kirloskar**: Automotive Engineering centre.\n• **IBM**: Software & Cloud CoE.\n• **Bosch Rexroth**: Automation & Hydraulics.\n• **Research Partners**: ISRO, CSIR-NAL, Indian Navy, Boeing, and Airbus.";
-                r.buttons = [{ l: 'Centres of Excellence', a: 'centres_of_excellence', i: '🔬' }, { l: 'Placements', a: 'placements', i: '💼' }]; break;
+                r.text += "\n\n• **Boston UK**: CoE in AI Research with 1-PetaFLOP computing power 🧠\n• **Tata Technologies**: CIIIT Center for Industry 4.0 and Smart Manufacturing (₹60 Cr project).\n• **Cisco**: Networking Academy and IoT CoE.\n• **MG Motor**: EV Technology skill development.\n• **Mercedes-Benz**: ADAM (Automotive Mechatronics) diploma program.\n• **Toyota Kirloskar**: Automotive Engineering centre.\n• **IBM**: Software & Cloud CoE.\n• **Research Partners**: ISRO, CSIR-NAL, Indian Navy, Boeing, and Airbus.";
+                r.buttons = [{ l: 'Boston AI CoE', a: 'boston', i: '🧠' }, { l: 'Centres of Excellence', a: 'centres_of_excellence', i: '🔬' }, { l: 'Placements', a: 'placements', i: '💼' }]; break;
+            case 'boston':
+                r.text += T("The **RVCE-Boston CoE in AI Research** is a beast! 🧠🔋\n\nIt was built with **Boston Ltd., UK** and features a **Graphcore POD4 server** with 1-PetaFLOP of AI power! It's one of the few in India.", "Centre of Excellence in AI Research (RVCE-Boston Ltd):");
+                r.text += "\n\n• **Focus**: Computer Vision, FinTech, AgriTech, and BioTech research.\n• **Certification**: Offers a 6-month professional course in Data Science & MLOps.\n• **Consultancy**: Invites industry projects and algorithm testing for scholars.\n• **Impact**: Bridges the gap between academic theory and real-world AI deployment.";
+                r.buttons = [{ l: 'AI Research Home', u: 'https://rvce.edu.in/coe-ai-research/', i: '🌐' }, { l: 'All Collaborations', a: 'collaborations', i: '🤝' }]; break;
             case 'admissions':
                 r.text += T("Let's get you enrolled! 🎓", "Admission Information:");
                 r.buttons = [{ l: 'UG (B.E.)', a: 'ugAdm', i: '🎓' }, { l: 'PG (M.Tech)', a: 'pgAdm', i: '📘' }, { l: 'MCA', a: 'mca', i: '💻' }, { l: 'PhD', a: 'phd', i: '🧪' }, { l: 'Admissions Page', u: KB.admissions.url, i: '🌐' }]; break;
