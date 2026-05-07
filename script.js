@@ -142,6 +142,18 @@ const KB = {
             "Vision Astra in EV Academy",
             "Decibels RV Electric Vehicle"
         ],
+        coes_detailed: [
+            { n: "Materials Fabrication & Characterization (CoE-MFC)", i: "Advanced testing, characterization, and fabrication facilities (ECE)." },
+            { n: "Cognitive Intelligent Systems (CISSS)", i: "In partnership with HPCC Systems, focuses on sustainable AI solutions (CSE)." },
+            { n: "Internet of Things (Cisco-RVCE)", i: "Cisco-funded lab for advanced networking and IoT research (MCA)." },
+            { n: "Computational Genomics", i: "Cutting-edge research at the intersection of BioTech and Computing." },
+            { n: "Smart Antenna Systems (SASM)", i: "Features an Anechoic Chamber and EMI/EMC testing facilities (ECE)." },
+            { n: "Quantum Information & Tech (CIRCUIT)", i: "Research in quantum computing and information theory (Physics)." },
+            { n: "Hydrogen & Green Tech", i: "Collaborates with Dover India on clean energy and hydrogen materials (Chemical)." },
+            { n: "Automotive Engineering (RV-Toyota)", i: "Focuses on engine technology and automotive systems (Mechanical)." },
+            { n: "Extended Reality (XR) Center", i: "Specializes in VR/AR for education and industrial research (MCA)." },
+            { n: "Integrated Circuits & Systems (CoE-ICAS)", i: "Advanced VLSI design and chip system research (ECE)." }
+        ],
         industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung", "Tata Technologies", "Boeing", "Wipro", "MG Motor"],
         collaborations: [
             { n: "Tata Technologies", i: "CIIIT (Center for Invention, Innovation, Incubation & Training) focuses on Industry 4.0 and Smart Manufacturing (₹60 Cr project)." },
@@ -1683,10 +1695,10 @@ function getResponse(id) {
         r.text += "\n• "+KB.general.research+"\n• Domains: "+KB.general.researchDomains;
         r.buttons = [{l:'Centres of Excellence 🔬',a:'centres_of_excellence',i:'🧪'},{l:'Research Centres',u:'https://rvce.edu.in/research_consulting/',i:'🌐'}]; break;
     case 'centres_of_excellence':
-        r.text += T("RVCE has 30+ Centres of Excellence! 🔬 Here are the key ones:","Centres of Excellence (COEs):");
-        r.text += "\n• " + KB.general.coes.join("\n• ");
+        r.text += T("RVCE has 30+ Centres of Excellence! 🔬 These are high-end research hubs with global partners:","Centres of Excellence (COEs) Details:");
+        r.text += "\n\n• **Boston AI CoE**: 1-PetaFLOP Graphcore AI server 🧠\n• **Materials Fabrication (MFC)**: Advanced characterization labs.\n• **Cisco IoT**: Industry-funded smart networking lab.\n• **Hydrogen Tech**: Clean energy with Dover India.\n• **Quantum Tech**: Advanced computing research (CIRCUIT).\n• **Toyota Automotive**: Engine and vehicle engineering centre.\n• **XR Center**: VR/AR for research and education.";
         r.text += "\n\n**Industry Competence Centres (CoCs):**\n• " + KB.general.cocs.join("\n• ");
-        r.buttons = [{l:'Collaborations 🤝',a:'collaborations',i:'🤝'},{l:'Research Home',a:'research',i:'🔬'}]; break;
+        r.buttons = [{l:'Collaborations 🤝',a:'collaborations',i:'🤝'},{l:'Research Home',a:'research',i:'🔬'},{l:'Full CoE List',u:'https://rvce.edu.in/research_consulting/',i:'🌐'}]; break;
     case 'collaborations':
     case 'partnerships':
         r.text += T("RVCE is a hub for industry tie-ups! 🤝 We have 200+ MoUs with global giants:","Industry Collaborations & MoUs:");
