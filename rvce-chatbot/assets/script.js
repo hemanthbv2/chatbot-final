@@ -118,11 +118,29 @@ function startRVCEChatbot() {
                 "Smart Grid Technology", "Embedded Systems",
                 "Data Science & AI", "IC Design & VLSI",
                 "Electric Vehicle Technology", "Hydrogen & Fuel Cell Technology",
-                "5G & Communication Systems", "Cyber Security"
+                "5G & Communication Systems", "Cyber Security",
+                "Materials Fabrication and Characterization (CoE-MFC)",
+                "Cognitive Intelligent Systems (CISSS)",
+                "Logistics & Supply Chain Management",
+                "AI Research (RVCE-BOSTON)",
+                "Women in Cloud Centre of Excellence",
+                "Sensor Technology Applications (CSTA)",
+                "Nanomaterials and Devices (CND)",
+                "Integrated Circuits and Systems (CoE-ICAS)",
+                "Automotive Engineering (RV-Toyota)",
+                "3S Infrastructure (Safe, Sustainable & Smart)",
+                "Extended Reality Center (XR)",
+                "Health Care Technology Research (CHTR)",
+                "Wipro-IISc-RVCE EV Technology"
             ],
             cocs: [
                 "Bosch Rexroth - Automation Tech", "Toyota - Automotive Tech",
-                "Cisco - Networking", "HP - Cloud Computing"
+                "Cisco - Networking", "HP - Cloud Computing",
+                "5G and Emerging Wireless Technologies",
+                "Electric Vehicle Tech (RVCE-MG)",
+                "Smart Vidyuth & Sustainable Solutions",
+                "Vision Astra in EV Academy",
+                "Decibels RV Electric Vehicle"
             ],
             industryPartners: ["Google", "Microsoft", "Toyota", "Mercedes Benz", "Cisco", "IBM", "Intel", "Honeywell", "Bosch", "Amazon", "Adobe", "Samsung"],
             foodCourt: {
@@ -1656,8 +1674,8 @@ function startRVCEChatbot() {
                 r.buttons = [{ l: 'RVEI Website', u: 'https://rvinstitutions.com/', i: '🌐' }, { l: 'About RVCE', a: 'about_rvce', i: '🏫' }];
                 break;
             case 'about_rvce':
-                r.text += T("RVCE — engineering excellence since 1963! 🔧\n📍 16.85 acres on Mysuru Road, Bengaluru\n🏆 NAAC A+ (3.39/4.0) | NIRF 101-150\n🎓 16 UG + 14 PG programs\n📄 100+ Patents | 20 Centres of Excellence",
-                    "RV College of Engineering, established in 1963, is situated on 16.85 acres on Mysuru Road, Bengaluru.\n\n• Accreditation: NAAC A+ Grade (CGPA 3.39/4.0, valid 2024-2029)\n• Ranking: NIRF 101-150, #1 Private College (IIRF 2025)\n• Programs: 16 B.E., 14 M.Tech/MCA, PhD\n• Research: 100+ Patents, 20 Centres of Excellence");
+                r.text += T("RVCE — engineering excellence since 1963! 🔧\n📍 16.85 acres on Mysuru Road, Bengaluru\n🏆 NAAC A+ (3.39/4.0) | NIRF 101-150\n🎓 16 UG + 14 PG programs\n📄 100+ Patents | 30+ Centres of Excellence",
+                    "RV College of Engineering, established in 1963, is situated on 16.85 acres on Mysuru Road, Bengaluru.\n\n• Accreditation: NAAC A+ Grade (CGPA 3.39/4.0, valid 2024-2029)\n• Ranking: NIRF 101-150, #1 Private College (IIRF 2025)\n• Programs: 16 B.E., 14 M.Tech/MCA, PhD\n• Research: 100+ Patents, 30+ Centres of Excellence");
                 r.buttons = [{ l: 'Rankings', a: 'ranking', i: '🏆' }, { l: 'Vision & Mission', a: 'vision', i: '🎯' }, { l: 'Research', a: 'research', i: '🔬' }, { l: 'Website', u: 'https://rvce.edu.in/about_us/', i: '🌐' }]; break;
             case 'vision':
                 r.text += T("RVCE's vision? Tech + Innovation + Sustainability = Future! 🚀", "Vision: " + KB.general.vision); break;
@@ -1686,9 +1704,9 @@ function startRVCEChatbot() {
                 r.text += "\n• " + KB.general.research + "\n• Domains: " + KB.general.researchDomains;
                 r.buttons = [{ l: 'Centres of Excellence 🔬', a: 'centres_of_excellence', i: '🧪' }, { l: 'Research Centres', u: 'https://rvce.edu.in/research_consulting/', i: '🌐' }]; break;
             case 'centres_of_excellence':
-                r.text += T("RVCE has 20 Centres of Excellence! 🔬 Here are the key ones:", "Centres of Excellence (COEs):");
+                r.text += T("RVCE has 30+ Centres of Excellence! 🔬 Here are the key ones:", "Centres of Excellence (COEs):");
                 r.text += "\n• " + KB.general.coes.join("\n• ");
-                r.text += "\n\n**Industry Competence Centres:**\n• " + KB.general.cocs.join("\n• ");
+                r.text += "\n\n**Industry Competence Centres (CoCs):**\n• " + KB.general.cocs.join("\n• ");
                 r.buttons = [{ l: 'Research Home', a: 'research', i: '🔬' }, { l: 'Full List', u: 'https://rvce.edu.in/research_consulting/', i: '🌐' }]; break;
             case 'admissions':
                 r.text += T("Let's get you enrolled! 🎓", "Admission Information:");
