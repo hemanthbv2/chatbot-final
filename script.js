@@ -178,7 +178,7 @@ const KB = {
     contact: {
         address: "RV College of Engineering, RV Vidyanikethan Post, Mysuru Road, Bengaluru – 560 059",
         phone: "+91-080-68188112 / 8111", admissionPhone: "080-68188147/48/49",
-        email: "principal@rvce.edu.in", vicePrincipalEmail: "viceprincipal@rvce.edu.in", placementPhone: "9886130504",
+        email: "mailto:principal@rvce.edu.in", vicePrincipalEmail: "mailto:viceprincipal@rvce.edu.in", placementPhone: "9886130504",
         website: "https://rvce.edu.in/"
     },
     rvei: {
@@ -187,13 +187,13 @@ const KB = {
         motto: "Excellence in Education with Societal Commitment."
     },
     placements: {
-        companies: "262 companies participated (2025 Batch)", avgSalary: "₹13.76 LPA (2025 Avg)",
-        maxSalary: "₹67 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
-        scholarships: "₹72+ Lakhs awarded to ~110 students annually from ABB, Boeing, CTS",
+        companies: "192+ companies participated (2026 Drive - Ongoing)", avgSalary: "₹16.86 LPA (2026 Avg)",
+        maxSalary: "₹67 LPA Highest Package (2026 Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
+        scholarships: "₹72+ Lakhs awarded annually from ABB, Boeing, CTS",
         infra: "800+ systems, seminar halls, 6 interview rooms, 2 GD rooms",
-        offers: "922 offers to B.E./B.Tech students (2025 Batch)",
+        offers: "698+ offers made so far",
         url: "https://rvce.edu.in/placement_and_training/",
-        prev2024: { maxSalary: "₹92 LPA", companies: "249", offers: "917 offers, 75% rate" }
+        prev2025: { maxSalary: "₹67 LPA", companies: "262", offers: "922 offers" }
     },
     admissions: {
         ug: { eligibility: "12th/2nd PUC with min 45% in Physics + Maths + Chemistry/Biotech/Biology/CS/Electronics (40% for SC/ST/OBC Karnataka)", exams: "KCET (KEA), COMED-K, Management Quota. JEE Mains is NOT considered.", quotas: "Also available: CIWG/PIO/OCI/Nepal Citizens quota" },
@@ -220,7 +220,8 @@ const KB = {
                 labs: "https://rvce.edu.in/department/ae/laboratories/",
                 facilities: "https://rvce.edu.in/department/ae/facilities/",
                 campus_diaries: "https://rvce.edu.in/department/ae/campus_diaries/",
-                hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/"
+                hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/",
+                collab: "https://rvce.edu.in/department/ae/collaboration-and-networking/"
             },
             {
                 n:"AI & Machine Learning (AIML)",
@@ -237,7 +238,8 @@ const KB = {
                 research: "https://rvce.edu.in/department/ai_ml/research/",
                 campus_diaries: "https://rvce.edu.in/department/ai_ml/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/ai_ml/dr_b_sathish_babu_hod_message/",
-                academic_planning: "https://rvce.edu.in/department/ai_ml/academic_planning/"
+                academic_planning: "https://rvce.edu.in/department/ai_ml/academic_planning/",
+                collab: "https://rvce.edu.in/department/ai_ml/collaboration-and-networking/"
             },
             {
                 n:"Biotechnology (BT)",
@@ -254,7 +256,8 @@ const KB = {
                 hod_message: "https://rvce.edu.in/department/biotechnology/message_from_hod_biotechnology/",
                 happenings: "https://rvce.edu.in/department/biotechnology/happenings/",
                 academic_planning: "https://rvce.edu.in/department/biotechnology/acadamic_planning/",
-                m_tech: "https://rvce.edu.in/department/biotechnology/m_tech_in_biotechnology/"
+                m_tech: "https://rvce.edu.in/department/biotechnology/m_tech_in_biotechnology/",
+                collab: "https://rvce.edu.in/department/biotechnology/collaboration-and-networking/"
             },
             {
                 n:"Chemical Engineering (CH)",
@@ -271,7 +274,8 @@ const KB = {
                 facilities: "https://rvce.edu.in/department/chemical_engineering/facilities/",
                 project_labs: "https://rvce.edu.in/department/chemical_engineering/project_labs/",
                 campus_diaries: "https://rvce.edu.in/department/chemical_engineering/campus_diaries/",
-                hod_message: "https://rvce.rveducationalinstitutions.com/department/chemical_engineering/dr_jagadish_h_patil_hod_message/"
+                hod_message: "https://rvce.rveducationalinstitutions.com/department/chemical_engineering/dr_jagadish_h_patil_hod_message/",
+                collab: "https://rvce.edu.in/department/chemical_engineering/collaboration-and-networking/"
             },
             {
                 n:"Chemistry (CHY)",
@@ -286,7 +290,8 @@ const KB = {
                 research: "https://rvce.edu.in/department/chemistry/research/",
                 facilities: "https://rvce.edu.in/department/chemistry/facilities/",
                 happenings: "https://rvce.edu.in/department/chemistry/happenings/",
-                hod_message: "https://rvce.edu.in/department/chemistry/message_from_hod_basic_chemistry/"
+                hod_message: "https://rvce.edu.in/department/chemistry/message_from_hod_basic_chemistry/",
+                collab: "https://rvce.edu.in/department/chemistry/collaboration-and-networking/"
             },
             {
                 n:"Civil Engineering (CV)",
@@ -302,7 +307,8 @@ const KB = {
                 research: "https://rvce.edu.in/department/civil_engineering/research/",
                 facilities: "https://rvce.edu.in/department/civil_engineering/facilities/",
                 m_tech_structural: "https://rvce.edu.in/department/civil_engineering/mtech_in_structural_engineering/",
-                m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/"
+                m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/",
+                collab: "https://rvce.edu.in/department/civil_engineering/collaboration-and-networking/"
             },
             {
                 n:"Computer Science & Engg (CSE)",
@@ -321,7 +327,8 @@ const KB = {
                 hod_message: "https://rvce.edu.in/department/cse/dr_shanta_rangaswamy_hod_message/",
                 publications: "https://rvce.edu.in/department/cse-publications/",
                 m_tech: "https://rvce.edu.in/department/cse/m_tech_cse/",
-                m_tech_cne: "https://rvce.edu.in/department/cse/m_tech_cne/"
+                m_tech_cne: "https://rvce.edu.in/department/cse/m_tech_cne/",
+                collab: "https://rvce.edu.in/department/cse/collaboration-and-networking/"
             },
             {
                 n:"CSE (AI & ML) (CSAIML)",
@@ -375,7 +382,8 @@ const KB = {
                 campus_diaries: "https://rvce.edu.in/department/eee/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/eee/hod_message/",
                 rd_labs: "https://rvce.edu.in/department/eee/rd_labs/",
-                m_tech: "https://rvce.edu.in/department/eee/mtech_in_power_electronics/"
+                m_tech: "https://rvce.edu.in/department/eee/mtech_in_power_electronics/",
+                collab: "https://rvce.edu.in/department/eee/collaboration-and-networking/"
             },
             {
                 n:"Electronics & Communication (ECE)",
@@ -397,7 +405,8 @@ const KB = {
                 coe_cav: "https://rvce.edu.in/department/ece/centre_of_excellence_in_connected_autonomous_vehicles/",
                 coe_icas: "https://rvce.edu.in/department/ece/centre_of_excellence_in_integrated_circuits_and_systemscoe_icas/",
                 m_tech_vlsi: "https://rvce.edu.in/department/ece/m_tech_in_vlsi_design_embedded_systems/",
-                m_tech_comm: "https://rvce.edu.in/department/ece/master_of_technology_in_m_tech_communication_systems/"
+                m_tech_comm: "https://rvce.edu.in/department/ece/master_of_technology_in_m_tech_communication_systems/",
+                collab: "https://rvce.edu.in/department/ece/collaboration-and-networking/"
             },
             {
                 n:"Electronics & Instrumentation (EIE)",
@@ -413,7 +422,8 @@ const KB = {
                 rd_labs: "https://rvce.edu.in/department/eim/rd/",
                 campus_diaries: "https://rvce.edu.in/department/eim/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/eim/hod_message/",
-                publications: "https://rvce.edu.in/department/eim/publications/"
+                publications: "https://rvce.edu.in/department/eim/publications/",
+                collab: "https://rvce.edu.in/department/eim/collaboration-and-networking/"
             },
             {
                 n:"Electronics & Telecom (ETE)",
@@ -432,7 +442,8 @@ const KB = {
                 project_labs: "https://rvce.edu.in/department/etc/project_lab/",
                 campus_diaries: "https://rvce.edu.in/department/etc/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/etc/dr_nagamani_k_hod_message/",
-                m_tech: "https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/"
+                m_tech: "https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/",
+                collab: "https://rvce.edu.in/department/etc/collaboration-and-networking/"
             },
             {
                 n:"Industrial Engg & Mgmt (IEM)",
@@ -448,7 +459,8 @@ const KB = {
                 facilities: "https://rvce.edu.in/department/iem/facilities/",
                 research: "https://rvce.edu.in/department/iem/research/",
                 happenings: "https://rvce.edu.in/department/iem/happenings/",
-                coe: "https://rvce.rveducationalinstitutions.com/research_consulting/centre-of-excellence/"
+                coe: "https://rvce.rveducationalinstitutions.com/research_consulting/centre-of-excellence/",
+                collab: "https://rvce.edu.in/department/iem/collaboration-and-networking/"
             },
             {
                 n:"Information Science & Engg (ISE)",
@@ -464,7 +476,8 @@ const KB = {
                 research: "https://rvce.edu.in/department/ise/research/",
                 campus_diaries: "https://rvce.edu.in/department/ise/student_experiences/",
                 m_tech_soft: "https://rvce.edu.in/department/ise/mtech_in_software_engineering/",
-                m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/"
+                m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/",
+                collab: "https://rvce.edu.in/department/ise/collaboration-and-networking/"
             },
             {
                 n:"Mathematics (MATHS)",
@@ -479,7 +492,8 @@ const KB = {
                 research: "https://rvce.edu.in/department/maths/research/",
                 campus_diaries: "https://rvce.edu.in/department/maths/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/maths/dr_jayalatha_g_hod_message/",
-                networking: "https://rvce.edu.in/department/maths/maths_cn/"
+                networking: "https://rvce.edu.in/department/maths/maths_cn/",
+                collab: "https://rvce.edu.in/department/maths/collaboration-and-networking/"
             },
             {
                 n:"Mechanical Engineering (ME)",
@@ -497,7 +511,8 @@ const KB = {
                 campus_diaries: "https://rvce.edu.in/department/me/campus_diaries/",
                 networking: "https://rvce.edu.in/department/me/collaboration_networking/",
                 m_tech_pdm: "https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/",
-                m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/"
+                m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/",
+                collab: "https://rvce.edu.in/department/me/collaboration_networking/"
             },
             {
                 n:"Physics (PHY)",
@@ -510,7 +525,8 @@ const KB = {
                 faculty: "https://rvce.edu.in/department/physics/faculty/",
                 labs: "https://rvce.edu.in/department/physics/laboratories/",
                 facilities: "https://rvce.edu.in/department/physics/facilities/",
-                research: "https://rvce.edu.in/department/physics/research/#"
+                research: "https://rvce.edu.in/department/physics/research/#",
+                collab: "https://rvce.edu.in/department/physics/collaboration-and-networking/"
             },
             {
                 n:"Physical Education & Sports",
@@ -563,6 +579,13 @@ const KB = {
         list: ["Central Library","Food Court","Sports Complex (400m track, Cricket/Football)","Health Centre","ICICI Bank","Post Office","Gymnatorium","Labs & Workshops"],
         url: "https://rvce.edu.in/facilities/"
     },
+    placements2026: {
+        maxSalary: "₹67 LPA Highest Package (2026 Batch)",
+        avgSalary: "₹16.86 LPA (Current Average)",
+        companies: "192+ companies visited (Ongoing)",
+        offers: "698+ offers made so far",
+        topRecruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Samsung"
+    },
     placements2025: {
         maxSalary: "₹67 LPA Highest Package (2025 Batch, B.E.)",
         mtechMax: "₹35 LPA (M.Tech highest)",
@@ -597,7 +620,7 @@ const KB = {
         wardens: "Residential wardens in all hostel blocks",
         healthCentre: "On-campus Health Centre with 24/7 medical support and ambulance facility. Partnered with Aster Hospital for specialist care.",
         healthDetails: {
-            doctor: "Full-time resident medical officer available",
+            doctod: "Full-time resident medical officer available", e: "Not specified",
             services: ["Emergency Care", "Consultation", "24/7 Ambulance", "Medical Pharmacy"],
             hospital: "Tied up with Aster Hospital, RV Road for advanced treatments"
         },
@@ -643,7 +666,7 @@ const KB = {
         battalion: "6 Karnataka Battalion NCC",
         established: "2008",
         strength: "80 cadets (Army wing)",
-        officer: "ANO in charge",
+        officed: "ANO in charge", e: "Not specified",
         activities: "Drill, weapons training, adventure activities, camps (CATC, ATC, NIC), Republic Day parade participation, social service"
     },
     nss: {
@@ -661,351 +684,351 @@ const KB = {
     },
     faculty: {
         deans: [
-            { n: "Dr. Shanmukha Nagaraj", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Academics" },
-            { n: "Dr. B.M. Sagar", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Student Affairs" },
-            { n: "Dr. M Uttara Kumari", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean R&D" },
-            { n: "Dr. D. Ranganath", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Placement & Training" },
-            { n: "Dr. M Krishna", u: "https://rvce.edu.in/about_us/key-executives/", r: "Dean Skill Development" }
+            { n: "Dr. Shanmukha Nagaraj", u: "https://rvce.edu.in/about_us/key-executives/", d: "Professor & Head of Department (Mechanical Engineering)", e: "23 years" },
+            { n: "Dr. B.M. Sagar", u: "https://rvce.edu.in/about_us/key-executives/", d: "Professor & Dean Student Affairs", e: "21 years" },
+            { n: "Dr. M Uttara Kumari", u: "https://rvce.edu.in/about_us/key-executives/", d: "Professor & Dean (Research & Development)", e: "22 years" },
+            { n: "Dr. D. Ranganath", u: "https://rvce.edu.in/about_us/key-executives/", d: "Professor & Dean Placement & Training", e: "29 years" },
+            { n: "Dr. M Krishna", u: "https://rvce.edu.in/about_us/key-executives/", d: "Professor & Dean-Continuing Education & Skill Development", e: "24 years" }
         ],
         ae: [
-            { n: "Dr. R Supreeth", u: "https://rvce.edu.in/department/ae/dr_r_supreeth/", r: "HOD & Associate Professor" },
-            { n: "Dr. Ravindra S Kulkarni", u: "https://rvce.edu.in/department/ae/dr_ravindra_s_kulkarni/#", r: "Professor" },
-            { n: "Dr. Promio Charles F", u: "https://rvce.edu.in/department/ae/dr_promio_charles_f/", r: "Associate Professor" },
-            { n: "Bhaskar K", u: "https://rvce.edu.in/department/ae/bhaskar_k/", r: "Assistant Professor" },
-            { n: "Pranesh Kumar S R", u: "https://rvce.edu.in/department/ae/pranesh_kumar_s_r/", r: "Assistant Professor" },
-            { n: "Dr. Benjamin Rohit", u: "https://rvce.edu.in/department/ae/dr_benjamin_rohit/", r: "Assistant Professor" },
-            { n: "Srinivasan S", u: "https://rvce.edu.in/department/ae/srinivasan_s/", r: "Assistant Professor" },
-            { n: "Mukesh M", u: "https://rvce.edu.in/department/ae/mukesh_m/", r: "Assistant Professor" },
-            { n: "Prof. Deepak Bana", u: "https://rvce.edu.in/department/ae/prof_deepak_bana/", r: "Assistant Professor" },
-            { n: "Jitendra Singh", u: "https://rvce.edu.in/department/ae/mr_jitendra_singh/", r: "Professor of Practice" },
-            { n: "Srinath Ramakrishnan", u: "https://rvce.edu.in/department/ae/mr_srinath_ramakrishnan/", r: "Assistant Professor" }
+            { n: "Dr. R Supreeth", u: "https://rvce.edu.in/department/ae/dr_r_supreeth/", d: "Associate Prof & Head", e: "13.6 Years" },
+            { n: "Dr. Ravindra S Kulkarni", u: "https://rvce.edu.in/department/ae/dr_ravindra_s_kulkarni/#", d: "Professor", e: "Teaching: 26 years Research: 2 years" },
+            { n: "Dr. Promio Charles F", u: "https://rvce.edu.in/department/ae/dr_promio_charles_f/", d: "Associate Professor", e: "Research-5.5 years; Industry- 1 year; Teaching- 8.6 Years" },
+            { n: "Bhaskar K", u: "https://rvce.edu.in/department/ae/bhaskar_k/", d: "Assistant Professor", e: "Teaching: 1 years; Industrial: 7 Years; Research: 3 Years" },
+            { n: "Pranesh Kumar S R", u: "https://rvce.edu.in/department/ae/pranesh_kumar_s_r/", d: "Assistant Professor", e: "10.3 Years" },
+            { n: "Dr. Benjamin Rohit", u: "https://rvce.edu.in/department/ae/dr_benjamin_rohit/", d: "Assistant Professor", e: "Teaching: 10.4 years" },
+            { n: "Srinivasan S", u: "https://rvce.edu.in/department/ae/srinivasan_s/", d: "Assistant Professor", e: "18 years" },
+            { n: "Mukesh M", u: "https://rvce.edu.in/department/ae/mukesh_m/", d: "Assistant Professor", e: "Research( 2years) , Teaching( 10.2 years)" },
+            { n: "Prof. Deepak Bana", u: "https://rvce.edu.in/department/ae/prof_deepak_bana/", d: "Visiting Professor", e: "Research (1year), Teaching (7 years), Indian Air Force (29 years)" },
+            { n: "Dr. Balaguru Pandian", u: "https://rvce.edu.in/department/ae/mr_jitendra_singh/", d: "Assistant Professor", e: "R&D (5 year), Industry (1 Year), Consulting (2 years), Academia (3 years)" },
+            { n: "Dr. Karthik Vel E", u: "https://rvce.edu.in/department/ae/mr_srinath_ramakrishnan/", d: "Assistant Professor", e: "-3.5 years (Research) and 1 year (Academic)" }
         ],
         aiml: [
-            { n: "Dr. B. Sathish Babu", u: "https://rvce.edu.in/department/ai_ml/dr_b_sathish_babu_bio/", r: "Professor & HOD" },
-            { n: "Dr. Vijayalakshmi M N", u: "https://rvce.edu.in/department/ai_ml/dr_vijayalakshmi_m_n/", r: "Associate Professor" },
-            { n: "Dr. S. Anupama Kumar", u: "https://rvce.edu.in/department/ai_ml/dr_s_anupama_kumar/", r: "Associate Professor" },
-            { n: "Dr. Narasimha Swamy S", u: "https://rvce.edu.in/department/ai_ml/dr_narasimha_swamy_s/", r: "Assistant Professor" },
-            { n: "Dr. Somesh Nandi", u: "https://rvce.edu.in/department/ai_ml/dr_somesh_nandi/", r: "Assistant Professor" },
-            { n: "K Vishwavardhan Reddy", u: "https://rvce.edu.in/department/ai_ml/dr_k_vishwavardhan_reddy/", r: "Assistant Professor" },
-            { n: "Prof. Sonika C T", u: "https://rvce.edu.in/department/ai_ml/prof_sonika_ct/", r: "Assistant Professor" },
-            { n: "Prof. Manasa M", u: "https://rvce.edu.in/department/ai_ml/prof_manasa_m/", r: "Assistant Professor" },
-            { n: "Prof. Harshitha V", u: "https://rvce.edu.in/department/ai_ml/prof_harshitha_v/", r: "Assistant Professor" },
-            { n: "Prof. Rushikesh Anil Padaki", u: "https://rvce.edu.in/department/ai_ml/prof_rushikesh_anil_padaki/", r: "Assistant Professor" }
+            { n: "Dr. B. Sathish Babu", u: "https://rvce.edu.in/department/ai_ml/dr_b_sathish_babu_bio/", d: "Professor and HoD", e: "Teaching: 30 Years" },
+            { n: "Dr. Vijayalakshmi M N", u: "https://rvce.edu.in/department/ai_ml/dr_vijayalakshmi_m_n/", d: "Associate Professor", e: "25 years" },
+            { n: "Dr. S. Anupama Kumar", u: "https://rvce.edu.in/department/ai_ml/dr_s_anupama_kumar/", d: "Associate Professor", e: "25 years" },
+            { n: "Dr. Narasimha Swamy S", u: "https://rvce.edu.in/department/ai_ml/dr_narasimha_swamy_s/", d: "Assistant Professor", e: "Teaching: 4 years" },
+            { n: "Dr. Somesh Nandi", u: "https://rvce.edu.in/department/ai_ml/dr_somesh_nandi/", d: "Assistant Professor", e: "7 years" },
+            { n: "K Vishwavardhan Reddy", u: "https://rvce.edu.in/department/ai_ml/dr_k_vishwavardhan_reddy/", d: "Assistant Professor", e: "11 Years" },
+            { n: "Prof. Sonika C T", u: "https://rvce.edu.in/department/ai_ml/prof_sonika_ct/", d: "Assistant Professor", e: "Not specified" },
+            { n: "Prof. Manasa M", u: "https://rvce.edu.in/department/ai_ml/prof_manasa_m/", d: "Assistant Professor", e: "2 years" },
+            { n: "Prof. Harshitha V", u: "https://rvce.edu.in/department/ai_ml/prof_harshitha_v/", d: "Assistant Professor", e: "Not specified" },
+            { n: "Prof. Rushikesh Anil Padaki", u: "https://rvce.edu.in/department/ai_ml/prof_rushikesh_anil_padaki/", d: "Assistant Professor", e: "Not specified" }
         ],
         bt: [
-            { n: "Dr. Nagashree N Rao", u: "https://rvce.edu.in/department/biotechnology/dr_nagashree_n_rao/", r: "Associate Professor & HOD" },
-            { n: "Dr. Vidya Niranjan", u: "https://rvce.edu.in/department/biotechnology/dr_vidya_niranjan/", r: "Professor" },
-            { n: "Dr. G Vijaya Kumar", u: "https://rvce.edu.in/department/biotechnology/dr_g_vijaya_kumar/", r: "Associate Professor" },
-            { n: "Dr. A. H. Manjunatha Reddy", u: "https://rvce.edu.in/department/biotechnology/dr_a_h_manjunatha_reddy/", r: "Associate Professor" },
-            { n: "Dr. Neeta Shivakumar", u: "https://rvce.edu.in/department/biotechnology/dr_neeta_shivakumar/", r: "Associate Professor" },
-            { n: "Dr. Lingayya Hiremath", u: "https://rvce.edu.in/department/biotechnology/dr_lingayya_hiremath/", r: "Associate Professor" },
-            { n: "Dr. M Rajeswari", u: "https://rvce.edu.in/department/biotechnology/dr_m_rajeswari/", r: "Assistant Professor" },
-            { n: "Dr. Ajeet Kumar Srivastava", u: "https://rvce.edu.in/department/biotechnology/dr_ajeet_kumar_srivastava/", r: "Assistant Professor" },
-            { n: "Dr. Shivandappa", u: "https://rvce.edu.in/department/biotechnology/dr_shivandappa/", r: "Assistant Professor" },
-            { n: "Dr. Narendra Kumar S", u: "https://rvce.edu.in/department/biotechnology/dr_narendra_kumar_s/", r: "Assistant Professor" },
-            { n: "Dr. Praveen Kumar Gupta", u: "https://rvce.edu.in/department/biotechnology/dr_praveen_kumar_gupta/", r: "Assistant Professor" },
-            { n: "Dr. Trilok Chandran B", u: "https://rvce.edu.in/department/biotechnology/dr_trilok_chandran_b/", r: "Assistant Professor" },
-            { n: "Dr. H. Raju", u: "https://rvce.edu.in/department/biotechnology/dr_h_raju/", r: "Assistant Professor" },
-            { n: "Dr. Sumathra M", u: "https://rvce.edu.in/department/biotechnology/dr_sumathra_m/", r: "Assistant Professor" },
-            { n: "Dr. H G Ashok Kumar", u: "https://rvce.edu.in/department/biotechnology/dr_h_g_ashok_kumar/", r: "Professor" },
-            { n: "Dr. A V Narayan", u: "https://rvce.edu.in/department/biotechnology/dr_a_v_narayan/", r: "Associate Professor" },
-            { n: "Dr. Ashwani Sharma", u: "https://rvce.edu.in/department/biotechnology/dr_ashwani_sharma/", r: "Assistant Professor" }
+            { n: "Dr. Nagashree N Rao", u: "https://rvce.edu.in/department/biotechnology/dr_nagashree_n_rao/", d: "Professor and HoD", e: "27 Years" },
+            { n: "Dr. Vidya Niranjan", u: "https://rvce.edu.in/department/biotechnology/dr_vidya_niranjan/", d: "Professor", e: "22 years" },
+            { n: "Dr. G Vijaya Kumar", u: "https://rvce.edu.in/department/biotechnology/dr_g_vijaya_kumar/", d: "Associate Professor and Associate Dean (PG Studies)", e: "20 years" },
+            { n: "Dr. A. H. Manjunatha Reddy", u: "https://rvce.edu.in/department/biotechnology/dr_a_h_manjunatha_reddy/", d: "Professor", e: "18 years" },
+            { n: "Dr. Neeta Shivakumar", u: "https://rvce.edu.in/department/biotechnology/dr_neeta_shivakumar/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr. Lingayya Hiremath", u: "https://rvce.edu.in/department/biotechnology/dr_lingayya_hiremath/", d: "Assistant Professor", e: "19 years" },
+            { n: "Dr. M Rajeswari", u: "https://rvce.edu.in/department/biotechnology/dr_m_rajeswari/", d: "Assistant Professor", e: "21 years" },
+            { n: "Dr. Ajeet Kumar Srivastava", u: "https://rvce.edu.in/department/biotechnology/dr_ajeet_kumar_srivastava/", d: "Assistant Professor", e: "19 years" },
+            { n: "Dr. Shivandappa", u: "https://rvce.edu.in/department/biotechnology/dr_shivandappa/", d: "Assistant Professor", e: "17 years" },
+            { n: "Dr. Narendra Kumar S", u: "https://rvce.edu.in/department/biotechnology/dr_narendra_kumar_s/", d: "Assistant Professor", e: "15 years" },
+            { n: "Dr. Praveen Kumar Gupta", u: "https://rvce.edu.in/department/biotechnology/dr_praveen_kumar_gupta/", d: "Assistant Professor", e: "15 years" },
+            { n: "Dr. Trilok Chandran B", u: "https://rvce.edu.in/department/biotechnology/dr_trilok_chandran_b/", d: "Assistant Professor", e: "17 years" },
+            { n: "Dr. H. Raju", u: "https://rvce.edu.in/department/biotechnology/dr_h_raju/", d: "Assistant Professor", e: "15 years" },
+            { n: "Dr. Sumathra M", u: "https://rvce.edu.in/department/biotechnology/dr_sumathra_m/", d: "Assistant Professor", e: "13 years" },
+            { n: "Dr. H G Ashok Kumar", u: "https://rvce.edu.in/department/biotechnology/dr_h_g_ashok_kumar/", d: "Professor", e: "Teaching: 17 years" },
+            { n: "Dr. A V Narayan", u: "https://rvce.edu.in/department/biotechnology/dr_a_v_narayan/", d: "Associate Professor", e: "19 Years" },
+            { n: "Dr. Ashwani Sharma", u: "https://rvce.edu.in/department/biotechnology/dr_ashwani_sharma/", d: "Assistant Professor", e: "19 Years" }
         ],
         ch: [
-            { n: "Dr. Jagadish H Patil", u: "https://rvce.edu.in/department/chemical_engineering/dr_jagadish_h_patil/", r: "Associate Professor & HOD" },
-            { n: "Dr. D. Ranganath", u: "https://rvce.edu.in/department/chemical_engineering/dr_d_ranganath/", r: "Associate Professor & Dean (Placement)" },
-            { n: "Dr. Vinod Kallur", u: "https://rvce.edu.in/department/chemical_engineering/dr_vinod_kallur/", r: "Associate Professor" },
-            { n: "Dr. Basavaraja R. J.", u: "https://rvce.edu.in/department/chemical_engineering/dr_basavaraja_r_j/", r: "Associate Professor" },
-            { n: "Dr. Vidya C.", u: "https://rvce.edu.in/department/chemical_engineering/dr_vidya_c/", r: "Assistant Professor" },
-            { n: "Dr. Rajalakshmi Mudbidre", u: "https://rvce.edu.in/department/chemical_engineering/dr_rajalakshmi_mudbidre/", r: "Assistant Professor" },
-            { n: "Dr. Ujwal Shreenag Meda", u: "https://rvce.edu.in/department/chemical_engineering/dr_ujwal_shreenag_meda/", r: "Assistant Professor" },
-            { n: "Dr. Manjula Sarode", u: "https://rvce.edu.in/department/chemical_engineering/dr_manjula_sarode/", r: "Assistant Professor" },
-            { n: "Dr. Vinutha Moses", u: "https://rvce.edu.in/department/chemical_engineering/vinutha_moses/", r: "Assistant Professor" },
-            { n: "Dr. P L Muralidhara", u: "https://rvce.edu.in/department/chemical_engineering/dr_p_l_muralidhara/", r: "Assistant Professor" },
-            { n: "Dr. Anupama V. Joshi", u: "https://rvce.edu.in/department/chemical_engineering/anupama_v_joshi/", r: "Assistant Professor" }
+            { n: "Dr. Jagadish H Patil", u: "https://rvce.edu.in/department/chemical_engineering/dr_jagadish_h_patil/", d: "Associate Professor and Head", e: "22 years" },
+            { n: "Dr. D. Ranganath", u: "https://rvce.edu.in/department/chemical_engineering/dr_d_ranganath/", d: "Professor and Dean Placement", e: "29 years" },
+            { n: "Dr. Vinod Kallur", u: "https://rvce.edu.in/department/chemical_engineering/dr_vinod_kallur/", d: "Associate Professor", e: "24 years" },
+            { n: "Dr. Basavaraja R. J.", u: "https://rvce.edu.in/department/chemical_engineering/dr_basavaraja_r_j/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr. Vidya C.", u: "https://rvce.edu.in/department/chemical_engineering/dr_vidya_c/", d: "Assistant Professor", e: "14 years" },
+            { n: "Dr. Rajalakshmi Mudbidre", u: "https://rvce.edu.in/department/chemical_engineering/dr_rajalakshmi_mudbidre/", d: "Assistant Professor and Associate Dean", e: "14 years" },
+            { n: "Dr. Ujwal Shreenag Meda", u: "https://rvce.edu.in/department/chemical_engineering/dr_ujwal_shreenag_meda/", d: "Assistant Professor", e: "10 years" },
+            { n: "Dr. Manjula Sarode", u: "https://rvce.edu.in/department/chemical_engineering/dr_manjula_sarode/", d: "Assistant Professor", e: "11 years" },
+            { n: "Dr. Vinutha Moses", u: "https://rvce.edu.in/department/chemical_engineering/vinutha_moses/", d: "Assistant Professor", e: "16 years" },
+            { n: "Dr. P L Muralidhara", u: "https://rvce.edu.in/department/chemical_engineering/dr_p_l_muralidhara/", d: "Assistant Professor", e: "28 years" },
+            { n: "Dr. Anupama V. Joshi", u: "https://rvce.edu.in/department/chemical_engineering/anupama_v_joshi/", d: "Assistant Professor", e: "7 years" }
         ],
         chy: [
-            { n: "Dr. Mahesh R", u: "https://rvce.edu.in/department/chemistry/dr_mahesh_r/", r: "Associate Professor & HOD" },
-            { n: "Dr. Raviraj Kusanur", u: "https://rvce.edu.in/department/chemistry/raviraj_a_k/", r: "Professor" },
-            { n: "Dr. Swarna M. Patra", u: "https://rvce.edu.in/department/chemistry/dr_swarna_mayee_patra/", r: "Associate Professor" },
-            { n: "Dr. C. Manjunatha", u: "https://rvce.edu.in/department/chemistry/dr_manjunatha_c/", r: "Associate Professor" },
-            { n: "Dr. Divakara S. G.", u: "https://rvce.edu.in/department/chemistry/faculty/", r: "Associate Professor" },
-            { n: "Dr. Sham Aan M. P.", u: "https://rvce.edu.in/department/chemistry/sham_aan_m_p/", r: "Assistant Professor" },
-            { n: "Dr. M. Sridharan", u: "https://rvce.edu.in/department/chemistry/dr_sridharan_m/", r: "Assistant Professor" },
-            { n: "Dr. Vishnumurthy K. A", u: "https://rvce.edu.in/department/chemistry/dr_vishnumurthy_k_a/", r: "Assistant Professor" },
-            { n: "Dr. Swetha S. M.", u: "https://rvce.edu.in/department/chemistry/dr_swetha_s_m/", r: "Assistant Professor" },
-            { n: "Dr. Rita Hemanth Shankar", u: "https://rvce.edu.in/department/chemistry/dr_rita_hemanth_shankar/", r: "Assistant Professor" },
-            { n: "Dr. Radha N", u: "https://rvce.edu.in/department/chemistry/dr-radha-n/", r: "Assistant Professor" }
+            { n: "Dr. Mahesh R", u: "https://rvce.edu.in/department/chemistry/dr_mahesh_r/", d: "Associate Professor", e: "24 Years" },
+            { n: "Dr. Raviraj Kusanur", u: "https://rvce.edu.in/department/chemistry/raviraj_a_k/", d: "Professor", e: "14 Years" },
+            { n: "Dr. Swarna M. Patra", u: "https://rvce.edu.in/department/chemistry/dr_swarna_mayee_patra/", d: "Associate Professor", e: "13 Years" },
+            { n: "Dr. C. Manjunatha", u: "https://rvce.edu.in/department/chemistry/dr_manjunatha_c/", d: "Associate Professor", e: "16 Years" },
+            { n: "Dr. Divakara S. G.", u: "https://rvce.edu.in/department/chemistry/faculty/", d: "Associate Professor", e: "19 Years" },
+            { n: "Dr. Sham Aan M. P.", u: "https://rvce.edu.in/department/chemistry/sham_aan_m_p/", d: "Assistant Professor", e: "10.5 Years" },
+            { n: "Dr. M. Sridharan", u: "https://rvce.edu.in/department/chemistry/dr_sridharan_m/", d: "Assistant Professor", e: "8 Years" },
+            { n: "Dr. Vishnumurthy K. A", u: "https://rvce.edu.in/department/chemistry/dr_vishnumurthy_k_a/", d: "Assistant Professor", e: "11 Years" },
+            { n: "Dr. Swetha S. M.", u: "https://rvce.edu.in/department/chemistry/dr_swetha_s_m/", d: "Assistant Professor", e: "2 Year" },
+            { n: "Dr. Rita Hemanth Shankar", u: "https://rvce.edu.in/department/chemistry/dr_rita_hemanth_shankar/", d: "Assistant Professor", e: "7.5 years" },
+            { n: "Dr. Radha N", u: "https://rvce.edu.in/department/chemistry/dr-radha-n/", d: "Assistant Professor", e: "Not specified" }
         ],
         cv: [
-            { n: "Dr. Radhakrishna", u: "https://rvce.edu.in/department/civil_engineering/dr-radhakrishna/", r: "Professor & Head, PG Dean (Non Circuit)" },
-            { n: "Dr. Anjaneyappa", u: "https://rvce.edu.in/department/civil_engineering/civil-faculty-bio/", r: "Professor" },
-            { n: "Dr. M.V. Renukadevi", u: "https://rvce.edu.in/department/civil_engineering/dr_m_v_renukadevi/", r: "Professor" },
-            { n: "Dr. B.C. Udayashankar", u: "https://rvce.edu.in/department/civil_engineering/dr-b-c-udayashankar/", r: "Professor" },
-            { n: "Dr. M S Nagakumar", u: "https://rvce.edu.in/department/civil_engineering/dr-m-s-nagakumar/", r: "Professor" },
-            { n: "Dr. V. Anantharama", u: "https://rvce.edu.in/department/civil_engineering/dr_v_anantharama/", r: "Associate Professor" },
-            { n: "Dr. Vinod A R", u: "https://rvce.edu.in/department/civil_engineering/dr_vinod_a_r/", r: "Associate Professor" },
-            { n: "Dr. M. Lokeshwari", u: "https://rvce.edu.in/department/civil_engineering/dr_m_lokeshwari/", r: "Associate Professor" },
-            { n: "Dr. T. Raghavendra", u: "https://rvce.edu.in/department/civil_engineering/dr_t_raghavendra/", r: "Associate Professor & Associate Dean" },
-            { n: "Dr. S. Nethravathi", u: "https://rvce.edu.in/department/civil_engineering/dr_s_nethravathi/", r: "Assistant Professor" },
-            { n: "Dr. L. Durga Prashanth", u: "https://rvce.edu.in/department/civil_engineering/dr-l-durga-prashanth/", r: "Assistant Professor" },
-            { n: "Dr. M. Varuna", u: "https://rvce.edu.in/department/civil_engineering/dr_m_varuna/", r: "Assistant Professor" },
-            { n: "Dr. Sindhu D", u: "https://rvce.edu.in/department/civil_engineering/dr-sindhu-d/", r: "Assistant Professor" },
-            { n: "Dr. Sunil S", u: "https://rvce.edu.in/department/civil_engineering/dr-sunil-s/", r: "Assistant Professor" },
-            { n: "Dr. Praveen Kumar K", u: "https://rvce.edu.in/department/civil_engineering/dr-praveen-kumar-k/", r: "Assistant Professor" },
-            { n: "Dr. K. Gajalakshmi", u: "https://rvce.edu.in/department/civil_engineering/dr-k-gajalakshmi/", r: "Assistant Professor" },
-            { n: "Dr. Somanath M. Basutkar", u: "https://rvce.edu.in/department/civil_engineering/dr_somanath_m_basutkar/", r: "Assistant Professor" },
-            { n: "Dr. Venugopal G", u: "https://rvce.edu.in/department/civil_engineering/dr-venugopal-g/", r: "Assistant Professor" },
-            { n: "Dr. Vikas Mendi", u: "https://rvce.edu.in/department/civil_engineering/dr_vikas_mendi/", r: "Assistant Professor" },
-            { n: "Dr. Ram Thilak", u: "https://rvce.edu.in/department/civil_engineering/ram-thilak/", r: "Assistant Professor" },
-            { n: "Vageesh H P", u: "https://rvce.edu.in/department/civil_engineering/vageesh_h_p/", r: "Assistant Professor" },
-            { n: "Dr. Ravikiran S. Wali", u: "https://rvce.edu.in/department/civil_engineering/ravikiran_s_wali/", r: "Assistant Professor" },
-            { n: "Dr. Shrithi S. Badami", u: "https://rvce.edu.in/department/civil_engineering/shrithi-s-badami/", r: "Assistant Professor" },
-            { n: "Dr. Shashi Kiran C R", u: "https://rvce.edu.in/department/civil_engineering/shashi_kiran_c_r/", r: "Assistant Professor" },
-            { n: "Gowtham Prasad M E", u: "https://rvce.edu.in/department/civil_engineering/gowtham_prasad_m_e/", r: "Assistant Professor" },
-            { n: "Ashwin Thammaiah K", u: "https://rvce.edu.in/department/civil_engineering/ashwin_thammaiah_k/", r: "Assistant Professor" },
-            { n: "Dr. K. Madhavi", u: "https://rvce.edu.in/department/civil_engineering/dr_k_madhavi/", r: "Assistant Professor" },
-            { n: "Dr. M. R. Archana", u: "https://rvce.edu.in/department/civil_engineering/dr_m_r_archana/", r: "Assistant Professor" }
+            { n: "Dr. Anjaneyappa", u: "https://rvce.edu.in/department/civil_engineering/civil-faculty-bio/", d: "Professor and Head", e: "21 Years" },
+            { n: "Dr. Radhakrishna", u: "https://rvce.edu.in/department/civil_engineering/dr-radhakrishna/", d: "Professor & PG Dean (Non-Circuit)", e: "31 Years" },
+            { n: "Dr. M. V. Renukadevi", u: "https://rvce.edu.in/department/civil_engineering/dr_m_v_renukadevi/", d: "Professor", e: "31 years" },
+            { n: "Dr. B. C. Udayashankar", u: "https://rvce.edu.in/department/civil_engineering/dr-b-c-udayashankar/", d: "Professor", e: "33 Years" },
+            { n: "Dr. M. S. Nagakumar", u: "https://rvce.edu.in/department/civil_engineering/dr-m-s-nagakumar/", d: "Professor", e: "31 Years" },
+            { n: "Dr. V. Anantharama", u: "https://rvce.edu.in/department/civil_engineering/dr_v_anantharama/", d: "Associate Professor", e: "26 Years" },
+            { n: "Dr. Vinod A. R.", u: "https://rvce.edu.in/department/civil_engineering/dr_vinod_a_r/", d: "Associate Professor", e: "18 Years" },
+            { n: "Dr. M. Lokeshwari", u: "https://rvce.edu.in/department/civil_engineering/dr_m_lokeshwari/", d: "Associate Professor", e: "18 Years" },
+            { n: "Dr. T. Raghavendra", u: "https://rvce.edu.in/department/civil_engineering/dr_t_raghavendra/", d: "Associate Professor", e: "18 years" },
+            { n: "Dr. S. Nethravathi", u: "https://rvce.edu.in/department/civil_engineering/dr_s_nethravathi/", d: "Associate Professor", e: "16 Years" },
+            { n: "Dr. L. Durga Prashanth", u: "https://rvce.edu.in/department/civil_engineering/dr-l-durga-prashanth/", d: "Associate Professor", e: "13 years" },
+            { n: "Dr. M. Varuna", u: "https://rvce.edu.in/department/civil_engineering/dr_m_varuna/", d: "Assistant Professor", e: "14 years" },
+            { n: "Dr. Sindhu D", u: "https://rvce.edu.in/department/civil_engineering/dr-sindhu-d/", d: "Assistant Professor", e: "13 years" },
+            { n: "Dr. Sunil S", u: "https://rvce.edu.in/department/civil_engineering/dr-sunil-s/", d: "Assistant Professor", e: "13 Years" },
+            { n: "Dr. Praveen Kumar K", u: "https://rvce.edu.in/department/civil_engineering/dr-praveen-kumar-k/", d: "Assistant Professor", e: "13 Years 6 months" },
+            { n: "Dr. K. Gajalakshmi", u: "https://rvce.edu.in/department/civil_engineering/dr-k-gajalakshmi/", d: "Assistant Professor", e: "13 Years 6 months" },
+            { n: "Dr. Somanath. M. Basutkar", u: "https://rvce.edu.in/department/civil_engineering/dr_somanath_m_basutkar/", d: "Assistant Professor", e: "4 years" },
+            { n: "Dr. Venugopal. G", u: "https://rvce.edu.in/department/civil_engineering/dr-venugopal-g/", d: "Assistant Professor", e: "4 years" },
+            { n: "Dr. Vikas Mendi", u: "https://rvce.edu.in/department/civil_engineering/dr_vikas_mendi/", d: "Assistant Professor", e: "6 years" },
+            { n: "Ram Thilak", u: "https://rvce.edu.in/department/civil_engineering/ram-thilak/", d: "Assistant Professor", e: "7 years" },
+            { n: "Dr. Vageesh H P", u: "https://rvce.edu.in/department/civil_engineering/vageesh_h_p/", d: "Assistant Professor", e: "10 years" },
+            { n: "Ravikiran S Wali", u: "https://rvce.edu.in/department/civil_engineering/ravikiran_s_wali/", d: "Assistant Professor", e: "9 years" },
+            { n: "Dr. Shrithi S Badami", u: "https://rvce.edu.in/department/civil_engineering/shrithi-s-badami/", d: "Assistant Professor", e: "9 Years" },
+            { n: "Dr. Shashi Kiran C R", u: "https://rvce.edu.in/department/civil_engineering/shashi_kiran_c_r/", d: "Assistant Professor", e: "10 Years" },
+            { n: "Gowtham Prasad M E", u: "https://rvce.edu.in/department/civil_engineering/gowtham_prasad_m_e/", d: "Assistant Professor", e: "8 years" },
+            { n: "Ashwin Thammaiah K", u: "https://rvce.edu.in/department/civil_engineering/ashwin_thammaiah_k/", d: "Assistant Professor", e: "8 years" },
+            { n: "Dr. K. Madhavi", u: "https://rvce.edu.in/department/civil_engineering/dr_k_madhavi/", d: "Assistant Professor", e: "17 Years" },
+            { n: "Dr. M. R. Archana", u: "https://rvce.edu.in/department/civil_engineering/dr_m_r_archana/", d: "Assistant Professor", e: "12 years" }
         ],
         cs: [
-            { n: "Dr. Ramakanth Kumar P", u: "https://rvce.edu.in/department/cse/dr_ramakanth_kumar_p/", r: "Professor & Dean, CSE Cluster" },
-            { n: "Dr. Shanta Rangaswamy", u: "https://rvce.edu.in/department/cse/dr_shanta_rangaswamy/", r: "Professor & HOD" },
-            { n: "Dr. Vinay Hegde", u: "https://rvce.edu.in/department/cse/dr_vinay_hegde/", r: "Professor" },
-            { n: "Dr. Hemavathy R.", u: "https://rvce.edu.in/department/cse/dr_hemavathy_r/", r: "Professor" },
-            { n: "Dr. Krishnappa H K", u: "https://rvce.edu.in/department/cse/dr_krishnappa_h_k/", r: "Professor" },
-            { n: "Dr. Sowmyarani C N", u: "https://rvce.edu.in/department/cse/dr-sowmyarani-c-n/", r: "Professor" },
-            { n: "Dr. Rajashree Shettar", u: "https://rvce.edu.in/department/cse/dr-rajashree-shettar/", r: "Professor" },
-            { n: "Dr. G. S. Nagaraja", u: "https://rvce.edu.in/department/cse/dr-g-s-nagaraja/ ", r: "Professor" },
-            { n: "Dr. Minal Moharir", u: "https://rvce.edu.in/department/cse/dr-minal-moharir/", r: "Professor & Programme Coordinator" },
-            { n: "Dr. Soumya A.", u: "https://rvce.edu.in/department/cse/dr_soumya_a/", r: "Professor & Program Coordinator" },
-            { n: "Dr. Deepamala N", u: "https://rvce.edu.in/department/cse/dr_deepamala_n/", r: "Associate Professor" },
-            { n: "Dr. Azra Nasreen", u: "https://rvce.edu.in/department/cse/dr_azra_nasreen/", r: "Associate Professor" },
-            { n: "Dr. Pratiba D", u: "https://rvce.edu.in/department/cse/dr-pratiba-d/", r: "Associate Professor" },
-            { n: "Dr. Praveena T", u: "https://rvce.edu.in/department/cse/dr-praveena-t/", r: "Associate Professor" },
-            { n: "Dr. K. Badari Nath", u: "https://rvce.edu.in/department/cse/dr_k_badari_nath/", r: "Associate Professor" },
-            { n: "Dr. Chethana R. Murthy", u: "https://rvce.edu.in/department/cse/dr-chethana-r-murthy/", r: "Associate Professor" },
-            { n: "Dr. Pavithra H", u: "https://rvce.edu.in/department/cse/dr-pavithra-h/", r: "Associate Professor" },
-            { n: "Dr. Prapulla S B", u: "https://rvce.edu.in/department/cse/dr-prapulla-s-b/", r: "Associate Professor" },
-            { n: "Dr. Sneha M", u: "https://rvce.edu.in/department/cse/dr_sneha_m/", r: "Associate Professor" },
-            { n: "Dr. Smriti Srivastava", u: "https://rvce.edu.in/department/cse/dr_smriti_srivastava/", r: "Associate Professor" },
-            { n: "Dr. Veena Gadad", u: "https://rvce.edu.in/department/cse/dr-veena-gadad/", r: "Associate Professor" },
-            { n: "Dr. Ashok Kumar A R", u: "https://rvce.edu.in/department/cse/dr-ashok-kumar-a-r/", r: "Associate Professor" },
-            { n: "Dr. Mohana", u: "https://rvce.edu.in/department/cse/dr_mohana/", r: "Associate Professor" },
-            { n: "Dr. Sandhya S.", u: "https://rvce.edu.in/department/cse/dr_sandhya_s/", r: "Associate Professor" },
-            { n: "Dr. Manas M N", u: "https://rvce.edu.in/department/cse/dr-manas-m-n/", r: "Assistant Professor" },
-            { n: "Dr. Manonmani S.", u: "https://rvce.edu.in/department/cse/dr-manonmani-s/", r: "Assistant Professor" },
-            { n: "Dr. Deepika Dash", u: "https://rvce.edu.in/department/cse/prof-deepika-dash/", r: "Assistant Professor" },
-            { n: "Dr. Anitha Sandeep", u: "https://rvce.edu.in/department/cse/dr_anitha_sandeep/", r: "Assistant Professor" },
-            { n: "Dr. Apoorva Udaya Kumar Chate", u: "https://rvce.edu.in/department/cse/prof_apoorva_udaya_kumar_chate/", r: "Assistant Professor" },
-            { n: "Prof. Rajatha", u: "https://rvce.edu.in/department/cse/prof_rajatha/", r: "Assistant Professor" },
-            { n: "Dr. Savitri Kulkarni", u: "https://rvce.edu.in/department/cse/prof_savitri_kulkarni/", r: "Assistant Professor" },
-            { n: "Dr. Karanam Sunil Kumar", u: "https://rvce.edu.in/department/cse/dr-karanam-sunil-kumar/", r: "Assistant Professor" },
-            { n: "Prof. Saraswathi Govind Datard", u: "https://rvce.edu.in/department/cse/prof-saraswathi-govind-datard/", r: "Assistant Professor" },
-            { n: "Prof. Mekhala Vinod Purohit", u: "https://rvce.edu.in/department/cse/prof_mekhala_vinod_purohit/", r: "Assistant Professor" },
-            { n: "Prof. Deepthi L.", u: "https://rvce.edu.in/department/cse/prof-deepthi-l/", r: "Assistant Professor" },
-            { n: "Dr. Sahana D. Shejwadkar", u: "https://rvce.edu.in/department/cse/sahana-d-shejwadkar/", r: "Assistant Professor" },
-            { n: "Sanjana Ravindra Otihal", u: "https://rvce.edu.in/department/cse/sanjana-ravindra-otihal/", r: "Assistant Professor" },
-            { n: "Dr. Jyoti Shetty", u: "https://rvce.edu.in/department/cse/dr-jyoti-shetty/", r: "Assistant Professor" },
-            { n: "Dr. Suma B.", u: "https://rvce.edu.in/department/cse/dr_suma_b/", r: "Assistant Professor" },
-            { n: "Dr. Sindhu D V", u: "https://rvce.edu.in/department/cse/dr_srividya_m_s/", r: "Assistant Professor" },
-            { n: "Prof. Nithyashree G D", u: "https://rvce.edu.in/department/cse/prof_nithyashree_g_d/", r: "Assistant Professor" },
-            { n: "Prof. Shweta Babu Prasad", u: "https://rvce.edu.in/department/cse/prof_shweta_babu_prasad/", r: "Assistant Professor" },
-            { n: "Dr. Srividya M. S.", u: "https://rvce.edu.in/department/cse/dr_srividya_m_s/", r: "Assistant Professor" },
-            { n: "Prof. L. Kala Chandrashekhar", u: "https://rvce.edu.in/department/cse/prof_l_kala_chandrashekhar/", r: "Assistant Professor" },
-            { n: "Prof. Ganashree K C", u: "https://rvce.edu.in/department/cse/prof-ganashree-k-c/", r: "Assistant Professor" }
+            { n: "Dr. Ramakanth Kumar P", u: "https://rvce.edu.in/department/cse/dr_ramakanth_kumar_p/", d: "Professor & Dean (CSE cluster)", e: "31 years" },
+            { n: "Dr. Shanta Rangaswamy", u: "https://rvce.edu.in/department/cse/dr_shanta_rangaswamy/", d: "Professor & Head", e: "24 years" },
+            { n: "Dr. Vinay Hegde", u: "https://rvce.edu.in/department/cse/dr_vinay_hegde/", d: "Professor", e: "19 years" },
+            { n: "Dr. Hemavathy R.", u: "https://rvce.edu.in/department/cse/dr_hemavathy_r/", d: "Professor", e: "23 years" },
+            { n: "Dr. Krishnappa H K", u: "https://rvce.edu.in/department/cse/dr_krishnappa_h_k/", d: "Professor", e: "25 years" },
+            { n: "Dr. Sowmyarani C N", u: "https://rvce.edu.in/department/cse/dr-sowmyarani-c-n/", d: "Professor", e: "14 years" },
+            { n: "Dr. Rajashree Shettar", u: "https://rvce.edu.in/department/cse/dr-rajashree-shettar/", d: "Professor", e: "27 years" },
+            { n: "Dr. G. S. Nagaraja", u: "https://rvce.edu.in/department/cse/dr-g-s-nagaraja/", d: "Professor", e: "30 years" },
+            { n: "Dr. Minal Moharir", u: "https://rvce.edu.in/department/cse/dr-minal-moharir/", d: "Professor & Programme Coordinator", e: "Not specified" },
+            { n: "Dr. Soumya A.", u: "https://rvce.edu.in/department/cse/dr_soumya_a/", d: "Professor & Program Coordinator", e: "21 years" },
+            { n: "Dr. Deepamala N", u: "https://rvce.edu.in/department/cse/dr_deepamala_n/", d: "Professor", e: "15 years" },
+            { n: "Dr. Azra Nasreen", u: "https://rvce.edu.in/department/cse/dr_azra_nasreen/", d: "Associate Professor", e: "20 years" },
+            { n: "Dr. Pratiba D", u: "https://rvce.edu.in/department/cse/dr-pratiba-d/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr. Praveena T", u: "https://rvce.edu.in/department/cse/dr-praveena-t/", d: "Associate Professor", e: "18 years" },
+            { n: "Dr. K. Badari Nath", u: "https://rvce.edu.in/department/cse/dr_k_badari_nath/", d: "Associate Professor", e: "13 years" },
+            { n: "Dr. Chethana R. Murthy", u: "https://rvce.edu.in/department/cse/dr-chethana-r-murthy/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr. Pavithra H", u: "https://rvce.edu.in/department/cse/dr-pavithra-h/", d: "Associate Professor", e: "14 years" },
+            { n: "Dr. Prapulla S B", u: "https://rvce.edu.in/department/cse/dr-prapulla-s-b/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr. Sneha M", u: "https://rvce.edu.in/department/cse/dr_sneha_m/", d: "Associate Professor", e: "11 years" },
+            { n: "Dr. Smriti Srivastava", u: "https://rvce.edu.in/department/cse/dr_smriti_srivastava/", d: "Associate Professor", e: "13 years" },
+            { n: "Dr. Veena Gadad", u: "https://rvce.edu.in/department/cse/dr-veena-gadad/", d: "Associate Professor", e: "12 years" },
+            { n: "Dr. Ashok Kumar A R", u: "https://rvce.edu.in/department/cse/dr-ashok-kumar-a-r/", d: "Associate Professor", e: "Not specified" },
+            { n: "Dr. Mohana", u: "https://rvce.edu.in/department/cse/dr_mohana/", d: "Associate Professor", e: "18 years" },
+            { n: "Dr. Sandhya S.", u: "https://rvce.edu.in/department/cse/dr_sandhya_s/", d: "Associate Professor", e: "19 years" },
+            { n: "Dr. Manas M N", u: "https://rvce.edu.in/department/cse/dr-manas-m-n/", d: "Associate Professor", e: "8 years" },
+            { n: "Dr. Manonmani S.", u: "https://rvce.edu.in/department/cse/dr-manonmani-s/", d: "Assistant Professor", e: "13 years" },
+            { n: "Dr. Deepika Dash", u: "https://rvce.edu.in/department/cse/prof-deepika-dash/", d: "Assistant Professor", e: "13 years" },
+            { n: "Dr. Anitha Sandeep", u: "https://rvce.edu.in/department/cse/dr_anitha_sandeep/", d: "Assistant Professor", e: "21+ years" },
+            { n: "Dr. Apoorva Udaya Kumar Chate", u: "https://rvce.edu.in/department/cse/prof_apoorva_udaya_kumar_chate/", d: "Assistant Professor", e: "1.5 year" },
+            { n: "Prof. Rajatha", u: "https://rvce.edu.in/department/cse/prof_rajatha/", d: "Assistant Professor", e: "7 years" },
+            { n: "Dr. Savitri Kulkarni", u: "https://rvce.edu.in/department/cse/prof_savitri_kulkarni/", d: "Assistant Professor", e: "14.5 years" },
+            { n: "Dr. Karanam Sunil Kumar", u: "https://rvce.edu.in/department/cse/dr-karanam-sunil-kumar/", d: "Assistant Professor", e: "18 years" },
+            { n: "Prof. Saraswathi Govind Datard", u: "https://rvce.edu.in/department/cse/prof-saraswathi-govind-datard/", d: "Assistant Professor", e: "3 years" },
+            { n: "Prof. Mekhala Vinod Purohit", u: "https://rvce.edu.in/department/cse/prof_mekhala_vinod_purohit/", d: "Assistant Professor", e: "6 months" },
+            { n: "Prof. Deepthi L.", u: "https://rvce.edu.in/department/cse/prof-deepthi-l/", d: "Assistant Professor", e: "9 Years" },
+            { n: "Dr. Sahana D. Shejwadkar", u: "https://rvce.edu.in/department/cse/sahana-d-shejwadkar/", d: "Assistant Professor", e: "1 Month" },
+            { n: "Sanjana Ravindra Otihal", u: "https://rvce.edu.in/department/cse/sanjana-ravindra-otihal/", d: "Assistant Professor", e: "1 Month" },
+            { n: "Dr. Jyoti Shetty", u: "https://rvce.edu.in/department/cse/dr-jyoti-shetty/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr. Suma B.", u: "https://rvce.edu.in/department/cse/dr_suma_b/", d: "Associate Professor", e: "22 Years" },
+            { n: "Dr. Sindhu D V", u: "https://rvce.edu.in/department/cse/dr_sindhu_d_v/", d: "Assistant Professor", e: "5 years" },
+            { n: "Prof. Nithyashree G D", u: "https://rvce.edu.in/department/cse/prof_nithyashree_g_d/", d: "Assistant Professor", e: "2 year" },
+            { n: "Prof. Shweta Babu Prasad", u: "https://rvce.edu.in/department/cse/prof_shweta_babu_prasad/", d: "Assistant Professor", e: "1 year" },
+            { n: "Dr. Srividya M. S.", u: "https://rvce.edu.in/department/cse/dr_srividya_m_s/", d: "Associate Professor", e: "Industry: 8 Years, Teaching: 13 Years" },
+            { n: "Prof. L. Kala Chandrashekhar", u: "https://rvce.edu.in/department/cse/prof_l_kala_chandrashekhar/", d: "Assistant Professor", e: "17 year" },
+            { n: "Prof. Ganashree K C", u: "https://rvce.edu.in/department/cse/prof-ganashree-k-c/", d: "Assistant Professor", e: "18 years" }
         ],
         ee: [
-            { n: "Dr. S G Srivani", u: "https://rvce.edu.in/department/eee/dr_s_g_srivani_bio/", r: "Professor & HOD" },
-            { n: "Dr. Hemalatha J.N.", u: "https://rvce.edu.in/department/eee/dr_hemalatha_j_n/", r: "Associate Professor" },
-            { n: "Dr. Adinatha Jain", u: "https://rvce.edu.in/department/eee/dr_adinatha_jain/", r: "Associate Professor" },
-            { n: "Dr. Rachana S. Akki", u: "https://rvce.edu.in/department/eee/dr_rachana_s_akki/", r: "Associate Professor" },
-            { n: "Dr. C. Sunanda", u: "https://rvce.edu.in/department/eee/dr_c_sunanda/", r: "Associate Professor" },
-            { n: "Dr. Suresh C", u: "https://rvce.edu.in/department/eee/dr_suresh_c/", r: "Associate Professor" },
-            { n: "Dr. Ajay K.M.", u: "https://rvce.edu.in/department/eee/dr_ajay_k_m/", r: "Associate Professor" },
-            { n: "Dr. Madhu B.R.", u: "https://rvce.edu.in/department/eee/dr_madhu_b_r/", r: "Assistant Professor" },
-            { n: "Dr. Sushmita Sarkar", u: "https://rvce.edu.in/department/eee/dr_sushmita_sarkar/", r: "Assistant Professor" },
-            { n: "Raja Vidya", u: "https://rvce.edu.in/department/eee/raja_vidya/", r: "Assistant Professor" },
-            { n: "Dr. Parth Sarathi Panigrahy", u: "https://rvce.edu.in/department/eee/dr_parth_sarathi_panigrahy/", r: "Assistant Professor" },
-            { n: "Dr. Pandry Narendra Rao", u: "https://rvce.edu.in/department/eee/dr_pandry_narendra_rao/", r: "Assistant Professor" },
-            { n: "Dr. Abhilash Krishna D G", u: "https://rvce.edu.in/department/eee/dr_abhilash_krishna_d_g/", r: "Assistant Professor" }
+            { n: "Dr. S G Srivani", u: "https://rvce.edu.in/department/eee/dr_s_g_srivani_bio/", d: "Professor (Fixed Term)", e: "Teaching & Research: 39 years | Industry : 6 months" },
+            { n: "Dr. Hemalatha J.N.", u: "https://rvce.edu.in/department/eee/dr_hemalatha_j_n/", d: "Associate Professor", e: "Teaching: 22 Years" },
+            { n: "Dr. Adinatha Jain", u: "https://rvce.edu.in/department/eee/dr_adinatha_jain/", d: "Associate Professor", e: "Teaching: 22 Years , Industry: 5 years" },
+            { n: "Dr. Rachana S. Akki", u: "https://rvce.edu.in/department/eee/dr_rachana_s_akki/", d: "Associate Professor", e: "Teaching: 18 Years , Industry: 7 Years" },
+            { n: "Dr. C. Sunanda", u: "https://rvce.edu.in/department/eee/dr_c_sunanda/", d: "Assistant Professor", e: "Teaching: 22 years" },
+            { n: "Dr. Suresh C", u: "https://rvce.edu.in/department/eee/dr_suresh_c/", d: "Assistant Professor", e: "Teaching: 20 years" },
+            { n: "Dr. Ajay K.M.", u: "https://rvce.edu.in/department/eee/dr_ajay_k_m/", d: "Assistant Professor", e: "Teaching: 13 Years" },
+            { n: "Dr. Madhu B.R.", u: "https://rvce.edu.in/department/eee/dr_madhu_b_r/", d: "Assistant Professor", e: "Teaching: 17 Years" },
+            { n: "Dr. Sushmita Sarkar", u: "https://rvce.edu.in/department/eee/dr_sushmita_sarkar/", d: "Assistant Professor", e: "Teaching: 14 Years" },
+            { n: "Raja Vidya", u: "https://rvce.edu.in/department/eee/raja_vidya/", d: "Assistant Professor", e: "Teaching – 12.5 Years , Industry – 04 years" },
+            { n: "Dr. Parth Sarathi Panigrahy", u: "https://rvce.edu.in/department/eee/dr_parth_sarathi_panigrahy/", d: "Assistant Professor", e: "8.8 years" },
+            { n: "Dr. Pandry Narendra Rao", u: "https://rvce.edu.in/department/eee/dr_pandry_narendra_rao/", d: "Assistant Professor", e: "Teaching & Research: 9 years , Industry : 3 Years" },
+            { n: "Dr. Abhilash Krishna D G", u: "https://rvce.edu.in/department/eee/dr_abhilash_krishna_d_g/", d: "Assistant Professor", e: "02 Years" }
         ],
         ec: [
-            { n: "Dr. H. V. Ravish Aradhya", u: "https://rvce.edu.in/department/ece/dr_h_v_ravish_aradhya/", r: "Professor & HOD" },
-            { n: "Dr. K. S. Geetha", u: "https://rvce.edu.in/department/ece/dr_k_s_geetha/", r: "Professor & Vice-Principal" },
-            { n: "Dr. M. Uttara Kumari", u: "https://rvce.edu.in/department/ece/dr_m_uttara_kumari/", r: "Professor & Dean (R&D)" },
-            { n: "Dr. Prakash Biswagar", u: "https://rvce.edu.in/department/ece/dr_prakash_biswagar/", r: "Professor" },
-            { n: "Dr. Ramesh K B", u: "https://rvce.edu.in/department/ece/dr_ramesh_k_b/", r: "Associate Professor" },
-            { n: "Dr. Veena Devi", u: "https://rvce.edu.in/department/ece/dr_veena_devi/", r: "Associate Professor" },
-            { n: "Dr. Govinda Raju M", u: "https://rvce.edu.in/department/ece/dr_govinda_raju_m/", r: "Associate Professor" },
-            { n: "Dr. Mahesh A", u: "https://rvce.edu.in/department/ece/dr_mahesh_a/", r: "Associate Professor" },
-            { n: "Dr. Shilpa D. R.", u: "https://rvce.edu.in/department/ece/dr_shilpa_d_r/", r: "Associate Professor" },
-            { n: "Dr. Abhay A. Deshpande", u: "https://rvce.edu.in/department/ece/dr_abhay_a_deshpande/", r: "Associate Professor" },
-            { n: "Dr. Chethana G", u: "https://rvce.edu.in/department/ece/dr_chethana_g/", r: "Associate Professor" },
-            { n: "Dr. Sujata D. Badiger", u: "https://rvce.edu.in/department/ece/dr_sujata_d_badiger/", r: "Associate Professor" },
-            { n: "Dr. Rohini S. Hallikar", u: "https://rvce.edu.in/department/ece/dr_rohini_s_hallikar/", r: "Associate Professor" },
-            { n: "Dr. Sujatha Hiremath", u: "https://rvce.edu.in/department/ece/dr_sujatha_hiremath/", r: "Assistant Professor" },
-            { n: "Dr. Deepashree Devaraj", u: "https://rvce.edu.in/department/ece/dr-deepashree-devaraj/", r: "Assistant Professor" },
-            { n: "Dr. Rajani Katiyar", u: "https://rvce.edu.in/department/ece/dr_rajani_katiyar/", r: "Assistant Professor" },
-            { n: "Dr. K. A. Nethravathi", u: "https://rvce.edu.in/department/ece/dr_k_a_nethravathi/", r: "Assistant Professor" },
-            { n: "Dr. Harsha H", u: "https://rvce.edu.in/department/ece/dr_harsha/", r: "Assistant Professor" },
-            { n: "Dr. Ramavenkateswaran N", u: "https://rvce.edu.in/department/ece/dr_ramavenkateswaran_n/", r: "Assistant Professor" },
-            { n: "Dr. Roopa J", u: "https://rvce.edu.in/department/ece/dr_roopa_j/", r: "Assistant Professor" },
-            { n: "P Narashimaraja", u: "https://rvce.edu.in/department/ece/p_narashimaraja/", r: "Assistant Professor" },
-            { n: "Dr. Veena Divya Krishnappa", u: "https://rvce.edu.in/department/ece/veena_divya_krishnappa/", r: "Assistant Professor" }
+            { n: "Dr. H. V. Ravish Aradhya", u: "https://rvce.edu.in/department/ece/dr_h_v_ravish_aradhya/", d: "Professor & HoD", e: "34 years" },
+            { n: "Dr. K. S. Geetha", u: "https://rvce.edu.in/department/ece/dr_k_s_geetha/", d: "Professor and Vice-Principal", e: "34 years" },
+            { n: "Dr. M. Uttara Kumari", u: "https://rvce.edu.in/department/ece/dr_m_uttara_kumari/", d: "Professor & Dean (R&D)", e: "22 years" },
+            { n: "Dr. Prakash Biswagar", u: "https://rvce.edu.in/department/ece/dr_prakash_biswagar/", d: "Professor", e: "30 years" },
+            { n: "Dr. Ramesh K B", u: "https://rvce.edu.in/department/ece/dr_ramesh_k_b/", d: "Associate Professor", e: "Not specified" },
+            { n: "Dr. Veena Devi", u: "https://rvce.edu.in/department/ece/dr_veena_devi/", d: "Associate Professor", e: "20 years" },
+            { n: "Dr. Govinda Raju M", u: "https://rvce.edu.in/department/ece/dr_govinda_raju_m/", d: "Associate Professor", e: "15 Years" },
+            { n: "Dr. Mahesh A", u: "https://rvce.edu.in/department/ece/dr_mahesh_a/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr. Shilpa D. R.", u: "https://rvce.edu.in/department/ece/dr_shilpa_d_r/", d: "Associate Professor & Assoc. Dean(P&T)", e: "10 years" },
+            { n: "Dr. Abhay A. Deshpande", u: "https://rvce.edu.in/department/ece/dr_abhay_a_deshpande/", d: "Associate Professor", e: "8 years" },
+            { n: "Dr. Chethana G", u: "https://rvce.edu.in/department/ece/dr_chethana_g/", d: "Assistant Professor", e: "12 years" },
+            { n: "Dr. Sujata D. Badiger", u: "https://rvce.edu.in/department/ece/dr_sujata_d_badiger/", d: "Assistant Professor", e: "20 Years" },
+            { n: "Dr. Rohini S. Hallikar", u: "https://rvce.edu.in/department/ece/dr_rohini_s_hallikar/", d: "Assistant Professor", e: "20 Years" },
+            { n: "Dr. Sujatha Hiremath", u: "https://rvce.edu.in/department/ece/dr_sujatha_hiremath/", d: "Assistant Professor", e: "20 years" },
+            { n: "Dr. Deepashree Devaraj", u: "https://rvce.edu.in/department/ece/dr-deepashree-devaraj/", d: "Assistant Professor (Selection Grade)", e: "Not specified" },
+            { n: "Dr. Rajani Katiyar", u: "https://rvce.edu.in/department/ece/dr_rajani_katiyar/", d: "Assistant Professor", e: "Teaching: 20 Years" },
+            { n: "Dr. K. A. Nethravathi", u: "https://rvce.edu.in/department/ece/dr_k_a_nethravathi/", d: "Assistant Professor(Selection Grade)", e: "Teaching: 18 Years." },
+            { n: "Dr. Harsha H", u: "https://rvce.edu.in/department/ece/dr_harsha/", d: "Assistant Professor", e: "Teaching: 17 Years." },
+            { n: "Dr. Ramavenkateswaran N", u: "https://rvce.edu.in/department/ece/dr_ramavenkateswaran_n/", d: "Assistant Professor (Selection Grade)", e: "Teaching: 16 Years Industry: 2 Years" },
+            { n: "Dr. Roopa J", u: "https://rvce.edu.in/department/ece/dr_roopa_j/", d: "Assistant Professor", e: "Teaching: 16 Years , Industry: 2 Years , Research: 10 Years" },
+            { n: "P Narashimaraja", u: "https://rvce.edu.in/department/ece/p_narashimaraja/", d: "Assistant Professor", e: "Teaching: 18 Years" },
+            { n: "Dr. Veena Divya Krishnappa", u: "https://rvce.edu.in/department/ece/veena_divya_krishnappa/", d: "Assistant Professor", e: "Teaching: 16 yrs; Industry: 02 yrs; Research: 09 yrs" }
         ],
         ei: [
-            { n: "Dr. Padmaja K V", u: "https://rvce.edu.in/department/eim/dr_padmaja_k_v/", r: "Associate Professor & HOD" },
-            { n: "Dr. Prasanna Kumar S. C.", u: "https://rvce.edu.in/department/eim/dr_prasanna_kumar_s_c/", r: "Professor" },
-            { n: "Prof. Venkatesh S", u: "https://rvce.edu.in/department/eim/prof_venkatesh_s/", r: "Associate Professor" },
-            { n: "Dr. K. B. Ramesh", u: "https://rvce.edu.in/department/eim/dr_k_b_ramesh/", r: "Associate Professor" },
-            { n: "Dr. Anand Jatti", u: "https://rvce.edu.in/department/eim/dr_anand_jatti/", r: "Assistant Professor" },
-            { n: "Dr. Sudarshan B. G.", u: "https://rvce.edu.in/department/eim/dr_sudarshan_b_g/", r: "Assistant Professor" },
-            { n: "Dr. Rachana S. Akki", u: "https://rvce.edu.in/department/eim/dr_rachana_s_akki/#", r: "Assistant Professor" },
-            { n: "Dr. Deepashree Devaraj", u: "https://rvce.edu.in/department/eim/dr_deepashree_devaraj/", r: "Assistant Professor" },
-            { n: "Dr. Tabitha Janumala", u: "https://rvce.edu.in/department/eim/dr_tabitha_janumala/", r: "Assistant Professor" },
-            { n: "Dr. Rajasree P.M.", u: "https://rvce.edu.in/department/eim/dr_rajasree_p_m/", r: "Assistant Professor" },
-            { n: "Dr. Kendaganna Swamy S", u: "https://rvce.edu.in/department/eim/dr_kendaganna_swamy_s/", r: "Assistant Professor" }
+            { n: "Dr. Padmaja K V", u: "https://rvce.edu.in/department/eim/dr_padmaja_k_v/", d: "Professor and Associate Dean- IT", e: "33 yrs" },
+            { n: "Dr. Prasanna Kumar S. C.", u: "https://rvce.edu.in/department/eim/dr_prasanna_kumar_s_c/", d: "Professor", e: "26yrs" },
+            { n: "Prof. Venkatesh S", u: "https://rvce.edu.in/department/eim/prof_venkatesh_s/", d: "Associate Professor", e: "35 yrs" },
+            { n: "Dr. K. B. Ramesh", u: "https://rvce.edu.in/department/eim/dr_k_b_ramesh/", d: "Associate Professor", e: "30yrs" },
+            { n: "Dr. Anand Jatti", u: "https://rvce.edu.in/department/eim/dr_anand_jatti/", d: "Associate Professor", e: "22 yrs" },
+            { n: "Dr. Sudarshan B. G.", u: "https://rvce.edu.in/department/eim/dr_sudarshan_b_g/", d: "Associate Professor", e: "20 yrs" },
+            { n: "Dr. Rachana S. Akki", u: "https://rvce.edu.in/department/eim/dr_rachana_s_akki/#", d: "Assistant Professor", e: "18 yrs" },
+            { n: "Dr. Deepashree Devaraj", u: "https://rvce.edu.in/department/eim/dr_deepashree_devaraj/", d: "Assistant Professor", e: "21 yrs" },
+            { n: "Dr. Tabitha Janumala", u: "https://rvce.edu.in/department/eim/dr_tabitha_janumala/", d: "Assistant Professor", e: "17 yrs" },
+            { n: "Dr. Rajasree P.M.", u: "https://rvce.edu.in/department/eim/dr_rajasree_p_m/", d: "Assistant Professor", e: "13 yrs" },
+            { n: "Dr. Kendaganna Swamy S", u: "https://rvce.edu.in/department/eim/dr_kendaganna_swamy_s/", d: "Assistant Professor", e: "13 yrs" }
         ],
         et: [
-            { n: "Dr. Nagamani K", u: "https://rvce.edu.in/department/etc/dr_nagamani_k_bio/", r: "Professor & HOD" },
-            { n: "Dr. H.V. Kumaraswamy", u: "https://rvce.edu.in/department/etc/dr_h_v_kumaraswamy/", r: "Professor" },
-            { n: "Dr. K. Sreelakshmi", u: "https://rvce.edu.in/department/etc/dr_k_sreelakshmi/", r: "Professor" },
-            { n: "Dr. P. Nagaraju", u: "https://rvce.edu.in/department/etc/dr_p_nagaraju/", r: "Associate Professor & PG Dean" },
-            { n: "Dr. B. Roja Reddy", u: "https://rvce.edu.in/department/etc/dr_b_roja_reddy/", r: "Associate Professor" },
-            { n: "Dr. Premananda B S", u: "https://rvce.edu.in/department/etc/dr_premananda_b_s/", r: "Associate Professor" },
-            { n: "Dr. Bhagya R", u: "https://rvce.edu.in/department/etc/dr_bhagya_r/", r: "Associate Professor" },
-            { n: "Dr. Shanthi P", u: "https://rvce.edu.in/department/etc/dr_shanthi_p/", r: "Associate Professor" },
-            { n: "Dr. Usha Padma", u: "https://rvce.edu.in/department/etc/dr_usha_padma/", r: "Assistant Professor" },
-            { n: "Prof. T.P. Mithun", u: "https://rvce.edu.in/department/etc/prof_t_p_mithun/", r: "Assistant Professor" },
-            { n: "Dr. Shambulinga M", u: "https://rvce.edu.in/department/etc/dr_shambulinga_m/", r: "Assistant Professor" },
-            { n: "Dr. Sandya H B", u: "https://rvce.edu.in/department/etc/dr_sandya_h_b/", r: "Assistant Professor" },
-            { n: "Prof. N.N. Nagendra", u: "https://rvce.edu.in/department/etc/prof_nagendra_n_n/", r: "Assistant Professor" },
-            { n: "Prof. Mahalakshmi M. N.", u: "https://rvce.edu.in/department/etc/prof_mahalakshmi_m_n/", r: "Assistant Professor" },
-            { n: "Prof. Rakesh K.R", u: "https://rvce.edu.in/department/etc/prof_rakesh_k_r/", r: "Assistant Professor" },
-            { n: "Dr. K. Saraswathi", u: "https://rvce.edu.in/department/etc/dr_k_saraswathi/", r: "Assistant Professor" },
-            { n: "Dr. Ranjani G", u: "https://rvce.edu.in/department/etc/dr_ranjani_g/", r: "Assistant Professor" }
+            { n: "Dr. Nagamani K", u: "https://rvce.edu.in/department/etc/dr_nagamani_k_bio/", d: "Professor and Head", e: "21 Years" },
+            { n: "Dr. H.V. Kumaraswamy", u: "https://rvce.edu.in/department/etc/dr_h_v_kumaraswamy/", d: "Professor", e: "30 Years" },
+            { n: "Dr. K. Sreelakshmi", u: "https://rvce.edu.in/department/etc/dr_k_sreelakshmi/", d: "Professor & PG Dean Studies (Circuit Branches)", e: "28 yrs" },
+            { n: "Dr. P. Nagaraju", u: "https://rvce.edu.in/department/etc/dr_p_nagaraju/", d: "Associate Professor & Associate Dean PG Studies", e: "30 Years" },
+            { n: "Dr. B. Roja Reddy", u: "https://rvce.edu.in/department/etc/dr_b_roja_reddy/", d: "Associate Professor", e: "22 yrs" },
+            { n: "Dr. Premananda B S", u: "https://rvce.edu.in/department/etc/dr_premananda_b_s/", d: "Associate Professor", e: "22 Yrs" },
+            { n: "Dr. Bhagya R", u: "https://rvce.edu.in/department/etc/dr_bhagya_r/", d: "Associate Professor", e: "16 Years" },
+            { n: "Dr. Shanthi P", u: "https://rvce.edu.in/department/etc/dr_shanthi_p/", d: "Associate Professor", e: "26 Yrs" },
+            { n: "Dr. Usha Padma", u: "https://rvce.edu.in/department/etc/dr_usha_padma/", d: "Assistant Professor", e: "19 Years" },
+            { n: "Prof. T.P. Mithun", u: "https://rvce.edu.in/department/etc/prof_t_p_mithun/", d: "Assistant Professor", e: "15 Yrs" },
+            { n: "Dr. Shambulinga M", u: "https://rvce.edu.in/department/etc/dr_shambulinga_m/", d: "Assistant Professor", e: "12 yrs" },
+            { n: "Dr. Sandya H B", u: "https://rvce.edu.in/department/etc/dr_sandya_h_b/", d: "Assistant Professor", e: "12 yrs" },
+            { n: "Prof. N.N. Nagendra", u: "https://rvce.edu.in/department/etc/prof_nagendra_n_n/", d: "Assistant Professor", e: "10 yrs" },
+            { n: "Prof. Mahalakshmi M. N.", u: "https://rvce.edu.in/department/etc/prof_mahalakshmi_m_n/", d: "Assistant Professor", e: "10Yrs" },
+            { n: "Prof. Rakesh K.R", u: "https://rvce.edu.in/department/etc/prof_rakesh_k_r/", d: "Assistant Professor", e: "7 Years" },
+            { n: "Dr. K. Saraswathi", u: "https://rvce.edu.in/department/etc/dr_k_saraswathi/", d: "Associate Professor", e: "19 Years" },
+            { n: "Dr. Ranjani G", u: "https://rvce.edu.in/department/etc/dr_ranjani_g/", d: "Assistant Professor", e: "19 Years" }
         ],
         im: [
-            { n: "Dr. Rajeswara Rao K V S", u: "https://rvce.edu.in/department/iem/dr_rajeswara_rao_k_v_s/", r: "Professor & HOD" },
-            { n: "Dr. K N Subramanya", u: "https://rvce.edu.in/department/iem/dr_k_n_subramanya/", r: "Professor & Principal" },
-            { n: "Dr. C K Nagendra Gupta", u: "https://rvce.edu.in/department/iem/dr_c_k_nagendra_gupta/", r: "Professor" },
-            { n: "Dr M N Vijaya Kumar", u: "https://rvce.edu.in/department/iem/dr_m_n_vijaya_kumar/", r: "Associate Professor" },
-            { n: "Dr. Ramaa A", u: "https://rvce.edu.in/department/iem/dr_ramaa_a/", r: "Associate Professor" },
-            { n: "Dr. Shobha N S", u: "https://rvce.edu.in/department/iem/dr_shobha_n_s/", r: "Assistant Professor" },
-            { n: "Dr. Vivekanand S. Gogi", u: "https://rvce.edu.in/department/iem/dr_vivekanand_s_gogi/", r: "Assistant Professor" },
-            { n: "Dr Vikram N Bahadurdesai", u: "https://rvce.edu.in/department/iem/dr_vikram_n_bahadurdesai/", r: "Assistant Professor" },
-            { n: "Dr Chitra B T", u: "https://rvce.edu.in/department/iem/dr_chitra_b_t/", r: "Assistant Professor" },
-            { n: "Dr Bindu Ashwini C.", u: "https://rvce.edu.in/department/iem/dr_bindu_ashwini_c/", r: "Assistant Professor (Psychology)" },
-            { n: "Prof Shruthi M N", u: "https://rvce.edu.in/department/iem/prof_shruthi_m_n/", r: "Assistant Professor" },
-            { n: "Prof B. Nandini", u: "https://rvce.edu.in/department/iem/prof_b_nandini/", r: "Assistant Professor" },
-            { n: "Prof Bhaskar M G", u: "https://rvce.edu.in/department/iem/prof_bhaskar_m_g/", r: "Assistant Professor" },
-            { n: "Dr N. S. Narahari", u: "https://rvce.edu.in/department/iem/n_s_narahari/", r: "Professor" }
+            { n: "Dr. Rajeswara Rao K V S", u: "https://rvce.edu.in/department/iem/dr_rajeswara_rao_k_v_s/", d: "Associate Professor & HoD", e: "Teaching: 26 years, Industry : 2 years" },
+            { n: "Dr. K N Subramanya", u: "https://rvce.edu.in/department/iem/dr_k_n_subramanya/", d: "Professor & Principal", e: "Teaching : 31, Research :11" },
+            { n: "Dr. C K Nagendra Gupta", u: "https://rvce.edu.in/department/iem/dr_c_k_nagendra_gupta/", d: "Professor", e: "Teaching: 28 Years, Industry : 05 years" },
+            { n: "Dr M N Vijaya Kumar", u: "https://rvce.edu.in/department/iem/dr_m_n_vijaya_kumar/", d: "Associate Professor", e: "Teaching: 19 years, Industry : 2 years" },
+            { n: "Dr. Ramaa A", u: "https://rvce.edu.in/department/iem/dr_ramaa_a/", d: "Associate Professor & Associate Dean Placement & Training", e: "Teaching: 20 years" },
+            { n: "Dr. Shobha N S", u: "https://rvce.edu.in/department/iem/dr_shobha_n_s/", d: "Assistant Professor", e: "Teaching: 21 years" },
+            { n: "Dr. Vivekanand S. Gogi", u: "https://rvce.edu.in/department/iem/dr_vivekanand_s_gogi/", d: "Assistant Professor", e: "24 years" },
+            { n: "Dr Vikram N Bahadurdesai", u: "https://rvce.edu.in/department/iem/dr_vikram_n_bahadurdesai/", d: "Assistant Professor", e: "Teaching: 18 years, Industry 01 year." },
+            { n: "Dr Chitra B T", u: "https://rvce.edu.in/department/iem/dr_chitra_b_t/", d: "Assistant Professor", e: "Teaching: 15 years" },
+            { n: "Dr Bindu Ashwini C.", u: "https://rvce.edu.in/department/iem/dr_bindu_ashwini_c/", d: "Assistant Professor", e: "24 Years" },
+            { n: "Prof Shruthi M N", u: "https://rvce.edu.in/department/iem/prof_shruthi_m_n/", d: "Assistant Professor", e: "17 years" },
+            { n: "Prof B. Nandini", u: "https://rvce.edu.in/department/iem/prof_b_nandini/", d: "Assistant Professor", e: "Teaching: 16 years" },
+            { n: "Prof Bhaskar M G", u: "https://rvce.edu.in/department/iem/prof_bhaskar_m_g/", d: "Assistant Professor", e: "Industry: 1 Year, Teaching: 11 Year" },
+            { n: "Dr N. S. Narahari", u: "https://rvce.edu.in/department/iem/n_s_narahari/", d: "Visiting Professor", e: "Teaching: 35 years" }
         ],
         is: [
-            { n: "Dr. G. S. Mamatha", u: "https://rvce.edu.in/department/ise/dr_g_s_mamatha/", r: "Professor & HOD" },
-            { n: "Dr. B. M. Sagar", u: "https://rvce.edu.in/department/ise/dr_b_m_sagar/", r: "Professor" },
-            { n: "Dr Ashwini K. B.", u: "https://rvce.edu.in/department/ise/dr_ashwini_k_b/", r: "Assistant Professor" },
-            { n: "Dr Vanishree K.", u: "https://rvce.edu.in/department/ise/dr_vanishree_k/", r: "Associate Professor" },
-            { n: "Dr Merin Meleet", u: "https://rvce.edu.in/department/ise/dr_merin_meleet/", r: "Assistant Professor" },
-            { n: "Dr S. G. Raghavendra Prasad", u: "https://rvce.edu.in/department/ise/s_g_raghavendra_prasad/", r: "Assistant Professor" },
-            { n: "Dr Rekha B. S.", u: "https://rvce.edu.in/department/ise/rekha_b_s/", r: "Assistant Professor" },
-            { n: "Dr Swetha S.", u: "https://rvce.edu.in/department/ise/swetha_s/", r: "Assistant Professor" },
-            { n: "B K Srinivas", u: "https://rvce.edu.in/department/ise/b_k_srinivas/", r: "Assistant Professor" },
-            { n: "Dr Sushmitha N.", u: "https://rvce.edu.in/department/ise/sushmitha_n/", r: "Assistant Professor" },
-            { n: "Dr Kavitha S. N.", u: "https://rvce.edu.in/department/ise/dr_kavitha_s_n/", r: "Associate Professor" },
-            { n: "Dr Rashmi R", u: "https://rvce.edu.in/department/ise/rashmi_r/", r: "Assistant Professor" },
-            { n: "Dr Anala M. R.", u: "https://rvce.edu.in/department/ise/dr_anala_m_r/", r: "Assistant Professor" },
-            { n: "Dr Padmashree T", u: "https://rvce.edu.in/department/ise/dr_padmashree_t/", r: "Assistant Professor" },
-            { n: "Dr Poornima Kulkarni", u: "https://rvce.edu.in/department/ise/poornima_kulkarni/", r: "Assistant Professor" }
+            { n: "Dr. G. S. Mamatha", u: "https://rvce.edu.in/department/ise/dr_g_s_mamatha/", d: "Professor and HoD", e: "20 Years" },
+            { n: "Dr. B. M. Sagar", u: "https://rvce.edu.in/department/ise/dr_b_m_sagar/", d: "Professor & Dean Student Affairs", e: "21 Years" },
+            { n: "Dr Ashwini K. B.", u: "https://rvce.edu.in/department/ise/dr_ashwini_k_b/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr Vanishree K.", u: "https://rvce.edu.in/department/ise/dr_vanishree_k/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr Merin Meleet", u: "https://rvce.edu.in/department/ise/dr_merin_meleet/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr S. G. Raghavendra Prasad", u: "https://rvce.edu.in/department/ise/s_g_raghavendra_prasad/", d: "Assistant Professor", e: "20 Years" },
+            { n: "Dr Rekha B. S.", u: "https://rvce.edu.in/department/ise/rekha_b_s/", d: "Assistant Professor", e: "15 years" },
+            { n: "Dr Swetha S.", u: "https://rvce.edu.in/department/ise/swetha_s/", d: "Assistant Professor", e: "13 years" },
+            { n: "B K Srinivas", u: "https://rvce.edu.in/department/ise/b_k_srinivas/", d: "Assistant Professor", e: "11 years" },
+            { n: "Dr Sushmitha N.", u: "https://rvce.edu.in/department/ise/sushmitha_n/", d: "Assistant Professor", e: "17 years" },
+            { n: "Dr Kavitha S. N.", u: "https://rvce.edu.in/department/ise/dr_kavitha_s_n/", d: "Associate Professor", e: "17Years" },
+            { n: "Dr Rashmi R", u: "https://rvce.edu.in/department/ise/rashmi_r/", d: "Assistant Professor", e: "18 years" },
+            { n: "Dr Anala M. R.", u: "https://rvce.edu.in/department/ise/dr_anala_m_r/", d: "Professor", e: "20 years" },
+            { n: "Dr Padmashree T", u: "https://rvce.edu.in/department/ise/dr_padmashree_t/", d: "Associate Professor", e: "17 years" },
+            { n: "Dr Poornima Kulkarni", u: "https://rvce.edu.in/department/ise/poornima_kulkarni/", d: "Assistant Professor", e: "10 Years" }
         ],
         mat: [
-            { n: "Dr. G. Jayalatha", u: "https://rvce.edu.in/department/maths/dr_g_jayalatha/", r: "Professor & HOD" },
-            { n: "Dr. Neeti Ghiya", u: "https://rvce.edu.in/department/maths/dr_neeti_ghiya/", r: "Professor" },
-            { n: "Dr. C. Nandeesh Kumar", u: "https://rvce.edu.in/department/maths/dr_c_nandeesh_kumar/", r: "Associate Professor" },
-            { n: "Dr. Savithri Shashidhar", u: "https://rvce.edu.in/department/maths/dr_savithri_shashidhar/", r: "Associate Professor" },
-            { n: "Dr. Prakash R", u: "https://rvce.edu.in/department/maths/dr_prakash_r/", r: "Associate Professor" },
-            { n: "Dr. Sowmya M", u: "https://rvce.edu.in/department/maths/dr_sowmya_m/", r: "Assistant Professor" },
-            { n: "Dr. Satish V. Motammanavar", u: "https://rvce.edu.in/department/maths/dr_satish_v_motammanavar/", r: "Assistant Professor" },
-            { n: "Dr. Y. Sailaja", u: "https://rvce.edu.in/department/maths/dr_y_sailaja/", r: "Assistant Professor" },
-            { n: "Dr. Sujatha A.", u: "https://rvce.edu.in/department/maths/dr_sujatha_a/", r: "Assistant Professor" },
-            { n: "Dr. Vidya Patil", u: "https://rvce.edu.in/department/maths/dr_vidya_patil/", r: "Assistant Professor" },
-            { n: "Dr. Nivya Muchikel", u: "https://rvce.edu.in/department/maths/dr_nivya_muchikel/", r: "Assistant Professor" },
-            { n: "Dr. Ravi K. M", u: "https://rvce.edu.in/department/maths/dr_ravi_k_m/", r: "Assistant Professor" },
-            { n: "P. L. Rajashekhar", u: "https://rvce.edu.in/department/maths/mr_p_l_rajashekhar/", r: "Assistant Professor" },
-            { n: "Dr. Harish M", u: "https://rvce.edu.in/department/maths/dr_harish_m/", r: "Assistant Professor" },
-            { n: "Dr. Suman N P", u: "https://rvce.edu.in/department/maths/dr_suman_n_p/", r: "Assistant Professor" },
-            { n: "Dr. Kiran Kumar D L", u: "https://rvce.edu.in/department/maths/dr_kiran_kumar_d_l/", r: "Assistant Professor" },
-            { n: "Dr. Venugopal K", u: "https://rvce.edu.in/department/maths/dr_venugopal_k/", r: "Assistant Professor" },
-            { n: "Dr. Niranjan P. K.", u: "https://rvce.edu.in/department/maths/dr_niranjan_p_k/", r: "Assistant Professor" },
-            { n: "Dr. Suma N Manjunath", u: "https://rvce.edu.in/department/maths/dr_suma_n_manjunath/", r: "Assistant Professor" },
-            { n: "Dr. Prasanna Kumar T", u: "https://rvce.edu.in/department/maths/dr_prasanna_kumar_t/", r: "Assistant Professor" },
-            { n: "Dr. Sakshath T n", u: "https://rvce.edu.in/department/maths/dr_sakshath_t_n/", r: "Assistant Professor" },
-            { n: "Dr. Hemanthkumar B", u: "https://rvce.edu.in/department/maths/dr_hemanthkumar_b/", r: "Assistant Professor" },
-            { n: "Dr. Kirthiga M", u: "https://rvce.edu.in/department/maths/dr_kirthiga_m/", r: "Assistant Professor" },
-            { n: "Dr. Vyshnavi D", u: "https://rvce.edu.in/department/maths/dr_vyshnavi_d/", r: "Assistant Professor" }
+            { n: "Dr. G. Jayalatha", u: "https://rvce.edu.in/department/maths/dr_g_jayalatha/", d: "Professor and HoD", e: "20 Years" },
+            { n: "Dr. Neeti Ghiya", u: "https://rvce.edu.in/department/maths/dr_neeti_ghiya/", d: "Professor", e: "20 Years" },
+            { n: "Dr. C. Nandeesh Kumar", u: "https://rvce.edu.in/department/maths/dr_c_nandeesh_kumar/", d: "Associate Professor", e: "25 Years" },
+            { n: "Dr. Savithri Shashidhar", u: "https://rvce.edu.in/department/maths/dr_savithri_shashidhar/", d: "Associate Professor", e: "20 Years" },
+            { n: "Dr. Prakash R", u: "https://rvce.edu.in/department/maths/dr_prakash_r/", d: "Associate Professor", e: "19 Years" },
+            { n: "Dr. Sowmya M", u: "https://rvce.edu.in/department/maths/dr_sowmya_m/", d: "Associate Professor", e: "21 Years" },
+            { n: "Dr. Satish V. Motammanavar", u: "https://rvce.edu.in/department/maths/dr_satish_v_motammanavar/", d: "Associate Professor", e: "09 Years" },
+            { n: "Dr. Y. Sailaja", u: "https://rvce.edu.in/department/maths/dr_y_sailaja/", d: "Assistant Professor", e: "23 Years" },
+            { n: "Dr. Sujatha A.", u: "https://rvce.edu.in/department/maths/dr_sujatha_a/", d: "Assistant Professor", e: "20 Years" },
+            { n: "Dr. Vidya Patil", u: "https://rvce.edu.in/department/maths/dr_vidya_patil/", d: "Assistant Professor", e: "18 Years" },
+            { n: "Dr. Nivya Muchikel", u: "https://rvce.edu.in/department/maths/dr_nivya_muchikel/", d: "Assistant Professor", e: "21 Years" },
+            { n: "Dr. Ravi K. M", u: "https://rvce.edu.in/department/maths/dr_ravi_k_m/", d: "Assistant Professor", e: "21 Years" },
+            { n: "P. L. Rajashekhar", u: "https://rvce.edu.in/department/maths/mr_p_l_rajashekhar/", d: "Assistant Professor", e: "18 Years" },
+            { n: "Dr. Harish M", u: "https://rvce.edu.in/department/maths/dr_harish_m/", d: "Assistant Professor", e: "10 Years" },
+            { n: "Dr. Suman N P", u: "https://rvce.edu.in/department/maths/dr_suman_n_p/", d: "Assistant Professor", e: "8 Years" },
+            { n: "Dr. Kiran Kumar D L", u: "https://rvce.edu.in/department/maths/dr_kiran_kumar_d_l/", d: "Assistant Professor", e: "5 Years" },
+            { n: "Dr. Venugopal K", u: "https://rvce.edu.in/department/maths/dr_venugopal_k/", d: "Assistant Professor", e: "8 Years" },
+            { n: "Dr. Niranjan P. K.", u: "https://rvce.edu.in/department/maths/dr_niranjan_p_k/", d: "Assistant Professor", e: "6.5 Years" },
+            { n: "Dr. Suma N Manjunath", u: "https://rvce.edu.in/department/maths/dr_suma_n_manjunath/", d: "Assistant Professor", e: "17 Years" },
+            { n: "Dr. Prasanna Kumar T", u: "https://rvce.edu.in/department/maths/dr_prasanna_kumar_t/", d: "Assistant Professor", e: "15 Years" },
+            { n: "Dr. Sakshath T n", u: "https://rvce.edu.in/department/maths/dr_sakshath_t_n/", d: "Assistant Professor", e: "07 Years" },
+            { n: "Dr. Hemanthkumar B", u: "https://rvce.edu.in/department/maths/dr_hemanthkumar_b/", d: "Assistant Professor", e: "12 Years" },
+            { n: "Dr. Kirthiga M", u: "https://rvce.edu.in/department/maths/dr_kirthiga_m/", d: "Assistant Professor", e: "5 Years" },
+            { n: "Dr. Vyshnavi D", u: "https://rvce.edu.in/department/maths/dr_vyshnavi_d/", d: "Assistant Professor", e: "6 months" }
         ],
         mca: [
-            { n: "Dr Jasmine K. S.", u: "https://rvce.edu.in/department/mca/dr_jasmine_k_s_bio/", r: "Professor & HOD" },
-            { n: "Dr Usha J.", u: "https://rvce.edu.in/department/mca/dr_usha_j/", r: "Assistant Professor" },
-            { n: "Dr Andhe Dharani", u: "https://rvce.edu.in/department/mca/dr_andhe_dharani/", r: "Professor" },
-            { n: "Dr B. Renuka Prasad", u: "https://rvce.edu.in/department/mca/dr_b_renuka_prasad/", r: "Associate Professor" },
-            { n: "Dr B. H. Chandrashekar", u: "https://rvce.edu.in/department/mca/dr_b_h_chandrashekar/", r: "Assistant Professor" },
-            { n: "Dr Deepika K", u: "https://rvce.edu.in/department/mca/dr_deepika_k/", r: "Assistant Professor" },
-            { n: "Dr Mohan Aradhya", u: "https://rvce.edu.in/department/mca/dr_mohan_aradhya/", r: "Assistant Professor" },
-            { n: "Dr Divya T. L.", u: "https://rvce.edu.in/department/mca/dr_divya_t_l/", r: "Assistant Professor" },
-            { n: "Prof Saravanan C", u: "https://rvce.edu.in/department/mca/prof_saravanan_c/", r: "Assistant Professor" },
-            { n: "Prof Chandrani Chakravorty", u: "https://rvce.edu.in/department/mca/prof_chandrani_chakravorty/", r: "Assistant Professor" },
-            { n: "Prof Savita Sheelavant", u: "https://rvce.edu.in/department/mca/prof_savita_sheelavant/", r: "Assistant Professor" },
-            { n: "Prof Prashanth K", u: "https://rvce.edu.in/department/mca/prof_prashanth_k/", r: "Assistant Professor" }
+            { n: "Dr Jasmine K. S.", u: "https://rvce.edu.in/department/mca/dr_jasmine_k_s_bio/", d: "Associate Professor and Director", e: "28 Years" },
+            { n: "Dr Usha J.", u: "https://rvce.edu.in/department/mca/dr_usha_j/", d: "Professor", e: "26 years" },
+            { n: "Dr Andhe Dharani", u: "https://rvce.edu.in/department/mca/dr_andhe_dharani/", d: "Professor", e: "23 Years" },
+            { n: "Dr B. Renuka Prasad", u: "https://rvce.edu.in/department/mca/dr_b_renuka_prasad/", d: "Associate Professor", e: "21 Years" },
+            { n: "Dr B. H. Chandrashekar", u: "https://rvce.edu.in/department/mca/dr_b_h_chandrashekar/", d: "Associate Professor", e: "Teaching: 19 Years, Technical: 15 Years" },
+            { n: "Dr Deepika K", u: "https://rvce.edu.in/department/mca/dr_deepika_k/", d: "Associate Professor", e: "Teaching: 12 Years" },
+            { n: "Dr Mohan Aradhya", u: "https://rvce.edu.in/department/mca/dr_mohan_aradhya/", d: "Assistant Professor", e: "Teaching: 18 Years" },
+            { n: "Dr Divya T. L.", u: "https://rvce.edu.in/department/mca/dr_divya_t_l/", d: "Assistant Professor", e: "Teaching: 17 Years" },
+            { n: "Prof Saravanan C", u: "https://rvce.edu.in/department/mca/prof_saravanan_c/", d: "Assistant Professor", e: "Teaching: 17 Years" },
+            { n: "Prof Chandrani Chakravorty", u: "https://rvce.edu.in/department/mca/prof_chandrani_chakravorty/", d: "Assistant Professor", e: "Teaching: 16 Years" },
+            { n: "Prof Savita Sheelavant", u: "https://rvce.edu.in/department/mca/prof_savita_sheelavant/", d: "Assistant Professor", e: "Teaching: 17 Years" },
+            { n: "Prof Prashanth K", u: "https://rvce.edu.in/department/mca/prof_prashanth_k/", d: "Assistant Professor", e: "Teaching: 14 Years, Industry: 1 Year 8 Months" }
         ],
         me: [
-            { n: "Dr. Shanmukha N", u: "https://rvce.edu.in/department/me/faculty/", r: "Professor & Dean Academics" },
-            { n: "Dr Krishna M", u: "https://rvce.edu.in/department/me/dr_krishna_m/", r: "Professor" },
-            { n: "Dr Nanjundaradhya N. V.", u: "https://rvce.edu.in/department/me/dr_nanjundaradhya_n_v/", r: "Professor" },
-            { n: "Dr Srihari P. V.", u: "https://rvce.edu.in/department/me/dr_srihari_p_v/", r: "Professor" },
-            { n: "Dr P. R. Venkatesh", u: "https://rvce.edu.in/department/me/dr_p_r_venkatesh/", r: "Professor" },
-            { n: "Dr Sridhar R", u: "https://rvce.edu.in/department/me/dr_sridhar_r/", r: "Professor" },
-            { n: "Dr Harisha S. K.", u: "https://rvce.edu.in/department/me/dr_harisha_s_k/", r: "Professor" },
-            { n: "Dr Ratna Pal", u: "https://rvce.edu.in/department/me/dr_ratna_pal/", r: "Professor" },
-            { n: "Dr Nataraj J. R.", u: "https://rvce.edu.in/department/me/dr_nataraj_j_r/", r: "Professor & Dean" },
-            { n: "Dr Nagesh S", u: "https://rvce.edu.in/department/me/dr_nagesh_s/", r: "Associate Professor" },
-            { n: "Dr Ramakrishna Hegde", u: "https://rvce.edu.in/department/me/dr_ramakrishna_hegde/", r: "Associate Professor" },
-            { n: "Dr Chandrakumar R", u: "https://rvce.edu.in/department/me/dr_chandrakumar_r/", r: "Associate Professor" },
-            { n: "Dr Sourabha S. Havaldar", u: "https://rvce.edu.in/department/me/dr_sourabha_srinivasa_havaldar/", r: "Associate Professor" },
-            { n: "Keshavamurthy Y. C.", u: "https://rvce.edu.in/department/me/keshavamurthy_y_c/", r: "Assistant Professor" },
-            { n: "Dr Keshav M", u: "https://rvce.edu.in/department/me/dr_keshav_m/", r: "Assistant Professor" },
-            { n: "Dr Girish Kumar R", u: "https://rvce.edu.in/department/me/dr_girish_kumar_r/", r: "Assistant Professor" },
-            { n: "Dr Girish V. A.", u: "https://rvce.edu.in/department/me/dr_girish_v_a/", r: "Assistant Professor" },
-            { n: "Dr Gangadhar Angadi", u: "https://rvce.edu.in/department/me/dr_gangadhar_angadi/", r: "Assistant Professor" },
-            { n: "Dr Anjaneya G", u: "https://rvce.edu.in/department/me/dr_anjaneya_g/", r: "Assistant Professor" },
-            { n: "Jinka Ranganayakulu", u: "https://rvce.edu.in/department/me/jinka_ranganayakalu/", r: "Assistant Professor" },
-            { n: "Dr Rakesh Kumar", u: "https://rvce.edu.in/department/me/rakesh_kumar/", r: "Assistant Professor" },
-            { n: "Gajanan", u: "https://rvce.edu.in/department/me/gajanan/", r: "Assistant Professor" },
-            { n: "Abhiram E. R.", u: "https://rvce.edu.in/department/me/abhiram_e_r/", r: "Assistant Professor" },
-            { n: "Dr Prapul Chandra A C", u: "https://rvce.edu.in/department/me/dr_prapul_chandra_a_c/", r: "Assistant Professor" },
-            { n: "Dr Mahantash M. Math", u: "https://rvce.edu.in/department/me/dr_mahantash_m_math/", r: "Assistant Professor" },
-            { n: "Prof G R Rajkumar", u: "https://rvce.edu.in/department/me/dr_g_r_rajkumar/", r: "Assistant Professor" },
-            { n: "Dr Bharatish A", u: "https://rvce.edu.in/department/me/dr_bharatish_a/", r: "Assistant Professor" },
-            { n: "Prof Roopa T. S.", u: "https://rvce.edu.in/department/me/dr_roopa_t_s/", r: "Assistant Professor" },
-            { n: "Dr Ramesh S. Sharma", u: "https://rvce.edu.in/department/me/dr_ramesh_s_sharma/", r: "Assistant Professor" },
-            { n: "Dr Kirthan L. J.", u: "https://rvce.edu.in/department/me/dr_kirthan_l_j/", r: "Assistant Professor" },
-            { n: "Sujan Chakraborty", u: "https://rvce.edu.in/department/me/sujan_chakraborty/", r: "Assistant Professor" },
-            { n: "Dr Jagannatha Guptha V. L.", u: "https://rvce.edu.in/department/me/dr_jagannatha_guptha_v_l/", r: "Assistant Professor" }
+            { n: "Dr. Shanmukha N", u: "https://rvce.edu.in/department/me/faculty/", d: "Professor and HOD", e: "23 years" },
+            { n: "Dr Krishna M", u: "https://rvce.edu.in/department/me/dr_krishna_m/", d: "Professor and Dean-Continuing Education & Skill Development", e: "24 years" },
+            { n: "Dr Nanjundaradhya N. V.", u: "https://rvce.edu.in/department/me/dr_nanjundaradhya_n_v/", d: "Professor", e: "2 years" },
+            { n: "Dr Srihari P. V.", u: "https://rvce.edu.in/department/me/dr_srihari_p_v/", d: "Associate Professor", e: "20 years" },
+            { n: "Dr P. R. Venkatesh", u: "https://rvce.edu.in/department/me/dr_p_r_venkatesh/", d: "Associate Professor", e: "31 years" },
+            { n: "Dr Sridhar R", u: "https://rvce.edu.in/department/me/dr_sridhar_r/", d: "Associate Professor", e: "13 years" },
+            { n: "Dr Harisha S. K.", u: "https://rvce.edu.in/department/me/dr_harisha_s_k/", d: "Associate Professor", e: "16 years" },
+            { n: "Dr Ratna Pal", u: "https://rvce.edu.in/department/me/dr_ratna_pal/", d: "Assistant Professor", e: "10 years" },
+            { n: "Dr Nataraj J. R.", u: "https://rvce.edu.in/department/me/dr_nataraj_j_r/", d: "Associate Professor & Dean Global Partnerships", e: "16 years" },
+            { n: "Dr Nagesh S", u: "https://rvce.edu.in/department/me/dr_nagesh_s/", d: "Assistant Professor", e: "10 years" },
+            { n: "Dr Ramakrishna Hegde", u: "https://rvce.edu.in/department/me/dr_ramakrishna_hegde/", d: "Assistant Professor", e: "12 years" },
+            { n: "Dr Chandrakumar R", u: "https://rvce.edu.in/department/me/dr_chandrakumar_r/", d: "Assistant Professor", e: "17 years" },
+            { n: "Dr Sourabha S. Havaldar", u: "https://rvce.edu.in/department/me/dr_sourabha_srinivasa_havaldar/", d: "Assistant Professor", e: "13 years" },
+            { n: "Keshavamurthy Y. C.", u: "https://rvce.edu.in/department/me/keshavamurthy_y_c/", d: "Assistant Professor", e: "12 years" },
+            { n: "Dr Keshav M", u: "https://rvce.edu.in/department/me/dr_keshav_m/", d: "Assistant Professor", e: "06 years" },
+            { n: "Dr Girish Kumar R", u: "https://rvce.edu.in/department/me/dr_girish_kumar_r/", d: "Assistant Professor", e: "06 years" },
+            { n: "Dr Girish V. A.", u: "https://rvce.edu.in/department/me/dr_girish_v_a/", d: "Assistant Professor", e: "Teaching: 11 years" },
+            { n: "Dr Gangadhar Angadi", u: "https://rvce.edu.in/department/me/dr_gangadhar_angadi/", d: "Assistant Professor", e: "Teaching: 12 year" },
+            { n: "Dr Anjaneya G", u: "https://rvce.edu.in/department/me/dr_anjaneya_g/", d: "Assistant Professor", e: "Teaching: 25 year" },
+            { n: "Jinka Ranganayakulu", u: "https://rvce.edu.in/department/me/jinka_ranganayakalu/", d: "Assistant Professor", e: "Teaching: 12 year" },
+            { n: "Dr Rakesh Kumar", u: "https://rvce.edu.in/department/me/rakesh_kumar/", d: "Assistant Professor", e: "Teaching : 3 Years" },
+            { n: "Gajanan", u: "https://rvce.edu.in/department/me/gajanan/", d: "Assistant Professor", e: "Teaching: 10 years" },
+            { n: "Abhiram E. R.", u: "https://rvce.edu.in/department/me/abhiram_e_r/", d: "Assistant Professor", e: "Teaching : 4 Years" },
+            { n: "Dr Prapul Chandra A C", u: "https://rvce.edu.in/department/me/dr_prapul_chandra_a_c/", d: "Assistant Professor", e: "Teaching : 4 Years" },
+            { n: "Dr Mahantash M. Math", u: "https://rvce.edu.in/department/me/dr_mahantash_m_math/", d: "Assistant Professor", e: "Teaching: 14 years" },
+            { n: "Prof G R Rajkumar", u: "https://rvce.edu.in/department/me/dr_g_r_rajkumar/", d: "Associate Professor", e: "Teaching: 15 years" },
+            { n: "Dr Bharatish A", u: "https://rvce.edu.in/department/me/dr_bharatish_a/", d: "Assistant Professor", e: "Teaching: 15 years" },
+            { n: "Prof Roopa T. S.", u: "https://rvce.edu.in/department/me/dr_roopa_t_s/", d: "Assistant Professor", e: "12 Years" },
+            { n: "Dr Ramesh S. Sharma", u: "https://rvce.edu.in/department/me/dr_ramesh_s_sharma/", d: "Professor & Associate Dean PG Programs", e: "Teaching: 19 years" },
+            { n: "Dr Kirthan L. J.", u: "https://rvce.edu.in/department/me/dr_kirthan_l_j/", d: "Associate Professor", e: "Teaching: 10 years" },
+            { n: "Sujan Chakraborty", u: "https://rvce.edu.in/department/me/sujan_chakraborty/", d: "Assistant Professor", e: "Teaching: 10 year" },
+            { n: "Dr Jagannatha Guptha V. L.", u: "https://rvce.edu.in/department/me/dr_jagannatha_guptha_v_l/", d: "Assistant Professor", e: "Teaching: 10 years" }
         ],
         phy: [
-            { n: "Dr. G. Shireesha", u: "https://rvce.edu.in/department/physics/dr_g_shireesha/", r: "Professor & HOD" },
-            { n: "Dr. Bhuvaneswara Babu T", u: "https://rvce.edu.in/department/physics/dr_bhuvaneswara_babu_t/", r: "Associate Professor" },
-            { n: "Dr. D. N. Avadhani", u: "https://rvce.edu.in/department/physics/dr_avadhani_d_n/", r: "Associate Professor" },
-            { n: "Dr. Sudha Kamath M K", u: "https://rvce.edu.in/department/physics/dr_sudha_kamath_m_k/", r: "Associate Professor" },
-            { n: "Dr. Shubha S", u: "https://rvce.edu.in/department/physics/dr_shubha_s/", r: "Assistant Professor" },
-            { n: "Dr. Tribikram Gupta", u: "https://rvce.edu.in/department/physics/dr_tribikram_gupta/", r: "Associate Professor" },
-            { n: "Dr. B. M. Rajesh", u: "https://rvce.edu.in/department/physics/dr_b_m_rdajesh/", r: "Assistant Professor" },
-            { n: "Dr. Ramaya P", u: "https://rvce.edu.in/department/physics/dr_ramya_p/", r: "Assistant Professor" },
-            { n: "Dr. Niranjana K M", u: "https://rvce.edu.in/department/physics/dr_niranjana_k_m/", r: "Assistant Professor" },
-            { n: "Dr. Dileep M S", u: "https://rvce.edu.in/department/physics/dr_dileep_m_s/", r: "Assistant Professor" },
-            { n: "Dr. Shwetha K P", u: "https://rvce.edu.in/department/physics/dr_shwetha_k_p/", r: "Assistant Professor" },
-            { n: "Dr. Rini Ganguly", u: "https://rvce.edu.in/department/physics/dr_rini_ganguly/", r: "Assistant Professor" },
-            { n: "Dr. Kavya K. Nayak", u: "https://rvce.edu.in/department/physics/dr_kavya_k_nayak/", r: "Assistant Professor" }
+            { n: "Dr. G. Shireesha", u: "https://rvce.edu.in/department/physics/dr_g_shireesha/", d: "Associate Professor and Head", e: "Teaching-23 years" },
+            { n: "Dr. Bhuvaneswara Babu T", u: "https://rvce.edu.in/department/physics/dr_bhuvaneswara_babu_t/", d: "Professor", e: "42 Years" },
+            { n: "Dr. D. N. Avadhani", u: "https://rvce.edu.in/department/physics/dr_avadhani_d_n/", d: "Associate Professor", e: "Teaching: 22 years" },
+            { n: "Dr. Sudha Kamath M K", u: "https://rvce.edu.in/department/physics/dr_sudha_kamath_m_k/", d: "Associate Professor & Deputy Warden RVCE DJ Girls Hostel", e: "Teaching: 30 years" },
+            { n: "Dr. Shubha S", u: "https://rvce.edu.in/department/physics/dr_shubha_s/", d: "Assistant Professor (Selection Grade)", e: "Teaching – 16 years" },
+            { n: "Dr. Tribikram Gupta", u: "https://rvce.edu.in/department/physics/dr_tribikram_gupta/", d: "Assistant Professor (Senior Scale)", e: "Teaching – 11 years" },
+            { n: "Dr. B. M. Rajesh", u: "https://rvce.edu.in/department/physics/dr_b_m_rdajesh/", d: "Assistant Professor (Senior Scale)", e: "Teaching – 12 years" },
+            { n: "Dr. Ramaya P", u: "https://rvce.edu.in/department/physics/dr_ramya_p/", d: "Assistant Professor (Senior Scale)", e: "Teaching – 08 years" },
+            { n: "Dr. Niranjana K M", u: "https://rvce.edu.in/department/physics/dr_niranjana_k_m/", d: "Assistant Professor", e: "Teaching – 08 years" },
+            { n: "Dr. Dileep M S", u: "https://rvce.edu.in/department/physics/dr_dileep_m_s/", d: "Assistant Professor", e: "Teaching 12 years" },
+            { n: "Dr. Shwetha K P", u: "https://rvce.edu.in/department/physics/dr_shwetha_k_p/", d: "Assistant Professor", e: "Teaching 17 years" },
+            { n: "Dr. Rini Ganguly", u: "https://rvce.edu.in/department/physics/dr_rini_ganguly/", d: "Assistant Professor", e: "Teaching- 3.5 years" },
+            { n: "Dr. Kavya K. Nayak", u: "https://rvce.edu.in/department/physics/dr_kavya_k_nayak/", d: "Assistant Professor", e: "Research – 6 years" }
         ]
     }
 };
@@ -1672,11 +1695,11 @@ function getResponse(id) {
         r.text += T("RVCE's vision? Tech + Innovation + Sustainability = Future! 🚀","Vision: "+KB.general.vision); break;
     case 'principal':
         r.text += T("Dr. K.N. Subramanya is the Principal! With 34+ years experience, he leads the team! ⚓",
-            "The Principal of RVCE is Dr. K.N. Subramanya.\n\nHe holds a B.E., M.Tech., MBA, and Ph.D., bringing over 34 years of experience in teaching, research, and administration.\n\nContact: principal@rvce.edu.in");
+            "The Principal of RVCE is Dr. K.N. Subramanya.\n\nHe holds a B.E., M.Tech., MBA, and Ph.D., bringing over 34 years of experience in teaching, research, and administration.\n\nContact: [principal@rvce.edu.in](mailto:principal@rvce.edu.in)");
         r.buttons = [{l:'About Principal',u:'https://rvce.edu.in/about-k_n_subramanya/',i:'👨‍🏫'}, {l:'Vice Principal',a:'vice_principal',i:'👩‍🏫'}]; break;
     case 'vice_principal':
         r.text += T("Dr. K. S. Geetha is our Vice-Principal! A powerhouse of academic excellence! 👩‍🏫",
-            "The Vice-Principal of RVCE is Dr. K. S. Geetha.\n\nShe is a Professor in the ECE department and handles academic and administrative responsibilities alongside the Principal.\n\nContact: viceprincipal@rvce.edu.in");
+            "The Vice-Principal of RVCE is Dr. K. S. Geetha.\n\nShe is a Professor in the ECE department and handles academic and administrative responsibilities alongside the Principal.\n\nContact: [viceprincipal@rvce.edu.in](mailto:viceprincipal@rvce.edu.in)");
         r.buttons = [{l:'About Vice Principal',u:'https://rvce.edu.in/department/ece/dr_k_s_geetha/',i:'👩‍🏫'}, {l:'Principal',a:'principal',i:'👨‍🏫'}]; break;
     case 'ranking':
         r.text += T("RVCE is killing it! 🏆","RVCE Rankings:");
@@ -1764,16 +1787,16 @@ function getResponse(id) {
         r.text += T("You can find us here! 📍","Official Contact Details:");
         r.text += "\n\n**Address:**\n" + KB.contact.address;
         r.text += "\n\n**Phone:**\n" + KB.contact.phone;
-        r.text += "\n\n**Email:**\n" + KB.contact.email;
+        r.text += "\n\n**Email:**\n[" + KB.contact.email.split(':')[1] + "](" + KB.contact.email + ")";
         r.buttons = [
             {l:'View on Maps',u:KB.contact.maps,i:'📍'},
             {l:'Contact Page',u:'https://rvce.edu.in/contact-us/',i:'📞'},
             {l:'Main Menu',a:'menu',i:'📋'}
         ]; break;
     case 'placements':
-        r.text += T("Our record is legendary! 🚀","Placement Statistics (2025 Batch):");
+        r.text += T("Our record is legendary! 📊 For the 2026 batch, the drive is ongoing with fantastic results!","Placement Statistics (2026 Batch - Ongoing):");
         r.text += "\n• Max: " + KB.placements.maxSalary + "\n• Avg: " + KB.placements.avgSalary + "\n• " + KB.placements.offers + "\n• " + KB.placements.companies + "\n• Top Recruiters: " + KB.placements.recruiters;
-        r.text += T("\n\n📌 Previous batch (2024): ₹92 LPA highest, 917 offers, 75% rate","\n\nPrevious Year (2024): ₹92 LPA highest package, 249 companies, 917 offers with 75% placement rate.");
+        r.text += T("\n\n🏆 Previous batch (2025): ₹67 LPA highest, 922 offers","\n\nPrevious Year (2025): ₹67 LPA highest package, 262 companies, 922 offers.");
         r.buttons = [{l:'Placement Training',u:KB.placements.url,i:'🌐'}]; break;
     case 'refund_policy':
         r.text += T("Refund policy follows AICTE rules! 💸<br><br>• Before start: Full refund (-₹1k)<br>• After start: Only if seat filled<br>• Document retention is BANNED.",
@@ -1801,7 +1824,7 @@ function getResponse(id) {
         break;
     case 'anti_ragging':
         r.text += T("Ragging is a crime! 🛑 Total ban at RVCE.<br><br>🚨 National Helpline: 1800-180-5522",
-            "RVCE strictly adheres to the <strong>UGC Regulations on Curbing the Menace of Ragging (2009)</strong>. Ragging is a criminal offense.<br><br>🚨 <strong>National 24x7 Anti-Ragging Helpline:</strong> 1800-180-5522<br>Email: helpline@antiragging.in");
+            "RVCE strictly adheres to the <strong>UGC Regulations on Curbing the Menace of Ragging (2009)</strong>. Ragging is a criminal offense.<br><br>🚨 <strong>National 24x7 Anti-Ragging Helpline:</strong> 1800-180-5522<br>Email: [helpline@antiragging.in](mailto:helpline@antiragging.in)");
         r.buttons = [{l:'Anti-Ragging Portal',u:'https://www.antiragging.in/',i:'🛑'}]; break;
 
     case 'culturalLife':
@@ -2022,7 +2045,7 @@ function getResponse(id) {
         break;
     case 'roi':
         r.text += T("Is RVCE paisa vasool? ABSOLUTELY! 💎\n\n","Return on Investment:\n\n");
-        r.text += "• 2025 Highest Package: " + KB.placements2025.maxSalary + "\n• Avg Package: " + KB.placements2025.avgSalary + "\n• " + KB.placements2025.companies + "\n• Top recruiters: Google, Microsoft, Amazon, Goldman Sachs\n• 100+ Patents, 20 Centres of Excellence\n• NAAC A+ accreditation";
+        r.text += "• 2026 Highest Package: " + KB.placements2026.maxSalary + "\n• Avg Package: " + KB.placements2026.avgSalary + "\n• Offers so far: " + KB.placements2026.offers + "\n• " + KB.placements2026.companies + "\n• Top recruiters: Microsoft, Google, Amazon, Samsung\n• NAAC A+ accreditation";
         r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Fee Structure',a:'fees',i:'💰'}]; break;
     case 'girls_hostel':
         r.text += T("Girls hostel deets! 🏠 Safe & well-managed!","Girls Hostel Information:");
@@ -2035,7 +2058,7 @@ function getResponse(id) {
     case 'internship':
         r.text += T("Internships? RVCE students are everywhere! 🧑‍💻","Internship Opportunities:");
         r.text += "\n• Mandatory 6-8 week industry internship in curriculum\n• Placement & Training cell assists with internship placements\n• Top companies like Google, Microsoft, Amazon, Bosch offer internships\n• Being in Bangalore (India's tech capital) = tons of opportunities\n• Many students do internships at IITs, IISc, DRDO, ISRO";
-        r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Innovation Teams',a:'innovationTeams',i:'💡'}]; break;
+        r.buttons = [{l:'Placements',a:'placements',i:'💼'},{l:'Innovation Teams',u:'https://rvce.edu.in/innovative_teams/',i:'🚀'}]; break;
     case 'innovationTeams':
         r.text += T("RVCE's Innovation Teams are LEGENDARY! 🚀 They build everything from race cars to satellites!","Innovative & Project Teams at RVCE:");
         r.text += "\n\n• **Team Ashwa**: Formula Student racing 🏎️\n• **Team Antariksh**: Space Tech 🛰️\n• **Team Vyoma**: UAVs & Drones 🛸\n• **Team Chimera**: Hybrid Racing ⚡\n• **ASTRA Robotics**: AI & Robotics 🤖\n• **Project Garuda**: Super Mileage 🔋\n• **Team Chitrak**: Electric Motorcycles 🏍️\n• **Anoraniya**: Quantum Tech ⚛️";
@@ -2053,39 +2076,39 @@ function getResponse(id) {
             {l:'Team Chitrak',a:'team_chitrak',i:'🏍️'},
             {l:'Anoraniya',a:'anoraniya',i:'⚛️'},
             {l:'Project Garuda',a:'project_garuda',i:'🔋'},
-            {l:'All Teams List',a:'innovationTeams',i:'💡'}
+            {l:'All Teams List',u:'https://rvce.edu.in/innovative_teams/',i:'🚀'}
         ]; break;
     case 'team_ashwa':
     case 'ashwa':
         r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
-        r.buttons = [{ l: 'Visit Team Ashwa', u: 'https://rvce.edu.in/innovative_teams/ashwa/', i: '🏎️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Team Ashwa', u: 'https://rvce.edu.in/innovative_teams/ashwa/', i: '🏎️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'team_antariksh':
     case 'antariksh':
         r.text += T("Team Antariksh is reaching for the stars! 🛰️✨\n\nIn December 2024, they successfully launched **RVSat-1** aboard ISRO's PSLV C-60! It carried India's first student-developed microbiological payload. They also launched the **Ananta** rocket to 1km apogee!","Team Antariksh (Space Technology):\n\nTeam Antariksh focuses on aerospace and space tech. Their recent highlights include the RVSat-1 satellite launch with ISRO and the Ananta rocket launch in 2024.");
-        r.buttons = [{ l: 'Visit Team Antariksh', u: 'https://rvce.edu.in/innovative_teams/antariksh/', i: '🚀' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Team Antariksh', u: 'https://rvce.edu.in/innovative_teams/antariksh/', i: '🚀' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'team_vyoma':
     case 'vyoma':
         r.text += T("Team Vyoma is the king of the skies! 🛸🦅\n\nThey are RVCE's premier Aero-design and UAV team. In 2024, they were named the **'Best Overall Performer'**! They design autonomous drones, heavy-lift UAVs, and innovative aircraft for global competitions like SAE Aero Design.","Team Vyoma (Aero-design):\n\nTeam Vyoma is the aerospace and UAV project team. They achieved the 'Best Overall Performer' award in 2024 for their drone technology and SAE competition success.");
-        r.buttons = [{ l: 'Visit Team Vyoma', u: 'https://rvce.edu.in/innovative_teams/vyoma/', i: '🛸' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Team Vyoma', u: 'https://rvce.edu.in/innovative_teams/vyoma/', i: '🛸' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'team_chimera':
     case 'chimera':
         r.text += T("Team Chimera is electrifying the track! ⚡🏎️\n\nThey design and build hybrid and electric race cars. They recently secured **4th place overall** at the FSEV Challenge! Their focus is on battery management, powertrain optimization, and sustainable racing tech.","Team Chimera (Hybrid/Electric Racing):\n\nTeam Chimera focuses on sustainable automotive technology. Recent highlights include a 4th place finish at the FSEV Challenge.");
-        r.buttons = [{ l: 'Visit Team Chimera', u: 'https://rvce.edu.in/innovative_teams/chimera/', i: '⚡' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Team Chimera', u: 'https://rvce.edu.in/innovative_teams/chimera/', i: '⚡' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'astra_robotics':
     case 'astra':
         r.text += T("ASTRA Robotics is the future of AI! 🤖🦾\n\nThey specialize in robotics and autonomous systems. Their **Project T.A.R.A** (autonomous surveillance) was recently presented to the Chief of the Indian Army! They compete in international robotics challenges and build cutting-edge automation solutions.","ASTRA Robotics:\n\nASTRA Robotics specializes in AI and autonomous systems. Notable projects include Project T.A.R.A, which was presented to high-level military officials.");
-        r.buttons = [{ l: 'Visit ASTRA Robotics', u: 'https://rvce.edu.in/innovative_teams/astra/', i: '🤖' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit ASTRA Robotics', u: 'https://rvce.edu.in/innovative_teams/astra/', i: '🤖' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'team_chitrak':
     case 'chitrak':
         r.text += T("Team Chitrak is building the future of two-wheelers! 🏍️⚡\n\nThey are RVCE's electric motorcycle team. They won the **'Lightest Motorcycle'** award for their innovative chassis design. They focus on urban mobility and high-efficiency electric powertrains.","Team Chitrak (Electric Motorcycles):\n\nTeam Chitrak designs lightweight electric motorcycles for urban performance. Award winners for innovative engineering.");
-        r.buttons = [{ l: 'Visit Team Chitrak', u: 'https://rvce.edu.in/innovative_teams/chitrak/', i: '🏍️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Team Chitrak', u: 'https://rvce.edu.in/innovative_teams/chitrak/', i: '🏍️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'anoraniya':
         r.text += T("Anoraniya is diving into the Quantum realm! ⚛️🔬\n\nThis team focuses on Quantum Technology and Communication. They successfully implemented the **BB84 Quantum Key Distribution protocol**! They are one of the few student teams in India working on cutting-edge quantum research.","Anoraniya (Quantum Tech):\n\nAnoraniya focuses on quantum communication and research. They have successfully implemented advanced quantum protocols.");
-        r.buttons = [{ l: 'Visit Anoraniya', u: 'https://rvce.edu.in/innovative_teams/anoraniya/', i: '⚛️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Anoraniya', u: 'https://rvce.edu.in/innovative_teams/anoraniya/', i: '⚛️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'project_garuda':
     case 'garuda':
         r.text += T("Project Garuda is all about ultra-efficiency! 🔋🍃\n\nThey build super-mileage electric vehicles designed to travel hundreds of kilometers on a single charge. They compete in the Shell Eco-marathon and push the boundaries of aerodynamics and energy efficiency.","Project Garuda (Super Mileage EVs):\n\nProject Garuda focuses on high-efficiency electric vehicles and competes in global eco-marathons.");
-        r.buttons = [{ l: 'Visit Project Garuda', u: 'https://rvce.edu.in/innovative_teams/garuda/', i: '🔋' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+        r.buttons = [{ l: 'Visit Project Garuda', u: 'https://rvce.edu.in/innovative_teams/garuda/', i: '🔋' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '🚀' }]; break;
     case 'culturalTeams':
         r.text += T("Campus is always buzzing! 💃🎶 From dance to photography, we've got it all!", "Cultural Teams & Clubs at RVCE:");
         r.text += "\n\n• **RAAG**: Music 🎵\n• **Footprints**: Dance 💃\n• **F/6.3**: Photography 📸\n• **Evoke**: Fashion 👗\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Rotaract**: Social Service 🤝\n• **E-Cell**: Entrepreneurship 💡";
@@ -2197,7 +2220,7 @@ const typing=$('typingIndicator'),inp=$('userInput'),sendB=$('sendBtn');
 const toneS=$('toneSwitch'),toneL=$('toneLabel'),emojiB=$('emojiBtn'),micB=$('micBtn'),sugs=$('quickSuggestions'),clearB=$('clearBtn');
 
 fab.addEventListener('click',()=>{chatOpen=!chatOpen;chatW.classList.toggle('open',chatOpen);fab.classList.toggle('active',chatOpen);fab.setAttribute('aria-expanded',chatOpen);if(chatOpen){badge.classList.add('hidden');inp.focus();} if(typeof saveState!=='undefined')saveState();});
-toneS.addEventListener('click',()=>{tone=tone==='funny'?'pro':'funny';toneS.classList.toggle('pro',tone==='pro');toneS.setAttribute('aria-checked',tone==='pro');toneL.textContent=tone==='funny'?'Buddy':'Professional'; if(typeof saveState!=='undefined')saveState();});
+toneS.addEventListener('click',()=>{tone=tone==='funny'?'pro':'funny';toneS.classList.toggle('pro',tone==='pro');toneS.setAttribute('aria-checked',tone==='pro');toneL.textContent=tone==='funny'?'Funny':'Professional'; if(typeof saveState!=='undefined')saveState();});
 toneS.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toneS.click();}});
 emojiB.addEventListener('click',()=>{disOld();showMenu();});
 sugs.querySelectorAll('.suggestion-chip').forEach(c=>c.addEventListener('click',()=>process(c.dataset.query)));
@@ -2526,6 +2549,7 @@ function renderDepartment(d) {
     if (d.syllabus) r.buttons.push({l:'Syllabus',u:d.syllabus,i:'📚'});
     if (d.faculty) r.buttons.push({l:'Faculty',u:d.faculty,i:'👨‍🏫'});
     if (d.placement) r.buttons.push({l:'Placements',u:d.placement,i:'💼'});
+    if (d.collab) r.buttons.push({l:'Collaborations',u:d.collab,i:'🤝'});
     if (d.labs) r.buttons.push({l:'Labs/Facilities',u:d.labs,i:'🧪'});
     r.buttons.push({l:'All Departments',a:'departments',i:'🔙'});
     return r;
@@ -2539,8 +2563,8 @@ function renderFaculty(f, deptCode) {
     
     return {
         text: T(
-            `Found them! 👩‍🏫 **${f.n}** is from the **${deptName}** department.\n\n**Role:** ${f.r}\n**Bio:** ${f.b || "Faculty at RVCE"}`,
-            `Faculty: ${f.n}\nDepartment: ${deptName}\nRole: ${f.r}`
+            `Found them! 👩‍🏫 **${f.n}** is from the **${deptName}** department.\n\n**Designation:** ${f.d}\n**Teaching Experience:** ${f.e || "Not specified"}`,
+            `Faculty: ${f.n}\nDepartment: ${deptName}\nDesignation: ${f.d}\nExperience: ${f.e || "Not specified"}`
         ),
         buttons: [
             {l: 'View Profile', u: f.u, i: '🌐'},
@@ -2575,8 +2599,9 @@ function addBot(text, buttons, noMenu) {
         bh='<div class="msg-btns"><button class="act-btn mn" data-action="menu">📋 Main Menu</button></div>';
     }
     
-    // Simple markdown: **bold** and \n to <br>
+    // Simple markdown: **bold**, [links](url) and \n to <br>
     let fmt = (text||'').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    fmt = fmt.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
     fmt = fmt.replace(/\n/g,'<br>');
     
     m.innerHTML=`<div class="msg-av"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="msg-body"><div class="msg-bubble">${fmt}</div>${bh}</div>`;

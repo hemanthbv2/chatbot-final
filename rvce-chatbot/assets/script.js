@@ -187,13 +187,13 @@ function startRVCEChatbot() {
             motto: "Excellence in Education with Societal Commitment."
         },
         placements: {
-            companies: "262 companies participated (2025 Batch)", avgSalary: "₹13.76 LPA (2025 Avg)",
-            maxSalary: "₹67 LPA Highest Package (2025 B.E. Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
-            scholarships: "₹72+ Lakhs awarded to ~110 students annually from ABB, Boeing, CTS",
+            companies: "192+ companies participated (2026 Drive - Ongoing)", avgSalary: "₹16.86 LPA (2026 Avg)",
+            maxSalary: "₹67 LPA Highest Package (2026 Batch)", recruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Flipkart, Samsung, PayPal, IBM, Deloitte, JP Morgan, Goldman Sachs, Bosch, Mercedes-Benz",
+            scholarships: "₹72+ Lakhs awarded annually from ABB, Boeing, CTS",
             infra: "800+ systems, seminar halls, 6 interview rooms, 2 GD rooms",
-            offers: "922 offers to B.E./B.Tech students (2025 Batch)",
+            offers: "698+ offers made so far",
             url: "https://rvce.edu.in/placement_and_training/",
-            prev2024: { maxSalary: "₹92 LPA", companies: "249", offers: "917 offers, 75% rate" }
+            prev2025: { maxSalary: "₹67 LPA", companies: "262", offers: "922 offers" }
         },
         admissions: {
             ug: { eligibility: "12th/2nd PUC with min 45% in Physics + Maths + Chemistry/Biotech/Biology/CS/Electronics (40% for SC/ST/OBC Karnataka)", exams: "KCET (KEA), COMED-K, Management Quota. JEE Mains is NOT considered.", quotas: "Also available: CIWG/PIO/OCI/Nepal Citizens quota" },
@@ -220,7 +220,8 @@ function startRVCEChatbot() {
                     labs: "https://rvce.edu.in/department/ae/laboratories/",
                     facilities: "https://rvce.edu.in/department/ae/facilities/",
                     campus_diaries: "https://rvce.edu.in/department/ae/campus_diaries/",
-                    hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/"
+                    hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/",
+                    collab: "https://rvce.edu.in/department/ae/collaboration-and-networking/"
                 },
                 {
                     n: "AI & Machine Learning (AIML)",
@@ -237,7 +238,8 @@ function startRVCEChatbot() {
                     research: "https://rvce.edu.in/department/ai_ml/research/",
                     campus_diaries: "https://rvce.edu.in/department/ai_ml/campus_diaries/",
                     hod_message: "https://rvce.edu.in/department/ai_ml/dr_b_sathish_babu_hod_message/",
-                    academic_planning: "https://rvce.edu.in/department/ai_ml/academic_planning/"
+                    academic_planning: "https://rvce.edu.in/department/ai_ml/academic_planning/",
+                    collab: "https://rvce.edu.in/department/ai_ml/collaboration-and-networking/"
                 },
                 {
                     n: "Biotechnology (BT)",
@@ -254,7 +256,8 @@ function startRVCEChatbot() {
                     hod_message: "https://rvce.edu.in/department/biotechnology/message_from_hod_biotechnology/",
                     happenings: "https://rvce.edu.in/department/biotechnology/happenings/",
                     academic_planning: "https://rvce.edu.in/department/biotechnology/acadamic_planning/",
-                    m_tech: "https://rvce.edu.in/department/biotechnology/m_tech_in_biotechnology/"
+                    m_tech: "https://rvce.edu.in/department/biotechnology/m_tech_in_biotechnology/",
+                    collab: "https://rvce.edu.in/department/biotechnology/collaboration-and-networking/"
                 },
                 {
                     n: "Chemical Engineering (CH)",
@@ -271,7 +274,8 @@ function startRVCEChatbot() {
                     facilities: "https://rvce.edu.in/department/chemical_engineering/facilities/",
                     project_labs: "https://rvce.edu.in/department/chemical_engineering/project_labs/",
                     campus_diaries: "https://rvce.edu.in/department/chemical_engineering/campus_diaries/",
-                    hod_message: "https://rvce.edu.in/department/chemical_engineering/dr_jagadish_h_patil/"
+                    hod_message: "https://rvce.edu.in/department/chemical_engineering/dr_jagadish_h_patil/",
+                    collab: "https://rvce.edu.in/department/chemical_engineering/collaboration-and-networking/"
                 },
                 {
                     n: "Chemistry (CHY)",
@@ -286,7 +290,8 @@ function startRVCEChatbot() {
                     research: "https://rvce.edu.in/department/chemistry/research/",
                     facilities: "https://rvce.edu.in/department/chemistry/facilities/",
                     happenings: "https://rvce.edu.in/department/chemistry/happenings/",
-                    hod_message: "https://rvce.edu.in/department/chemistry/message_from_hod_basic_chemistry/"
+                    hod_message: "https://rvce.edu.in/department/chemistry/message_from_hod_basic_chemistry/",
+                    collab: "https://rvce.edu.in/department/chemistry/collaboration-and-networking/"
                 },
                 {
                     n: "Civil Engineering (CV)",
@@ -302,7 +307,8 @@ function startRVCEChatbot() {
                     research: "https://rvce.edu.in/department/civil_engineering/research/",
                     facilities: "https://rvce.edu.in/department/civil_engineering/facilities/",
                     m_tech_structural: "https://rvce.edu.in/department/civil_engineering/mtech_in_structural_engineering/",
-                    m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/"
+                    m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/",
+                    collab: "https://rvce.edu.in/department/civil_engineering/collaboration-and-networking/"
                 },
                 {
                     n: "Computer Science & Engg (CSE)",
@@ -321,7 +327,8 @@ function startRVCEChatbot() {
                     hod_message: "https://rvce.edu.in/department/cse/dr_shanta_rangaswamy_hod_message/",
                     publications: "https://rvce.edu.in/department/cse-publications/",
                     m_tech: "https://rvce.edu.in/department/cse/m_tech_cse/",
-                    m_tech_cne: "https://rvce.edu.in/department/cse/m_tech_cne/"
+                    m_tech_cne: "https://rvce.edu.in/department/cse/m_tech_cne/",
+                    collab: "https://rvce.edu.in/department/cse/collaboration-and-networking/"
                 },
                 {
                     n: "CSE (AI & ML) (CSAIML)",
@@ -375,7 +382,8 @@ function startRVCEChatbot() {
                     campus_diaries: "https://rvce.edu.in/department/eee/campus_diaries/",
                     hod_message: "https://rvce.edu.in/department/eee/hod_message/",
                     rd_labs: "https://rvce.edu.in/department/eee/rd_labs/",
-                    m_tech: "https://rvce.edu.in/department/eee/mtech_in_power_electronics/"
+                    m_tech: "https://rvce.edu.in/department/eee/mtech_in_power_electronics/",
+                    collab: "https://rvce.edu.in/department/eee/collaboration-and-networking/"
                 },
                 {
                     n: "Electronics & Communication (ECE)",
@@ -397,7 +405,8 @@ function startRVCEChatbot() {
                     coe_cav: "https://rvce.edu.in/department/ece/centre_of_excellence_in_connected_autonomous_vehicles/",
                     coe_icas: "https://rvce.edu.in/department/ece/centre_of_excellence_in_integrated_circuits_and_systemscoe_icas/",
                     m_tech_vlsi: "https://rvce.edu.in/department/ece/m_tech_in_vlsi_design_embedded_systems/",
-                    m_tech_comm: "https://rvce.edu.in/department/ece/master_of_technology_in_m_tech_communication_systems/"
+                    m_tech_comm: "https://rvce.edu.in/department/ece/master_of_technology_in_m_tech_communication_systems/",
+                    collab: "https://rvce.edu.in/department/ece/collaboration-and-networking/"
                 },
                 {
                     n: "Electronics & Instrumentation (EIE)",
@@ -413,7 +422,8 @@ function startRVCEChatbot() {
                     rd_labs: "https://rvce.edu.in/department/eim/rd/",
                     campus_diaries: "https://rvce.edu.in/department/eim/campus_diaries/",
                     hod_message: "https://rvce.edu.in/department/eim/hod_message/",
-                    publications: "https://rvce.edu.in/department/eim/publications/"
+                    publications: "https://rvce.edu.in/department/eim/publications/",
+                    collab: "https://rvce.edu.in/department/eim/collaboration-and-networking/"
                 },
                 {
                     n: "Electronics & Telecom (ETE)",
@@ -432,7 +442,8 @@ function startRVCEChatbot() {
                     project_labs: "https://rvce.edu.in/department/etc/project_lab/",
                     campus_diaries: "https://rvce.edu.in/department/etc/campus_diaries/",
                     hod_message: "https://rvce.edu.in/department/etc/dr_nagamani_k_hod_message/",
-                    m_tech: "https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/"
+                    m_tech: "https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/",
+                    collab: "https://rvce.edu.in/department/etc/collaboration-and-networking/"
                 },
                 {
                     n: "Industrial Engg & Mgmt (IEM)",
@@ -448,7 +459,8 @@ function startRVCEChatbot() {
                     facilities: "https://rvce.edu.in/department/iem/facilities/",
                     research: "https://rvce.edu.in/department/iem/research/",
                     happenings: "https://rvce.edu.in/department/iem/happenings/",
-                    coe: "https://rvce.edu.in/research_consulting/centre-of-excellence/"
+                    coe: "https://rvce.edu.in/research_consulting/centre-of-excellence/",
+                    collab: "https://rvce.edu.in/department/iem/collaboration-and-networking/"
                 },
                 {
                     n: "Information Science & Engg (ISE)",
@@ -464,7 +476,8 @@ function startRVCEChatbot() {
                     research: "https://rvce.edu.in/department/ise/research/",
 
                     m_tech_soft: "https://rvce.edu.in/department/ise/mtech_in_software_engineering/",
-                    m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/"
+                    m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/",
+                    collab: "https://rvce.edu.in/department/ise/collaboration-and-networking/"
                 },
                 {
                     n: "Mathematics (MATHS)",
@@ -479,7 +492,8 @@ function startRVCEChatbot() {
                     research: "https://rvce.edu.in/department/maths/research/",
                     campus_diaries: "https://rvce.edu.in/department/maths/campus_diaries/",
                     hod_message: "https://rvce.edu.in/department/maths/dr_jayalatha_g_hod_message/",
-                    networking: "https://rvce.edu.in/department/maths/maths_cn/"
+                    networking: "https://rvce.edu.in/department/maths/maths_cn/",
+                    collab: "https://rvce.edu.in/department/maths/collaboration-and-networking/"
                 },
                 {
                     n: "Mechanical Engineering (ME)",
@@ -497,7 +511,8 @@ function startRVCEChatbot() {
                     campus_diaries: "https://rvce.edu.in/department/me/campus_diaries/",
                     networking: "https://rvce.edu.in/department/me/collaboration_networking/",
                     m_tech_pdm: "https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/",
-                    m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/"
+                    m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/",
+                    collab: "https://rvce.edu.in/department/me/collaboration_networking/"
                 },
                 {
                     n: "Physics (PHY)",
@@ -510,7 +525,8 @@ function startRVCEChatbot() {
                     faculty: "https://rvce.edu.in/department/physics/faculty/",
                     labs: "https://rvce.edu.in/department/physics/laboratories/",
                     facilities: "https://rvce.edu.in/department/physics/facilities/",
-                    research: "https://rvce.edu.in/department/physics/research/#"
+                    research: "https://rvce.edu.in/department/physics/research/#",
+                    collab: "https://rvce.edu.in/department/physics/collaboration-and-networking/"
                 },
                 {
                     n: "Physical Education & Sports",
@@ -562,6 +578,13 @@ function startRVCEChatbot() {
         facilities: {
             list: ["Central Library", "Food Court", "Sports Complex (400m track, Cricket/Football)", "Health Centre", "ICICI Bank", "Post Office", "Gymnatorium", "Labs & Workshops"],
             url: "https://rvce.edu.in/facilities/"
+        },
+        placements2026: {
+            maxSalary: "₹67 LPA Highest Package (2026 Batch)",
+            avgSalary: "₹16.86 LPA (Current Average)",
+            companies: "192+ companies visited (Ongoing)",
+            offers: "698+ offers made so far",
+            topRecruiters: "Microsoft, Google, Amazon, Atlassian, Cisco, Dell, Intel, Adobe, Samsung"
         },
         placements2025: {
             maxSalary: "₹67 LPA Highest Package (2025 Batch, B.E.)",
@@ -1369,13 +1392,13 @@ function startRVCEChatbot() {
                     for (const fac of KB.faculty[deptCode]) {
                         const fn = fac.n.toLowerCase().replace(/[^a-z]/g, '');
                         const pn = fac.n.replace(/Dr\.|Prof\.|Mr\.|Assistant Prof/gi, '').toLowerCase().replace(/[^a-z]/g, '');
-                        
+
                         if (fn.includes(s) || pn.includes(s) || s.includes(pn)) {
-                            facultyMatches.push({f: fac, d: deptCode});
+                            facultyMatches.push({ f: fac, d: deptCode });
                         }
                     }
                 }
-                
+
                 if (facultyMatches.length === 1) {
                     const fac = facultyMatches[0].f;
                     const finalId = `fac_${fac.n.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
@@ -1797,7 +1820,7 @@ function startRVCEChatbot() {
                 r.text += T("You can find us here! 📍", "Official Contact Details:");
                 r.text += "\n\n**Address:**\n" + KB.contact.address;
                 r.text += "\n\n**Phone:**\n" + KB.contact.phone;
-                r.text += "\n\n**Email:**\n" + KB.contact.email;
+                r.text += "\n\n**Email:**\n[" + KB.contact.email.split(':')[1] + "](" + KB.contact.email + ")";
                 r.buttons = [
                     { l: 'View on Maps', u: KB.contact.maps, i: '📍' },
                     { l: 'Contact Page', u: 'https://rvce.edu.in/contact-us/', i: '📞' },
@@ -1834,7 +1857,7 @@ function startRVCEChatbot() {
                 break;
             case 'anti_ragging':
                 r.text += T("Ragging is a crime! 🛑 Total ban at RVCE.<br><br>🚨 National Helpline: 1800-180-5522",
-                    "RVCE strictly adheres to the <strong>UGC Regulations on Curbing the Menace of Ragging (2009)</strong>. Ragging is a criminal offense.<br><br>🚨 <strong>National 24x7 Anti-Ragging Helpline:</strong> 1800-180-5522<br>Email: helpline@antiragging.in");
+                    "RVCE strictly adheres to the <strong>UGC Regulations on Curbing the Menace of Ragging (2009)</strong>. Ragging is a criminal offense.<br><br>🚨 <strong>National 24x7 Anti-Ragging Helpline:</strong> 1800-180-5522<br>Email: [helpline@antiragging.in](mailto:helpline@antiragging.in)");
                 r.buttons = [{ l: 'Anti-Ragging Portal', u: 'https://www.antiragging.in/', i: '🛑' }]; break;
 
             case 'culturalLife':
@@ -2055,7 +2078,7 @@ function startRVCEChatbot() {
                 break;
             case 'roi':
                 r.text += T("Is RVCE paisa vasool? ABSOLUTELY! 💎\n\n", "Return on Investment:\n\n");
-                r.text += "• 2025 Highest Package: " + KB.placements2025.maxSalary + "\n• Avg Package: " + KB.placements2025.avgSalary + "\n• " + KB.placements2025.companies + "\n• Top recruiters: Google, Microsoft, Amazon, Goldman Sachs\n• 100+ Patents, 20 Centres of Excellence\n• NAAC A+ accreditation";
+                r.text += "• 2026 Highest Package: " + KB.placements2026.maxSalary + "\n• Avg Package: " + KB.placements2026.avgSalary + "\n• Offers so far: " + KB.placements2026.offers + "\n• " + KB.placements2026.companies + "\n• Top recruiters: Google, Microsoft, Amazon, Samsung\n• NAAC A+ accreditation";
                 r.buttons = [{ l: 'Placements', a: 'placements', i: '💼' }, { l: 'Fee Structure', a: 'fees', i: '💰' }]; break;
             case 'girls_hostel':
                 r.text += T("Girls hostel deets! 🏠 Safe & well-managed!", "Girls Hostel Information:");
@@ -2086,39 +2109,39 @@ function startRVCEChatbot() {
                     { l: 'Team Chitrak', a: 'team_chitrak', i: '🏍️' },
                     { l: 'Anoraniya', a: 'anoraniya', i: '⚛️' },
                     { l: 'Project Garuda', a: 'project_garuda', i: '🔋' },
-                    { l: 'All Teams List', a: 'innovationTeams', i: '💡' }
+                    { l: 'All Teams List', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }
                 ]; break;
             case 'team_ashwa':
             case 'ashwa':
                 r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!", "Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
-                r.buttons = [{ l: 'Visit Team Ashwa', u: 'https://rvce.edu.in/innovative_teams/ashwa/', i: '🏎️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Team Ashwa', u: 'https://rvce.edu.in/innovative_teams/ashwa/', i: '🏎️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'team_antariksh':
             case 'antariksh':
                 r.text += T("Team Antariksh is reaching for the stars! 🛰️✨\n\nIn December 2024, they successfully launched **RVSat-1** aboard ISRO's PSLV C-60! It carried India's first student-developed microbiological payload. They also launched the **Ananta** rocket to 1km apogee!", "Team Antariksh (Space Technology):\n\nTeam Antariksh focuses on aerospace and space tech. Their recent highlights include the RVSat-1 satellite launch with ISRO and the Ananta rocket launch in 2024.");
-                r.buttons = [{ l: 'Visit Team Antariksh', u: 'https://rvce.edu.in/innovative_teams/antariksh/', i: '🚀' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Team Antariksh', u: 'https://rvce.edu.in/innovative_teams/antariksh/', i: '🚀' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'team_vyoma':
             case 'vyoma':
                 r.text += T("Team Vyoma is the king of the skies! 🛸🦅\n\nThey are RVCE's premier Aero-design and UAV team. In 2024, they were named the **'Best Overall Performer'**! They design autonomous drones, heavy-lift UAVs, and innovative aircraft for global competitions like SAE Aero Design.", "Team Vyoma (Aero-design):\n\nTeam Vyoma is the aerospace and UAV project team. They achieved the 'Best Overall Performer' award in 2024 for their drone technology and SAE competition success.");
-                r.buttons = [{ l: 'Visit Team Vyoma', u: 'https://rvce.edu.in/innovative_teams/vyoma/', i: '🛸' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Team Vyoma', u: 'https://rvce.edu.in/innovative_teams/vyoma/', i: '🛸' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'team_chimera':
             case 'chimera':
                 r.text += T("Team Chimera is electrifying the track! ⚡🏎️\n\nThey design and build hybrid and electric race cars. They recently secured **4th place overall** at the FSEV Challenge! Their focus is on battery management, powertrain optimization, and sustainable racing tech.", "Team Chimera (Hybrid/Electric Racing):\n\nTeam Chimera focuses on sustainable automotive technology. Recent highlights include a 4th place finish at the FSEV Challenge.");
-                r.buttons = [{ l: 'Visit Team Chimera', u: 'https://rvce.edu.in/innovative_teams/chimera/', i: '⚡' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Team Chimera', u: 'https://rvce.edu.in/innovative_teams/chimera/', i: '⚡' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'astra_robotics':
             case 'astra':
                 r.text += T("ASTRA Robotics is the future of AI! 🤖🦾\n\nThey specialize in robotics and autonomous systems. Their **Project T.A.R.A** (autonomous surveillance) was recently presented to the Chief of the Indian Army! They compete in international robotics challenges and build cutting-edge automation solutions.", "ASTRA Robotics:\n\nASTRA Robotics specializes in AI and autonomous systems. Notable projects include Project T.A.R.A, which was presented to high-level military officials.");
-                r.buttons = [{ l: 'Visit ASTRA Robotics', u: 'https://rvce.edu.in/innovative_teams/astra/', i: '🤖' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit ASTRA Robotics', u: 'https://rvce.edu.in/innovative_teams/astra/', i: '🤖' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'team_chitrak':
             case 'chitrak':
                 r.text += T("Team Chitrak is building the future of two-wheelers! 🏍️⚡\n\nThey are RVCE's electric motorcycle team. They won the **'Lightest Motorcycle'** award for their innovative chassis design. They focus on urban mobility and high-efficiency electric powertrains.", "Team Chitrak (Electric Motorcycles):\n\nTeam Chitrak designs lightweight electric motorcycles for urban performance. Award winners for innovative engineering.");
-                r.buttons = [{ l: 'Visit Team Chitrak', u: 'https://rvce.edu.in/innovative_teams/chitrak/', i: '🏍️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Team Chitrak', u: 'https://rvce.edu.in/innovative_teams/chitrak/', i: '🏍️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'anoraniya':
                 r.text += T("Anoraniya is diving into the Quantum realm! ⚛️🔬\n\nThis team focuses on Quantum Technology and Communication. They successfully implemented the **BB84 Quantum Key Distribution protocol**! They are one of the few student teams in India working on cutting-edge quantum research.", "Anoraniya (Quantum Tech):\n\nAnoraniya focuses on quantum communication and research. They have successfully implemented advanced quantum protocols.");
-                r.buttons = [{ l: 'Visit Anoraniya', u: 'https://rvce.edu.in/innovative_teams/anoraniya/', i: '⚛️' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Anoraniya', u: 'https://rvce.edu.in/innovative_teams/anoraniya/', i: '⚛️' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'project_garuda':
             case 'garuda':
                 r.text += T("Project Garuda is all about ultra-efficiency! 🔋🍃\n\nThey build super-mileage electric vehicles designed to travel hundreds of kilometers on a single charge. They compete in the Shell Eco-marathon and push the boundaries of aerodynamics and energy efficiency.", "Project Garuda (Super Mileage EVs):\n\nProject Garuda focuses on high-efficiency electric vehicles and competes in global eco-marathons.");
-                r.buttons = [{ l: 'Visit Project Garuda', u: 'https://rvce.edu.in/innovative_teams/garuda/', i: '🔋' }, { l: 'All Teams', a: 'innovationTeams', i: '💡' }]; break;
+                r.buttons = [{ l: 'Visit Project Garuda', u: 'https://rvce.edu.in/innovative_teams/garuda/', i: '🔋' }, { l: 'All Teams', u: 'https://rvce.edu.in/innovative_teams/', i: '💡' }]; break;
             case 'culturalTeams':
                 r.text += T("Campus is always buzzing! 💃🎶 From dance to photography, we've got it all!", "Cultural Teams & Clubs at RVCE:");
                 r.text += "\n\n• **RAAG**: Music 🎵\n• **Footprints**: Dance 💃\n• **F/6.3**: Photography 📸\n• **Evoke**: Fashion 👗\n• **DebSoc**: Debating 🗣️\n• **QuizCorp**: Trivia 🧠\n• **Rotaract**: Social Service 🤝\n• **E-Cell**: Entrepreneurship 💡";
@@ -2230,7 +2253,7 @@ function startRVCEChatbot() {
     const toneS = $('toneSwitch'), toneL = $('toneLabel'), emojiB = $('emojiBtn'), micB = $('micBtn'), sugs = $('quickSuggestions'), clearB = $('clearBtn');
 
     fab.addEventListener('click', () => { chatOpen = !chatOpen; chatW.classList.toggle('open', chatOpen); fab.classList.toggle('active', chatOpen); fab.setAttribute('aria-expanded', chatOpen); if (chatOpen) { badge.classList.add('hidden'); inp.focus(); } if (typeof saveState !== 'undefined') saveState(); });
-    toneS.addEventListener('click', () => { tone = tone === 'funny' ? 'pro' : 'funny'; toneS.classList.toggle('pro', tone === 'pro'); toneS.setAttribute('aria-checked', tone === 'pro'); toneL.textContent = tone === 'funny' ? 'Buddy' : 'Professional'; if (typeof saveState !== 'undefined') saveState(); });
+    toneS.addEventListener('click', () => { tone = tone === 'funny' ? 'pro' : 'funny'; toneS.classList.toggle('pro', tone === 'pro'); toneS.setAttribute('aria-checked', tone === 'pro'); toneL.textContent = tone === 'funny' ? 'Funny' : 'Professional'; if (typeof saveState !== 'undefined') saveState(); });
     toneS.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toneS.click(); } });
     emojiB.addEventListener('click', () => { disOld(); showMenu(); });
     sugs.querySelectorAll('.suggestion-chip').forEach(c => c.addEventListener('click', () => process(c.dataset.query)));
@@ -2605,8 +2628,9 @@ function startRVCEChatbot() {
             bh = '<div class="msg-btns"><button class="act-btn mn" data-action="menu">📋 Main Menu</button></div>';
         }
 
-        // Simple markdown: **bold** and \n to <br>
+        // Simple markdown: **bold**, [links](url) and \n to <br>
         let fmt = (text || '').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        fmt = fmt.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank">$1</a>');
         fmt = fmt.replace(/\n/g, '<br>');
 
         m.innerHTML = `<div class="msg-av"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div><div class="msg-body"><div class="msg-bubble">${fmt}</div>${bh}</div>`;

@@ -256,7 +256,7 @@ function rvce_chatbot_inject_html() {
                                 <span class="tone-emoji pro-emoji">🎓</span>
                                 <div class="tone-thumb" id="toneThumb"></div>
                             </div>
-                            <span class="tone-current-label" id="toneLabel">Buddy</span>
+                            <span class="tone-current-label" id="toneLabel">Funny</span>
                         </div>
                     </div>
                 </div>
