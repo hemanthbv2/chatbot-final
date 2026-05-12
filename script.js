@@ -209,7 +209,7 @@ const KB = {
             {
                 n:"Aerospace Engineering (AE)",
                 c:"ae", 
-                u:"https://rvce.edu.in/department/ae/main_dept/", 
+                u:"https://rvce.edu.in/department/ae/department-of-aerospace-engineering/", 
                 hod:"Dr. R Supreeth",
                 info: "Welcome to the Department of Aerospace Engineering. Established in 2015, the Department has evolved into one of the country’s most prestigious destinations for undergraduate Aerospace Programmes.",
                 about: "https://rvce.edu.in/department/ae/about_dept/",
@@ -220,8 +220,7 @@ const KB = {
                 labs: "https://rvce.edu.in/department/ae/laboratories/",
                 facilities: "https://rvce.edu.in/department/ae/facilities/",
                 campus_diaries: "https://rvce.edu.in/department/ae/campus_diaries/",
-                hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/",
-                collab: "https://rvce.edu.in/department/ae/collaboration-and-networking/"
+                hod_message: "https://rvce.edu.in/department/ae/dr_r_supreeth_hod_message/"
             },
             {
                 n:"AI & Machine Learning (AIML)",
@@ -257,7 +256,7 @@ const KB = {
                 happenings: "https://rvce.edu.in/department/biotechnology/happenings/",
                 academic_planning: "https://rvce.edu.in/department/biotechnology/acadamic_planning/",
                 m_tech: "https://rvce.edu.in/department/biotechnology/m_tech_in_biotechnology/",
-                collab: "https://rvce.edu.in/department/biotechnology/collaboration-and-networking/"
+                coe_genomics: "https://rvce.edu.in/department/biotechnology/centre-of-excellence-in-computational-genomics/"
             },
             {
                 n:"Chemical Engineering (CH)",
@@ -274,8 +273,8 @@ const KB = {
                 facilities: "https://rvce.edu.in/department/chemical_engineering/facilities/",
                 project_labs: "https://rvce.edu.in/department/chemical_engineering/project_labs/",
                 campus_diaries: "https://rvce.edu.in/department/chemical_engineering/campus_diaries/",
-                hod_message: "https://rvce.rveducationalinstitutions.com/department/chemical_engineering/dr_jagadish_h_patil_hod_message/",
-                collab: "https://rvce.edu.in/department/chemical_engineering/collaboration-and-networking/"
+                hod_message: "https://rvce.edu.in/department/chemical_engineering/dr_jagadish_h_patil/",
+                coe_hydrogen: "https://rvce.edu.in/department/chemical_engineering/ce_coe/"
             },
             {
                 n:"Chemistry (CHY)",
@@ -306,6 +305,7 @@ const KB = {
                 labs: "https://rvce.edu.in/department/civil_engineering/civil-laboratories/",
                 research: "https://rvce.edu.in/department/civil_engineering/research/",
                 facilities: "https://rvce.edu.in/department/civil_engineering/facilities/",
+                coe_3s: "https://rvce.edu.in/department/civil_engineering/centre_of_excellence_in_3s_infrastructure_safe_sustainable_smart/",
                 m_tech_structural: "https://rvce.edu.in/department/civil_engineering/mtech_in_structural_engineering/",
                 m_tech_highway: "https://rvce.edu.in/department/civil_engineering/mtech_in_highway_technology/",
                 collab: "https://rvce.edu.in/department/civil_engineering/collaboration-and-networking/"
@@ -325,7 +325,8 @@ const KB = {
                 facilities: "https://rvce.edu.in/department/cse/facilities/",
                 happenings: "https://rvce.edu.in/department/cse/happenings/",
                 hod_message: "https://rvce.edu.in/department/cse/dr_shanta_rangaswamy_hod_message/",
-                publications: "https://rvce.edu.in/department/cse-publications/",
+                coe_cisss: "https://rvce.edu.in/department/cse/centre_of_excellence_in_rvce_hpcc_systems_cognitive_intelligent_systems_for_sustainable_solutionscisss/",
+                coe_vision: "https://rvce.edu.in/department/cse/centre_of_excellence_in_computer_vision_research_next_generation_ai_enabled/",
                 m_tech: "https://rvce.edu.in/department/cse/m_tech_cse/",
                 m_tech_cne: "https://rvce.edu.in/department/cse/m_tech_cne/",
                 collab: "https://rvce.edu.in/department/cse/collaboration-and-networking/"
@@ -369,7 +370,7 @@ const KB = {
             {
                 n:"Electrical & Electronics (EEE)",
                 c:"ee", 
-                u:"https://rvce.edu.in/department/eee/main_department/", 
+                u:"https://rvce.edu.in/department/eee/department-of-electrical-and-electronics-engineering/", 
                 hod:"Dr. J N Hemalatha (I/c)",
                 info: "Since 1963, the EEE department has been a hub of academic excellence. It offers B.E. and M.Tech in Power Electronics, focusing on renewable energy, smart grids, and industrial automation.",
                 about: "https://rvce.edu.in/department/eee/about_the_department/",
@@ -383,7 +384,9 @@ const KB = {
                 hod_message: "https://rvce.edu.in/department/eee/hod_message/",
                 rd_labs: "https://rvce.edu.in/department/eee/rd_labs/",
                 m_tech: "https://rvce.edu.in/department/eee/mtech_in_power_electronics/",
-                collab: "https://rvce.edu.in/department/eee/collaboration-and-networking/"
+                coe_mobility: "https://rvce.edu.in/department/eee/eee_coe/",
+                coe_vidyuth: "https://rvce.edu.in/wp-content/uploads/2025/11/SMART-VIDYUTH-SUSTAINABLE-SOLUTIONS.pdf",
+                coc_ev: "https://rvce.edu.in/department/eee/coc_vision_astra_in_ev_academy/"
             },
             {
                 n:"Electronics & Communication (ECE)",
@@ -423,7 +426,8 @@ const KB = {
                 campus_diaries: "https://rvce.edu.in/department/eim/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/eim/hod_message/",
                 publications: "https://rvce.edu.in/department/eim/publications/",
-                collab: "https://rvce.edu.in/department/eim/collaboration-and-networking/"
+                coe_sensor: "https://rvce.edu.in/department/eim/eie_centre_of_excellence_in_sensor_technology_applications/",
+                coe_health: "https://rvce.edu.in/department/eim/eie_centre_of_excellence_in_health_care_technology_research/"
             },
             {
                 n:"Electronics & Telecom (ETE)",
@@ -443,7 +447,7 @@ const KB = {
                 campus_diaries: "https://rvce.edu.in/department/etc/campus_diaries/",
                 hod_message: "https://rvce.edu.in/department/etc/dr_nagamani_k_hod_message/",
                 m_tech: "https://rvce.edu.in/department/etc/mtech_in_digital_communication_engineering/",
-                collab: "https://rvce.edu.in/department/etc/collaboration-and-networking/"
+                coe_5g: "https://rvce.edu.in/wp-content/uploads/2025/11/5G-AND-EMERGING-WIRELESS-TECHNOLOGIES.pdf"
             },
             {
                 n:"Industrial Engg & Mgmt (IEM)",
@@ -452,20 +456,19 @@ const KB = {
                 hod:"Dr. Rajeswara Rao K V S",
                 info: "Established in 1980, the department integrates engineering and management to align with industry needs. It offers an NBA-accredited B.E. programme and maintains close associations with professional societies like IIIE, ORSI, and IIMM.",
                 about: "https://rvce.edu.in/department/iem/about_the_department/",
-                syllabus: "https://rvce.edu.in/department/iem/acadamic_planning/",
+                syllabus: "https://rvce.edu.in/department/iem/b_e_industrial_engineering_and_management/#ie_sche",
                 faculty: "https://rvce.edu.in/department/iem/faculty/",
                 placement: "https://rvce.edu.in/department/iem/placement/",
                 labs: "https://rvce.edu.in/department/iem/laboratories/",
                 facilities: "https://rvce.edu.in/department/iem/facilities/",
                 research: "https://rvce.edu.in/department/iem/research/",
-                happenings: "https://rvce.edu.in/department/iem/happenings/",
-                coe: "https://rvce.rveducationalinstitutions.com/research_consulting/centre-of-excellence/",
-                collab: "https://rvce.edu.in/department/iem/collaboration-and-networking/"
+                coe_logistics: "https://rvce.edu.in/department/iem/centre-of-excellence-in-logistics-supply-chain-management/",
+                coe: "https://rvce.edu.in/research_consulting/centre-of-excellence/"
             },
             {
                 n:"Information Science & Engg (ISE)",
                 c:"is", 
-                u:"https://rvce.edu.in/department/ise/b_e_ise/", 
+                u:"https://rvce.edu.in/department/ise/department--of-information-science-and-engineering/", 
                 hod:"Dr. G. S. Mamatha",
                 info: "Offers a dynamic curriculum focused on AI, IoT, Cloud Computing and Cybersecurity. Supported by a VTU-recognised research centre and partnerships with Microsoft, Nvidia and HP.",
                 about: "https://rvce.edu.in/department/ise/about_dept/",
@@ -474,10 +477,11 @@ const KB = {
                 placement: "https://rvce.edu.in/department/ise/placement/",
                 labs: "https://rvce.edu.in/department/ise/facilities/",
                 research: "https://rvce.edu.in/department/ise/research/",
-                campus_diaries: "https://rvce.edu.in/department/ise/student_experiences/",
+                campus_diaries: "https://rvce.edu.in/department/ise/campus_diaries/",
+                hod_message: "https://rvce.edu.in/department/ise/dr_g_s_mamatha_hod_message/",
                 m_tech_soft: "https://rvce.edu.in/department/ise/mtech_in_software_engineering/",
                 m_tech_it: "https://rvce.edu.in/department/ise/mtech_in_information_technology/",
-                collab: "https://rvce.edu.in/department/ise/collaboration-and-networking/"
+                coe_wic: "https://rvce.edu.in/department/ise/ise_coe/"
             },
             {
                 n:"Mathematics (MATHS)",
@@ -498,7 +502,7 @@ const KB = {
             {
                 n:"Mechanical Engineering (ME)",
                 c:"me", 
-                u:"https://rvce.edu.in/department/me/b_e_mechanical/", 
+                u:"https://rvce.edu.in/department/me/department_of_mechanical_engineering/", 
                 hod:"Dr. Shanmukha Nagaraj",
                 info: "Dedicated to fostering innovation and excellence in Mechanical Engineering. Offers premier education and cultivates cutting-edge research in Design, Materials, Thermal and Manufacturing, strengthened by robust industry collaborations.",
                 about: "https://rvce.edu.in/department/me/about_the_department/",
@@ -509,10 +513,12 @@ const KB = {
                 research: "https://rvce.edu.in/department/me/research/",
                 rd_labs: "https://rvce.edu.in/department/me/rd_labs/",
                 campus_diaries: "https://rvce.edu.in/department/me/campus_diaries/",
-                networking: "https://rvce.edu.in/department/me/collaboration_networking/",
+                coe_toyota: "https://rvce.edu.in/department/me/rv_toyota_kriloskar_centre_of_excellence_in_automotive_engineering/",
+                coe_ev: "https://rvce.edu.in/department/me/rvce_morris_garage_centre_of_excellence_in_electric_vehicle_technology_evt/",
                 m_tech_pdm: "https://rvce.edu.in/department/me/mtech-in-product-design-and-manufacturing/",
                 m_tech_machine: "https://rvce.edu.in/department/me/mtech_in_machine_design/",
-                collab: "https://rvce.edu.in/department/me/collaboration_networking/"
+                coe_bosch: "https://rvce.edu.in/department/me/rv-bosch-rexroth-centre-for-automation-technologies/",
+                coe_benz: "https://rvce.edu.in/department/me/rv-mercedes-benz-centre-for-automotive-mechatronics/"
             },
             {
                 n:"Physics (PHY)",
@@ -620,7 +626,7 @@ const KB = {
         wardens: "Residential wardens in all hostel blocks",
         healthCentre: "On-campus Health Centre with 24/7 medical support and ambulance facility. Partnered with Aster Hospital for specialist care.",
         healthDetails: {
-            doctod: "Full-time resident medical officer available", e: "Not specified",
+            doctor: "Full-time resident medical officer available",
             services: ["Emergency Care", "Consultation", "24/7 Ambulance", "Medical Pharmacy"],
             hospital: "Tied up with Aster Hospital, RV Road for advanced treatments"
         },
@@ -666,7 +672,7 @@ const KB = {
         battalion: "6 Karnataka Battalion NCC",
         established: "2008",
         strength: "80 cadets (Army wing)",
-        officed: "ANO in charge", e: "Not specified",
+        officer: "ANO in charge",
         activities: "Drill, weapons training, adventure activities, camps (CATC, ATC, NIC), Republic Day parade participation, social service"
     },
     nss: {
@@ -752,7 +758,7 @@ const KB = {
             { n: "Dr. Raviraj Kusanur", u: "https://rvce.edu.in/department/chemistry/raviraj_a_k/", d: "Professor", e: "14 Years" },
             { n: "Dr. Swarna M. Patra", u: "https://rvce.edu.in/department/chemistry/dr_swarna_mayee_patra/", d: "Associate Professor", e: "13 Years" },
             { n: "Dr. C. Manjunatha", u: "https://rvce.edu.in/department/chemistry/dr_manjunatha_c/", d: "Associate Professor", e: "16 Years" },
-            { n: "Dr. Divakara S. G.", u: "https://rvce.edu.in/department/chemistry/faculty/", d: "Associate Professor", e: "19 Years" },
+            { n: "Dr. Divakara S. G.", u: "https://rvce.edu.in/department/chemistry/divakara-s-g/", d: "Associate Professor", e: "19 Years" },
             { n: "Dr. Sham Aan M. P.", u: "https://rvce.edu.in/department/chemistry/sham_aan_m_p/", d: "Assistant Professor", e: "10.5 Years" },
             { n: "Dr. M. Sridharan", u: "https://rvce.edu.in/department/chemistry/dr_sridharan_m/", d: "Assistant Professor", e: "8 Years" },
             { n: "Dr. Vishnumurthy K. A", u: "https://rvce.edu.in/department/chemistry/dr_vishnumurthy_k_a/", d: "Assistant Professor", e: "11 Years" },
@@ -982,7 +988,7 @@ const KB = {
             { n: "Prof Prashanth K", u: "https://rvce.edu.in/department/mca/prof_prashanth_k/", d: "Assistant Professor", e: "Teaching: 14 Years, Industry: 1 Year 8 Months" }
         ],
         me: [
-            { n: "Dr. Shanmukha N", u: "https://rvce.edu.in/department/me/faculty/", d: "Professor and HOD", e: "23 years" },
+            { n: "Dr. Shanmukha N", u: "https://rvce.edu.in/department/me/faculty-bio/", d: "Professor and HOD", e: "23 years" },
             { n: "Dr Krishna M", u: "https://rvce.edu.in/department/me/dr_krishna_m/", d: "Professor and Dean-Continuing Education & Skill Development", e: "24 years" },
             { n: "Dr Nanjundaradhya N. V.", u: "https://rvce.edu.in/department/me/dr_nanjundaradhya_n_v/", d: "Professor", e: "2 years" },
             { n: "Dr Srihari P. V.", u: "https://rvce.edu.in/department/me/dr_srihari_p_v/", d: "Associate Professor", e: "20 years" },
@@ -1467,7 +1473,7 @@ function findSuggestions(input) {
 
 function getFollowUps(id) {
     const map = {
-        ugPrograms: [{l:'Admissions info',a:'ugAdm',i:'🎓'},{l:'Campus Life',a:'campusLife',i:'🏕️'}],
+        ugPrograms: [{l:'Admissions info',a:'admissions',i:'🎓'},{l:'Campus Life',a:'campusLife',i:'🏕️'}],
         placements: [{l:'Top Companies',a:'_more',i:'🏢'},{l:'Admissions',a:'admissions',i:'🎓'}],
         hostels: [{l:'Boys Hostel',a:'hostels',i:'👨'},{l:'Girls Hostel',a:'girls_hostel',i:'👩'},{l:'Mess Info',a:'mess',i:'🍲'},{l:'Nearby Areas',a:'nearby',i:'📍'}],
         admissions: [{l:'Fee Structure',a:'fees',i:'💰'},{l:'Placements',a:'placements',i:'💼'}],
@@ -1503,13 +1509,9 @@ function getDeepInfo(lastId) {
             r.buttons = [{l:'Placement Page',u:KB.placements.url,i:'🌐'},{l:'Admissions',a:'admissions',i:'🎓'}];
         },
         'admissions': () => {
-            r.text = T("Here's the complete admissions guide! 📋","Comprehensive Admission Details:");
-            r.text += "\n\n**UG (B.E.):**\n• Eligibility: " + KB.admissions.ug.eligibility + "\n• Exams: " + KB.admissions.ug.exams + "\n• Other Quotas: " + KB.admissions.ug.quotas;
-            r.text += "\n\n**PG (M.Tech):**\n• Eligibility: " + KB.admissions.pg.eligibility + "\n• Exams: " + KB.admissions.pg.exams;
-            r.text += "\n\n**MCA:**\n• Eligibility: " + KB.admissions.mca.eligibility;
-            r.text += "\n\n**Fee Structure:**\n" + KB.admissions.fees;
-            r.text += "\n\n**Cutoffs:**\n" + KB.admissions.cutoffs;
-            r.buttons = [{l:'Apply Now',u:KB.admissions.url,i:'🌐'},{l:'Fee Details',a:'fees',i:'💰'}];
+            r.text = T("Ready to join the RVCE family? 🎓 Here's the admission lowdown:","Admission Information:");
+            r.text += T("\n\n• **B.E. Programs**: Via KCET, COMEDK, or Management Quota.\n• **M.Tech/MCA**: Based on PGCET or GATE scores.\n• **Research**: Ph.D./M.Sc. by research via VTU regulations.\n\nRequired documents usually include 10th/12th marks cards, entrance rank cards, and transfer certificates.","\n\n• Undergraduate (B.E.): KCET / COMEDK / Management Quota\n• Post-Graduate (M.Tech/MCA): GATE / PGCET\n• Research: Ph.D via VTU\n\nFor current fee structures and seat availability, visit the official admission portal.");
+            r.buttons = [{l:'UG (B.E.)',a:'adm_ug',i:'🎓'},{l:'PG (M.Tech/MCA)',a:'adm_pg',i:'📖'},{l:'Research (Ph.D)',a:'adm_phd',i:'🔬'},{l:'Official Portal',u:'https://rvce.edu.in/admissions/',i:'🌐'}];
         },
         'about_rvce': () => {
             r.text = T("Let me tell you everything about RVCE! 🏫","Complete RVCE Overview:");
@@ -1557,7 +1559,7 @@ function getDeepInfo(lastId) {
             r.text += "\n\n" + KB.admissions.fees;
             r.text += "\n\n**Hostel Fees:**\n• Triple Sharing: " + KB.hostelDetails.fees.tripleSharing + "\n• Double Sharing: " + KB.hostelDetails.fees.doubleSharing;
             r.text += "\n\n**Refund Policy:** AICTE rules apply — full refund (-₹1k processing) before commencement.";
-            r.buttons = [{l:'Fee Circulars',u:KB.circulars.feePayment,i:'📄'},{l:'Scholarships',a:'scholarships',i:'🎓'}];
+            r.buttons = [{l:'Fee Circulars',u:KB.circulars.feePayment,i:'📄'}];
         }
     };
     if (deepMap[lastId]) { deepMap[lastId](); return r; }
@@ -1580,7 +1582,6 @@ function getDeepInfo(lastId) {
             if (d.research) r.buttons.push({l:'Research',u:d.research,i:'🔬'});
             if (d.campus_diaries) r.buttons.push({l:'Campus Diaries',u:d.campus_diaries,i:'📔'});
             if (d.hod_message) r.buttons.push({l:'HOD Message',u:d.hod_message,i:'✉️'});
-            if (d.academic_planning) r.buttons.push({l:'Academic Planning',u:d.academic_planning,i:'📅'});
             if (d.happenings) r.buttons.push({l:'News & Happenings',u:d.happenings,i:'🗞️'});
             if (d.m_tech) r.buttons.push({l:'M.Tech Program',u:d.m_tech,i:'📘'});
             if (d.m_tech_cne) r.buttons.push({l:'M.Tech CNE',u:d.m_tech_cne,i:'🌐'});
@@ -1589,16 +1590,35 @@ function getDeepInfo(lastId) {
             if (d.m_tech_vlsi) r.buttons.push({l:'M.Tech VLSI & Embedded',u:d.m_tech_vlsi,i:'📟'});
             if (d.m_tech_comm) r.buttons.push({l:'M.Tech Comm Systems',u:d.m_tech_comm,i:'📡'});
             if (d.m_tech_soft) r.buttons.push({l:'M.Tech Software Engg',u:d.m_tech_soft,i:'💻'});
-            if (d.m_tech_it) r.buttons.push({l:'M.Tech Info Tech',u:d.m_tech_it,i:'🌐'});
-            if (d.m_tech_pdm) r.buttons.push({l:'M.Tech Product Design',u:d.m_tech_pdm,i:'🎨'});
+            if (d.m_tech_it) r.buttons.push({l:'M.Tech IT',u:d.m_tech_it,i:'🌐'});
+            if (d.m_tech_pdm) r.buttons.push({l:'M.Tech PDM',u:d.m_tech_pdm,i:'🎨'});
             if (d.m_tech_machine) r.buttons.push({l:'M.Tech Machine Design',u:d.m_tech_machine,i:'⚙️'});
-            if (d.project_labs) r.buttons.push({l:'Project Labs',u:d.project_labs,i:'🔬'});
+            if (d.coe) r.buttons.push({l:'CoE',u:d.coe,i:'🔬'});
+            if (d.coe_mfc) r.buttons.push({l:'CoE Materials Fabrication',u:d.coe_mfc,i:'🔬'});
+            if (d.coe_cav) r.buttons.push({l:'CoE Connected Vehicles',u:d.coe_cav,i:'🚗'});
+            if (d.coe_icas) r.buttons.push({l:'CoE Integrated Circuits',u:d.coe_icas,i:'📟'});
+            if (d.coe_cisss) r.buttons.push({l:'CoE Cognitive Systems',u:d.coe_cisss,i:'🧠'});
+            if (d.coe_vision) r.buttons.push({l:'CoE Computer Vision',u:d.coe_vision,i:'👁️'});
+            if (d.coe_toyota) r.buttons.push({l:'CoE Toyota Automotive',u:d.coe_toyota,i:'🚗'});
+            if (d.coe_ev) r.buttons.push({l:'CoE MG Electric Vehicles',u:d.coe_ev,i:'⚡'});
+            if (d.coe_3s) r.buttons.push({l:'CoE 3S Infrastructure',u:d.coe_3s,i:'🏗️'});
+            if (d.coe_logistics) r.buttons.push({l:'CoE Logistics & SCM',u:d.coe_logistics,i:'🚚'});
+            if (d.coe_genomics) r.buttons.push({l:'CoE Computational Genomics',u:d.coe_genomics,i:'🧬'});
+            if (d.coe_hydrogen) r.buttons.push({l:'CoE Hydrogen & Green Tech',u:d.coe_hydrogen,i:'🔋'});
+            if (d.coe_mobility) r.buttons.push({l:'CoE e-Mobility',u:d.coe_mobility,i:'🚲'});
+            if (d.coe_vidyuth) r.buttons.push({l:'CoE Smart Vidyuth',u:d.coe_vidyuth,i:'⚡'});
+            if (d.coc_ev) r.buttons.push({l:'CoC EV Academy',u:d.coc_ev,i:'🚗'});
+            if (d.coe_sensor) r.buttons.push({l:'CoE Sensor Technology',u:d.coe_sensor,i:'📡'});
+            if (d.coe_health) r.buttons.push({l:'CoE Health Care Tech',u:d.coe_health,i:'🏥'});
+            if (d.coe_5g) r.buttons.push({l:'CoE 5G Wireless Tech',u:d.coe_5g,i:'📡'});
+            if (d.coe_wic) r.buttons.push({l:'CoE Women in Cloud',u:d.coe_wic,i:'☁️'});
+            if (d.coe_quantum) r.buttons.push({l:'CoE Quantum Information',u:d.coe_quantum,i:'⚛️'});
+            if (d.coe_nano) r.buttons.push({l:'CoE Nanomaterials',u:d.coe_nano,i:'🔬'});
+            if (d.coe_bosch) r.buttons.push({l:'CoE RV-Bosch Automation',u:d.coe_bosch,i:'⚙️'});
+            if (d.coe_benz) r.buttons.push({l:'CoE Mercedes Benz Mechatronics',u:d.coe_benz,i:'🏎️'});
+            if (d.coe_sasm) r.buttons.push({l:'CoE Smart Antennas',u:d.coe_sasm,i:'📡'});
+
             if (d.rd_labs) r.buttons.push({l:'R&D Labs',u:d.rd_labs,i:'🧪'});
-            if (d.publications) r.buttons.push({l:'Publications',u:d.publications,i:'📚'});
-            if (d.coe_mfc) r.buttons.push({l:'CoE MFC',u:d.coe_mfc,i:'🔬'});
-            if (d.coe_cav) r.buttons.push({l:'CoE CAV',u:d.coe_cav,i:'🚗'});
-            if (d.coe_icas) r.buttons.push({l:'CoE ICAS',u:d.coe_icas,i:'🔌'});
-            if (d.coe) r.buttons.push({l:'Centre of Excellence',u:d.coe,i:'🏢'});
             if (d.networking) r.buttons.push({l:'Collaboration & Networking',u:d.networking,i:'🤝'});
             if (d.scholarship) r.buttons.push({l:'Sports Scholarship',u:d.scholarship,i:'🏆'});
             if (d.tournaments) r.buttons.push({l:'VTU Tournaments',u:d.tournaments,i:'🏅'});
@@ -1617,7 +1637,7 @@ function getRelatedTopics(lastId) {
         'hostels': ['facilities','food','safety','girls_hostel','nearby','transport'],
         'departments': ['ugPrograms','pgPrograms','placements','research','centres_of_excellence'],
         'campusLife': ['culturalLife','innovationTeams','sports','upcoming_events','ncc','nss'],
-        'fees': ['admissions','scholarships','refund_policy','hostels','management_quota'],
+        'fees': ['admissions','refund_policy','hostels','management_quota'],
         'contact': ['transport','nearby','timings','website'],
         'research': ['centres_of_excellence','departments','phd'],
         'ranking': ['accreditation','about_rvce','college_compare'],
@@ -1730,7 +1750,7 @@ function getResponse(id) {
     case 'boston':
         r.text += T("The **RVCE-Boston CoE in AI Research** is a beast! 🧠🔋\n\nIt was built with **Boston Ltd., UK** and features a **Graphcore POD4 server** with 1-PetaFLOP of AI power! It's one of the few in India.","Centre of Excellence in AI Research (RVCE-Boston Ltd):");
         r.text += "\n\n• **Focus**: Computer Vision, FinTech, AgriTech, and BioTech research.\n• **Certification**: Offers a 6-month professional course in Data Science & MLOps.\n• **Consultancy**: Invites industry projects and algorithm testing for scholars.\n• **Impact**: Bridges the gap between academic theory and real-world AI deployment.";
-        r.buttons = [{l:'AI Research Home',u:'https://rvce.edu.in/coe-ai-research/',i:'🌐'},{l:'All Collaborations',a:'collaborations',i:'🤝'}]; break;
+        r.buttons = [{l:'AI Research Home',u:'https://rvce.edu.in/department/wp-content/uploads/2026/03/RVCE-Boston-AI-CoE2.pdf',i:'🌐'},{l:'All Collaborations',a:'collaborations',i:'🤝'}]; break;
     case 'admissions':
         r.text += T("Let's get you enrolled! 🎓","Admission Information:");
         r.buttons = [{l:'UG (B.E.)',a:'ugAdm',i:'🎓'},{l:'PG (M.Tech)',a:'pgAdm',i:'📘'},{l:'MCA',a:'mca',i:'💻'},{l:'PhD',a:'phd',i:'🧪'},{l:'Admissions Page',u:KB.admissions.url,i:'🌐'}]; break;
