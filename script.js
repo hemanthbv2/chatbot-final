@@ -2068,16 +2068,9 @@ function getResponse(id) {
             {l:'Team Vyoma',a:'team_vyoma',i:'🛸'},
             {l:'Team Chimera',a:'team_chimera',i:'⚡'},
             {l:'ASTRA Robotics',a:'astra_robotics',i:'🤖'},
-            {l:'More Teams',a:'_more_teams',i:'➕'}
-        ]; break;
-    case '_more_teams':
-        r.text += "Check out these other specialized teams at RVCE:";
-        r.buttons = [
-            {l:'Team Chitrak',a:'team_chitrak',i:'🏍️'},
-            {l:'Anoraniya',a:'anoraniya',i:'⚛️'},
-            {l:'Project Garuda',a:'project_garuda',i:'🔋'},
             {l:'All Teams List',u:'https://rvce.edu.in/innovative_teams/',i:'🚀'}
         ]; break;
+
     case 'team_ashwa':
     case 'ashwa':
         r.text += T("Team Ashwa is the pride of RVCE! 🏎️💨\n\nThey design and build high-performance Formula Student cars. Established in 2003, they were India's first FS team to compete globally. They recently achieved a top-10 worldwide ranking in hybrid technology!","Team Ashwa (Formula Student):\n\nTeam Ashwa is RVCE’s premier Formula Student team. Achievements include top-10 global rankings and consistent performance in FS Germany and FS Italy.");
