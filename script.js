@@ -541,6 +541,15 @@ const KB = {
                 info: "The Department of Physical Education and Sports at RVCE promotes student fitness and excellence in sports, organizing VTU tournaments and offering sports scholarships for exceptional athletes.",
                 scholarship: "https://rvce.edu.in/department-of-physical-education-sports/rvce-sports-scholarship/",
                 tournaments: "https://rvce.edu.in/department-of-physical-education-sports/v-t-u-tournament-organized/"
+            },
+            {
+                n:"Deans & Administration",
+                c:"deans",
+                u:"https://rvce.edu.in/administration/",
+                hod:"Dr. K.N. Subramanya (Principal)",
+                info: "The administration at RVCE is led by the Principal and a team of Deans responsible for Academic, Research, Student Affairs, and Skill Development.",
+                about: "https://rvce.edu.in/administration/",
+                faculty: "https://rvce.edu.in/administration/"
             }
         ],
         pg: [
@@ -2308,13 +2317,18 @@ micB.addEventListener('click', () => {
 });
 
 /* =============== TELEMETRY & QUEUE =============== */
-function getSID() {
+/* =============== TELEMETRY & QUEUE =============== */
+const currentSessionId = (function() {
     let sid = localStorage.getItem('rvce_sid');
     if (!sid) {
         sid = 'sid_' + Math.random().toString(36).substr(2, 9);
         localStorage.setItem('rvce_sid', sid);
     }
     return sid;
+})();
+
+function getSID() {
+    return currentSessionId;
 }
 
 const telemetryQueue = [];
@@ -2330,18 +2344,41 @@ function processTelemetryQueue() {
         .catch(() => {}); // Keep in queue if it fails
 }
 
-function logChatInteraction(query, intent_id) {
+function logChatInteraction(query, intent_id, metadata = {}) {
     // 1. WordPress logic (async queue)
-    telemetryQueue.push({query, intent: intent_id});
+    telemetryQueue.push({query, intent: intent_id, meta: metadata});
     processTelemetryQueue();
 
     // 2. Standalone logic (localStorage for dashboard.html)
     try {
         const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
-        logs.push({ q: query, i: intent_id, d: new Date().toISOString() });
-        if (logs.length > 200) logs.shift(); // Keep last 200
+        logs.push({ 
+            s: currentSessionId, 
+            q: query, 
+            i: intent_id, 
+            d: new Date().toISOString(),
+            t: 'message',
+            m: metadata 
+        });
+        if (logs.length > 2000) logs.shift(); // Increased to 500 for micro-interactions
         localStorage.setItem('rvce_standalone_logs', JSON.stringify(logs));
     } catch(e) { console.warn("Local logging failed", e); }
+}
+
+function logMicroInteraction(type, label, metadata = {}) {
+    try {
+        const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+        logs.push({
+            s: currentSessionId,
+            q: `[${type}] ${label}`,
+            i: `${type}:${label}`,
+            d: new Date().toISOString(),
+            t: 'interaction',
+            m: metadata
+        });
+        if (logs.length > 2000) logs.shift();
+        localStorage.setItem('rvce_standalone_logs', JSON.stringify(logs));
+    } catch(e) { console.warn("Micro-interaction logging failed", e); }
 }
 
 let isProcessing = false;
@@ -2570,20 +2607,28 @@ function renderDepartment(d) {
 
 function renderFaculty(f, deptCode) {
     if (!f) return { text: "Faculty info not found.", buttons: [] };
-    const deptName = KB.departments.ug.find(d => d.c === deptCode)?.n || 
-                     KB.departments.pg.find(d => d.c === deptCode)?.n || 
-                     deptCode.toUpperCase();
+    const deptObj = KB.departments.ug.find(d => d.c === deptCode) || KB.departments.pg.find(d => d.c === deptCode);
+    const deptName = deptObj?.n || deptCode.toUpperCase();
     
+    const isDeans = deptCode === 'deans';
+    const affilLabel = isDeans ? "Administration" : `**${deptName}** department`;
+    const btnLabel = isDeans ? "Administration" : `${deptCode.toUpperCase()} Dept`;
+    const btnIcon = isDeans ? "🏢" : "🏫";
+
     return {
         text: T(
-            `Found them! 👩‍🏫 **${f.n}** is from the **${deptName}** department.\n\n**Designation:** ${f.d}\n**Teaching Experience:** ${f.e || "Not specified"}`,
-            `Faculty: ${f.n}\nDepartment: ${deptName}\nDesignation: ${f.d}\nExperience: ${f.e || "Not specified"}`
+            `Found them! 👨‍🏫 **${f.n}** is part of the ${affilLabel}.\n\n**Designation:** ${f.d}\n**Teaching Experience:** ${f.e || "Not specified"}`,
+            `Faculty: ${f.n}\nAffiliation: ${isDeans ? "Administration" : deptName}\nDesignation: ${f.d}\nExperience: ${f.e || "Not specified"}`
         ),
         buttons: [
-            {l: 'View Profile', u: f.u, i: '🌐'},
-            {l: `${deptCode.toUpperCase()} Dept`, a: `dept_${deptCode}`, i: '🏫'}
+            {l: 'View Profile', u: f.u, i: '🌐', track: f.n},
+            {l: btnLabel, a: `dept_${deptCode}`, i: btnIcon}
         ]
     };
+}
+
+function trackInteraction(type, label) {
+    logMicroInteraction(type, label);
 }
 
 /* =============== MESSAGE RENDERING =============== */
@@ -2599,7 +2644,10 @@ function addBot(text, buttons, noMenu) {
     if(buttons && buttons.length){
         bh='<div class="msg-btns">';
         buttons.forEach(b=>{
-            if(b.u) bh+=`<button class="act-btn lk" onclick="window.location.href='${b.u}'">${b.i||'🔗'} ${b.l}</button>`;
+            if(b.u) {
+                const trackFn = b.track ? `trackInteraction('fac_profile_click', '${b.track}');` : '';
+                bh+=`<button class="act-btn lk" onclick="${trackFn} window.location.href='${b.u}'">${b.i||'🔗'} ${b.l}</button>`;
+            }
             else bh+=`<button class="act-btn" data-action="${b.a}">${b.i||''} ${b.l}</button>`;
         });
         // Only add universal menu if not explicitly suppressed AND not already in button list
@@ -2763,6 +2811,174 @@ setTimeout(()=>{
         chatOpen=true;chatW.classList.add('open');fab.classList.add('active');badge.classList.add('hidden');
         setTimeout(()=>{addBot(T("Hey there! 👋 Welcome to RVCE — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!","Hello! Welcome to RV College of Engineering. I'm here to help you with information about admissions, placements, campus facilities, and more."),[],true);setTimeout(showMenu,900);},350);
     }
+
+    /* =============== DEEP INTERACTION TRACKING =============== */
+
+    // --- 1. CLICK TRACKING (every single click) ---
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+        
+        // Suggestion Buttons
+        if (target.closest('.act-btn')) {
+            const btn = target.closest('.act-btn');
+            const label = btn.textContent.trim();
+            const action = btn.dataset.action || 'link';
+            logMicroInteraction('click', `Button: ${label}`, { action, element: 'act-btn' });
+            return;
+        }
+        // Links inside chat
+        if (target.closest('a')) {
+            const link = target.closest('a');
+            logMicroInteraction('click', `Link: ${link.textContent.trim().substring(0, 60)}`, { url: link.href, element: 'a' });
+            return;
+        }
+        // Tone Switch
+        if (target.closest('.tone-sw') || target.closest('#tone-switch')) {
+            logMicroInteraction('ui', 'Tone Toggle', { newTone: tone === 'funny' ? 'pro' : 'funny' });
+            return;
+        }
+        // FAB open/close
+        if (target.closest('.rv-fab')) {
+            logMicroInteraction('ui', chatOpen ? 'Chat Closed' : 'Chat Opened');
+            return;
+        }
+        // Close button
+        if (target.closest('.rv-close')) {
+            logMicroInteraction('ui', 'Chat Closed (X)');
+            return;
+        }
+        // Mic button
+        if (target.closest('#mic-btn') || target.closest('.mic-btn')) {
+            logMicroInteraction('ui', 'Voice Input Triggered');
+            return;
+        }
+        // Send button
+        if (target.closest('#send-btn') || target.closest('.send-btn')) {
+            logMicroInteraction('ui', 'Send Button Clicked');
+            return;
+        }
+        // Any other click inside chatbot container
+        if (target.closest('.rv-chatbot-wrap') || target.closest('#rv-chatbot')) {
+            const tag = target.tagName.toLowerCase();
+            const cls = target.className ? target.className.toString().substring(0, 40) : '';
+            logMicroInteraction('click', `Element: ${tag}`, { class: cls });
+        }
+    });
+
+    // --- 2. HOVER TRACKING (interest signals on buttons/links) ---
+    let hoverTimer = null;
+    document.addEventListener('mouseover', (e) => {
+        const btn = e.target.closest('.act-btn');
+        const link = e.target.closest('.msg-bubble a');
+        const hoverTarget = btn || link;
+        if (hoverTarget) {
+            hoverTimer = setTimeout(() => {
+                const label = hoverTarget.textContent.trim().substring(0, 60);
+                logMicroInteraction('hover', label, { duration: '500ms+', element: hoverTarget.tagName });
+            }, 500); // Only log if user hovers for 500ms+ (real interest)
+        }
+    });
+    document.addEventListener('mouseout', (e) => {
+        if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+    });
+
+    // --- 3. COPY TRACKING (high-value signal: user copied chatbot text) ---
+    document.addEventListener('copy', () => {
+        const selection = window.getSelection();
+        if (selection && selection.toString().trim()) {
+            const copied = selection.toString().trim().substring(0, 100);
+            logMicroInteraction('copy', copied, { length: selection.toString().length });
+        }
+    });
+
+    // --- 4. TYPING VELOCITY (frustration/familiarity detector) ---
+    let keyTimestamps = [];
+    if (inp) {
+        inp.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') return;
+            keyTimestamps.push(Date.now());
+        });
+        // Log typing velocity when user submits (press Enter or click Send)
+        inp.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && keyTimestamps.length > 2) {
+                const intervals = [];
+                for (let i = 1; i < keyTimestamps.length; i++) {
+                    intervals.push(keyTimestamps[i] - keyTimestamps[i-1]);
+                }
+                const avgMs = Math.round(intervals.reduce((a,b) => a+b, 0) / intervals.length);
+                const wpm = Math.round(60000 / (avgMs * 5)); // rough WPM
+                logMicroInteraction('typing', `Speed: ${avgMs}ms/key (~${wpm} WPM)`, { avgMs, wpm, keyCount: keyTimestamps.length });
+                keyTimestamps = [];
+            }
+        });
+        // Input focus/blur
+        inp.addEventListener('focus', () => {
+            logMicroInteraction('focus', 'Input Focused');
+        });
+        inp.addEventListener('blur', () => {
+            if (inp.value.trim()) {
+                logMicroInteraction('blur', 'Input Blurred (with text)', { partial: inp.value.trim().substring(0, 50) });
+            }
+        });
+    }
+
+    // --- 5. SCROLL DEPTH (how far user reads in chat) ---
+    let maxScrollPercent = 0;
+    let scrollLogTimer = null;
+    if (msgs) {
+        msgs.addEventListener('scroll', () => {
+            const scrollTop = msgs.scrollTop;
+            const scrollHeight = msgs.scrollHeight - msgs.clientHeight;
+            if (scrollHeight > 0) {
+                const percent = Math.round((scrollTop / scrollHeight) * 100);
+                if (percent > maxScrollPercent + 20) { // Log every 20% threshold
+                    maxScrollPercent = percent;
+                    clearTimeout(scrollLogTimer);
+                    scrollLogTimer = setTimeout(() => {
+                        logMicroInteraction('scroll', `Depth: ${maxScrollPercent}%`, { depth: maxScrollPercent });
+                    }, 300);
+                }
+            }
+        });
+    }
+
+    // --- 6. DWELL TIME (time spent with chat open per page session) ---
+    let chatOpenedAt = chatOpen ? Date.now() : null;
+    const origToggle = fab ? fab.onclick : null;
+    // Observe chat open/close to measure dwell time
+    const chatObserver = new MutationObserver(() => {
+        if (chatW && chatW.classList.contains('open')) {
+            if (!chatOpenedAt) chatOpenedAt = Date.now();
+        } else {
+            if (chatOpenedAt) {
+                const dwellSec = Math.round((Date.now() - chatOpenedAt) / 1000);
+                if (dwellSec >= 3) { // Only log if open for 3+ seconds
+                    logMicroInteraction('dwell', `Chat open for ${dwellSec}s`, { seconds: dwellSec });
+                }
+                chatOpenedAt = null;
+            }
+        }
+    });
+    if (chatW) chatObserver.observe(chatW, { attributes: true, attributeFilter: ['class'] });
+
+    // --- 7. PAGE VISIBILITY (did user switch tabs?) ---
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            logMicroInteraction('visibility', 'Tab Hidden (left page)');
+        } else {
+            logMicroInteraction('visibility', 'Tab Visible (returned)');
+        }
+    });
+
+    // --- 8. SESSION END (before page unload) ---
+    window.addEventListener('beforeunload', () => {
+        if (chatOpenedAt) {
+            const dwellSec = Math.round((Date.now() - chatOpenedAt) / 1000);
+            logMicroInteraction('session', `Session ended (dwell: ${dwellSec}s)`, { totalDwell: dwellSec });
+        }
+        logMicroInteraction('session', 'Page Unload');
+    });
+
 },600);
 
 }

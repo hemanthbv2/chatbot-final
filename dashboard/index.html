@@ -3,197 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RVCE Chatbot — Analytics Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>RVCE Chatbot — Command Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #E31E24;
+            --primary-glow: rgba(227, 30, 36, 0.4);
             --secondary: #6366f1;
+            --secondary-glow: rgba(99, 102, 241, 0.3);
             --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
             --bg: #030712;
-            --card: rgba(17, 24, 39, 0.7);
-            --text: #f9fafb;
-            --text-dim: #94a3b8;
+            --sidebar: rgba(17, 24, 39, 0.8);
+            --card: rgba(30, 41, 59, 0.5);
             --border: rgba(255, 255, 255, 0.08);
-            --glow: rgba(99, 102, 241, 0.2);
+            --text: #f8fafc;
+            --text-dim: #94a3b8;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 50% 50%, #111827 0%, #030712 100%);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
             color: var(--text);
-            min-height: 100vh;
-            padding: 40px;
-            overflow-x: hidden;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
         }
-        .container { max-width: 1300px; margin: 0 auto; }
-        
-        header { 
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; 
-            padding-bottom: 20px; border-bottom: 1px solid var(--border);
-        }
-        h1 { font-size: 32px; font-weight: 900; letter-spacing: -1.5px; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .badge { background: var(--primary); padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; margin-left: 10px; vertical-align: middle; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px; }
-        .card { 
-            background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px; 
-            backdrop-filter: blur(20px); position: relative; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-        .card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 0 20px var(--glow); }
-        .card h2 { font-size: 13px; color: var(--text-dim); margin-bottom: 24px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        
-        .stat-val { font-size: 56px; font-weight: 900; margin-bottom: 8px; letter-spacing: -2px; }
-        .stat-sub { font-size: 14px; color: var(--success); font-weight: 600; display: flex; align-items: center; gap: 6px; }
-        
-        .pulse-dot { display: inline-block; width: 10px; height: 10px; background: var(--success); border-radius: 50%; box-shadow: 0 0 15px var(--success); animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
 
-        .list { display: flex; flex-direction: column; gap: 14px; }
-        .list-item { 
-            display: flex; justify-content: space-between; align-items: center; padding: 16px; 
-            background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid var(--border);
-            transition: all 0.2s;
+        /* --- Dynamic Mesh Background --- */
+        .mesh-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(227, 30, 36, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(3, 7, 18, 1) 100%);
         }
-        .list-item:hover { background: rgba(255,255,255,0.05); }
-        .list-item .query { font-weight: 600; font-size: 15px; color: #fff; }
-        .list-item .tag { padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; background: rgba(99, 102, 241, 0.1); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.2); }
-        .list-item .tag.unmatched { background: rgba(239, 68, 68, 0.1); color: #f87171; border-color: rgba(239, 68, 68, 0.2); }
 
-        .empty-state { text-align: center; color: var(--text-dim); padding: 40px 0; }
-
-        .refresh-btn { 
-            background: var(--card); color: var(--text); border: 1px solid var(--border); padding: 12px 24px; 
-            border-radius: 12px; cursor: pointer; font-weight: 700; font-size: 14px; transition: all 0.2s;
-            display: flex; align-items: center; gap: 8px;
+        /* --- Sidebar --- */
+        aside {
+            width: 260px;
+            background: var(--sidebar);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+            z-index: 10;
         }
-        .refresh-btn:hover { background: var(--secondary); border-color: var(--secondary); color: white; }
+        .logo-area {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 40px;
+        }
+        .logo-box {
+            width: 36px; height: 36px; background: var(--primary); border-radius: 10px;
+            display: flex; align-items: center; justify-content: center; font-weight: 800;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+        .logo-text h2 { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+        .logo-text p { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
 
-        ::-webkit-scrollbar { width: 8px; }
+        .nav-links { list-style: none; flex-grow: 1; }
+        .nav-item {
+            padding: 14px 16px; border-radius: 12px; cursor: pointer;
+            margin-bottom: 8px; display: flex; align-items: center; gap: 12px;
+            color: var(--text-dim); transition: all 0.2s; font-size: 14px; font-weight: 600;
+        }
+        .nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+        .nav-item.active { background: rgba(99, 102, 241, 0.1); color: var(--secondary); border: 1px solid rgba(99, 102, 241, 0.2); }
+        .nav-item svg { width: 18px; height: 18px; opacity: 0.7; }
+
+        .sidebar-footer { padding-top: 20px; border-top: 1px solid var(--border); }
+
+        /* --- Main Content --- */
+        main {
+            flex-grow: 1; padding: 30px; overflow-y: auto; position: relative;
+        }
+        header {
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;
+        }
+        .header-title h1 { font-size: 24px; font-weight: 800; }
+        .header-title p { color: var(--text-dim); font-size: 14px; }
+
+        .actions { display: flex; gap: 12px; }
+        .btn {
+            padding: 10px 18px; border-radius: 10px; border: 1px solid var(--border);
+            background: var(--card); color: var(--text); font-size: 13px; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 8px;
+        }
+        .btn:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+        .btn-primary { background: var(--secondary); border-color: var(--secondary); }
+        .btn-primary:hover { background: #4f46e5; box-shadow: 0 0 15px var(--secondary-glow); }
+
+        /* --- Grid Layout --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+            padding: 24px; backdrop-filter: blur(10px); position: relative;
+            transition: border-color 0.3s;
+        }
+        .card:hover { border-color: rgba(255,255,255,0.2); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .card-header h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-dim); }
+        .card-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; }
+
+        .stat-val { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+        .stat-trend { font-size: 12px; display: flex; align-items: center; gap: 4px; }
+        .trend-up { color: var(--success); }
+        .trend-down { color: var(--danger); }
+
+        /* --- Large Visuals --- */
+        .chart-card { grid-column: span 2; }
+        .logs-card { grid-column: span 2; grid-row: span 2; }
+
+        /* --- Interaction Stream --- */
+        .stream { display: flex; flex-direction: column; gap: 12px; height: 500px; overflow-y: auto; padding-right: 8px; }
+        .uq-list { display: flex; flex-direction: column; gap: 10px; max-height: 340px; overflow-y: auto; padding-right: 6px; }
+        .uq-item { padding: 12px 16px; background: rgba(239,68,68,0.06); border-radius: 10px; border-left: 3px solid var(--danger); font-size: 13px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
+        .uq-item .uq-time { font-size: 10px; color: var(--text-dim); flex-shrink: 0; margin-left: 12px; }
+        .mod-item { padding: 12px 16px; background: rgba(245,158,11,0.06); border-radius: 10px; border-left: 3px solid var(--warning); font-size: 13px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
+        .mod-item .mod-type { font-size: 10px; padding: 2px 8px; border-radius: 6px; background: rgba(245,158,11,0.15); color: var(--warning); font-weight: 700; flex-shrink: 0; margin-left: 12px; }
+        .stream-item {
+            padding: 16px; background: rgba(255,255,255,0.03); border-radius: 12px;
+            border-left: 3px solid transparent; transition: all 0.2s;
+            display: flex; align-items: flex-start; gap: 14px;
+        }
+        .stream-item:hover { background: rgba(255,255,255,0.06); transform: translateX(5px); }
+        .stream-item.message { border-left-color: var(--secondary); }
+        .stream-item.click { border-left-color: var(--success); }
+        .stream-item.interaction { border-left-color: var(--success); }
+        .stream-item.ui { border-left-color: var(--warning); }
+        .stream-item.moderated { border-left-color: var(--danger); }
+        .stream-item.hover { border-left-color: #a78bfa; }
+        .stream-item.copy { border-left-color: #f472b6; }
+        .stream-item.typing { border-left-color: #38bdf8; }
+        .stream-item.scroll { border-left-color: #67e8f9; }
+        .stream-item.dwell { border-left-color: #fbbf24; }
+        .stream-item.visibility { border-left-color: #818cf8; }
+        .stream-item.session { border-left-color: #fb923c; }
+        .stream-item.focus { border-left-color: #34d399; }
+        .stream-item.blur { border-left-color: #94a3b8; }
+
+        .item-icon { 
+            font-size: 18px; width: 36px; height: 36px; border-radius: 10px; 
+            background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center;
+        }
+        .item-content { flex-grow: 1; }
+        .item-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+        .item-session { font-size: 11px; color: var(--text-dim); font-weight: 700; opacity: 0.6; }
+        .item-time { font-size: 10px; color: var(--text-dim); }
+        .item-text { font-size: 14px; color: var(--text); font-weight: 500; }
+        .item-sub { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+
+        /* --- Pulse Effect --- */
+        .pulse { width: 10px; height: 10px; background: var(--success); border-radius: 50%; box-shadow: 0 0 10px var(--success); position: relative; }
+        .pulse::after { content: ''; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border-radius: 50%; border: 2px solid var(--success); animation: pulse-anim 2s infinite; }
+        @keyframes pulse-anim { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+        .empty-state { text-align: center; color: var(--text-dim); padding: 50px 0; font-style: italic; }
+
+        #dateFilter { background: transparent; border: none; color: var(--text); font-family: inherit; font-size: 13px; cursor: pointer; outline: none; }
+
+        /* --- Behavior Tags --- */
+        .behavior-tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; margin: 2px; }
+        .behavior-tag.high { background: rgba(16,185,129,0.15); color: #10b981; }
+        .behavior-tag.medium { background: rgba(245,158,11,0.15); color: #f59e0b; }
+        .behavior-tag.low { background: rgba(239,68,68,0.15); color: #ef4444; }
+
+        /* --- Mini stat in card --- */
+        .mini-stat { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 8px; margin-bottom: 6px; }
+        .mini-stat .label { font-size: 12px; color: var(--text-dim); flex-grow: 1; }
+        .mini-stat .value { font-size: 14px; font-weight: 700; }
+
+        .full-width { grid-column: span 4; }
+        .span-3 { grid-column: span 3; }
+        .span-1 { grid-column: span 1; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div>
-                <h1>RVCE Chatbot Analytics <span class="badge">Standalone Mode</span></h1>
-                <p style="color: var(--text-dim); margin-top: 5px;">Local browser-based tracking (pre-integration)</p>
+    <div class="mesh-bg"></div>
+
+    <aside>
+        <div class="logo-area">
+            <div class="logo-box">R</div>
+            <div class="logo-text">
+                <h2>COMMAND</h2>
+                <p>Chatbot Intelligence</p>
             </div>
-            <div style="display: flex; gap: 12px; align-items: center;">
-                <input type="date" id="dateFilter" class="refresh-btn" style="background: var(--card); color: var(--text);" onchange="render()">
-                <button class="refresh-btn" onclick="render()">🔄 Sync</button>
-                <button class="refresh-btn" style="background: #2563eb; color: white;" onclick="downloadCSV()">📥 Export CSV</button>
-                <button class="refresh-btn" style="background: var(--success); color: white;" onclick="generateTestData()">🧪 Mock</button>
-                <button class="refresh-btn" style="background: var(--primary); color: white;" onclick="clearAllData()">🗑️ Reset</button>
+        </div>
+
+        <nav class="nav-links">
+            <a class="nav-item active" href="index.html" style="text-decoration:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                Overview
+            </a>
+            <a class="nav-item" href="interactions.html" style="text-decoration:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                Interactions
+            </a>
+            <a class="nav-item" href="sessions.html" style="text-decoration:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                Sessions
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-dim);">
+                <div class="pulse"></div>
+                SYSTEM ONLINE
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <div class="header-title">
+                <h1>Intelligence Dashboard</h1>
+                <p>Tracking full user journey & micro-interactions</p>
+            </div>
+            <div class="actions">
+                <div class="btn">
+                    📅 <input type="date" id="dateFilter" onchange="render()">
+                </div>
+                <button class="btn" onclick="render()">🔄 Sync</button>
+                <button class="btn btn-primary" onclick="generateTestData()">🧪 Mock Data</button>
+                <button class="btn" style="color: var(--danger); border-color: rgba(239,68,68,0.2);" onclick="clearAllData()">🗑️ Reset</button>
             </div>
         </header>
 
-        <div class="grid">
-            <div class="card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));">
-                <h2>Network Pulse</h2>
-                <div class="stat-val" style="color: var(--success);"><span class="pulse-dot"></span> <span id="activeUsers">1</span></div>
-                <div class="stat-sub">Live Sessions Detected</div>
-            </div>
+        <div class="dashboard-grid">
+            <!-- Summary Stats -->
             <div class="card">
-                <h2>Global Reach</h2>
-                <div class="stat-val" id="totalInteractions">0</div>
-                <div class="stat-sub" id="todayActivity">↑ 0 incoming</div>
+                <div class="card-header">
+                    <h3>Total Events</h3>
+                    <div class="card-icon">📈</div>
+                </div>
+                <div class="stat-val" id="totalEvents">0</div>
+                <div class="stat-trend trend-up">+0.0% <small>since last session</small></div>
             </div>
-            <div class="card">
-                <h2>AI Precision</h2>
-                <div class="stat-val" id="successRate" style="color: var(--secondary);">0%</div>
-                <div class="stat-sub">Intent Accuracy</div>
-            </div>
-        </div>
-        <div class="card" style="margin-bottom: 24px;">
-            <h2>Recent Missed Query</h2>
-            <div id="latestMissed" class="query" style="font-size: 18px; font-weight: 600; margin-top: 15px;">None</div>
-            <div class="stat-sub" style="color: #f43f5e">Requires review</div>
-        </div>
 
-        <div class="grid" style="grid-template-columns: 2fr 1fr;">
             <div class="card">
-                <h2>Top User Intents</h2>
-                <div class="chart-container">
-                    <canvas id="intentChart"></canvas>
+                <div class="card-header">
+                    <h3>Active Users</h3>
+                    <div class="card-icon">👥</div>
+                </div>
+                <div class="stat-val" id="activeUsers">1</div>
+                <div class="stat-trend">Live connections</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Click Rate</h3>
+                    <div class="card-icon">🖱️</div>
+                </div>
+                <div class="stat-val" id="clickRate">0%</div>
+                <div class="stat-trend trend-up">Interactivity index</div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Success Score</h3>
+                    <div class="card-icon">✨</div>
+                </div>
+                <div class="stat-val" id="successScore">0%</div>
+                <div class="stat-trend">Intent accuracy</div>
+            </div>
+
+            <!-- Main Visuals -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h3>Interaction Breakdown</h3>
+                </div>
+                <div style="height: 300px;">
+                    <canvas id="mainChart"></canvas>
                 </div>
             </div>
-            <div class="card" style="max-height: 400px; overflow-y: auto;">
-                <h2>Unanswered Questions</h2>
-                <div class="list" id="missedList">
-                    <div class="empty-state">No missed queries yet!</div>
+
+            <div class="card logs-card">
+                <div class="card-header">
+                    <h3 id="streamTitle">Real-time Activity Feed</h3>
+                    <div style="display:flex;gap:6px;">
+                        <select id="typeFilter" class="btn" style="padding:4px 8px;font-size:10px;background:var(--card);color:var(--text);" onchange="render()">
+                            <option value="">All Types</option>
+                            <option value="message">💬 Messages</option>
+                            <option value="interaction">🖱️ Clicks</option>
+                            <option value="hover">👆 Hovers</option>
+                            <option value="copy">📋 Copies</option>
+                            <option value="typing">⌨️ Typing</option>
+                            <option value="scroll">📜 Scrolls</option>
+                            <option value="dwell">⏱️ Dwell</option>
+                            <option value="visibility">👁️ Visibility</option>
+                            <option value="session">🔌 Session</option>
+                        </select>
+                        <button class="btn" style="padding: 4px 8px; font-size: 10px;" onclick="clearFilter()">✕ Clear</button>
+                    </div>
+                </div>
+                <div class="stream" id="interactionStream">
+                    <div class="empty-state">Scanning for incoming signals...</div>
                 </div>
             </div>
-        </div>
 
-        <div class="card" style="margin-bottom: 24px; border-left: 4px solid var(--secondary);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <h2>Historical Date-Wise Archives</h2>
-                <span style="font-size: 11px; color: var(--text-dim); background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px;">Tracked History</span>
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h3>Session Flow Intensity</h3>
+                </div>
+                <div style="height: 300px;">
+                    <canvas id="flowChart"></canvas>
+                </div>
             </div>
-            <div class="list" id="dateSummaryTable">
-                <!-- Date rows injected here -->
-                <div class="empty-state">Calculating archives...</div>
-            </div>
-        </div>
 
-        <div class="card">
-            <h2>Detailed Interaction Stream</h2>
-            <div class="list" id="recentLogs">
-                <div class="empty-state">Waiting for data sync...</div>
+            <!-- Unanswered & Moderated -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h3>❓ Unanswered Questions</h3>
+                    <div class="card-icon" style="font-size:11px;color:var(--danger)" id="uqCount">0</div>
+                </div>
+                <div class="uq-list" id="unansweredList">
+                    <div class="empty-state">No unanswered questions — great! 🎉</div>
+                </div>
             </div>
+
+            <div class="card chart-card">
+                <div class="card-header">
+                    <h3>🛡️ Moderated / Blocked Queries</h3>
+                    <div class="card-icon" style="font-size:11px;color:var(--warning)" id="modCount">0</div>
+                </div>
+                <div class="uq-list" id="moderatedList">
+                    <div class="empty-state">No moderated queries</div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </main>
 
     <script>
-        let chart = null;
+        let mainChart = null;
+        let flowChart = null;
+        let selectedSession = null;
+
+        const ICONS = {
+            'message': '💬',
+            'click': '🖱️',
+            'ui': '⚙️',
+            'interaction': '🖱️',
+            'moderated': '🛡️',
+            'hover': '👆',
+            'copy': '📋',
+            'typing': '⌨️',
+            'scroll': '📜',
+            'dwell': '⏱️',
+            'focus': '🎯',
+            'blur': '💤',
+            'visibility': '👁️',
+            'session': '🔌'
+        };
 
         function render() {
-            let logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            const allLogs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            let logs = [...allLogs];
             
-            // Apply Date Filter
             const filterDate = document.getElementById('dateFilter').value;
             if (filterDate) {
-                logs = logs.filter(l => new Date(l.d).toISOString().split('T')[0] === filterDate);
+                logs = logs.filter(l => l.d.startsWith(filterDate));
             }
+
+            // Stats
+            document.getElementById('totalEvents').textContent = logs.length;
             
-            // Total & Today
-            document.getElementById('totalInteractions').textContent = logs.length;
-            const today = new Date().toDateString();
-            const todayCount = logs.filter(l => new Date(l.d).toDateString() === today).length;
-            document.getElementById('todayActivity').textContent = `↑ ${todayCount} today`;
+            const sessions = [...new Set(logs.map(l => l.s))];
+            document.getElementById('activeUsers').textContent = Math.max(1, sessions.length);
 
-            // Success Rate & Missed
-            const missed = logs.filter(l => l.i === 'unmatched');
-            const rate = logs.length ? Math.round(((logs.length - missed.length) / logs.length) * 100) : 100;
-            document.getElementById('successRate').textContent = rate + '%';
-            document.getElementById('latestMissed').textContent = missed.length ? missed[missed.length - 1].q : 'None';
+            const clickEvents = logs.filter(l => l.t === 'interaction' || l.i.startsWith('click:'));
+            const msgEvents = logs.filter(l => l.t === 'message');
+            const clickRate = logs.length ? Math.round((clickEvents.length / logs.length) * 100) : 0;
+            document.getElementById('clickRate').textContent = clickRate + '%';
 
-            // Chart
-            const intents = {};
+            const matched = msgEvents.filter(l => l.i !== 'unmatched' && !l.i.startsWith('moderated'));
+            const success = msgEvents.length ? Math.round((matched.length / msgEvents.length) * 100) : 100;
+            document.getElementById('successScore').textContent = success + '%';
+
+            // Main Chart: Event Types
+            renderMainChart(logs);
+            
+            // Flow Chart: Sessions over time
+            renderFlowChart(logs);
+
+            // Stream
+            renderStream(logs);
+
+            // Unanswered & Moderated
+            renderUnanswered(logs);
+            renderModerated(logs);
+        }
+
+        function renderMainChart(logs) {
+            const counts = { 'Messages': 0, 'Clicks': 0, 'Hovers': 0, 'Copies': 0, 'Typing': 0, 'Scroll': 0, 'Dwell': 0, 'UI': 0, 'Other': 0 };
             logs.forEach(l => {
-                if (l.i !== 'unmatched') {
-                    intents[l.i] = (intents[l.i] || 0) + 1;
+                const t = l.i ? l.i.split(':')[0] : '';
+                if (l.t === 'message') counts['Messages']++;
+                else if (t === 'click') counts['Clicks']++;
+                else if (t === 'hover') counts['Hovers']++;
+                else if (t === 'copy') counts['Copies']++;
+                else if (t === 'typing') counts['Typing']++;
+                else if (t === 'scroll') counts['Scroll']++;
+                else if (t === 'dwell') counts['Dwell']++;
+                else if (t === 'ui') counts['UI']++;
+                else counts['Other']++;
+            });
+            // Remove zero entries
+            Object.keys(counts).forEach(k => { if (counts[k] === 0) delete counts[k]; });
+
+            if (mainChart) mainChart.destroy();
+            const ctx = document.getElementById('mainChart').getContext('2d');
+            mainChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(counts),
+                    datasets: [{
+                        data: Object.values(counts),
+                        backgroundColor: ['#6366f1', '#10b981', '#a78bfa', '#f472b6', '#38bdf8', '#67e8f9', '#fbbf24', '#f59e0b', '#94a3b8'],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', weight: '600' } } }
+                    },
+                    cutout: '70%'
                 }
             });
-            const labels = Object.keys(intents).sort((a,b) => intents[b] - intents[a]).slice(0, 8);
-            const data = labels.map(l => intents[l]);
+        }
 
-            if (chart) chart.destroy();
-            const ctx = document.getElementById('intentChart').getContext('2d');
-            chart = new Chart(ctx, {
-                type: 'bar',
+        function renderFlowChart(logs) {
+            // Group by hour
+            const hours = Array.from({length: 24}, (_, i) => `${i}:00`);
+            const data = new Array(24).fill(0);
+            logs.forEach(l => {
+                const hour = new Date(l.d).getHours();
+                data[hour]++;
+            });
+
+            if (flowChart) flowChart.destroy();
+            const ctx = document.getElementById('flowChart').getContext('2d');
+            flowChart = new Chart(ctx, {
+                type: 'line',
                 data: {
-                    labels: labels,
+                    labels: hours,
                     datasets: [{
-                        label: 'Hits',
+                        label: 'Activity',
                         data: data,
-                        backgroundColor: '#E31E24',
-                        borderRadius: 8
+                        borderColor: '#E31E24',
+                        backgroundColor: 'rgba(227, 30, 36, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 0
                     }]
                 },
                 options: {
@@ -206,115 +486,241 @@
                     }
                 }
             });
-
-            // Lists
-            const missedList = document.getElementById('missedList');
-            if (missed.length) {
-                missedList.innerHTML = missed.reverse().slice(0, 10).map(m => `
-                    <div class="list-item">
-                        <span class="query">${m.q}</span>
-                        <span class="tag unmatched">MISS</span>
-                    </div>
-                `).join('');
-            }
-
-            const allLogs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
-            const dateMap = {};
-            allLogs.forEach(l => {
-                const d = l.d.split('T')[0];
-                dateMap[d] = (dateMap[d] || 0) + 1;
-            });
-            document.getElementById('dateSummaryTable').innerHTML = Object.keys(dateMap).sort().reverse().map(d => `
-                <div class="list-item">
-                    <span><strong>${d}</strong> <span style="color:var(--text-dim)">(${dateMap[d]} entries)</span></span>
-                    <div style="display:flex; gap:8px;">
-                        <button class="refresh-btn" style="padding: 6px 12px; font-size: 12px; background: rgba(16,185,129,0.1); color: #10b981;" onclick="viewDate('${d}')">👁️ View</button>
-                        <button class="refresh-btn" style="padding: 6px 12px; font-size: 12px; background: rgba(99,102,241,0.2); color: #818cf8;" onclick="downloadSpecificDate('${d}')">📥 Download</button>
-                    </div>
-                </div>
-            `).join('');
-
-            if (logs.length) {
-                recentLogs.innerHTML = logs.reverse().slice(0, 20).map(l => `
-                    <div class="list-item">
-                        <div>
-                            <span class="tag" style="background:rgba(255,255,255,0.1); color:#fff; margin-right:8px;">${l.s || 'anon'}</span>
-                            <span class="query">"${l.q}"</span>
-                            <span class="tag">${l.i}</span>
-                        </div>
-                        <span class="time">${new Date(l.d).toLocaleTimeString()}</span>
-                    </div>
-                `).join('');
-            }
         }
 
-        // Auto-refresh for presentation
-        setInterval(() => {
-            render();
-            // Simulate 1-3 extra users for presentation effect
-            document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 3) + 1;
-        }, 3000);
+        function renderStream(logs) {
+            const stream = document.getElementById('interactionStream');
+            let displayLogs = [...logs].reverse();
+            
+            if (selectedSession) {
+                displayLogs = displayLogs.filter(l => l.s === selectedSession);
+            }
 
-        function generateTestData() {
-            const today = new Date().toISOString();
-            const yesterday = new Date(Date.now() - 86400000).toISOString();
-            const sampleLogs = [
-                { s: 'sid_1', q: "Hi", i: "greet", d: today },
-                { s: 'sid_2', q: "CSE placements", i: "placements", d: today },
-                { s: 'sid_1', q: "Principal contact", i: "contact", d: yesterday },
-                { s: 'sid_3', q: "Hostel fees", i: "hostels", d: yesterday },
-                { s: 'sid_2', q: "where is mars?", i: "unmatched", d: yesterday }
-            ];
-            localStorage.setItem('rvce_standalone_logs', JSON.stringify(sampleLogs));
+            if (displayLogs.length === 0) {
+                stream.innerHTML = '<div class="empty-state">No data matches your criteria.</div>';
+                return;
+            }
+
+            // Apply type filter
+            const typeFilter = document.getElementById('typeFilter').value;
+            if (typeFilter) {
+                if (typeFilter === 'interaction') {
+                    displayLogs = displayLogs.filter(l => l.t === 'interaction' || (l.i && l.i.startsWith('click:')));
+                } else if (typeFilter === 'message') {
+                    displayLogs = displayLogs.filter(l => l.t === 'message');
+                } else {
+                    displayLogs = displayLogs.filter(l => l.i && l.i.startsWith(typeFilter + ':'));
+                }
+            }
+
+            stream.innerHTML = displayLogs.map(l => {
+                const evtType = l.i ? l.i.split(':')[0] : 'unknown';
+                const typeClass = l.i && l.i.startsWith('moderated') ? 'moderated' : (evtType || l.t || 'click');
+                const icon = ICONS[evtType] || ICONS[l.t] || '⚡';
+                const time = new Date(l.d).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                
+                let subContent = '';
+                if (l.m && Object.keys(l.m).length) {
+                    subContent = `<div class="item-sub">${Object.entries(l.m).map(([k,v]) => `<strong>${k}:</strong> ${v}`).join(' | ')}</div>`;
+                }
+
+                return `
+                    <div class="stream-item ${typeClass}" onclick="filterSession('${l.s}')">
+                        <div class="item-icon">${icon}</div>
+                        <div class="item-content">
+                            <div class="item-meta">
+                                <span class="item-session">SESSION ${l.s.split('_')[1]}</span>
+                                <span class="item-time">${time}</span>
+                            </div>
+                            <div class="item-text">${l.q}</div>
+                            ${subContent}
+                            <div class="item-sub" style="opacity: 0.5; font-size: 9px;">INTENT: ${l.i}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterSession(sid) {
+            selectedSession = sid;
+            document.getElementById('streamTitle').innerHTML = `Session Detail: <span style="color:var(--secondary)">${sid}</span>`;
             render();
-            alert("Test data generated for Today and Yesterday! Look at the 'Historical Archives' section below.");
+        }
+
+        function clearFilter() {
+            selectedSession = null;
+            document.getElementById('streamTitle').textContent = "Real-time Activity Feed";
+            render();
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            event.target.closest('.nav-item').classList.add('active');
+            // In a real app, this would change the view. Here we just re-render.
+            render();
         }
 
         function clearAllData() {
-            if (confirm("Are you sure you want to clear all analytics data? This cannot be undone.")) {
+            if (confirm("Reset all intelligence data?")) {
                 localStorage.removeItem('rvce_standalone_logs');
                 render();
             }
         }
 
-        function viewDate(dateStr) {
-            document.getElementById('dateFilter').value = dateStr;
+        function generateTestData() {
+            const now = Date.now();
+            const sid = 'sid_demo' + Math.floor(Math.random()*1000);
+            const ts = (offset) => new Date(now - offset).toISOString();
+            const mock = [
+                // User journey simulation
+                { s: sid, q: "Hi", i: "greet", d: ts(120000), t: 'message' },
+                { s: sid, q: "[click] Button: 💼 Placements", i: "click:Button: 💼 Placements", d: ts(108000), t: 'interaction', m: { action: 'placements', element: 'act-btn' } },
+                { s: sid, q: "CSE placements", i: "placements", d: ts(100000), t: 'message' },
+                { s: sid, q: "[hover] View Placement Stats", i: "hover:View Placement Stats", d: ts(95000), t: 'interaction', m: { duration: '500ms+' } },
+                { s: sid, q: "[copy] ₹67 LPA Highest Package", i: "copy:₹67 LPA Highest Package", d: ts(75000), t: 'interaction', m: { length: 24 } },
+                { s: sid, q: "[click] Button: 🎓 Admissions", i: "click:Button: 🎓 Admissions", d: ts(65000), t: 'interaction', m: { action: 'admissions', element: 'act-btn' } },
+                { s: sid, q: "how to apply?", i: "admissions", d: ts(60000), t: 'message' },
+                { s: sid, q: "[copy] KCET, COMED-K, Management Quota", i: "copy:KCET, COMED-K, Management Quota", d: ts(55000), t: 'interaction', m: { length: 34 } },
+                { s: sid, q: "hostel fees", i: "hostels", d: ts(45000), t: 'message' },
+                { s: sid, q: "tell me about cse department", i: "dept_cse", d: ts(40000), t: 'message' },
+                { s: sid, q: "[click] Button: 🏕️ Campus Life", i: "click:Button: 🏕️ Campus Life", d: ts(35000), t: 'interaction', m: { action: 'campusLife', element: 'act-btn' } },
+                { s: sid, q: "nirf ranking?", i: "ranking", d: ts(30000), t: 'message' },
+                { s: sid, q: "[hover] 🏠 Hostels", i: "hover:🏠 Hostels", d: ts(25000), t: 'interaction', m: { duration: '500ms+' } },
+                { s: sid, q: "what is the weather in bangalore?", i: "unmatched", d: ts(20000), t: 'message' },
+                { s: sid, q: "how tall is the building?", i: "unmatched", d: ts(15000), t: 'message' },
+                { s: sid, q: "can you play music?", i: "unmatched", d: ts(12000), t: 'message' },
+                { s: sid, q: "shut up", i: "moderated_abusive", d: ts(8000), t: 'message' },
+                { s: sid, q: "[dwell] Chat open for 95s", i: "dwell:Chat open for 95s", d: ts(5000), t: 'interaction', m: { seconds: 95 } },
+                { s: sid, q: "[session] Page Unload", i: "session:Page Unload", d: ts(1000), t: 'interaction' },
+            ];
+            const existing = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            localStorage.setItem('rvce_standalone_logs', JSON.stringify([...existing, ...mock]));
             render();
-            // Scroll to top to see charts update
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function downloadSpecificDate(dateStr) {
-            const allLogs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
-            const filtered = allLogs.filter(l => new Date(l.d).toISOString().split('T')[0] === dateStr);
-            triggerDownload(filtered, dateStr);
+        function renderDeepMetrics(logs) {
+            // Dwell time
+            const dwellLogs = logs.filter(l => l.i && l.i.startsWith('dwell:'));
+            const dwellValues = dwellLogs.map(l => (l.m && l.m.seconds) || 0).filter(v => v > 0);
+            const avgDwell = dwellValues.length ? Math.round(dwellValues.reduce((a,b) => a+b, 0) / dwellValues.length) : 0;
+            document.getElementById('avgDwell').textContent = avgDwell + 's';
+
+            // Copy count
+            const copies = logs.filter(l => l.i && l.i.startsWith('copy:'));
+            document.getElementById('copyCount').textContent = copies.length;
+
+            // Hover count
+            const hovers = logs.filter(l => l.i && l.i.startsWith('hover:'));
+            document.getElementById('hoverCount').textContent = hovers.length;
+
+            // Typing speed
+            const typingLogs = logs.filter(l => l.i && l.i.startsWith('typing:'));
+            const wpmValues = typingLogs.map(l => (l.m && l.m.wpm) || 0).filter(v => v > 0);
+            const avgWpm = wpmValues.length ? Math.round(wpmValues.reduce((a,b) => a+b, 0) / wpmValues.length) : 0;
+            document.getElementById('avgTyping').textContent = avgWpm ? avgWpm + ' WPM' : '— WPM';
         }
 
-        function downloadCSV() {
-            const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
-            if (logs.length === 0) { alert("No data to download!"); return; }
-            triggerDownload(logs, 'all_time');
-        }
-
-        function triggerDownload(data, label) {
-            let csv = "Timestamp,SessionID,Query,Intent\n";
-            data.forEach(l => {
-                const row = [
-                    l.d,
-                    l.s || 'anon',
-                    `"${l.q.replace(/"/g, '""')}"`,
-                    l.i
-                ].join(",");
-                csv += row + "\n";
+        let signalChart = null;
+        function renderSignalChart(logs) {
+            const signals = {
+                'Messages': logs.filter(l => l.t === 'message').length,
+                'Clicks': logs.filter(l => l.i && l.i.startsWith('click:')).length,
+                'Hovers': logs.filter(l => l.i && l.i.startsWith('hover:')).length,
+                'Copies': logs.filter(l => l.i && l.i.startsWith('copy:')).length,
+                'Typing': logs.filter(l => l.i && l.i.startsWith('typing:')).length,
+                'Scrolls': logs.filter(l => l.i && l.i.startsWith('scroll:')).length,
+            };
+            if (signalChart) signalChart.destroy();
+            const ctx = document.getElementById('signalChart').getContext('2d');
+            signalChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: Object.keys(signals),
+                    datasets: [{
+                        label: 'Behavior Signals',
+                        data: Object.values(signals),
+                        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                        borderColor: '#6366f1',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#6366f1'
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { r: { grid: { color: 'rgba(255,255,255,0.05)' }, angleLines: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false }, pointLabels: { color: '#94a3b8', font: { size: 11, weight: '600' } } } }
+                }
             });
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.setAttribute('href', url);
-            a.setAttribute('download', `rvce_logs_${label}.csv`);
-            a.click();
         }
 
+        function renderInterestMap(logs) {
+            const container = document.getElementById('interestMap');
+            // Count what content users interacted with
+            const interestCounts = {};
+            logs.forEach(l => {
+                if (!l.i) return;
+                // Extract meaningful labels
+                let label = '';
+                if (l.t === 'message' && l.i !== 'unmatched' && !l.i.startsWith('moderated')) {
+                    label = l.i.replace(/_/g, ' ');
+                } else if (l.i.startsWith('click:Button:')) {
+                    label = l.i.replace('click:Button: ', '').replace(/[^a-zA-Z\s]/g, '').trim();
+                } else if (l.i.startsWith('hover:')) {
+                    label = l.i.replace('hover:', '').replace(/[^a-zA-Z\s]/g, '').trim();
+                } else if (l.i.startsWith('copy:')) {
+                    label = 'Copied: ' + l.i.replace('copy:', '').substring(0, 30);
+                }
+                if (label && label.length > 1) {
+                    label = label.charAt(0).toUpperCase() + label.slice(1);
+                    interestCounts[label] = (interestCounts[label] || 0) + 1;
+                }
+            });
+
+            const sorted = Object.entries(interestCounts).sort((a,b) => b[1] - a[1]).slice(0, 20);
+            if (sorted.length === 0) {
+                container.innerHTML = '<div class="empty-state">No interest data yet.</div>';
+                return;
+            }
+            const maxCount = sorted[0][1];
+            container.innerHTML = sorted.map(([label, count]) => {
+                const intensity = count / maxCount;
+                const tagClass = intensity > 0.6 ? 'high' : intensity > 0.3 ? 'medium' : 'low';
+                const size = Math.max(11, Math.min(16, 11 + intensity * 5));
+                return `<span class="behavior-tag ${tagClass}" style="font-size:${size}px">${label} <strong>(${count})</strong></span>`;
+            }).join('');
+        }
+
+        function renderUnanswered(logs) {
+            const unanswered = logs.filter(l => l.t === 'message' && l.i === 'unmatched').reverse();
+            const el = document.getElementById('unansweredList');
+            document.getElementById('uqCount').textContent = unanswered.length;
+            if (!unanswered.length) {
+                el.innerHTML = '<div class="empty-state">No unanswered questions — great! 🎉</div>';
+                return;
+            }
+            el.innerHTML = unanswered.slice(0, 30).map(l => {
+                const time = new Date(l.d).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                return `<div class="uq-item"><span>❓ "${l.q}"</span><span class="uq-time">${time}</span></div>`;
+            }).join('');
+        }
+
+        function renderModerated(logs) {
+            const moderated = logs.filter(l => l.t === 'message' && l.i && l.i.startsWith('moderated_')).reverse();
+            const el = document.getElementById('moderatedList');
+            document.getElementById('modCount').textContent = moderated.length;
+            if (!moderated.length) {
+                el.innerHTML = '<div class="empty-state">No moderated queries</div>';
+                return;
+            }
+            el.innerHTML = moderated.slice(0, 30).map(l => {
+                const type = l.i.replace('moderated_', '');
+                const time = new Date(l.d).toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                return `<div class="mod-item"><span>🛡️ "${l.q}"</span><span class="mod-type">${type} · ${time}</span></div>`;
+            }).join('');
+        }
+
+        // Auto-sync every 5 seconds
+        setInterval(render, 5000);
         render();
     </script>
 </body>

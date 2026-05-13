@@ -542,6 +542,15 @@ function startRVCEChatbot() {
                     info: "The Department of Physical Education and Sports at RVCE promotes student fitness and excellence in sports, organizing VTU tournaments and offering sports scholarships for exceptional athletes.",
                     scholarship: "https://rvce.edu.in/department-of-physical-education-sports/rvce-sports-scholarship/",
                     tournaments: "https://rvce.edu.in/department-of-physical-education-sports/v-t-u-tournament-organized/"
+                },
+                {
+                    n: "Deans & Administration",
+                    c: "deans",
+                    u: "https://rvce.edu.in/administration/",
+                    hod: "Dr. K.N. Subramanya (Principal)",
+                    info: "The administration at RVCE is led by the Principal and a team of Deans responsible for Academic, Research, Student Affairs, and Skill Development.",
+                    about: "https://rvce.edu.in/administration/",
+                    faculty: "https://rvce.edu.in/administration/"
                 }
             ],
             pg: [
@@ -2339,14 +2348,16 @@ function startRVCEChatbot() {
     });
 
     /* =============== TELEMETRY & QUEUE =============== */
-    function getSID() {
+    const currentSessionId = (function() {
         let sid = localStorage.getItem('rvce_sid');
         if (!sid) {
             sid = 'sid_' + Math.random().toString(36).substr(2, 9);
             localStorage.setItem('rvce_sid', sid);
         }
         return sid;
-    }
+    })();
+
+    function getSID() { return currentSessionId; }
 
     const telemetryQueue = [];
     function processTelemetryQueue() {
@@ -2356,25 +2367,33 @@ function startRVCEChatbot() {
         formData.append('action', 'rvce_log_chat');
         formData.append('query', item.query);
         formData.append('intent_id', item.intent);
-        formData.append('session_id', getSID());
+        formData.append('session_id', currentSessionId);
         fetch(rvceChatbotAjax.ajaxUrl, { method: 'POST', body: formData })
             .then(r => { if (r.ok) { telemetryQueue.shift(); processTelemetryQueue(); } })
-            .catch(() => { }); // Keep in queue if it fails
+            .catch(() => { });
     }
 
-    function logChatInteraction(query, intent_id) {
-        // 1. WordPress logic (async queue)
-        telemetryQueue.push({ query, intent: intent_id });
+    function logChatInteraction(query, intent_id, metadata = {}) {
+        telemetryQueue.push({ query, intent: intent_id, meta: metadata });
         processTelemetryQueue();
-
-        // 2. Standalone logic (localStorage for dashboard.html)
         try {
             const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
-            logs.push({ q: query, i: intent_id, d: new Date().toISOString() });
-            if (logs.length > 200) logs.shift(); // Keep last 200
+            logs.push({ s: currentSessionId, q: query, i: intent_id, d: new Date().toISOString(), t: 'message', m: metadata });
+            if (logs.length > 2000) logs.shift();
             localStorage.setItem('rvce_standalone_logs', JSON.stringify(logs));
         } catch (e) { console.warn("Local logging failed", e); }
     }
+
+    function logMicroInteraction(type, label, metadata = {}) {
+        try {
+            const logs = JSON.parse(localStorage.getItem('rvce_standalone_logs') || '[]');
+            logs.push({ s: currentSessionId, q: `[${type}] ${label}`, i: `${type}:${label}`, d: new Date().toISOString(), t: 'interaction', m: metadata });
+            if (logs.length > 2000) logs.shift();
+            localStorage.setItem('rvce_standalone_logs', JSON.stringify(logs));
+        } catch(e) { console.warn("Micro-interaction logging failed", e); }
+    }
+
+    function trackInteraction(type, label) { logMicroInteraction(type, label); }
 
     let isProcessing = false;
     function process(rawText) {
@@ -2794,6 +2813,44 @@ function startRVCEChatbot() {
             chatOpen = true; chatW.classList.add('open'); fab.classList.add('active'); badge.classList.add('hidden');
             setTimeout(() => { addBot(T("Hey there! 👋 Welcome to RVCE (v3.3.3) — the place where engineers are crafted! Ask me anything about admissions, placements, campus, and more!", "Hello! Welcome to RV College of Engineering (v3.3.3). I'm here to help you with information about admissions, placements, campus facilities, and more."), [], true); setTimeout(showMenu, 900); }, 350);
         }
+
+        /* =============== DEEP INTERACTION TRACKING =============== */
+        document.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.closest('.act-btn')) { const btn = target.closest('.act-btn'); logMicroInteraction('click', `Button: ${btn.textContent.trim()}`, { action: btn.dataset.action || 'link', element: 'act-btn' }); return; }
+            if (target.closest('a')) { const link = target.closest('a'); logMicroInteraction('click', `Link: ${link.textContent.trim().substring(0, 60)}`, { url: link.href, element: 'a' }); return; }
+            if (target.closest('.tone-sw') || target.closest('#tone-switch')) { logMicroInteraction('ui', 'Tone Toggle', { newTone: tone === 'funny' ? 'pro' : 'funny' }); return; }
+            if (target.closest('.rv-fab')) { logMicroInteraction('ui', chatOpen ? 'Chat Closed' : 'Chat Opened'); return; }
+            if (target.closest('.rv-close')) { logMicroInteraction('ui', 'Chat Closed (X)'); return; }
+            if (target.closest('#mic-btn') || target.closest('.mic-btn')) { logMicroInteraction('ui', 'Voice Input Triggered'); return; }
+            if (target.closest('#send-btn') || target.closest('.send-btn')) { logMicroInteraction('ui', 'Send Button Clicked'); return; }
+            if (target.closest('.rv-chatbot-wrap') || target.closest('#rv-chatbot')) { logMicroInteraction('click', `Element: ${target.tagName.toLowerCase()}`, { class: target.className ? target.className.toString().substring(0, 40) : '' }); }
+        });
+
+        let hoverTimer = null;
+        document.addEventListener('mouseover', (e) => { const t = e.target.closest('.act-btn') || e.target.closest('.msg-bubble a'); if (t) { hoverTimer = setTimeout(() => { logMicroInteraction('hover', t.textContent.trim().substring(0, 60), { duration: '500ms+' }); }, 500); } });
+        document.addEventListener('mouseout', () => { if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; } });
+
+        document.addEventListener('copy', () => { const s = window.getSelection(); if (s && s.toString().trim()) { logMicroInteraction('copy', s.toString().trim().substring(0, 100), { length: s.toString().length }); } });
+
+        if (inp) {
+            let keyTs = [];
+            inp.addEventListener('keydown', (e) => { if (e.key !== 'Enter') keyTs.push(Date.now()); });
+            inp.addEventListener('keydown', (e) => { if (e.key === 'Enter' && keyTs.length > 2) { const intervals = []; for (let i = 1; i < keyTs.length; i++) intervals.push(keyTs[i] - keyTs[i-1]); const avgMs = Math.round(intervals.reduce((a,b) => a+b, 0) / intervals.length); logMicroInteraction('typing', `Speed: ${avgMs}ms/key (~${Math.round(60000/(avgMs*5))} WPM)`, { avgMs, wpm: Math.round(60000/(avgMs*5)), keyCount: keyTs.length }); keyTs = []; } });
+            inp.addEventListener('focus', () => { logMicroInteraction('focus', 'Input Focused'); });
+            inp.addEventListener('blur', () => { if (inp.value.trim()) logMicroInteraction('blur', 'Input Blurred (with text)', { partial: inp.value.trim().substring(0, 50) }); });
+        }
+
+        let chatOpenedAt = chatOpen ? Date.now() : null;
+        const chatObserver2 = new MutationObserver(() => {
+            if (chatW && chatW.classList.contains('open')) { if (!chatOpenedAt) chatOpenedAt = Date.now(); }
+            else { if (chatOpenedAt) { const ds = Math.round((Date.now() - chatOpenedAt) / 1000); if (ds >= 3) logMicroInteraction('dwell', `Chat open for ${ds}s`, { seconds: ds }); chatOpenedAt = null; } }
+        });
+        if (chatW) chatObserver2.observe(chatW, { attributes: true, attributeFilter: ['class'] });
+
+        document.addEventListener('visibilitychange', () => { logMicroInteraction('visibility', document.hidden ? 'Tab Hidden (left page)' : 'Tab Visible (returned)'); });
+        window.addEventListener('beforeunload', () => { if (chatOpenedAt) logMicroInteraction('session', `Session ended (dwell: ${Math.round((Date.now()-chatOpenedAt)/1000)}s)`, { totalDwell: Math.round((Date.now()-chatOpenedAt)/1000) }); logMicroInteraction('session', 'Page Unload'); });
+
     }, 600);
 
 }
