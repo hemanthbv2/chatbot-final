@@ -211,6 +211,7 @@ function startRVCEChatbot() {
                     c: "ae",
                     u: "https://rvce.edu.in/department/ae/department-of-aerospace-engineering/",
                     hod: "Dr. R Supreeth",
+                    hod_url: "https://rvce.edu.in/department/ae/dr_r_supreeth/",
                     info: "Welcome to the Department of Aerospace Engineering. Established in 2015, the Department has evolved into one of the country’s most prestigious destinations for undergraduate Aerospace Programmes.",
                     about: "https://rvce.edu.in/department/ae/about_dept/",
                     syllabus: "https://rvce.edu.in/department/ae/b_e_ase/",
@@ -1613,7 +1614,8 @@ function startRVCEChatbot() {
                 if (d.facilities) r.buttons.push({ l: 'Facilities', u: d.facilities, i: '🏢' });
                 if (d.research) r.buttons.push({ l: 'Research', u: d.research, i: '🔬' });
                 if (d.campus_diaries) r.buttons.push({ l: 'Campus Diaries', u: d.campus_diaries, i: '📔' });
-                if (d.hod_message) r.buttons.push({ l: 'HOD Message', u: d.hod_message, i: '✉️' });
+                if (d.hod_url) r.buttons.push({ l: 'HOD Profile', u: d.hod_url, i: '👨‍🏫' });
+            if (d.hod_message) r.buttons.push({ l: 'HOD Message', u: d.hod_message, i: '✉️' });
                 if (d.academic_planning) r.buttons.push({ l: 'Academic Planning', u: d.academic_planning, i: '📅' });
                 if (d.happenings) r.buttons.push({ l: 'News & Happenings', u: d.happenings, i: '🗞️' });
                 if (d.m_tech_comm) r.buttons.push({ l: 'M.Tech Comm Systems', u: d.m_tech_comm, i: '📡' });
@@ -1880,7 +1882,7 @@ function startRVCEChatbot() {
                 r.buttons = [{ l: 'HODs List 📚', a: 'hods_list', i: '👩‍🏫' }, { l: 'Key Executives Page', u: 'https://rvce.edu.in/about_us/key-executives/', i: '🌐' }]; break;
             case 'hods_list':
                 r.text += T("Here are the Heads of Departments (HODs): 📚\n\n", "RVCE Head of Departments:\n\n");
-                r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha Nagaraj\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha (I/c)\n• **Aerospace:** Dr. Supreeth R\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **EIE:** Dr. CH. Renumadhavi\n• **ETE:** Dr. Nagamani K\n• **IEM:** Dr. Rajeswara Rao K V S\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. G. Shireesha\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
+                r.text += "• **CSE:** Dr. Shanta Rangaswamy\n• **AIML:** Dr. Sathish Babu B\n• **ISE:** Dr. Mamatha G S\n• **ECE:** Dr. Ravish Aradhya H V\n• **Mechanical:** Dr. Shanmukha Nagaraj\n• **Civil:** Dr. Anjaneyappa\n• **EEE:** Dr. J N Hemalatha (I/c)\n• **Aerospace:** [Dr. Supreeth R](https://rvce.edu.in/department/ae/dr_r_supreeth/)\n• **Biotech:** Dr. Nagashree N Rao\n• **Chemical:** Dr. Jagadish H Patil\n• **EIE:** Dr. CH. Renumadhavi\n• **ETE:** Dr. Nagamani K\n• **IEM:** Dr. Rajeswara Rao K V S\n• **MCA:** Dr. Jasmine K S\n• **Physics:** Dr. G. Shireesha\n• **Maths:** Dr. Jayalatha G\n• **Chemistry:** Dr. Mahesh R";
                 r.buttons = [{ l: 'Deans List 🎓', a: 'deans_list', i: '👨‍🏫' }, { l: 'Key Executives Page', u: 'https://rvce.edu.in/about_us/key-executives/', i: '🌐' }]; break;
             case 'dress_code':
                 r.text += T("Dress sharp! 👔 No shorts or ripped jeans. Casuals are okay, but labs require safety gear (Khakis/Aprons)!",
