@@ -247,10 +247,12 @@ html, body {
 
 /* === SUGGESTIONS === */
 .quick-suggestions {
-    display: flex; gap: 4px; padding: 5px 10px;
-    overflow-x: auto; flex-shrink: 0; scrollbar-width: none;
+    display: flex; gap: 4px; padding: 5px 10px 8px;
+    overflow-x: auto; flex-shrink: 0;
 }
-.quick-suggestions::-webkit-scrollbar { display: none; }
+.quick-suggestions::-webkit-scrollbar { height: 4px; }
+.quick-suggestions::-webkit-scrollbar-track { background: transparent; }
+.quick-suggestions::-webkit-scrollbar-thumb { background: rgba(227, 30, 36, 0.2); border-radius: 4px; }
 .suggestion-chip {
     display: inline-flex; align-items: center; gap: 4px;
     padding: 6px 12px; font-size: 12px; font-weight: 600;
