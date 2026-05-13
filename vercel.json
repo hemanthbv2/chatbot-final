@@ -1,5 +1,10 @@
 {
   "version": 2,
   "name": "rvce-chatbot",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/dashboard/interactions", "destination": "/dashboard/interactions.html" },
+    { "source": "/dashboard/sessions", "destination": "/dashboard/sessions.html" },
+    { "source": "/old_dashboard", "destination": "/old_dashboard/index.html" }
+  ]
 }
