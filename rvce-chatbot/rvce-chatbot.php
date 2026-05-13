@@ -311,10 +311,8 @@ function rvce_chatbot_inject_html() {
                     <div class="input-wrapper">
                         <button id="emojiBtn" class="emoji-btn" title="Main Menu" aria-label="Open main menu">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                                <line x1="9" y1="9" x2="9.01" y2="9"/>
-                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
                             </svg>
                         </button>
                         <button id="micBtn" class="mic-btn" title="Voice Search" aria-label="Voice search - speak your question">
